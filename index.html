@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bright Hotel</title>
+    <link rel="stylesheet" href="/src/css/brightStyle.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css" integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" crossorigin="anonymous">
+    <link rel="stylesheet" href="/src/plugin/OwlCarousel/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="/src/plugin/OwlCarousel/dist/assets/owl.theme.default.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+</head>
+<body>
+    <!-- หัวเว็บมีโลโก้ เมนู ค้นหา -->
+    <header>
+        <div class="header">
+            <div class="logo"><figure><img src="" alt=""></figure></div>
+            <nav>
+                <ul class="menu">
+                    <li class="menulist"><a href="">หน้าแรก</a></li>
+                    <li class="menulist"><a href="">ห้อง</a></li>
+                    <li class="menulist"><a href="">โปรโมชั่น</a></li>
+                    <li class="menulist"><a href="">แกลเลอรี่</a></li>
+                    <li class="menulist"><a href="">ติดต่อเรา</a></li>     
+                </ul>
+                <div class="icon">
+                    <img src="/src/img/icon/instagram-sketched.svg" alt="">
+                    <img src="/src/img/icon/facebook.svg" alt="">
+                </div>
+                <div class="search">
+                    <input type="tel" maxlength="10" placeholder="ค้นหาการจองจากเบอร์โทร">
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ตัวสไลด์ ไฟล์จัดการชื่อ slide.js -->
+    <div class="slide owl-carousel">
+        <div class="item"><img src="/src/img/view.jpg" alt=""></div>
+        <div class="item"><img src="/src/img/view.jpg" alt=""></div>
+        <div class="item"><img src="/src/img/view.jpg" alt=""></div>
+        <div class="item"><img src="/src/img/view.jpg" alt=""></div>
+        <div class="item"><img src="/src/img/view.jpg" alt=""></div>
+    </div>
+
+    <!-- โซนการจอง -->
+    <div class="booking">
+        <div class="formBook">
+            <div class="input-box">
+                <label>เช็คอิน</label>
+                <input type="date">
+            </div>
+
+            <div class="input-box">
+                <label>เช็คเอาท์</label>
+                <input type="date">
+            </div>
+
+            <div class="input-box">
+                <label>ผู้ใหญ่/คน</label>
+                <input type="number">
+            </div>
+
+            <div class="input-box">
+                <label>เด็ก/คน</label>
+                <input type="number">
+            </div>
+
+            <div class="button"><button>จอง</button></div>
+        </div>
+    </div>
+
+    <!-- โซนคอนเทนท์ที่1 -->
+    <article>
+        <div class="content">
+            <div class="title">
+                <h1>Bright Hotel</h1>
+                <span>โรงแรมสไตล์โมเดิร์นคลาสิค แห่งแรกในจังหวัดขอนแก่น</span>
+            </div>
+            <div class="ck">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse praesentium ipsum a suscipit deserunt quos repellendus autem dolorem. Veritatis quos aperiam, quaerat nulla ea nisi corporis optio suscipit molestiae sit?
+                </p>
+            </div>
+        </div>
+    </article>
+
+    <!-- โซนคอนเทนท์ที่2 บริการ -->
+    <article>
+        <div class="content service">
+            <div class="title">
+                <h1>บริการและสิ่งอำนวยความสะดวก</h1>
+                <span>โรงแรมสไตล์โมเดิร์นคลาสิค แห่งแรกในจังหวัดขอนแก่น</span>
+            </div>
+            <div class="box-grid">
+                <div class="column">
+                    <figure><img src="/src/img/icon/facebook.svg" alt=""></figure>
+                    <span>ห้องอาหาร</span>
+                    <div class="ck">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit molestias, eligendi excepturi voluptates officia asperiores atque nobis fugiat, eum odio quo accusamus sed vero ullam rerum nemo autem iste adipisci.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <figure><img src="/src/img/icon/facebook.svg" alt=""></figure>
+                    <span>ล็อบบี้</span>
+                    <div class="ck">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit molestias, eligendi excepturi voluptates officia asperiores atque nobis fugiat, eum odio quo accusamus sed vero ullam rerum nemo autem iste adipisci.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <figure><img src="/src/img/icon/facebook.svg" alt=""></figure>
+                    <span>ฟิตเนส</span>
+                    <div class="ck">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit molestias, eligendi excepturi voluptates officia asperiores atque nobis fugiat, eum odio quo accusamus sed vero ullam rerum nemo autem iste adipisci.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- โซนคอนเทนท์ที่3 ที่มีรูปใหญ่ๆ-->
+    <article>
+        <div class="content">
+            <figure class="bigimg"><img src="/src/img/view.jpg" alt=""></figure>
+            <div class="title">
+                <h1>ไบรท์โฮเต็ล</h1>
+                <h1>(BRIGHT HOTEL)</h1>
+            </div>
+            <div class="ck">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse praesentium ipsum a suscipit deserunt quos repellendus autem dolorem. Veritatis quos aperiam, quaerat nulla ea nisi corporis optio suscipit molestiae sit?
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse praesentium ipsum a suscipit deserunt quos repellendus autem dolorem. Veritatis quos aperiam, quaerat nulla ea nisi corporis optio suscipit molestiae sit?
+                </p>
+            </div>
+            <div class="icon">
+                <div class="item">
+                    <img src="/src/img/icon/facebook.svg" alt="">
+                    <span>098-1201970</span>
+                </div>
+                <div class="item">
+                    <img src="/src/img/icon/facebook.svg" alt="">
+                    <span>043-306777-79</span>
+                </div>
+                <div class="item">
+                    <img src="/src/img/icon/facebook.svg" alt="">
+                    <span>brighthotelkhonkaen@gmail.com</span>
+                </div>
+                <div class="item">
+                    <img src="/src/img/icon/facebook.svg" alt="">
+                    <span>brighthotelkhonkaen</span>
+                </div>
+                <div class="item">
+                    <img src="/src/img/icon/facebook.svg" alt="">
+                    <span>brighthotelkhonkaen</span>
+                </div>
+                <div class="item">
+                    <img src="/src/img/icon/facebook.svg" alt="">
+                    <span>share</span>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- โซนคอนเทนท์ที่3 ห้องพัก-->
+    <article>
+        <div class="content room">
+            <div class="title">
+                <h1>รูปแบบห้องพัก</h1>
+                <span>ห้องพักประกอบด้วยห้องมาตรฐาน 79 ห้อง หรูหรา ระดับพรีเมียมคลาส</span>
+            </div>
+
+            <div class="grid-room">
+                <div class="item-room">
+                    <div class="box">
+                        <figure>
+                            <span>Triple Room</span>
+                            <img src="/src/img/view.jpg" alt="">
+                        </figure>
+                        <div class="price">
+                            <div class="discount"><span>฿ 2,000</span></div>
+                            <div class="sumprice"><span>฿ 1,400</span></div>
+                        </div>
+                        <div class="description">
+                            <p>
+                                จำนวน 4 ห้อง พัก 3 ท่าน โต๊ะทำงาน โซฟา 1 ชุด ไม่มีระเบียง
+                                ห้องนอน 1 ห้องน้ำ 1 ห้อง ทีวี
+                            </p>
+                        </div>
+                        <div class="inroom">
+                            <div class="item">
+                                <span>โต๊ะทำงาน</span>
+                                <img src="/src/img/icon/instagram-sketched.svg" alt="">
+                            </div>
+                            <div class="item">
+                                <span>โต๊ะทำงาน</span>
+                                <img src="/src/img/icon/instagram-sketched.svg" alt="">
+                            </div>
+                            <div class="item">
+                                <span>โต๊ะทำงาน</span>
+                                <img src="/src/img/icon/instagram-sketched.svg" alt="">
+                            </div>
+                            <div class="item">
+                                <span>โต๊ะทำงาน</span>
+                                <img src="/src/img/icon/instagram-sketched.svg" alt="">
+                            </div>
+                            <div class="item">
+                                <span>โต๊ะทำงาน</span>
+                                <img src="/src/img/icon/instagram-sketched.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button">
+                        <button>จอง</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+    
+    <!-- โซนสคริป -->
+    <script src="/src/plugin/OwlCarousel/dist/owl.carousel.min.js"></script>
+    <script src="/src/js/hotel.js"></script>
+    <script src="/src/js/slide.js"></script>
+</body>
+</html>

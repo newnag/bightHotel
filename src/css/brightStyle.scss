@@ -1,0 +1,397 @@
+// ---------------- component ----------------- //
+// font
+@font-face{
+    font-family: kanit;
+    src: url(/src/font/Kanit/Kanit-Regular.ttf);
+}
+@font-face{
+    font-family: Bkanit;
+    src: url(/src/font/Kanit/Kanit-Bold.ttf);
+}
+@font-face{
+    font-family: Lkanit;
+    src: url(/src/font/Kanit/Kanit-Light.ttf);
+}
+@font-face{
+    font-family: Skanit;
+    src: url(/src/font/Kanit/Kanit-SemiBold.ttf);
+}
+
+// color
+$text-main: #000;
+$text-gray: #777777;
+$background1: #fff;
+$background2: #fef1e8;
+$brown: #955635;
+$brown-hover: #79472c;
+
+// display
+$mobile: 480px;
+$pmobile: 481px;
+$btablet: 767px;
+$tablet: 768px;
+$ptablet: 769px;
+$ipad: 810px;
+$bipadpro: 1023px;
+$ipadpro: 1024px;
+$pipadpro: 1025px;
+$laptop: 1366px;
+$pc: 1600px;
+
+// class use component
+@mixin input {
+    width: 100%;
+    height: 40px;
+    border: 1px solid $text-gray;
+    border-radius: 10px;
+
+    &:focus{
+        border: 1px solid $brown;
+    }
+}
+@mixin button($width) {
+    width: $width;
+    height: 40px;
+    background-color: $brown;
+    color: $background1;
+    box-shadow: 0px 1px 5px $text-gray;
+    font-size: 1.4em;
+    font-family: Bkanit;
+    border: unset;
+    border-radius: 30px;
+    cursor: pointer;
+
+    &:hover{
+        background: $brown-hover;
+        transition: .3s;
+    }
+}
+@mixin title {
+    text-align: center;
+
+    h1{
+        color: $brown;
+    }
+    span{
+        font-family: Lkanit;
+        font-style: italic;
+    }
+}
+
+// ------------------- class ------------------- //
+// root
+*,*:after,*:before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: kanit;
+    font-size: 20px;
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: Bkanit;
+}
+h1{font-size: 2em;}
+h2{font-size: 1.8em;}
+h3{font-size: 1.6em;}
+h4{font-size: 1.4em;}
+h5{font-size: 1.2em;}
+h6{font-size: 1em;}
+p{font-size: .8em;}
+span{font-size: 1em;}
+label{font-size: 1em;}
+a{
+    text-decoration: none;
+    font-size: 1em;
+}
+li{
+    list-style: none;
+}
+
+input,select,textarea,button{
+    font-family: inherit;
+    &:focus{
+        outline: none;
+    }
+}
+
+// class use
+body{
+    background: $background1;
+}
+
+.header{
+    nav{
+        display: flex;
+        width: 70%;
+        margin: 0 auto;
+        justify-content: space-around;
+
+        .menu{
+            display: none;
+
+            @media screen and (min-width:$laptop) {
+                width: 60%;
+                display: flex;
+                justify-content: space-around;
+            }
+
+            .menulist{
+                a{
+                    color: $text-gray;
+                    font-family: Lkanit;
+
+                    &:hover{
+                        color: $brown;
+                        transition: .2s;
+                    }
+                }
+            }
+        }
+        .icon{
+            display: none;
+
+            @media screen and (min-width:$laptop) {
+                display: flex;
+                width: 20%;
+            }
+            
+            img{
+                width: 32px;
+                height: 32px;
+            }
+        }
+        .search{
+            width: 20%;
+
+            input{
+                @include input();
+                border-radius: 30px;
+                padding: 0 20px;
+                font-size: .8em;
+
+                &::placeholder{
+                    font-size: .8em;
+                }
+            }
+        }
+    }
+}
+
+.slide{
+    position: relative;
+
+    .owl-stage-outer{
+        img{
+            width: 100%;
+            height: 200px;
+
+            @media screen and (min-width:$laptop) {
+                height: 600px;
+            }
+        }
+    }
+    .owl-nav{
+        position: absolute;
+        top: 20px;
+        right: 20%;
+        width: 40px;
+        display: flex;
+        justify-content: space-around;
+
+        button{
+            border: unset;
+            background: inherit;
+            cursor: pointer;
+        }
+    }
+    .owl-dots{
+        position: absolute;
+        top: 20px;
+        right: 10%;
+    }
+}
+
+.booking{
+    padding: 2% 5%;
+
+    .formBook{
+        .input-box{
+            display: grid;
+            margin: 1% 0;
+
+            input{
+                @include input();
+                padding: 0 20px;
+            }
+        }
+        .button{
+            text-align: center;
+            margin: 3% 0;
+
+            button{
+                @include button(100px)
+            }
+        }
+    }
+}
+
+.content{
+    margin: 5% 0;
+
+    .title{
+        @include title();
+        margin: 2% 0;
+    }
+    .ck{
+        text-align: center;
+
+        @media screen and (max-width:$mobile) {
+            p{
+                font-size: .8em!important;
+            }
+        }
+        
+        img{
+            width: 100%;
+        }
+    }
+    .box-grid{
+        display: grid;
+        grid-row-gap: 20px;
+
+        .column{
+            display: grid;
+            text-align: center;
+
+            figure{
+                img{
+                    width: 64px;
+                    height: 64px;
+                }
+            }
+            
+        }
+    }
+    .bigimg{
+        img{
+            width: 100%;
+            height: 300px;
+        }
+    }
+    .icon{
+        display: grid;
+        grid-template-columns: repeat(2,50%);
+        grid-row-gap: 10px;
+        margin-top: 3%;
+
+        .item{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            img{
+                width: 32px;
+                height: 32px;
+            }
+            span{
+                color: $text-gray;
+                font-size: 0.8em;
+                word-break: break-all;
+                text-align: center;
+            }
+        }
+    }
+
+    .grid-room{
+        .item-room{
+            .box{
+                width: 90%;
+                margin: 0 auto;
+                border: 1px solid lightgray;
+                border-radius: 10px;
+
+                figure{
+                    text-align: center;
+                    height: 180px;
+                    position: relative;
+
+                    span{
+                        position: absolute;
+                        top: 10px;
+                        left: 10px;
+                        background: #fff;
+                        width: 125px;
+                        border-radius: 15px;
+                    }
+
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 10px 10px 0 0;
+                    }
+                }
+                .price{
+                    text-align: center;
+                    background: $brown;
+                    height: fit-content;
+                    border-radius: 0 0 35px 35px;
+                    display: flex;
+                    flex-direction: column;
+
+                    .discount{
+                        text-align: center;
+                        margin-left: 25%;
+
+                        span{
+                            font-size: 0.6em;
+                            color: $background1;
+                            text-decoration: line-through;
+                        }
+                    }
+                    .sumprice{        
+                        span{
+                            color: $background1;
+                            font-size: 1.6em;
+                        }
+                    }
+                }
+                .description{
+                    margin: 3% 5%;
+                    height: 5em;
+                    border-bottom: 2px solid #e2e2e2;
+
+                    p{
+                        color: $text-gray;
+                    }
+                }
+                .inroom{
+                    display: grid;
+                    grid-template-columns: repeat(5,1fr);
+
+                    .item{
+                        text-align: center;
+                        span{
+                            display: none;
+                        }
+                        img{
+                            width: 32px;
+                            height: 32px;
+                        }
+                    }
+                }
+            }
+
+            .button{
+                text-align: center;
+                margin-top: 5%;
+                button{
+                    @include button(180px)
+                }
+            }
+        }
+    }
+
+    &.service,&.room{
+        background: antiquewhite;
+    }
+}

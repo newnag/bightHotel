@@ -1,0 +1,23 @@
+{
+    "files.associations": {
+    
+    },
+    "php.validate.executablePath": "C:\\xampp\\php\\php.exe",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Monokai",
+
+    "liveSassCompile.settings.formats":[
+        // This is Default.
+        {
+            "format": "expanded",
+            "extensionName": ".css",
+            "savePath": "/src/css/"
+        },
+        // You can add more
+        {
+            "format": "compressed",
+            "extensionName": ".min.css",
+            "savePath": "/src/css/"
+        },
+    ]
+}
