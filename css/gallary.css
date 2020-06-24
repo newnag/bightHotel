@@ -72,6 +72,10 @@ a {
   font-size: 1em;
 }
 
+a[href^="tel:"] {
+  color: inherit;
+}
+
 li {
   list-style: none;
 }
@@ -201,7 +205,7 @@ body {
   margin: 0 5%;
 }
 
-@media screen and (min-width: 1366px) {
+@media screen and (min-width: 768px) {
   .header nav .menu .menulist .subroom {
     position: absolute;
     z-index: 6;
@@ -346,6 +350,12 @@ body {
   height: 200px;
 }
 
+@media screen and (min-width: 768px) {
+  .slide .owl-stage-outer img {
+    height: 400px;
+  }
+}
+
 @media screen and (min-width: 1366px) {
   .slide .owl-stage-outer img {
     height: 600px;
@@ -384,7 +394,6 @@ body {
 
 .booking {
   padding: 2% 5%;
-  background: url("/src/img/BG.jpg");
 }
 
 @media screen and (min-width: 1366px) {
@@ -599,6 +608,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin: 1% 0;
 }
 
 .footer .address-contact .contact .single figure img {

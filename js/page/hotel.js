@@ -4,8 +4,11 @@ function clickMenu(){
     document.querySelector('.header .menu').classList.toggle('active')
 }
 
-function openSubRoom(){
+function toggleSubRoom(){
     document.querySelector('.subroom').classList.toggle('active')
+}
+function openSubRoom(){
+    document.querySelector('.subroom').classList.add('active')
 }
 function closeSubRoom(){
     document.querySelector('.subroom').classList.remove('active')

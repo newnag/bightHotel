@@ -7,7 +7,7 @@ function valuePeople(side,type){
         this.val = Number(document.querySelector('#child').value)
     }
 
-    if(side === 'l' ){
+    if(side === 'l' && this.val > 0){
         this.val -= 1
     }
     else if(side === 'r' ){

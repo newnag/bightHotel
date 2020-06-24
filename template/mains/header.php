@@ -6,15 +6,15 @@
                 <ul class="menu">
                     <li class="menulist"><a href="" class="active">หน้าแรก</a></li>
                     <li class="menulist">
-                        <a href="#" class="room" onclick="openSubRoom()" onmouseover="openSubRoom()">ห้อง <img src="<?=ROOT_URL?>img/icon/down-arrow.svg" alt=""></a>
-                            <ul class="subroom">
-                                <li><a href="">Triple Room</a></li>
-                                <li><a href="">Deluxe Room</a></li>
-                                <li><a href="">President Room</a></li>
-                                <li><a href="">Suite Room</a></li>
-                                <li><a href="">Superior Room</a></li>
-                                <li><a href="">Meeting Room</a></li>
-                            </ul>
+                        <a href="#" class="room" onclick="toggleSubRoom()" onmouseenter="toggleSubRoom()">ห้อง <img src="<?=ROOT_URL?>img/icon/down-arrow.svg" alt=""></a>
+                        <ul class="subroom" onmouseleave="closeSubRoom()">
+                            <li><a href="">Triple Room</a></li>
+                            <li><a href="">Deluxe Room</a></li>
+                            <li><a href="">President Room</a></li>
+                            <li><a href="">Suite Room</a></li>
+                            <li><a href="">Superior Room</a></li>
+                            <li><a href="">Meeting Room</a></li>
+                        </ul>
                     </li>
                     <li class="menulist"><a href="">โปรโมชั่น</a></li>
                     <li class="menulist"><a href="">แกลเลอรี่</a></li>
@@ -62,14 +62,14 @@
 
             <div class="input-box adult">
                 <label>ผู้ใหญ่/คน</label>
-                <input type="number" id="adult" value="0">
+                <input type="number" id="adult" value="0" disabled>
                 <img class="left" src="<?=ROOT_URL?>img/icon/minus.svg" alt="">
                 <img class="right" src="<?=ROOT_URL?>img/icon/plus.svg" alt="">
             </div>
 
             <div class="input-box child">
                 <label>เด็ก/คน</label>
-                <input type="number" id="child" value="0">
+                <input type="number" id="child" value="0" disabled>
                 <img class="left" src="<?=ROOT_URL?>img/icon/minus.svg" alt="">
                 <img class="right" src="<?=ROOT_URL?>img/icon/plus.svg" alt="">
             </div>

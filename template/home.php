@@ -417,8 +417,8 @@
   <!-- โซนสคริป -->
   <script src="<?=ROOT_URL?>plugin/OwlCarousel/dist/owl.carousel.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-  <script type="text/javascript" src="<?=ROOT_URL?>js/page/hotel.js?v=0.0.4"></script>
-  <script type="text/javascript" src="<?=ROOT_URL?>js/page/bookHome.js"></script>
+  <script type="text/javascript" src="<?=ROOT_URL?>js/page/hotel.js?v=0.0.6"></script>
+  <script type="text/javascript" src="<?=ROOT_URL?>js/page/bookHome.js?v=0.0.1"></script>
   <script src="<?=ROOT_URL?>js/page/slide.js"></script>
 
   <!-- Footer -->

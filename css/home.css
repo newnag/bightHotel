@@ -88,6 +88,10 @@ input:focus, select:focus, textarea:focus, button:focus {
   outline: none;
 }
 
+input:disabled {
+  background: #fff;
+}
+
 body {
   background: #fff;
 }
@@ -398,7 +402,7 @@ body {
 
 @media screen and (min-width: 1366px) {
   .booking {
-    width: 85%;
+    width: 90%;
     margin: -4% auto;
     border-radius: 80px;
     position: relative;
@@ -494,7 +498,7 @@ body {
 }
 
 .booking .formBook .button button {
-  width: 100px;
+  width: 150px;
   height: 40px;
   background-color: #cc9933;
   color: #fff;
@@ -530,8 +534,8 @@ body {
 
 @media screen and (min-width: 1366px) {
   .footer {
-    -ms-grid-columns: 15% 25% 30% 30%;
-        grid-template-columns: 15% 25% 30% 30%;
+    -ms-grid-columns: 15% 25% 25% 35%;
+        grid-template-columns: 15% 25% 25% 35%;
   }
 }
 
@@ -546,6 +550,14 @@ body {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+  }
+}
+
+@media screen and (min-width: 1024px) and (min-width: 1366px) {
+  .footer .logo {
+    -webkit-box-align: unset;
+        -ms-flex-align: unset;
+            align-items: unset;
   }
 }
 
@@ -580,6 +592,9 @@ body {
 }
 
 @media screen and (min-width: 1366px) {
+  .footer .address-contact {
+    margin: unset;
+  }
   .footer .address-contact p {
     font-size: .7em;
   }
@@ -608,6 +623,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin: 1% 0;
 }
 
 .footer .address-contact .contact .single figure img {
@@ -646,6 +662,7 @@ body {
   .footer .social .facebookPage {
     overflow: hidden;
     height: 250px;
+    text-align: left;
   }
 }
 
@@ -708,6 +725,7 @@ body {
   display: -ms-grid;
   display: grid;
   text-align: center;
+  grid-row-gap: 10px;
 }
 
 .content .box-grid .column figure img {
@@ -1094,6 +1112,18 @@ body {
   }
 }
 
+@media screen and (min-width: 1366px) {
+  .content.room {
+    padding-bottom: 2%;
+  }
+}
+
+@media screen and (min-width: 1366px) {
+  .content.room .title {
+    padding: 2% 0;
+  }
+}
+
 .content.service .title span, .content.room .title span {
   color: #fff;
 }
@@ -1116,10 +1146,10 @@ body {
   .content.row3 {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: (49%)[2];
-        grid-template-columns: repeat(2, 49%);
+    -ms-grid-columns: 58% 40%;
+        grid-template-columns: 58% 40%;
     grid-gap: 2%;
-    width: 95%;
+    width: 90%;
     margin: 0 auto;
   }
   .content.row3 .bigimg {
@@ -1138,13 +1168,8 @@ body {
   }
   .content.row3 .icon .item {
     display: inline-block;
-  }
-  .content.row3 .icon .item img {
-    width: 18px;
-    height: 18px;
-  }
-  .content.row3 .icon .item span {
-    font-size: .7em;
+    margin-right: 3%;
+    margin-bottom: 1%;
   }
 }
 /*# sourceMappingURL=home.css.map */

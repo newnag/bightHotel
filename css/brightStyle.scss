@@ -120,6 +120,10 @@ input,select,textarea,button{
     }
 }
 
+input:disabled{
+    background: $background1;
+}
+
 // class use
 body{
     background: $background1;
@@ -202,7 +206,18 @@ body{
                         height: 18px;
                         filter: invert(100%);
                     }
+
+                    // &.room:hover+.subroom{
+                    //     display: block;
+                    //     position: absolute;
+                    //     z-index: 6;
+                    //     border: 1px solid $brown-hover;
+                    //     border-radius: 5px;
+                    //     padding: 0 1%;
+                    //     margin: 0;
+                    // }
                 }
+                
                 .subroom{
                     display: none;
                     background: $brown;
@@ -348,7 +363,7 @@ body{
     padding: 2% 5%;
 
     @media screen and (min-width:$laptop) {
-        width: 85%;
+        width: 90%;
         margin: -4% auto;
         border-radius: 80px;
         position: relative;
@@ -409,7 +424,7 @@ body{
             }
 
             button{
-                @include button(100px)
+                @include button(150px)
             }
         }
     }
@@ -425,7 +440,7 @@ body{
         grid-template-columns: repeat(2,50%);
     }
     @media screen and (min-width:$laptop) {
-        grid-template-columns: 15% 25% 30% 30%;
+        grid-template-columns: 15% 25% 25% 35%;
     }
 
     .logo{
@@ -433,6 +448,10 @@ body{
             display: flex;
             justify-content: center;
             align-items: center;
+
+            @media screen and (min-width:$laptop) {
+                align-items: unset;
+            }
         }
         figure{
             text-align: center;
@@ -458,6 +477,8 @@ body{
         margin: 3% 0;
 
         @media screen and (min-width:$laptop) {
+            margin: unset;
+
             p{
                 font-size: .7em;
             }
@@ -479,6 +500,7 @@ body{
 
             .single{
                 display: flex;
+                margin: 1% 0;
 
                 figure{
                     img{
@@ -512,6 +534,7 @@ body{
             @media screen and (min-width:$laptop) {
                 overflow: hidden;
                 height: 250px;
+                text-align: left;
             }
         }
     }
