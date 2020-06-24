@@ -1,0 +1,532 @@
+// ---------------- component ----------------- //
+// font
+@font-face{
+    font-family: kanit;
+    src: url(/src/font/Kanit/Kanit-Regular.ttf);
+}
+@font-face{
+    font-family: Bkanit;
+    src: url(/src/font/Kanit/Kanit-Bold.ttf);
+}
+@font-face{
+    font-family: Lkanit;
+    src: url(/src/font/Kanit/Kanit-Light.ttf);
+}
+@font-face{
+    font-family: Skanit;
+    src: url(/src/font/Kanit/Kanit-SemiBold.ttf);
+}
+
+// BG
+$BG-1: "https://ansme.me/img/BG.jpg";
+
+// color
+$text-main: #000;
+$text-gray: #777777;
+$background1: #fff;
+$brown: #cc9933;
+$brown-hover: #79472c;
+$blue: #22324b;
+
+// display
+$mobile: 480px;
+$pmobile: 481px;
+$btablet: 767px;
+$tablet: 768px;
+$ptablet: 769px;
+$ipad: 810px;
+$bipadpro: 1023px;
+$ipadpro: 1024px;
+$pipadpro: 1025px;
+$laptop: 1366px;
+$pc: 1600px;
+
+// class use component
+@mixin input {
+    width: 100%;
+    height: 40px;
+    border: 1px solid $text-gray;
+    border-radius: 10px;
+
+    &:focus{
+        border: 1px solid $brown;
+    }
+}
+@mixin button($width) {
+    width: $width;
+    height: 40px;
+    background-color: $brown;
+    color: $background1;
+    box-shadow: 0px 1px 5px $text-gray;
+    font-size: 1.4em;
+    font-family: Bkanit;
+    border: unset;
+    border-radius: 30px;
+    cursor: pointer;
+
+    &:hover{
+        background: $brown-hover;
+        transition: .3s;
+    }
+}
+@mixin title {
+    text-align: center;
+
+    h1{
+        color: $brown;
+    }
+    span{
+        font-family: Lkanit;
+        font-style: italic;
+    }
+}
+
+// ------------------- class ------------------- //
+// root
+*,*:after,*:before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: kanit;
+    font-size: 20px;
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: Bkanit;
+}
+h1{font-size: 2em;}
+h2{font-size: 1.8em;}
+h3{font-size: 1.6em;}
+h4{font-size: 1.4em;}
+h5{font-size: 1.2em;}
+h6{font-size: 1em;}
+p{font-size: .8em;}
+span{font-size: 1em;}
+label{font-size: 1em;}
+a{
+    text-decoration: none;
+    font-size: 1em;
+}
+a[href^="tel:"]{
+    color: inherit;
+}
+li{
+    list-style: none;
+}
+
+input,select,textarea,button{
+    font-family: inherit;
+    &:focus{
+        outline: none;
+    }
+}
+
+// class use
+body{
+    background: $background1;
+}
+
+.header{
+    margin-bottom: 3%;
+
+    @media screen and (min-width:$tablet) {
+        margin: 0;
+    }
+
+    .logo{
+        figure{
+            text-align: center;
+
+            img{
+                width: 95%;
+
+                @media screen and (min-width:$ipadpro) {
+                    width: 50%
+                }
+                @media screen and (min-width:$laptop) {
+                    width: 40%
+                }
+            }
+        }
+    }
+
+    nav{
+        width: 95%;
+        margin: 0 auto;
+        margin-top: 2%;
+
+        @media screen and (min-width:$tablet) {
+            background-color: $blue;
+            width: 100%;
+            padding-bottom: 5%;
+        }
+        @media screen and (min-width:$laptop) {
+            margin: unset;
+            padding: unset;
+            display: flex;
+            padding: 0 5%;
+        }
+
+        .menu{
+            display: none;
+            text-align: center;
+            background-color: $blue;
+            padding: 3% 0;
+
+            @media screen and (min-width:$tablet) {
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                background-color: unset;
+            }
+            @media screen and (min-width:$laptop) {
+                width: 70%;
+                padding: 1% 0;
+            }
+
+            .menulist{
+                @media screen and (min-width:$tablet) {
+                    width: calc(100%/9);
+                }
+
+                a{
+                    color: $background1;
+
+                    &.active{
+                        background: $brown;
+                        padding: 0 2%;
+                        border-radius: 5px;
+                    }
+
+                    img{
+                        width: 18px;
+                        height: 18px;
+                        filter: invert(100%);
+                    }
+                }
+                .subroom{
+                    display: none;
+                    background: $brown;
+                    margin: 0 5%;
+
+                    @media screen and (min-width:$tablet) {
+                        position: absolute;
+                        z-index: 6;
+                        border: 1px solid $brown-hover;
+                        border-radius: 5px;
+                        padding: 0 1%;
+                        margin: 0;
+                    }  
+
+                    &.active{
+                        display: block;
+                    }
+                }
+            }
+            .icon{
+                display: flex;
+                justify-content: space-evenly;
+                padding: 3% 0;
+
+                img{
+                    width: 32px;
+                    height: 32px;
+                    filter: invert(1);
+                }
+
+                @media screen and (min-width:$ipadpro) {
+                    display: unset;
+                    padding: unset;
+                }
+
+                a{
+                    @media screen and (min-width:$laptop) {
+                        margin-left: 5px;
+                    }
+                }
+            }
+
+            &.active{
+                display: block;
+            }
+        }
+        .hamburger{
+            display: flex;
+            flex-direction: column;
+            width: 10%;
+            margin: 3% auto;
+
+            @media screen and (min-width:$tablet) {
+                display: none;
+            }
+
+            .line{
+                background: #000;
+                width: 30px;
+                height: 3px;
+                display: inline-block;
+                margin: 2px 0;
+            }
+        }
+        .search{
+            position: relative;
+
+            @media screen and (min-width:$tablet) {
+                 width: 90%;
+                 margin: 0 auto;   
+            }
+            @media screen and (min-width:$laptop) {
+                width: 25%;
+                margin: auto 0;   
+           }
+
+            input{
+                @include input();
+                padding: 0 3%;
+                background-color: $brown;
+                color: $background1;
+                border-radius: 20px;
+
+                &::placeholder{
+                    color: $background1;
+                }
+            }
+
+            img{
+                position: absolute;
+                width: 26px;
+                height: 32px;
+                right: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                filter: invert(1);
+            }
+        }
+    }
+}
+
+.slide{
+    position: relative;
+
+    .owl-stage-outer{
+        img{
+            width: 100%;
+            height: 200px;
+
+            @media screen and (min-width:$tablet) {
+                height: 400px;
+            }
+            @media screen and (min-width:$laptop) {
+                height: 600px;
+            }
+        }
+    }
+    .owl-nav{
+        display: none;
+        @media screen and (min-width:$ipadpro) {
+            position: absolute;
+            top: 20px;
+            right: 20%;
+            width: 40px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        button{
+            border: unset;
+            background: inherit;
+            cursor: pointer;
+        }
+    }
+    .owl-dots{
+        position: absolute;
+        top: 20px;
+        right: 10%;
+    }
+}
+
+.booking{
+    padding: 2% 5%;
+
+    @media screen and (min-width:$laptop) {
+        width: 85%;
+        margin: -4% auto;
+        border-radius: 80px;
+        position: relative;
+        z-index: 5;
+    }
+
+    .formBook{
+        @media screen and (min-width:$tablet) {
+            display: grid;
+            grid-template-columns: repeat(2,49%);
+            grid-gap: 1%;
+        }
+        @media screen and (min-width:$laptop) {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .input-box{
+            display: grid;
+            margin: 1% 0;
+            position: relative;
+
+            label{
+                color: $background1;
+            }
+            input{
+                @include input();
+                padding: 0 20px;
+            }
+            input[type=number]{
+                text-align: center;
+            }
+            img.left,img.right{
+                position: absolute;
+                bottom: 15%;
+                width: 16px;
+                height: 16px;
+            }
+            img.left{
+                left: 3%;
+            }
+            img.right{
+                right: 3%;
+            }
+        }
+        .button{
+            text-align: center;
+            margin: 3% 0;
+
+            @media screen and (min-width:$tablet) {
+                grid-column-start: 1;
+                grid-column-end: 3;
+            }
+            @media screen and (min-width:$laptop) {
+                display: flex;
+                align-items: flex-end;
+                margin: 1% 0;
+            }
+
+            button{
+                @include button(100px)
+            }
+        }
+    }
+}
+
+.footer{
+    background-color: $blue;
+    color: $background1;
+    padding: 2% 5%;
+
+    @media screen and (min-width:$ipadpro) {
+        display: grid;
+        grid-template-columns: repeat(2,50%);
+    }
+    @media screen and (min-width:$laptop) {
+        grid-template-columns: 15% 25% 30% 30%;
+    }
+
+    .logo{
+        @media screen and (min-width:$ipadpro) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        figure{
+            text-align: center;
+
+            @media screen and (min-width:$laptop) {
+                text-align: left;
+            }
+
+            img{
+                width: 40%;
+
+                @media screen and (min-width:$ipadpro) {
+                    width: 70%;
+                }
+                @media screen and (min-width:$laptop) {
+                    width: 90%
+                }
+            }
+        }
+    }
+
+    .address-contact{
+        margin: 3% 0;
+
+        @media screen and (min-width:$laptop) {
+            p{
+                font-size: .7em;
+            }
+        }
+
+        .address{
+            margin-bottom: 15px;
+        }
+
+        .contact{
+            margin: 3% 0;
+            display: grid;
+            grid-template-columns: 100%;
+            grid-row-gap: 10px;
+
+            @media screen and (min-width:$laptop) {
+                grid-row-gap: 0px;
+            }
+
+            .single{
+                display: flex;
+
+                figure{
+                    img{
+                        width: 32px;
+                        height: 32px;
+                        filter: invert(100%) sepia(51%) saturate(10%) brightness(195%);
+
+                        @media screen and (min-width:$laptop) {
+                            width: 18px;
+                            height: 18px;
+                        }
+                    }
+                }
+                p{
+                    margin-left: 3%;
+                }
+            }
+        }
+    }
+
+    .social{
+        margin: 5% 0;
+
+        @media screen and (min-width:$ipadpro) {
+            margin: unset;
+        }
+
+        .facebookPage{
+            text-align: center;
+
+            @media screen and (min-width:$laptop) {
+                overflow: hidden;
+                height: 250px;
+            }
+        }
+    }
+
+    .map{
+        iframe{
+            width: 100%;
+            height: 300px;
+
+            @media screen and (min-width:$ipadpro) {
+                height: 498px;
+            }
+            @media screen and (min-width:$laptop) {
+                height: 250px;
+            }
+        }
+    }
+}

@@ -1,99 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bright Hotel</title>
-    <link rel="stylesheet" href="/src/css/home.min.css">
-    <link rel="stylesheet" href="/src/plugin/OwlCarousel/dist/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="/src/plugin/OwlCarousel/dist/assets/owl.theme.default.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
-</head>
 <body>
     <!-- สคริปของเฟสบุ๊ค -->
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v7.0&appId=599318023929202&autoLogAppEvents=1" nonce="0s4WMai9"></script>
 
-    <!-- หัวเว็บมีโลโก้ เมนู ค้นหา -->
-    <header>
-        <div class="header">
-            <div class="logo"><figure><a href=""><img src="/src/img/logo-01.png" alt=""></a></figure></div>
-            <nav>
-                <ul class="menu">
-                    <li class="menulist"><a href="" class="active">หน้าแรก</a></li>
-                    <li class="menulist">
-                        <a href="#" class="room" onclick="openSubRoom()" onmouseover="openSubRoom()">ห้อง <img src="/src/img/icon/down-arrow.svg" alt=""></a>
-                            <ul class="subroom">
-                                <li><a href="">Triple Room</a></li>
-                                <li><a href="">Deluxe Room</a></li>
-                                <li><a href="">President Room</a></li>
-                                <li><a href="">Suite Room</a></li>
-                                <li><a href="">Superior Room</a></li>
-                                <li><a href="">Meeting Room</a></li>
-                            </ul>
-                    </li>
-                    <li class="menulist"><a href="">โปรโมชั่น</a></li>
-                    <li class="menulist"><a href="">แกลเลอรี่</a></li>
-                    <li class="menulist"><a href="">ติดต่อเรา</a></li>    
-                    
-                    <div class="icon">
-                        <a href=""><img src="/src/img/icon/mobile-solid.svg" alt=""></a>
-                        <a href=""><img src="/src/img/icon/instagram-brands.svg" alt=""></a>
-                        <a href=""><img src="/src/img/icon/facebook-brands.svg" alt=""></a>
-                    </div>
-                </ul>
-                <div class="hamburger">
-                    <div class="line"></div>
-                    <div class="line"></div>
-                    <div class="line"></div>
-                </div>
-                <div class="search">
-                    <input type="tel" maxlength="10" placeholder="ค้นหาการจองจากเบอร์โทร">
-                    <img src="/src/img/icon/search-solid.svg" alt="">
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <!-- ตัวสไลด์ ไฟล์จัดการชื่อ slide.js -->
-    <div class="slide owl-carousel">
-        <div class="item"><img src="/src/img/view.jpg" alt=""></div>
-        <div class="item"><img src="/src/img/view.jpg" alt=""></div>
-        <div class="item"><img src="/src/img/view.jpg" alt=""></div>
-        <div class="item"><img src="/src/img/view.jpg" alt=""></div>
-        <div class="item"><img src="/src/img/view.jpg" alt=""></div>
-    </div>
-
-    <!-- โซนการจอง -->
-    <div class="booking">
-        <div class="formBook">
-            <div class="input-box">
-                <label>เช็คอิน</label>
-                <input type="date">
-            </div>
-
-            <div class="input-box">
-                <label>เช็คเอาท์</label>
-                <input type="date">
-            </div>
-
-            <div class="input-box adult">
-                <label>ผู้ใหญ่/คน</label>
-                <input type="number" id="adult" value="0">
-                <img class="left" src="/src/img/icon/minus.svg" alt="">
-                <img class="right" src="/src/img/icon/plus.svg" alt="">
-            </div>
-
-            <div class="input-box child">
-                <label>เด็ก/คน</label>
-                <input type="number" id="child" value="0">
-                <img class="left" src="/src/img/icon/minus.svg" alt="">
-                <img class="right" src="/src/img/icon/plus.svg" alt="">
-            </div>
-
-            <div class="button"><button>จอง</button></div>
-        </div>
-    </div>
+    <!-- Header Web -->
+    <?php require_once "mains/header.php"; ?>
 
     <!-- โซนคอนเทนท์ที่1 -->
     <article>
@@ -112,14 +23,14 @@
 
     <!-- โซนคอนเทนท์ที่2 บริการ -->
     <article>
-        <div class="content service">
+        <div class="content service" style="background:url('<?=ROOT_URL?>img/BG.jpg')">
             <div class="title">
                 <h1>บริการและสิ่งอำนวยความสะดวก</h1>
                 <span>โรงแรมสไตล์โมเดิร์นคลาสิค แห่งแรกในจังหวัดขอนแก่น</span>
             </div>
             <div class="box-grid">
                 <div class="column">
-                    <figure><img src="/src/img/icon/utensils-alt.svg" alt=""></figure>
+                    <figure><img src="<?=ROOT_URL?>img/icon/utensils-alt.svg" alt=""></figure>
                     <span>ห้องอาหาร</span>
                     <div class="ck">
                         <p>
@@ -129,7 +40,7 @@
                 </div>
 
                 <div class="column">
-                    <figure><img src="/src/img/icon/lobby.svg" alt=""></figure>
+                    <figure><img src="<?=ROOT_URL?>img/icon/lobby.svg" alt=""></figure>
                     <span>ล็อบบี้</span>
                     <div class="ck">
                         <p>
@@ -139,7 +50,7 @@
                 </div>
 
                 <div class="column">
-                    <figure><img src="/src/img/icon/gym.svg" alt=""></figure>
+                    <figure><img src="<?=ROOT_URL?>img/icon/gym.svg" alt=""></figure>
                     <span>ฟิตเนส</span>
                     <div class="ck">
                         <p>
@@ -154,7 +65,7 @@
     <!-- โซนคอนเทนท์ที่3 ที่มีรูปใหญ่ๆ-->
     <article>
         <div class="content row3">
-            <figure class="bigimg"><img src="/src/img/view.jpg" alt=""></figure>
+            <figure class="bigimg"><img src="<?=ROOT_URL?>img/view.jpg" alt=""></figure>
             <div class="title">
                 <h1>ไบรท์โฮเต็ล</h1>
                 <h1>(BRIGHT HOTEL)</h1>
@@ -167,27 +78,27 @@
             </div>
             <div class="icon">
                 <div class="item">
-                    <img src="/src/img/icon/mobile-solid.svg" alt="">
+                    <img src="<?=ROOT_URL?>img/icon/mobile-solid.svg" alt="">
                     <span>098-1201970</span>
                 </div>
                 <div class="item">
-                    <img src="/src/img/icon/phone.svg" alt="">
+                    <img src="<?=ROOT_URL?>img/icon/phone.svg" alt="">
                     <span>043-306777-79</span>
                 </div>
                 <div class="item">
-                    <img src="/src/img/icon/envelope-open-solid.svg" alt="">
+                    <img src="<?=ROOT_URL?>img/icon/envelope-open-solid.svg" alt="">
                     <span>brighthotelkhonkaen@gmail.com</span>
                 </div>
                 <div class="item">
-                    <img src="/src/img/icon/instagram-brands.svg" alt="">
+                    <img src="<?=ROOT_URL?>img/icon/instagram-brands.svg" alt="">
                     <span>brighthotelkhonkaen</span>
                 </div>
                 <div class="item">
-                    <img src="/src/img/icon/facebook-brands.svg" alt="">
+                    <img src="<?=ROOT_URL?>img/icon/facebook-brands.svg" alt="">
                     <span>brighthotelkhonkaen</span>
                 </div>
                 <div class="item">
-                    <img src="/src/img/icon/share-alt-solid.svg" alt="">
+                    <img src="<?=ROOT_URL?>img/icon/share-alt-solid.svg" alt="">
                     <span>share</span>
                 </div>
             </div>
@@ -196,7 +107,7 @@
 
     <!-- โซนคอนเทนท์ที่3 ห้องพัก-->
     <article>
-        <div class="content room">
+        <div class="content room" style="background:url('<?=ROOT_URL?>img/BG.jpg')">
             <div class="title">
                 <h1>รูปแบบห้องพัก</h1>
                 <span>ห้องพักประกอบด้วยห้องมาตรฐาน 79 ห้อง หรูหรา ระดับพรีเมียมคลาส</span>
@@ -207,7 +118,7 @@
                     <div class="box">
                         <figure>
                             <span>Triple Room</span>
-                            <img src="/src/img/view.jpg" alt="">
+                            <img src="<?=ROOT_URL?>img/view.jpg" alt="">
                         </figure>
                         <div class="price">
                             <div class="discount"><span>฿ 2,000</span></div>
@@ -222,23 +133,23 @@
                         <div class="inroom">
                             <div class="item">
                                 <span>โต๊ะทำงาน</span>
-                                <img src="/src/img/icon/key-card.svg" alt="">
+                                <img src="<?=ROOT_URL?>img/icon/key-card.svg" alt="">
                             </div>
                             <div class="item">
                                 <span>โต๊ะทำงาน</span>
-                                <img src="/src/img/icon/tv.svg" alt="">
+                                <img src="<?=ROOT_URL?>img/icon/tv.svg" alt="">
                             </div>
                             <div class="item">
                                 <span>โต๊ะทำงาน</span>
-                                <img src="/src/img/icon/desk.svg" alt="">
+                                <img src="<?=ROOT_URL?>img/icon/desk.svg" alt="">
                             </div>
                             <div class="item">
                                 <span>โต๊ะทำงาน</span>
-                                <img src="/src/img/icon/bed.svg" alt="">
+                                <img src="<?=ROOT_URL?>img/icon/bed.svg" alt="">
                             </div>
                             <div class="item">
                                 <span>โต๊ะทำงาน</span>
-                                <img src="/src/img/icon/balcony.svg" alt="">
+                                <img src="<?=ROOT_URL?>img/icon/balcony.svg" alt="">
                             </div>
                         </div>
                     </div>
@@ -251,7 +162,7 @@
                     <div class="box">
                         <figure>
                             <span>Deluxe Room</span>
-                            <img src="/src/img/view.jpg" alt="">
+                            <img src="<?=ROOT_URL?>img/view.jpg" alt="">
                         </figure>
                         <div class="price">
                             <div class="discount"><span>฿ 2,500</span></div>
@@ -266,19 +177,19 @@
                         <div class="inroom">
                             <div class="item">
                                 <span>โต๊ะทำงาน</span>
-                                <img src="/src/img/icon/key-card.svg" alt="">
+                                <img src="<?=ROOT_URL?>img/icon/key-card.svg" alt="">
                             </div>
                             <div class="item">
                                 <span>โต๊ะทำงาน</span>
-                                <img src="/src/img/icon/tv.svg" alt="">
+                                <img src="<?=ROOT_URL?>img/icon/tv.svg" alt="">
                             </div>
                             <div class="item">
                                 <span>โต๊ะทำงาน</span>
-                                <img src="/src/img/icon/desk.svg" alt="">
+                                <img src="<?=ROOT_URL?>img/icon/desk.svg" alt="">
                             </div>
                             <div class="item">
                                 <span>โต๊ะทำงาน</span>
-                                <img src="/src/img/icon/bed.svg" alt="">
+                                <img src="<?=ROOT_URL?>img/icon/bed.svg" alt="">
                             </div>
                         </div>
                     </div>
@@ -291,7 +202,7 @@
                     <div class="box">
                         <figure>
                             <span>President Room</span>
-                            <img src="/src/img/view.jpg" alt="">
+                            <img src="<?=ROOT_URL?>img/view.jpg" alt="">
                         </figure>
                         <div class="price">
                             <div class="discount"><span>฿ 2,000</span></div>
@@ -307,23 +218,23 @@
                         <div class="inroom">
                             <div class="item">
                                 <span>โต๊ะทำงาน</span>
-                                <img src="/src/img/icon/key-card.svg" alt="">
+                                <img src="<?=ROOT_URL?>img/icon/key-card.svg" alt="">
                             </div>
                             <div class="item">
                                 <span>โต๊ะทำงาน</span>
-                                <img src="/src/img/icon/tv.svg" alt="">
+                                <img src="<?=ROOT_URL?>img/icon/tv.svg" alt="">
                             </div>
                             <div class="item">
                                 <span>โต๊ะทำงาน</span>
-                                <img src="/src/img/icon/desk.svg" alt="">
+                                <img src="<?=ROOT_URL?>img/icon/desk.svg" alt="">
                             </div>
                             <div class="item">
                                 <span>โต๊ะทำงาน</span>
-                                <img src="/src/img/icon/bed.svg" alt="">
+                                <img src="<?=ROOT_URL?>img/icon/bed.svg" alt="">
                             </div>
                             <div class="item">
                                 <span>โต๊ะทำงาน</span>
-                                <img src="/src/img/icon/bathroom.svg" alt="">
+                                <img src="<?=ROOT_URL?>img/icon/bathroom.svg" alt="">
                             </div>
                         </div>
                     </div>
@@ -336,7 +247,7 @@
                     <div class="box">
                         <figure>
                             <span>Suite Room</span>
-                            <img src="/src/img/view.jpg" alt="">
+                            <img src="<?=ROOT_URL?>img/view.jpg" alt="">
                         </figure>
                         <div class="price">
                             <div class="discount"><span>฿ 3,200</span></div>
@@ -351,23 +262,23 @@
                         <div class="inroom">
                             <div class="item">
                                 <span>โต๊ะทำงาน</span>
-                                <img src="/src/img/icon/key-card.svg" alt="">
+                                <img src="<?=ROOT_URL?>img/icon/key-card.svg" alt="">
                             </div>
                             <div class="item">
                                 <span>โต๊ะทำงาน</span>
-                                <img src="/src/img/icon/tv.svg" alt="">
+                                <img src="<?=ROOT_URL?>img/icon/tv.svg" alt="">
                             </div>
                             <div class="item">
                                 <span>โต๊ะทำงาน</span>
-                                <img src="/src/img/icon/desk.svg" alt="">
+                                <img src="<?=ROOT_URL?>img/icon/desk.svg" alt="">
                             </div>
                             <div class="item">
                                 <span>โต๊ะทำงาน</span>
-                                <img src="/src/img/icon/bed.svg" alt="">
+                                <img src="<?=ROOT_URL?>img/icon/bed.svg" alt="">
                             </div>
                             <div class="item">
                                 <span>โต๊ะทำงาน</span>
-                                <img src="/src/img/icon/balcony.svg" alt="">
+                                <img src="<?=ROOT_URL?>img/icon/balcony.svg" alt="">
                             </div>
                         </div>
                     </div>
@@ -380,7 +291,7 @@
                     <div class="box">
                         <figure>
                             <span>Superior Room</span>
-                            <img src="/src/img/view.jpg" alt="">
+                            <img src="<?=ROOT_URL?>img/view.jpg" alt="">
                         </figure>
                         <div class="price">
                             <div class="discount"><span>฿ 3,600</span></div>
@@ -395,23 +306,23 @@
                         <div class="inroom">
                             <div class="item">
                                 <span>โต๊ะทำงาน</span>
-                                <img src="/src/img/icon/key-card.svg" alt="">
+                                <img src="<?=ROOT_URL?>img/icon/key-card.svg" alt="">
                             </div>
                             <div class="item">
                                 <span>โต๊ะทำงาน</span>
-                                <img src="/src/img/icon/tv.svg" alt="">
+                                <img src="<?=ROOT_URL?>img/icon/tv.svg" alt="">
                             </div>
                             <div class="item">
                                 <span>โต๊ะทำงาน</span>
-                                <img src="/src/img/icon/desk.svg" alt="">
+                                <img src="<?=ROOT_URL?>img/icon/desk.svg" alt="">
                             </div>
                             <div class="item">
                                 <span>โต๊ะทำงาน</span>
-                                <img src="/src/img/icon/bed.svg" alt="">
+                                <img src="<?=ROOT_URL?>img/icon/bed.svg" alt="">
                             </div>
                             <div class="item">
                                 <span>โต๊ะทำงาน</span>
-                                <img src="/src/img/icon/balcony.svg" alt="">
+                                <img src="<?=ROOT_URL?>img/icon/balcony.svg" alt="">
                             </div>
                         </div>
                     </div>
@@ -450,7 +361,7 @@
                 </div>
                 <div class="textSingle">
                     <label>ข้อความ</label>
-                    <textarea name="" id="" cols="30" rows="2" placeholder="กรอกข้อความ"></textarea>
+                    <textarea name="" id="" cols="30" rows="3" placeholder="กรอกข้อความ"></textarea>
                 </div>
                 <div class="button"><button>ส่ง</button></div>
             </div>
@@ -460,7 +371,7 @@
     <!-- โซนฟุตเตอร์ -->
     <footer>
         <div class="footer">
-            <div class="logo"><figure><img src="/src/img/logo B-01.png" alt=""></figure></div>
+            <div class="logo"><figure><img src="<?=ROOT_URL?>img/logo B-01.png" alt=""></figure></div>
 
             <div class="address-contact">
                 <div class="address">
@@ -469,23 +380,23 @@
                 </div>
                 <div class="contact">
                     <div class="single">
-                        <figure><img src="/src/img/icon/mobile-solid.svg" alt=""></figure>
+                        <figure><img src="<?=ROOT_URL?>img/icon/mobile-solid.svg" alt=""></figure>
                         <p>098-1201970</p>
                     </div>
                     <div class="single">
-                        <figure><img src="/src/img/icon/phone.svg" alt=""></figure>
+                        <figure><img src="<?=ROOT_URL?>img/icon/phone.svg" alt=""></figure>
                         <p>043-306777-79</p>
                     </div>
                     <div class="single">
-                        <figure><img src="/src/img/icon/envelope-open-solid.svg" alt=""></figure>
+                        <figure><img src="<?=ROOT_URL?>img/icon/envelope-open-solid.svg" alt=""></figure>
                         <p>brighthotelkhonkaen@gmail.com</p>
                     </div>
                     <div class="single">
-                        <figure><img src="/src/img/icon/instagram-brands.svg" alt=""></figure>
+                        <figure><img src="<?=ROOT_URL?>img/icon/instagram-brands.svg" alt=""></figure>
                         <p>brighthotelkhonkaen</p>
                     </div>
                     <div class="single">
-                        <figure><img src="/src/img/icon/facebook-brands.svg" alt=""></figure>
+                        <figure><img src="<?=ROOT_URL?>img/icon/facebook-brands.svg" alt=""></figure>
                         <p>brighthotelkhonkaen</p>
                     </div>
                 </div>
@@ -502,11 +413,26 @@
             </div>
         </div>
     </footer>
-    
-    <!-- โซนสคริป -->
-    <script src="/src/plugin/OwlCarousel/dist/owl.carousel.min.js"></script>
-    <script type="text/javascript" src="/src/js/hotel.js"></script>
-    <script type="text/javascript" src="/src/js/bookHome.js"></script>
-    <script src="/src/js/slide.js"></script>
+
+  <!-- โซนสคริป -->
+  <script src="<?=ROOT_URL?>plugin/OwlCarousel/dist/owl.carousel.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script type="text/javascript" src="<?=ROOT_URL?>js/page/hotel.js?v=0.0.4"></script>
+  <script type="text/javascript" src="<?=ROOT_URL?>js/page/bookHome.js"></script>
+  <script src="<?=ROOT_URL?>js/page/slide.js"></script>
+
+  <!-- Footer -->
+  <?php 
+  //require_once "mains/footer.php"; 
+  ?>
+
+  <!-- <div class="csrf-space-timeround"><?= $CSRF_TIMERROUND ?></div>
+  <div class="csrf-space-province"><?= $CSRF_PROVINCE ?></div>
+  <div class="csrf-space-position-arch-table"><?= $CSRF_POSITION_ARCH_TABLE ?></div>
+  <div class="csrf-space-timeround-arch"><?= $CSRF_TIMEROUND_ARCH ?></div>
+  <div class="csrf-space-timeround-table"><?= $CSRF_TIMEROUND_TABLE ?></div>
+  <div class="csrf-space-booking-arch"><?= $CSRF_BOOKING_ARCH ?></div>
+  <div class="csrf-space-booking-table"><?= $CSRF_BOOKING_TABLE ?></div>
+
+  <script async defer src="/js/home.js?v=1.0.1"></script> -->
 </body>
-</html>

@@ -1,0 +1,351 @@
+@import "brightStyle";
+
+.content{
+    margin: 5% 0;
+
+    .title{
+        @include title();
+        margin: 2% 0;
+    }
+    .ck{
+        text-align: center;
+
+        @media screen and (max-width:$mobile) {
+            p{
+                font-size: .8em!important;
+            }
+        }
+        
+        img{
+            width: 100%;
+        }
+    }
+    .box-grid{
+        display: grid;
+        grid-row-gap: 20px;
+
+        .column{
+            display: grid;
+            text-align: center;
+
+            figure{
+                img{
+                    width: 64px;
+                    height: 64px;
+                    filter: invert(50%) contrast(100%) sepia(100%) brightness(100%) hue-rotate(0deg);
+                }
+            }
+            
+        }
+    }
+    .bigimg{
+        img{
+            width: 100%;
+            height: 300px;
+        }
+    }
+    .icon{
+        display: grid;
+        grid-template-columns: repeat(2,50%);
+        grid-row-gap: 10px;
+        margin-top: 3%;
+
+        .item{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            img{
+                width: 32px;
+                height: 32px;
+                filter: brightness(5%) sepia(100) saturate(100) hue-rotate(200deg);
+            }
+            span{
+                color: $text-gray;
+                font-size: 0.8em;
+                word-break: break-all;
+                text-align: center;
+            }
+        }
+    }
+
+    .grid-room{
+        @media screen and (min-width:$tablet) {
+            display: grid;
+            grid-template-columns: repeat(2,50%);
+        }
+        @media screen and (min-width:$ipadpro) {
+            display: grid;
+            grid-template-columns: repeat(3,calc(100%/3));
+        }
+        @media screen and (min-width:$laptop) {
+            display: grid;
+            grid-template-columns: repeat(5,calc(100%/5));
+        }
+
+        .item-room{
+            padding: 5% 0;
+
+            .box{
+                width: 90%;
+                margin: 0 auto;
+                border: 1px solid lightgray;
+                border-radius: 10px;
+                background-color: $background1;
+
+                figure{
+                    text-align: center;
+                    height: 180px;
+                    position: relative;
+
+                    span{
+                        position: absolute;
+                        top: 10px;
+                        left: 10px;
+                        background: #fff;
+                        width: fit-content;
+                        border-radius: 15px;
+                        padding: 0 2%;
+
+                        @supports (-webkit-touch-callout: none) {
+                            width: 40%;
+                        }
+                    }
+
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 10px 10px 0 0;
+                    }
+                }
+                .price{
+                    text-align: center;
+                    background: $brown;
+                    height: fit-content;
+                    border-radius: 0 0 35px 35px;
+                    display: flex;
+                    flex-direction: column;
+
+                    .discount{
+                        text-align: center;
+                        margin-left: 25%;
+
+                        span{
+                            font-size: 0.6em;
+                            color: $background1;
+                            text-decoration: line-through;
+                        }
+                    }
+                    .sumprice{        
+                        span{
+                            color: $background1;
+                            font-size: 1.6em;
+                        }
+                    }
+                }
+                .description{
+                    margin: 3% 5%;
+                    height: 5em;
+                    border-bottom: 2px solid #e2e2e2;
+                    overflow-y: hidden;
+
+                    p{
+                        color: $text-gray;
+                    }
+                }
+                .inroom{
+                    display: grid;
+                    grid-template-columns: repeat(5,1fr);
+
+                    .item{
+                        text-align: center;
+                        position: relative;
+                        
+                        span{
+                            display: none;
+                            position: absolute;
+                            top: -30px;
+                            left: 0;
+                            width: max-content;
+                            background: gray;
+                            color: #fff;
+                            padding: 0 5px;
+                            border-radius: 5px;
+                        }
+                        img{
+                            width: 32px;
+                            height: 32px;
+                            filter: brightness(4%) sepia(100) saturate(100) hue-rotate(215deg);
+                        }
+                    }
+                }
+            }
+
+            .button{
+                text-align: center;
+                margin-top: 5%;
+                button{
+                    @include button(180px)
+                }
+            }
+        }
+    }
+
+    &.contact{
+        .form-contact{
+            @media screen and (min-width:$laptop) {
+                width: 60%;
+                margin: 0 auto;
+            }
+
+            .inputDual{
+                display: grid;
+                grid-template-columns: 100%;
+                grid-row-gap: 10px;
+                padding: 0 5%;
+                padding-bottom: 5px;
+
+                @media screen and (min-width:$laptop) {
+                    grid-template-columns: 50% 50%;
+                    grid-gap: 1%;
+                }
+
+                .input-box{
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+
+                    @media screen and (min-width:$tablet) {
+                        grid-template-columns: 20% 80%;
+                    }
+                    @media screen and (min-width:$laptop) {
+                        grid-template-columns: 100%;
+                    }
+
+                    input{
+                        @include input();
+                        width: 250px;
+                        padding: 0 3%;
+
+                        @media screen and (min-width:$tablet) {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+            .inputSingle{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                padding: 5px 5%;
+
+                @media screen and (min-width:$tablet) {
+                    grid-template-columns: 20% 80%;
+                }
+                @media screen and (min-width:$laptop) {
+                    grid-template-columns: 100%;
+                }
+
+                input{
+                    @include input();
+                    width: 250px;
+                    padding: 0 3%;
+
+                    @media screen and (min-width:$tablet) {
+                        width: 100%;
+                    }
+                }
+            }
+            .textSingle{
+                display: grid;
+                grid-template-columns: 100%;
+                padding: 5px 5%;
+
+                textarea{
+                    padding: 0 3%;
+                    border-radius: 10px;
+                }
+            }
+            .button{
+                text-align: center;
+                margin-top: 15px;
+
+                button{
+                    @include button(100px);
+                }
+            }
+        }
+    }
+
+    &.service{
+        padding: 3% 0;
+
+        @media screen and (min-width:$laptop) {
+            padding: 3%;
+        }
+
+        .box-grid{
+            color: $background1;
+
+            @media screen and (min-width:$laptop) {
+                grid-template-columns: repeat(3,calc(98%/3));
+                grid-gap: 1%;
+            }
+        }
+    }
+
+    &.service,&.room{
+
+        .title{
+            span{
+                color: $background1;
+            }
+        }
+    }
+
+    &.row1{
+        @media screen and (min-width:$ipadpro) {
+            width: 95%;
+            margin: 0 auto;
+        }
+        @media screen and (min-width:$laptop) {
+            width: 95%;
+            margin: 5% auto;
+        }
+    }
+
+    &.row3{
+        @media screen and (min-width:$ipadpro) {
+            display: grid;
+            grid-template-columns: repeat(2,49%);
+            grid-gap: 2%;
+            width: 95%;
+            margin: 0 auto;
+
+            .bigimg{
+                grid-row-start: 1;
+                grid-row-end: 4;
+
+                img{
+                    height: unset;
+                }
+            }
+            .title,.ck{
+                text-align: left;
+            }
+            .icon{
+                display: block;
+
+                .item{
+                    display: inline-block;
+
+                    img{
+                        width: 18px;
+                        height: 18px;
+                    }
+                    span{
+                        font-size: .7em;
+                    }
+                }
+            }
+        }    
+    }
+}

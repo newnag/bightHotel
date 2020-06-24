@@ -11,13 +11,13 @@
         {
             "format": "expanded",
             "extensionName": ".css",
-            "savePath": "/src/css/"
+            "savePath": "/css/"
         },
         // You can add more
         {
             "format": "compressed",
             "extensionName": ".min.css",
-            "savePath": "/src/css/"
+            "savePath": "/css/"
         },
     ]
 }
