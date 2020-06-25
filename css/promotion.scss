@@ -1,0 +1,85 @@
+@import 'brightStyle';
+
+.promotion-page{
+    width: 95%;
+    margin: 0 auto;
+
+    .title{
+        @include title();
+        margin-top: 5%;
+    }
+
+    .pro-zone{
+        margin-top: 5%;
+
+        .grid-box{
+            display: grid;
+            grid-template-columns: 100%;
+            grid-row-gap: 10px;
+
+            @media screen and (min-width:$tablet) {
+                grid-template-columns: 50% 50%;
+                grid-gap: 1%;
+            }
+            @media screen and (min-width:$ipadpro) {
+                grid-template-columns: repeat(4,calc(97%/4));
+                grid-gap: 1%;
+                grid-row-gap: 30px;
+            }
+
+            .item{
+                border-bottom: 1px solid $brown;
+                padding-bottom: 3%;
+
+                @media screen and (min-width:$ipadpro) {
+                    border-bottom: unset;
+                    padding-bottom: unset;
+                }
+
+                .head{
+                    position: relative;
+
+                    img{
+                        width: 100%;
+                        height: 100%;
+                    }
+
+                    .code,.room{
+                        color: $background1;
+                    }
+                    .code{
+                        position: absolute;
+                        top: 20%;
+                        right: 20%;
+
+                        @media screen and (min-width:$ipadpro) {
+                            font-size: 1.4em;
+                        }
+                        @media screen and (min-width:$pc) {
+                            top: 25%;
+                            font-size: 1.8em;
+                        }
+                    }
+                    .room{
+                        position: absolute;
+                        top: 50%;
+                        right: 10%;
+                        width: 55%;
+                        text-align: center;
+
+                        @media screen and (min-width:$ipadpro) {
+                            font-size: 1em;
+                        }
+                        @media screen and (min-width:$pc) {
+                            font-size: 1.4em;
+                        }
+                    }
+                }
+
+                .description{
+                    padding: 0 3%;
+                }
+            }
+        }
+    }
+}

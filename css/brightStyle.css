@@ -196,31 +196,48 @@ body {
   border-radius: 5px;
 }
 
-.header nav .menu .menulist a img {
-  width: 18px;
-  height: 18px;
+.header nav .menu .menulist .room {
+  color: #fff;
+  cursor: pointer;
+}
+
+.header nav .menu .menulist .room.active {
+  background: #cc9933;
+  padding: 0 2%;
+  border-radius: 5px;
+}
+
+.header nav .menu .menulist .room img {
+  width: 16px;
+  height: 14px;
   -webkit-filter: invert(100%);
           filter: invert(100%);
 }
 
-.header nav .menu .menulist .subroom {
+@media screen and (min-width: 1025px) {
+  .header nav .menu .menulist .room:hover .subroom {
+    display: block;
+  }
+}
+
+.header nav .menu .menulist .room .subroom {
   display: none;
   background: #cc9933;
   margin: 0 5%;
 }
 
 @media screen and (min-width: 768px) {
-  .header nav .menu .menulist .subroom {
+  .header nav .menu .menulist .room .subroom {
     position: absolute;
     z-index: 6;
     border: 1px solid #79472c;
     border-radius: 5px;
-    padding: 0 1%;
+    padding: 1%;
     margin: 0;
   }
 }
 
-.header nav .menu .menulist .subroom.active {
+.header nav .menu .menulist .room .subroom.active {
   display: block;
 }
 
@@ -459,9 +476,10 @@ body {
 
 .booking .formBook .input-box img.left, .booking .formBook .input-box img.right {
   position: absolute;
-  bottom: 15%;
+  bottom: 17%;
   width: 16px;
   height: 16px;
+  cursor: pointer;
 }
 
 .booking .formBook .input-box img.left {

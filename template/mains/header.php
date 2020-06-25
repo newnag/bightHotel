@@ -1,30 +1,15 @@
 <!-- หัวเว็บมีโลโก้ เมนู ค้นหา -->
-<header>
+<header> 
         <div class="header">
             <div class="logo"><figure><a href=""><img src="<?=ROOT_URL?>img/logo-01.png" alt=""></a></figure></div>
             <nav>
                 <ul class="menu">
-                    <li class="menulist"><a href="" class="active">หน้าแรก</a></li>
-                    <li class="menulist">
-                        <a href="#" class="room" onclick="toggleSubRoom()" onmouseenter="toggleSubRoom()">ห้อง <img src="<?=ROOT_URL?>img/icon/down-arrow.svg" alt=""></a>
-                        <ul class="subroom" onmouseleave="closeSubRoom()">
-                            <li><a href="">Triple Room</a></li>
-                            <li><a href="">Deluxe Room</a></li>
-                            <li><a href="">President Room</a></li>
-                            <li><a href="">Suite Room</a></li>
-                            <li><a href="">Superior Room</a></li>
-                            <li><a href="">Meeting Room</a></li>
-                        </ul>
-                    </li>
-                    <li class="menulist"><a href="">โปรโมชั่น</a></li>
-                    <li class="menulist"><a href="">แกลเลอรี่</a></li>
-                    <li class="menulist"><a href="">ติดต่อเรา</a></li>    
-                    
+                    <?=$MYNAV_TOP?>
                     <div class="icon">
-                        <a href=""><img src="<?=ROOT_URL?>img/icon/mobile-solid.svg" alt=""></a>
-                        <a href=""><img src="<?=ROOT_URL?>img/icon/instagram-brands.svg" alt=""></a>
-                        <a href=""><img src="<?=ROOT_URL?>img/icon/facebook-brands.svg" alt=""></a>
-                    </div>
+                        <a target="_blank" href="tel:<?=$CONTACT_WEB->phone?>"><img src="<?=ROOT_URL?>img/icon/mobile-solid.svg" alt="telephone icon"></a>
+                        <a target="_blank" href="https://line.me/ti/p/~<?=$CONTACT_WEB->line?>"><img src="<?=ROOT_URL?>img/icon/instagram-brands.svg" alt="instagram icon"></a>
+                        <a target="_blank" href="https://facebook.com/<?=$CONTACT_WEB->facebook?>"><img src="<?=ROOT_URL?>img/icon/facebook-brands.svg" alt="line icon"></a>
+                    </div> 
                 </ul>
                 <div class="hamburger">
                     <div class="line"></div>
@@ -48,7 +33,7 @@
     </div>
 
     <!-- โซนการจอง -->
-    <div class="booking" style="background:url('<?=ROOT_URL?>img/BG.jpg')">
+    <div class="booking" style="background:url('<?=ROOT_URL?>img/new-bg.jpg')">
         <div class="formBook">
             <div class="input-box">
                 <label>เช็คอิน</label>

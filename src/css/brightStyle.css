@@ -88,6 +88,10 @@ input:focus, select:focus, textarea:focus, button:focus {
   outline: none;
 }
 
+input:disabled {
+  background: #fff;
+}
+
 body {
   background: #fff;
 }
@@ -192,31 +196,48 @@ body {
   border-radius: 5px;
 }
 
-.header nav .menu .menulist a img {
-  width: 18px;
-  height: 18px;
+.header nav .menu .menulist .room {
+  color: #fff;
+  cursor: pointer;
+}
+
+.header nav .menu .menulist .room.active {
+  background: #cc9933;
+  padding: 0 2%;
+  border-radius: 5px;
+}
+
+.header nav .menu .menulist .room img {
+  width: 16px;
+  height: 14px;
   -webkit-filter: invert(100%);
           filter: invert(100%);
 }
 
-.header nav .menu .menulist .subroom {
+@media screen and (min-width: 1025px) {
+  .header nav .menu .menulist .room:hover .subroom {
+    display: block;
+  }
+}
+
+.header nav .menu .menulist .room .subroom {
   display: none;
   background: #cc9933;
   margin: 0 5%;
 }
 
-@media screen and (min-width: 1366px) {
-  .header nav .menu .menulist .subroom {
+@media screen and (min-width: 768px) {
+  .header nav .menu .menulist .room .subroom {
     position: absolute;
     z-index: 6;
     border: 1px solid #79472c;
     border-radius: 5px;
-    padding: 0 1%;
+    padding: 1%;
     margin: 0;
   }
 }
 
-.header nav .menu .menulist .subroom.active {
+.header nav .menu .menulist .room .subroom.active {
   display: block;
 }
 
@@ -350,6 +371,12 @@ body {
   height: 200px;
 }
 
+@media screen and (min-width: 768px) {
+  .slide .owl-stage-outer img {
+    height: 400px;
+  }
+}
+
 @media screen and (min-width: 1366px) {
   .slide .owl-stage-outer img {
     height: 600px;
@@ -392,7 +419,7 @@ body {
 
 @media screen and (min-width: 1366px) {
   .booking {
-    width: 85%;
+    width: 90%;
     margin: -4% auto;
     border-radius: 80px;
     position: relative;
@@ -449,9 +476,10 @@ body {
 
 .booking .formBook .input-box img.left, .booking .formBook .input-box img.right {
   position: absolute;
-  bottom: 15%;
+  bottom: 17%;
   width: 16px;
   height: 16px;
+  cursor: pointer;
 }
 
 .booking .formBook .input-box img.left {
@@ -488,7 +516,7 @@ body {
 }
 
 .booking .formBook .button button {
-  width: 100px;
+  width: 150px;
   height: 40px;
   background-color: #cc9933;
   color: #fff;
@@ -524,8 +552,8 @@ body {
 
 @media screen and (min-width: 1366px) {
   .footer {
-    -ms-grid-columns: 15% 25% 30% 30%;
-        grid-template-columns: 15% 25% 30% 30%;
+    -ms-grid-columns: 15% 25% 25% 35%;
+        grid-template-columns: 15% 25% 25% 35%;
   }
 }
 
@@ -540,6 +568,14 @@ body {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+  }
+}
+
+@media screen and (min-width: 1024px) and (min-width: 1366px) {
+  .footer .logo {
+    -webkit-box-align: unset;
+        -ms-flex-align: unset;
+            align-items: unset;
   }
 }
 
@@ -574,6 +610,9 @@ body {
 }
 
 @media screen and (min-width: 1366px) {
+  .footer .address-contact {
+    margin: unset;
+  }
   .footer .address-contact p {
     font-size: .7em;
   }
@@ -602,6 +641,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin: 1% 0;
 }
 
 .footer .address-contact .contact .single figure img {
@@ -640,6 +680,7 @@ body {
   .footer .social .facebookPage {
     overflow: hidden;
     height: 250px;
+    text-align: left;
   }
 }
 

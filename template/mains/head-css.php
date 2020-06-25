@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <link rel="stylesheet" href="<?=ROOT_URL?>plugin/OwlCarousel/dist/assets/owl.carousel.min.css">
   <link rel="stylesheet" href="<?=ROOT_URL?>plugin/OwlCarousel/dist/assets/owl.theme.default.min.css">
+  <link rel="stylesheet" href="<?=ROOT_URL?>css/gallary.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
   <?php /*
     <link rel="stylesheet" href="/css/style.min.css?v=<?=time()?>">

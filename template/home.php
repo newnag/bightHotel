@@ -23,7 +23,7 @@
 
     <!-- โซนคอนเทนท์ที่2 บริการ -->
     <article>
-        <div class="content service" style="background:url('<?=ROOT_URL?>img/BG.jpg')">
+        <div class="content service" style="background:url('<?=ROOT_URL?>img/new-bg.jpg')">
             <div class="title">
                 <h1>บริการและสิ่งอำนวยความสะดวก</h1>
                 <span>โรงแรมสไตล์โมเดิร์นคลาสิค แห่งแรกในจังหวัดขอนแก่น</span>
@@ -361,7 +361,7 @@
                 </div>
                 <div class="textSingle">
                     <label>ข้อความ</label>
-                    <textarea name="" id="" cols="30" rows="3" placeholder="กรอกข้อความ"></textarea>
+                    <textarea name="" id="" cols="30" rows="2" placeholder="กรอกข้อความ"></textarea>
                 </div>
                 <div class="button"><button>ส่ง</button></div>
             </div>
@@ -415,10 +415,11 @@
     </footer>
 
   <!-- โซนสคริป -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
   <script src="<?=ROOT_URL?>plugin/OwlCarousel/dist/owl.carousel.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-  <script type="text/javascript" src="<?=ROOT_URL?>js/page/hotel.js?v=0.0.6"></script>
-  <script type="text/javascript" src="<?=ROOT_URL?>js/page/bookHome.js?v=0.0.1"></script>
+  <script type="text/javascript" src="<?=ROOT_URL?>js/page/functions.js"></script>
+  <script type="text/javascript" src="<?=ROOT_URL?>js/page/hotel.js"></script>
+  <script type="text/javascript" src="<?=ROOT_URL?>js/page/bookHome.js"></script>
   <script src="<?=ROOT_URL?>js/page/slide.js"></script>
 
   <!-- Footer -->

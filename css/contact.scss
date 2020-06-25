@@ -1,0 +1,190 @@
+@import 'brightStyle';
+
+.contact-page{
+    width: 95%;
+    margin: 0 auto;
+
+    @media screen and (min-width:1900px) {
+        width: 90%;
+    }
+
+    .title{
+        @include title();
+        margin-top: 5%;
+    }
+
+    .content-contact{
+        margin-top: 5%;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-row-gap: 10px;
+
+        @media screen and (min-width:$ipadpro) {
+            grid-template-columns: 50% 49%;
+            grid-gap: 1%;
+        }
+
+        .left{
+            .icon{
+                display: grid;
+                grid-template-columns: repeat(2,50%);
+                grid-row-gap: 10px;
+                margin-top: 3%;
+
+                @media screen and (min-width:$pc) {
+                    display: block;
+                    padding-right: 25%;
+                }
+
+                .item{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    @media screen and (min-width:$pc) {
+                        display: inline-block;
+                        margin-bottom: 3%;
+                        margin-right: 1%;
+                    }
+                   
+
+                    img{
+                        width: 18px;
+                        height: 18px;
+                        filter: brightness(5%) sepia(100) saturate(100) hue-rotate(200deg);
+                    }
+                    span{
+                        color: $text-gray;
+                        font-size: 0.8em;
+                        word-break: break-all;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+        .right{
+            figure{
+                img{
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+
+    .map-form{
+        display: grid;
+        grid-template-columns: 100%;
+        grid-row-gap: 10px;
+        margin: 3% 0;
+
+        @media screen and (min-width:$ipadpro) {
+            grid-template-columns: 50% 49%;
+            grid-gap: 1%;
+        }
+
+        .map{
+            @media screen and (min-width:$laptop) {
+                text-align: center;
+            }
+
+            iframe{
+                width: 100%;
+                height: 300px;
+
+                @media screen and (min-width:$ipadpro) {
+                    height: 500px;
+                }
+                @media screen and (min-width:$laptop) {
+                    width: 80%;
+                }
+            }
+        }
+        .form-contact{
+            @media screen and (min-width:$laptop) {
+                width: 60%;
+                margin: 0 auto;
+            }
+
+            .title{
+                margin-bottom: 3%;
+            }
+
+            .inputDual{
+                display: grid;
+                grid-template-columns: 100%;
+                grid-row-gap: 10px;
+                padding: 0 5%;
+                padding-bottom: 5px;
+
+                @media screen and (min-width:$laptop) {
+                    grid-template-columns: 50% 50%;
+                    grid-gap: 1%;
+                }
+
+                .input-box{
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+
+                    @media screen and (min-width:$tablet) {
+                        grid-template-columns: 20% 80%;
+                    }
+                    @media screen and (min-width:$laptop) {
+                        grid-template-columns: 100%;
+                    }
+
+                    input{
+                        @include input();
+                        width: 250px;
+                        padding: 0 3%;
+
+                        @media screen and (min-width:$tablet) {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+            .inputSingle{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                padding: 5px 5%;
+
+                @media screen and (min-width:$tablet) {
+                    grid-template-columns: 20% 80%;
+                }
+                @media screen and (min-width:$laptop) {
+                    grid-template-columns: 100%;
+                }
+
+                input{
+                    @include input();
+                    width: 250px;
+                    padding: 0 3%;
+
+                    @media screen and (min-width:$tablet) {
+                        width: 100%;
+                    }
+                }
+            }
+            .textSingle{
+                display: grid;
+                grid-template-columns: 100%;
+                padding: 5px 5%;
+
+                textarea{
+                    padding: 0 3%;
+                    border-radius: 10px;
+                }
+            }
+            .button{
+                text-align: center;
+                margin-top: 15px;
+
+                button{
+                    @include button(100px);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,370 @@
+@import "brightStyle";
+
+.room-page{
+    width: 95%;
+    margin: 0 auto;
+
+    .title{
+        @include title();
+        margin-top: 5%;
+    }
+
+    .room-page-zone{
+        display: grid;
+        grid-template-columns: 100%;
+        grid-row-gap: 10px;
+        margin-top: 5%;
+
+        .gird-room{
+            display: grid;
+            grid-template-columns: 100%;
+            grid-row-gap: 10px;
+
+            .list-room{
+                .img-review{
+                    position: relative;
+    
+                    figure{
+                        img{
+                            width: 100%;
+                            height: 100%;
+                            border-radius: 10px;
+                        }
+                    }
+    
+                    .virwFull{
+                        position: absolute;
+                        top: 5%;
+                        right: 3%;
+                        width: fit-content;
+                        background-color: #000000b6;
+                        border-radius: 30px;
+                        padding: 0 3%;
+    
+                        p{
+                            color: $background1;
+                            font-family: Lkanit;
+                        }
+                    }
+    
+                    .carousel{
+                        position: absolute;
+                        bottom: 2%;
+                        width: 100%;
+                        height: 20%;
+                        padding: 0 2%;
+    
+                        .list-img{
+                            display: flex;
+                            overflow-x: scroll;
+    
+                            figure{
+                                margin-right: 5px;
+    
+                                img{
+                                    width: 40px;
+                                    height: 40px;
+                                    border-radius: 5px;
+                                }
+                            }
+                        }
+                    }
+                }
+    
+                .detail-room{
+                    padding: 2% 0;
+                    border: 1px solid $blue;
+    
+                    .title-room{
+                        background-color: $blue;
+                        width: 80%;
+                        margin: 0 auto;
+                        padding: 1% 0;
+                        text-align: center;
+                        border-radius: 10px;
+    
+                        h2{
+                            color: $background1;
+                            font-family: Lkanit;
+                        }
+                    }
+    
+                    .priceBeforeSale{
+                        text-align: center;
+    
+                        span.price{
+                            text-decoration: line-through;
+                            margin-top: 5%;
+                            margin-left: 20%;
+                        }
+                        span{
+                            font-size: .8em;
+                        }
+                    }
+    
+                    .currentPrice{
+                        text-align: center;
+                        background-color: $blue;
+    
+                        h3{
+                            color: $background1;
+                            font-size: 3em;
+                        }
+                    }
+    
+                    .facilities{
+                        text-align: center;
+                        margin: 3% auto;
+                        width: 80%;
+    
+                        p{
+                            color: $text-gray;
+                            font-size: .6em;
+                        }
+                    }
+    
+                    .inroom{
+                        display: grid;
+                        grid-template-columns: repeat(6,1fr);
+                        padding: 0 3%;
+                        margin: 3% 0;
+    
+                        .item{
+                            text-align: center;
+                            position: relative;
+                            
+                            span{
+                                display: none;
+                                position: absolute;
+                                top: -30px;
+                                left: 0;
+                                width: max-content;
+                                background: gray;
+                                color: #fff;
+                                padding: 0 5px;
+                                border-radius: 5px;
+                            }
+                            img{
+                                width: 32px;
+                                height: 32px;
+                                filter: brightness(4%) sepia(100) saturate(100) hue-rotate(215deg);
+                            }
+                        }
+                    }
+    
+                    .button{
+                        text-align: center;
+                        button{
+                            @include button(150px)
+                        }
+                    }
+                }
+            }
+        }
+
+        .detail-order{
+            .detial{
+                padding: 0 5%;
+                border-radius: 10px;
+
+                .title{
+                    @include title();
+
+                    h2{
+                        color: $background1;
+                        font-family: Lkanit;
+                    }
+                }
+
+                .box-date{
+                    .input-box{
+                        display: grid;
+                        margin: 1% 0;
+                        position: relative;
+            
+                        label{
+                            color: $background1;
+                        }
+                        input{
+                            @include input();
+                            padding: 0 20px;
+                        }
+                        input[type=number]{
+                            text-align: center;
+                        }
+                        img.left,img.right{
+                            position: absolute;
+                            bottom: 17%;
+                            width: 16px;
+                            height: 16px;
+                            cursor: pointer;
+                        }
+                        img.left{
+                            left: 3%;
+                        }
+                        img.right{
+                            right: 3%;
+                        }
+                    }
+                }
+
+                .detail-list{
+                    display: block;
+                    background-color: $background1;
+                    border-radius: 10px;
+                    margin-top: 5%;
+                    padding: 2%;
+
+                    .list-item{
+                        display: grid;
+                        grid-template-columns: 30% 15% 15% 40%;
+                        border-bottom: 1px solid $text-gray;
+                        margin-bottom: 2%;
+
+                        &:last-child{
+                            border: unset;
+                            margin: unset;
+                        }
+
+                        span{
+                            font-size: .6em;
+                            font-family: Lkanit;
+
+                            &.nameRoom{
+                                margin-left: 5%;
+                            }
+                            &.amound-room,&.amound-day{
+                                text-align: center;
+                            }
+                            &.amound-pricePerDay{
+                                text-align: end;
+                                margin-right: 5%;
+                            }
+                        }
+
+                    }
+                }
+
+                .amound-price{
+                    background-color: $background1;
+                    padding: 2%;
+                    margin-top: 5%;
+                    border-radius: 10px;
+                    
+                    .list{
+                        display: grid;
+                        grid-template-columns: repeat(2,50%);
+
+                        span:nth-child(odd){
+                            text-align: left;
+                        }
+                        span:nth-child(even){
+                            text-align: end
+                        }
+                    }
+                }
+
+                .discount{
+                    display: grid;
+                    grid-template-columns: 70% 30%;
+
+                    .input-box{
+                        display: grid;
+                        margin: 1% 0;
+                        position: relative;
+            
+                        label{
+                            color: $background1;
+                        }
+                        input{
+                            @include input();
+                            padding: 0 20px;
+                        }
+                    }
+                    .button{
+                        display: flex;
+                        justify-content: center;
+                        align-items: flex-end;
+                        padding-bottom: 5%;
+
+                        button{
+                            @include button(80%)
+                        }
+                    }
+                }
+
+                .booking-button{
+                    text-align: center;
+                    padding: 5% 0;
+
+                    button{
+                        @include button(150px)
+                    }
+                }
+            }
+
+            .contact{
+                margin-top: 5%;
+                padding: 5%;
+                border-radius: 10px;
+
+                .title{
+                    @include title();
+
+                    h2{
+                        color: $background1;
+                        font-family: Lkanit;
+                    }
+                }
+
+                .logo{
+                    text-align: center;
+                    margin: 5% 0;
+
+                    img{
+                        width: 70%;
+                        height: 100%;
+                    }
+                }
+
+                .icon{
+                    display: grid;
+                    grid-template-columns: 100%;
+                    grid-row-gap: 10px;
+                    margin-top: 3%;
+    
+                    @media screen and (min-width:$pc) {
+                        display: block;
+                        padding-right: 25%;
+                    }
+    
+                    .item{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+    
+                        @media screen and (min-width:$pc) {
+                            display: inline-block;
+                            margin-bottom: 3%;
+                            margin-right: 1%;
+                        }
+                       
+    
+                        img{
+                            width: 18px;
+                            height: 18px;
+                            filter: invert(100%);
+                        }
+                        span{
+                            color: $background1;
+                            font-size: 0.8em;
+                            word-break: break-all;
+                            text-align: center;
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}
