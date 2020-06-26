@@ -2,7 +2,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="format-detection" content="telephone=no">
-  <link rel="shortcut icon" href="<?= SITE_URL . $App->get_icon_fab_logo(14) ?>" type="image/x-icon">
+  <link rel="shortcut icon" href="<?= SITE_URL . $head['thumbnail'] ?>" type="image/x-icon">
   <meta name='description' content="<?= $head['description'] ?>">
   <meta name='keywords' content="<?= $head['keyword'] ?>">
   <meta property='og:image:type' content='image/jpeg'>
@@ -16,8 +16,15 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <link rel="stylesheet" href="<?=ROOT_URL?>plugin/OwlCarousel/dist/assets/owl.carousel.min.css">
   <link rel="stylesheet" href="<?=ROOT_URL?>plugin/OwlCarousel/dist/assets/owl.theme.default.min.css">
-  <link rel="stylesheet" href="<?=ROOT_URL?>css/gallary.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+
+  <?php // สไตล์ในหน้าต่างๆที่เตรียมแยก ?>
+  <link rel="stylesheet" href="<?=ROOT_URL?>css/gallary.min.css">
+  <link rel="stylesheet" href="<?=ROOT_URL?>css/room.min.css">
+  <link rel="stylesheet" href="<?=ROOT_URL?>css/booking-room.min.css">
+  <link rel="stylesheet" href="<?=ROOT_URL?>css/contact.min.css">
+  <link rel="stylesheet" href="<?=ROOT_URL?>css/promotion.min.css">
+
   <?php /*
     <link rel="stylesheet" href="/css/style.min.css?v=<?=time()?>">
   */ ?> 

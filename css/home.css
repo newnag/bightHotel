@@ -470,6 +470,12 @@ body {
   border: 1px solid #cc9933;
 }
 
+@media screen and (min-width: 1366px) and (max-width: 1600px) {
+  .booking .formBook .input-box input {
+    width: 90% !important;
+  }
+}
+
 .booking .formBook .input-box input[type=number] {
   text-align: center;
 }
@@ -488,6 +494,12 @@ body {
 
 .booking .formBook .input-box img.right {
   right: 3%;
+}
+
+@media screen and (min-width: 1366px) and (max-width: 1600px) {
+  .booking .formBook .input-box img.right {
+    right: 11% !important;
+  }
 }
 
 .booking .formBook .button {

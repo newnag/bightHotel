@@ -1,0 +1,586 @@
+@import 'brightStyle';
+
+.bookingroom-page{
+    width: 95%;
+    margin: 0 auto;
+
+    @media screen and (min-width:$pc) {
+        width: 90%;
+    }
+    @media screen and (min-width:1900px) {
+        width: 80%;
+    }
+
+    .title{
+        @include title();
+        margin-top: 5%;
+    }
+
+    .bookingroom-page-zone{
+        display: grid;
+        grid-template-columns: 100%;
+        grid-row-gap: 10px;
+        margin: 5% 0;
+
+        @media screen and (min-width:$ipadpro) {
+            grid-template-columns: 57% 40%;
+            grid-gap: 3%;
+        }
+
+        .detail-booking-zone{
+            .title{
+                &:nth-child(1){
+                    @media screen and (min-width:$ipadpro) {
+                        margin: 0;
+                    }
+                }
+                @media screen and (min-width:$ipadpro) {
+                    text-align: left;
+                }
+
+                h2{
+                    color: $brown;
+                }
+            }
+
+            .box-bookingRoom{
+                display: grid;
+                grid-template-columns: 100%;
+                grid-row-gap: 10px;
+
+                .bookingRoom{
+                    background-color: $blue;
+                    border-radius: 10px;
+                    padding: 3%;
+
+                    .row{
+                        display: block;
+                        
+                        &:nth-child(1){
+                            @media screen and (min-width:$laptop) {
+                                display: flex;
+                                justify-content: space-between;
+                            }
+                        }
+
+                        .nameroom,.price{
+                            h2{
+                                color: $background1;
+                            }
+                        }
+
+                        .form-grid{
+                            @media screen and (min-width:$tablet) {
+                                display: grid;
+                                grid-template-columns: 49% 49%;
+                                grid-gap: 1%;
+                            }
+
+                            .input-box{
+                                display: grid;
+                                margin: 1% 0;
+                                position: relative;
+                    
+                                label{
+                                    color: $background1;
+                                }
+                                input{
+                                    @include input();
+                                    padding: 0 20px;
+                                    background-color: #2f3f58;
+                                    color: $background1;
+                                    border: unset;
+                                }
+                                input[type=number]{
+                                    text-align: center;
+                                }
+                                img.left,img.right{
+                                    position: absolute;
+                                    bottom: 17%;
+                                    width: 16px;
+                                    height: 16px;
+                                    cursor: pointer;
+                                }
+                                img.left{
+                                    left: 3%;
+                                }
+                                img.right{
+                                    right: 3%;
+                                }
+                            }
+
+                            .input-box:nth-child(1),.input-box:nth-child(2){
+                                @media screen and (min-width:$tablet) {
+                                    grid-column-start: 1;
+                                    grid-column-end: 3;
+                                }
+                            }
+                        }
+
+                        .ps{
+                            margin-top: 3%;
+                            p{
+                                color: $background1;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .cancle-button{
+                text-align: center;
+                margin: 3% 0;
+
+                button{
+                    @include button(200px)
+                }
+            }
+
+            .info-person{
+                background-color: $blue;
+                border-radius: 10px;
+                padding: 3%;
+
+                .dataPersonal{
+                    margin-bottom: 10%;
+
+                    .row{
+                        display: grid;
+                        grid-template-columns: 100%;
+
+                        .input-box{
+                            display: grid;
+                            margin: 1% 0;
+                            position: relative;
+                
+                            label{
+                                color: $background1;
+                            }
+                            input{
+                                @include input();
+                                padding: 0 20px;
+                                background-color: #2f3f58;
+                                color: $background1;
+                                border: unset;
+                            }
+                            input[type=number]{
+                                text-align: center;
+                            }
+                            img.left,img.right{
+                                position: absolute;
+                                bottom: 17%;
+                                width: 16px;
+                                height: 16px;
+                                cursor: pointer;
+                            }
+                            img.left{
+                                left: 3%;
+                            }
+                            img.right{
+                                right: 3%;
+                            }
+                        }
+
+                        @media screen and (min-width:$ipadpro) {
+                            &:nth-child(1){
+                                grid-template-columns: repeat(2,1fr);
+                                grid-gap: 1%;
+                            }
+                        }
+                        @media screen and (min-width:$tablet) {
+                            &:nth-child(2){
+                                grid-template-columns: repeat(3,1fr);
+                                grid-gap: 1%;
+                            }
+                        }
+                        
+                    }
+                }
+
+                .address{
+                    .row{
+                        display: grid;
+                        grid-template-columns: 100%;
+
+                        &:nth-child(2){
+                            grid-template-columns: 49% 49%;
+                            grid-gap: 2%;
+                            grid-row-gap: 5px;
+                        }
+
+                        .input-box{
+                            display: grid;
+                            margin: 1% 0;
+                            position: relative;
+                
+                            label{
+                                color: $background1;
+                            }
+                            input{
+                                @include input();
+                                padding: 0 20px;
+                                background-color: #2f3f58;
+                                color: $background1;
+                                border: unset;
+                            }
+                            input[type=number]{
+                                text-align: center;
+                            }
+                            img.left,img.right{
+                                position: absolute;
+                                bottom: 17%;
+                                width: 16px;
+                                height: 16px;
+                                cursor: pointer;
+                            }
+                            img.left{
+                                left: 3%;
+                            }
+                            img.right{
+                                right: 3%;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .buttonPayment{
+                display: grid;
+                grid-template-columns: 100%;
+                grid-row-gap: 10px;
+                margin-top: 3%;
+
+                @media screen and (min-width:$ipadpro) {
+                    grid-template-columns: repeat(2,49%);
+                    grid-gap: 2%;
+                }
+
+                .PayBank,.PayCredit{
+                    text-align: center;
+
+                    button{
+                        @include button(280px);
+                        @media screen and (min-width:$ipadpro) {
+                            width: 270px
+                        }
+                    }
+                }
+            }
+
+            .box-payment{
+                background-color: $blue;
+                border-radius: 10px;
+                padding: 3%;
+
+                @media screen and (min-width:$ipadpro) {
+                    display: grid;
+                    grid-template-columns: repeat(2,49%);
+                    grid-gap: 2%;
+                }
+
+                .box-bank{
+                    .input-box{
+                        display: grid;
+                        margin: 1% 0;
+                        position: relative;
+            
+                        label{
+                            color: $background1;
+                        }
+                        input{
+                            @include input();
+                            padding: 0 20px;
+                            border: unset;
+                        }
+                        select{
+                            @include input();
+                            padding: 0 20px;
+                        }
+                    }
+                }
+
+                .right-box{
+                    .date-box{
+                        margin: 3% 0;
+
+                        @media screen and (min-width:$ipadpro) {
+                            margin: 0;
+                        }
+    
+                        .input-box{
+                            display: grid;
+                            margin: 1% 0;
+                            position: relative;
+
+                            @media screen and (min-width:$ipadpro) {
+                                margin-bottom: 3%;
+                            }
+                
+                            label{
+                                color: $background1;
+                            }
+                            input{
+                                @include input();
+                                padding: 0 20px;
+                                border: unset;
+                            }
+                        }
+                    }
+    
+                    .upload-slip{
+                        border: 1px dashed $background1;
+                        display: flex;
+                        flex-direction: column;
+                        text-align: center;
+                        padding: 5%;
+                        position: relative;
+    
+                        figure{
+                            img{
+                                width: 32px;
+                                height: 32px;
+                                filter: invert(100%);
+                            }
+                        }
+                        span{
+                            color: $background1;
+                        }
+                        label{
+                            cursor: pointer;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                        }
+                        input[type="file"]{
+                            display: none;
+                        }
+                    }
+                }           
+            }
+
+            .buttonFinalPay{
+                margin-top: 5%;
+                text-align: center;
+
+                button{
+                    @include button(150px)
+                }
+            }
+        }
+
+        .detail-order{
+            @media screen and (min-width:$ipadpro) {
+                margin-top: 54px;
+            }
+            .detial{
+                padding: 0 5%;
+                border-radius: 10px;
+
+                .title{
+                    @include title();
+
+                    @media screen and (min-width:$ipadpro) {
+                        padding-top: 5%;
+                        margin: unset;
+                    }
+
+                    h2{
+                        color: $background1;
+                        font-family: Lkanit;
+                    }
+                }
+
+                .box-date{
+                    .input-box{
+                        display: grid;
+                        margin: 1% 0;
+                        position: relative;
+            
+                        label{
+                            color: $background1;
+                        }
+                        input{
+                            @include input();
+                            padding: 0 20px;
+                        }
+                        input[type=number]{
+                            text-align: center;
+                        }
+                        img.left,img.right{
+                            position: absolute;
+                            bottom: 17%;
+                            width: 16px;
+                            height: 16px;
+                            cursor: pointer;
+                        }
+                        img.left{
+                            left: 3%;
+                        }
+                        img.right{
+                            right: 3%;
+                        }
+                    }
+                }
+
+                .detail-list{
+                    display: block;
+                    background-color: $background1;
+                    border-radius: 10px;
+                    margin-top: 5%;
+                    padding: 2%;
+
+                    .list-item{
+                        display: grid;
+                        grid-template-columns: 30% 15% 15% 40%;
+                        border-bottom: 1px solid $text-gray;
+                        margin-bottom: 2%;
+
+                        &:last-child{
+                            border: unset;
+                            margin: unset;
+                        }
+
+                        span{
+                            font-size: .6em;
+                            font-family: Lkanit;
+
+                            &.nameRoom{
+                                margin-left: 5%;
+                            }
+                            &.amound-room,&.amound-day{
+                                text-align: center;
+                            }
+                            &.amound-pricePerDay{
+                                text-align: end;
+                                margin-right: 5%;
+                            }
+                        }
+
+                    }
+                }
+
+                .amound-price{
+                    background-color: $background1;
+                    padding: 2%;
+                    margin-top: 5%;
+                    border-radius: 10px;
+                    
+                    .list{
+                        display: grid;
+                        grid-template-columns: repeat(2,50%);
+
+                        span:nth-child(odd){
+                            text-align: left;
+                        }
+                        span:nth-child(even){
+                            text-align: end
+                        }
+                    }
+                }
+
+                .discount{
+                    display: grid;
+                    grid-template-columns: 70% 30%;
+
+                    .input-box{
+                        display: grid;
+                        margin: 1% 0;
+                        position: relative;
+            
+                        label{
+                            color: $background1;
+                        }
+                        input{
+                            @include input();
+                            padding: 0 20px;
+                        }
+                    }
+                    .button{
+                        display: flex;
+                        justify-content: center;
+                        align-items: flex-end;
+                        padding-bottom: 5%;
+
+                        button{
+                            @include button(80%)
+                        }
+                    }
+                }
+
+                .booking-button{
+                    text-align: center;
+                    padding: 5% 0;
+
+                    button{
+                        @include button(150px)
+                    }
+                }
+            }
+
+            .contact{
+                margin-top: 5%;
+                padding: 5%;
+                border-radius: 10px;
+
+                .title{
+                    @include title();
+
+                    h2{
+                        color: $background1;
+                        font-family: Lkanit;
+                    }
+                }
+
+                .logo{
+                    text-align: center;
+                    margin: 5% 0;
+
+                    img{
+                        width: 70%;
+                        height: 100%;
+                    }
+                }
+
+                .icon{
+                    display: grid;
+                    grid-template-columns: 100%;
+                    grid-row-gap: 10px;
+                    margin-top: 3%;
+    
+                    @media screen and (min-width:$pc) {
+                        display: block;
+                        padding-right: 25%;
+                    }
+    
+                    .item{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+    
+                        @media screen and (min-width:$pc) {
+                            display: inline-block;
+                            margin-bottom: 3%;
+                            margin-right: 1%;
+                        }
+                       
+    
+                        img{
+                            width: 18px;
+                            height: 18px;
+                            filter: invert(100%);
+                        }
+                        span{
+                            color: $background1;
+                            font-size: 0.8em;
+                            word-break: break-all;
+                            text-align: center;
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}

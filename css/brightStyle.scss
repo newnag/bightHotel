@@ -399,6 +399,10 @@ body{
             input{
                 @include input();
                 padding: 0 20px;
+
+                @media screen and (min-width:$laptop) and (max-width:$pc) {
+                    width: 90%!important;
+                }
             }
             input[type=number]{
                 text-align: center;
@@ -415,6 +419,10 @@ body{
             }
             img.right{
                 right: 3%;
+
+                @media screen and (min-width:$laptop) and (max-width:$pc) {
+                    right: 11%!important;
+                }
             }
         }
         .button{
