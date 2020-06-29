@@ -1,41 +1,16 @@
 window.onload = ()=>{
     selectImgReview()
-    openDialogRoom()
-    closeDialogRoom()
     if(screen.width >= 1366){
-        DragImg()
+        DragImg('.img-review .carousel .list-img')
     }
-}
-
-function DragImg(){
-    const slider = document.querySelectorAll('.img-review .carousel .list-img');
-    let isDown = false;
-    let startX;
-    let scrollLeft;
-
-    slider.forEach(element => {
-        element.addEventListener('mousedown', (e) => {
-            isDown = true;
-            element.classList.add('drag');
-            startX = e.pageX - element.offsetLeft;
-            scrollLeft = element.scrollLeft;
-        });
-        element.addEventListener('mouseleave', () => {
-            isDown = false;
-            element.classList.remove('drag');
-        });
-        element.addEventListener('mouseup', () => {
-            isDown = false;
-            element.classList.remove('drag');
-        });
-        element.addEventListener('mousemove', (e) => {
-            if(!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - element.offsetLeft;
-            const walk = (x - startX) * 3; //scroll-fast
-            element.scrollLeft = scrollLeft - walk;
-        });
-    });
+    if($('.room-page-zone')){
+        openDialogRoom()
+        closeDialogRoom()
+    }
+    if(screen.width < 1366){
+        facilitiesIcon()
+    } 
+    clickImgChangeURL()
 }
 
 // ยังไม่เสร็จ
@@ -70,7 +45,38 @@ function openDialogRoom(){
 }
 
 function closeDialogRoom(){
-    document.querySelector('.dialog-fullview .inner-dialog .close button').addEventListener('click',()=>{
-        document.querySelector('.dialog-fullview').style.display = 'none'
+    try {
+        document.querySelector('.dialog-fullview .inner-dialog .close button').addEventListener('click',()=>{
+            document.querySelector('.dialog-fullview').style.display = 'none'
+        })
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+function facilitiesIcon(){
+    let span = document.querySelectorAll('.detail-room .inroom .item')
+    span.forEach(faSpan => {
+        faSpan.addEventListener('click',()=>{
+            let spanActive = faSpan.children[0].className
+            if(spanActive !== 'active'){
+                faSpan.children[0].classList.add('active')
+            }
+            else{
+                faSpan.children[0].classList.remove('active')
+            }
+        })
+    })
+}
+
+function clickImgChangeURL(){
+    let urlBig = document.querySelectorAll('.list-room .img-review')
+    urlBig.forEach(big=>{
+        let urlImg = big.querySelectorAll('.carousel .list-img figure img')
+        urlImg.forEach(url=>{
+            url.addEventListener('click',()=>{
+                big.children[0].children[0].src = url.src
+            })
+        })
     })
 }

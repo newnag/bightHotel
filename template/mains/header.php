@@ -4,7 +4,7 @@
             <div class="logo"><figure><a href=""><img src="<?=ROOT_URL?>img/logo-01.png" alt=""></a></figure></div>
             <nav>
                 <ul class="menu">
-                    <?=$MYNAV_TOP?>
+                    <?=$MYNAV_MENU_TOP?>
                     <div class="icon">
                         <a target="_blank" href="tel:<?=$CONTACT_WEB->phone?>"><img src="<?=ROOT_URL?>img/icon/mobile-solid.svg" alt="telephone icon"></a>
                         <a target="_blank" href="https://line.me/ti/p/~<?=$CONTACT_WEB->line?>"><img src="<?=ROOT_URL?>img/icon/instagram-brands.svg" alt="instagram icon"></a>

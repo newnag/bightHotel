@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/history.min.css">
+    <link rel="stylesheet" href="/src/plugin/OwlCarousel/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="/src/plugin/OwlCarousel/dist/assets/owl.theme.default.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+    <header>
+        <div class="header">
+            <div class="logo"><figure><a href=""><img src="/src/img/logo-01.png" alt=""></a></figure></div>
+            <nav>
+                <ul class="menu">
+                    <li class="menulist"><a href="" class="active">หน้าแรก</a></li>
+                    <li class="menulist">
+                        <div class="room" onclick="toggleSubRoom()">ห้อง <img src="/src/img/icon/down-arrow.svg" alt="">
+                            <ul class="subroom">
+                                <li><a href="">ห้องพัก</a></li>
+                                <li><a href="">Meeting Room</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="menulist"><a href="">โปรโมชั่น</a></li>
+                    <li class="menulist"><a href="">แกลเลอรี่</a></li>
+                    <li class="menulist"><a href="">ติดต่อเรา</a></li>    
+                    
+                    <div class="icon">
+                        <a href=""><img src="/src/img/icon/mobile-solid.svg" alt=""></a>
+                        <a href=""><img src="/src/img/icon/instagram-brands.svg" alt=""></a>
+                        <a href=""><img src="/src/img/icon/facebook-brands.svg" alt=""></a>
+                    </div>
+                </ul>
+                <div class="hamburger" onclick="clickMenuMobile()">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+                <div class="search">
+                    <input type="tel" onkeyup="checkNumberTel()" maxlength="10" placeholder="ค้นหาการจองจากเบอร์โทร">
+                    <img src="/src/img/icon/search-solid.svg" alt="">
+                </div>
+            </nav>
+        </div>
+    </header>
+       <!-- ตัวสไลด์ ไฟล์จัดการชื่อ slide.js -->
+    <div class="slide owl-carousel">
+        <div class="item"><img src="/src/img/view.jpg" alt=""></div>
+        <div class="item"><img src="/src/img/view.jpg" alt=""></div>
+        <div class="item"><img src="/src/img/view.jpg" alt=""></div>
+        <div class="item"><img src="/src/img/view.jpg" alt=""></div>
+        <div class="item"><img src="/src/img/view.jpg" alt=""></div>
+    </div>
+
+    <!-- โซนการจอง -->
+    <div class="booking" style="background:url('/src/img/BG.jpg')">
+        <div class="formBook">
+            <div class="input-box">
+                <label>เช็คอิน</label>
+                <input type="date" class="dateCheck">
+            </div>
+
+            <div class="input-box">
+                <label>เช็คเอาท์</label>
+                <input type="date" class="dateCheck">
+            </div>
+
+            <div class="input-box adult">
+                <label>ผู้ใหญ่/คน</label>
+                <input type="number" id="adult" value="0" disabled>
+                <img class="left" src="/src/img/icon/minus.svg" alt="">
+                <img class="right" src="/src/img/icon/plus.svg" alt="">
+            </div>
+
+            <div class="input-box child">
+                <label>เด็ก/คน</label>
+                <input type="number" id="child" value="0" disabled>
+                <img class="left" src="/src/img/icon/minus.svg" alt="">
+                <img class="right" src="/src/img/icon/plus.svg" alt="">
+            </div>
+
+            <div class="button"><button>จอง</button></div>
+        </div>
+    </div>
+
+    <div class="history-page">
+        <div class="title">
+            <h1>ประวัติการจอง</h1>
+            <span>โรงแรมสไตล์โมเดิร์นคลาสิค แห่งแรกในจังหวัดขอนแก่น</span>
+        </div>
+
+        <div class="history-page-zone">
+            <div class="grid-item">
+                <a href="">
+                    <div class="item">
+                        <div class="table-head">
+                            <span>วัน</span>
+                            <span>ประเภทห้อง</span>
+                            <span class="discount">ส่วนลด</span>
+                            <span class="group-price">ราคา</span>
+                            <span class="status">สถานะ</span>
+                            <span class="delete">ลบ</span>
+                        </div>
+                        <div class="table-body">
+                            <span>22 มิ.ย. 2563 - 23 มิ.ย. 2563</span>
+                            <div class="group-nameroom">
+                                <span>Triple Room</span>
+                                <span>Deluxe Room</span>
+                            </div>
+                            <span class="discount">-</span>
+                            <div class="group-price">
+                                <span>1,400</span>
+                                <span>2,400</span>
+                            </div>
+                            <div class="status">
+                                <span class="non-pay">ยังไม่ชำระ</span>
+                            </div>
+                            <span class="delete">ลบ</span>
+                        </div>
+                        <div class="table-end">
+                            <span>2 วัน 1 คืน</span>
+                            <span>3,800</span>
+                        </div>
+                    </div>
+                </a> 
+
+                <a href="">
+                    <div class="item">
+                        <div class="table-head">
+                            <span>วัน</span>
+                            <span>ประเภทห้อง</span>
+                            <span class="discount">ส่วนลด</span>
+                            <span class="group-price">ราคา</span>
+                            <span class="status">สถานะ</span>
+                            <span class="delete">ลบ</span>
+                        </div>
+                        <div class="table-body">
+                            <span>22 มิ.ย. 2563 - 23 มิ.ย. 2563</span>
+                            <div class="group-nameroom">
+                                <span>Triple Room</span>
+                                <span>Deluxe Room</span>
+                            </div>
+                            <span class="discount">-</span>
+                            <div class="group-price">
+                                <span>1,400</span>
+                                <span>2,400</span>
+                            </div>
+                            <div class="status">
+                                <span class="prepare">รอตรวจสอบ</span>
+                            </div>
+                            <span class="delete">ลบ</span>
+                        </div>
+                        <div class="table-end">
+                            <span>2 วัน 1 คืน</span>
+                            <span>3,800</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="">
+                    <div class="item">
+                        <div class="table-head">
+                            <span>วัน</span>
+                            <span>ประเภทห้อง</span>
+                            <span class="discount">ส่วนลด</span>
+                            <span class="group-price">ราคา</span>
+                            <span class="status">สถานะ</span>
+                            <span class="delete">ลบ</span>
+                        </div>
+                        <div class="table-body">
+                            <span>22 มิ.ย. 2563 - 23 มิ.ย. 2563</span>
+                            <div class="group-nameroom">
+                                <span>Triple Room</span>
+                                <span>Deluxe Room</span>
+                            </div>
+                            <span class="discount">-</span>
+                            <div class="group-price">
+                                <span>1,400</span>
+                                <span>2,400</span>
+                            </div>
+                            <div class="status">
+                                <span class="success">ยืนยันแล้ว</span>
+                            </div>
+                            <span class="delete">ลบ</span>
+                        </div>
+                        <div class="table-end">
+                            <span>2 วัน 1 คืน</span>
+                            <span>3,800</span>
+                        </div>
+                    </div>
+                </a>    
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="/src/plugin/OwlCarousel/dist/owl.carousel.min.js"></script>
+    <script src="/js/page/functions.js"></script>
+    <script src="/src/js/slide.js"></script>
+    <script src="/js/page/hotel.js"></script>
+    <script src="/js/page/bookHome.js"></script>
+    <script src="/js/page/history.js"></script>
+</body>
+</html>

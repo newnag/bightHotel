@@ -724,226 +724,186 @@ body {
   }
 }
 
-.content {
-  margin: 5% 0;
+.meeting-page {
+  width: 95%;
+  margin: 0 auto;
 }
 
-.content .title {
+@media screen and (min-width: 1600px) {
+  .meeting-page {
+    width: 90%;
+  }
+}
+
+@media screen and (min-width: 1900px) {
+  .meeting-page {
+    width: 80%;
+  }
+}
+
+.meeting-page .title {
   text-align: center;
-  margin: 2% 0;
+  margin-top: 5%;
 }
 
-.content .title h1 {
+.meeting-page .title h1 {
   color: #cc9933;
 }
 
-.content .title span {
+.meeting-page .title span {
   font-family: Lkanit;
   font-style: italic;
 }
 
-.content .ck {
-  text-align: center;
+.meeting-page .meeting-page-zone {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
+  grid-row-gap: 10px;
+  margin: 5% 0;
 }
 
-@media screen and (max-width: 480px) {
-  .content .ck p {
-    font-size: 0.8em !important;
+@media screen and (min-width: 1024px) {
+  .meeting-page .meeting-page-zone {
+    -ms-grid-columns: 57% 40%;
+        grid-template-columns: 57% 40%;
+    grid-gap: 3%;
   }
 }
 
-.content .ck img {
+.meeting-page .meeting-page-zone .gird-room {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
+  grid-row-gap: 40px;
+}
+
+.meeting-page .meeting-page-zone .gird-room .list-room .img-review {
+  position: relative;
+}
+
+.meeting-page .meeting-page-zone .gird-room .list-room .img-review figure img {
   width: 100%;
+  height: 100%;
+  border-radius: 10px;
 }
 
-.content .box-grid {
-  display: -ms-grid;
-  display: grid;
-  grid-row-gap: 20px;
+.meeting-page .meeting-page-zone .gird-room .list-room .img-review .virwFull {
+  position: absolute;
+  top: 5%;
+  right: 3%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: #000000b6;
+  border-radius: 30px;
+  padding: 0 3%;
+  cursor: pointer;
 }
 
-.content .box-grid .column {
-  display: -ms-grid;
-  display: grid;
-  text-align: center;
-  grid-row-gap: 10px;
+.meeting-page .meeting-page-zone .gird-room .list-room .img-review .virwFull p {
+  color: #fff;
+  font-family: Lkanit;
 }
 
-.content .box-grid .column figure img {
-  width: 64px;
-  height: 64px;
-  -webkit-filter: invert(50%) contrast(100%) sepia(100%) brightness(100%) hue-rotate(0deg);
-          filter: invert(50%) contrast(100%) sepia(100%) brightness(100%) hue-rotate(0deg);
-}
-
-.content .bigimg img {
+.meeting-page .meeting-page-zone .gird-room .list-room .img-review .carousel {
+  position: absolute;
+  bottom: 5px;
   width: 100%;
-  height: 300px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 0 2%;
 }
 
-.content .icon {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (50%)[2];
-      grid-template-columns: repeat(2, 50%);
-  grid-row-gap: 10px;
-  margin-top: 3%;
-}
-
-.content .icon .item {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.content .icon .item img {
-  width: 32px;
-  height: 32px;
-  -webkit-filter: brightness(5%) sepia(100) saturate(100) hue-rotate(200deg);
-          filter: brightness(5%) sepia(100) saturate(100) hue-rotate(200deg);
-}
-
-.content .icon .item span {
-  color: #777777;
-  font-size: 0.8em;
-  word-break: break-all;
-  text-align: center;
-}
-
-.content .grid-room {
+.meeting-page .meeting-page-zone .gird-room .list-room .img-review .carousel .list-img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   cursor: pointer;
 }
 
-.content .grid-room.drag {
+.meeting-page .meeting-page-zone .gird-room .list-room .img-review .carousel .list-img::-webkit-scrollbar {
+  display: none;
+}
+
+.meeting-page .meeting-page-zone .gird-room .list-room .img-review .carousel .list-img figure {
+  margin-right: 5px;
+}
+
+.meeting-page .meeting-page-zone .gird-room .list-room .img-review .carousel .list-img figure img {
+  width: 80px;
+  height: 80px;
+  border-radius: 5px;
+}
+
+.meeting-page .meeting-page-zone .gird-room .list-room .img-review .carousel .list-img figure img.active {
+  border: 1px solid #fff;
+}
+
+.meeting-page .meeting-page-zone .gird-room .list-room .img-review .carousel .list-img.drag {
   cursor: grabbing;
   cursor: -webkit-grabbing;
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 
-.content .grid-room::-webkit-scrollbar {
-  width: 50%;
-  height: 5px;
+.meeting-page .meeting-page-zone .gird-room .list-room .detail-room {
+  padding: 2% 0;
+  border: 1px solid #22324b;
 }
 
-.content .grid-room::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 5px grey;
-          box-shadow: inset 0 0 5px grey;
-  border-radius: 10px;
-}
-
-.content .grid-room::-webkit-scrollbar-thumb {
-  background: #cc9933;
-  border-radius: 10px;
-}
-
-.content .grid-room .item-room {
-  padding: 2%;
-}
-
-.content .grid-room .item-room .box {
-  width: 270px;
+.meeting-page .meeting-page-zone .gird-room .list-room .detail-room .title-room {
+  background-color: #22324b;
+  width: 80%;
   margin: 0 auto;
-  border: 1px solid lightgray;
-  border-radius: 10px;
-  background-color: #fff;
-}
-
-.content .grid-room .item-room .box figure {
+  padding: 1% 0;
   text-align: center;
-  height: 180px;
-  position: relative;
+  border-radius: 10px;
 }
 
-.content .grid-room .item-room .box figure span {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: #fff;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  border-radius: 15px;
-  padding: 0 2%;
+.meeting-page .meeting-page-zone .gird-room .list-room .detail-room .title-room h2 {
+  color: #fff;
+  font-family: Lkanit;
 }
 
-@supports (-webkit-touch-callout: none) {
-  .content .grid-room .item-room .box figure span {
-    width: 40%;
+@media screen and (min-width: 1024px) {
+  .meeting-page .meeting-page-zone .gird-room .list-room .detail-room .title-room h2 {
+    font-size: 1.4em;
   }
 }
 
-.content .grid-room .item-room .box figure img {
-  width: 100%;
-  height: 100%;
-  border-radius: 10px 10px 0 0;
-}
-
-.content .grid-room .item-room .box .price {
+.meeting-page .meeting-page-zone .gird-room .list-room .detail-room .facilities {
   text-align: center;
-  background: #cc9933;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  border-radius: 0 0 35px 35px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  margin: 3% auto;
+  width: 80%;
 }
 
-.content .grid-room .item-room .box .price .discount {
-  text-align: center;
-  margin-left: 25%;
-}
-
-.content .grid-room .item-room .box .price .discount span {
-  font-size: 0.6em;
-  color: #fff;
-  text-decoration: line-through;
-}
-
-.content .grid-room .item-room .box .price .sumprice span {
-  color: #fff;
-  font-size: 1.6em;
-}
-
-.content .grid-room .item-room .box .description {
-  margin: 3% 5%;
-  height: 5em;
-  border-bottom: 2px solid #e2e2e2;
-  overflow-y: hidden;
-}
-
-.content .grid-room .item-room .box .description p {
+.meeting-page .meeting-page-zone .gird-room .list-room .detail-room .facilities p {
   color: #777777;
+  font-size: .8em;
 }
 
-.content .grid-room .item-room .box .inroom {
+.meeting-page .meeting-page-zone .gird-room .list-room .detail-room .inroom {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[5];
-      grid-template-columns: repeat(5, 1fr);
+  -ms-grid-columns: (1fr)[6];
+      grid-template-columns: repeat(6, 1fr);
+  padding: 0 3%;
+  margin: 3% 0;
 }
 
-.content .grid-room .item-room .box .inroom .item {
+.meeting-page .meeting-page-zone .gird-room .list-room .detail-room .inroom .item {
   text-align: center;
   position: relative;
 }
 
-.content .grid-room .item-room .box .inroom .item span {
+.meeting-page .meeting-page-zone .gird-room .list-room .detail-room .inroom .item span {
   display: none;
   position: absolute;
   top: -30px;
@@ -957,46 +917,54 @@ body {
   border-radius: 5px;
 }
 
-.content .grid-room .item-room .box .inroom .item img {
+.meeting-page .meeting-page-zone .gird-room .list-room .detail-room .inroom .item span.active {
+  display: block;
+}
+
+.meeting-page .meeting-page-zone .gird-room .list-room .detail-room .inroom .item img {
   width: 32px;
   height: 32px;
   -webkit-filter: brightness(4%) sepia(100) saturate(100) hue-rotate(215deg);
           filter: brightness(4%) sepia(100) saturate(100) hue-rotate(215deg);
 }
 
-.content .grid-room .item-room .button {
-  text-align: center;
-  margin-top: 5%;
-}
-
-.content .grid-room .item-room .button button {
-  width: 180px;
-  height: 40px;
-  background-color: #cc9933;
-  color: #fff;
-  -webkit-box-shadow: 0px 1px 5px #777777;
-          box-shadow: 0px 1px 5px #777777;
-  font-size: 1.4em;
-  font-family: Bkanit;
-  border: unset;
-  border-radius: 30px;
-  cursor: pointer;
-}
-
-.content .grid-room .item-room .button button:hover {
-  background: #79472c;
-  -webkit-transition: .3s;
-  transition: .3s;
-}
-
 @media screen and (min-width: 1366px) {
-  .content.contact .form-contact {
-    width: 60%;
-    margin: 0 auto;
+  .meeting-page .meeting-page-zone .gird-room .list-room .detail-room .inroom .item:hover span {
+    display: block;
   }
 }
 
-.content.contact .form-contact .inputDual {
+.meeting-page .meeting-page-zone .detail-order .detial {
+  border-radius: 10px;
+  padding-bottom: 5%;
+}
+
+.meeting-page .meeting-page-zone .detail-order .detial .title {
+  text-align: center;
+}
+
+.meeting-page .meeting-page-zone .detail-order .detial .title h1 {
+  color: #cc9933;
+}
+
+.meeting-page .meeting-page-zone .detail-order .detial .title span {
+  font-family: Lkanit;
+  font-style: italic;
+}
+
+@media screen and (min-width: 1024px) {
+  .meeting-page .meeting-page-zone .detail-order .detial .title {
+    padding-top: 5%;
+    margin: unset;
+  }
+}
+
+.meeting-page .meeting-page-zone .detail-order .detial .title h2 {
+  color: #fff;
+  font-family: Lkanit;
+}
+
+.meeting-page .meeting-page-zone .detail-order .detial .form .inputDual {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 100%;
@@ -1007,14 +975,14 @@ body {
 }
 
 @media screen and (min-width: 1366px) {
-  .content.contact .form-contact .inputDual {
+  .meeting-page .meeting-page-zone .detail-order .detial .form .inputDual {
     -ms-grid-columns: 50% 50%;
         grid-template-columns: 50% 50%;
     grid-gap: 1%;
   }
 }
 
-.content.contact .form-contact .inputDual .input-box {
+.meeting-page .meeting-page-zone .detail-order .detial .form .inputDual .input-box {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr;
@@ -1022,20 +990,24 @@ body {
 }
 
 @media screen and (min-width: 768px) {
-  .content.contact .form-contact .inputDual .input-box {
+  .meeting-page .meeting-page-zone .detail-order .detial .form .inputDual .input-box {
     -ms-grid-columns: 20% 80%;
         grid-template-columns: 20% 80%;
   }
 }
 
 @media screen and (min-width: 1366px) {
-  .content.contact .form-contact .inputDual .input-box {
+  .meeting-page .meeting-page-zone .detail-order .detial .form .inputDual .input-box {
     -ms-grid-columns: 100%;
         grid-template-columns: 100%;
   }
 }
 
-.content.contact .form-contact .inputDual .input-box input {
+.meeting-page .meeting-page-zone .detail-order .detial .form .inputDual .input-box label {
+  color: #fff;
+}
+
+.meeting-page .meeting-page-zone .detail-order .detial .form .inputDual .input-box input {
   width: 100%;
   height: 40px;
   border: 1px solid #777777;
@@ -1044,17 +1016,17 @@ body {
   padding: 0 3%;
 }
 
-.content.contact .form-contact .inputDual .input-box input:focus {
+.meeting-page .meeting-page-zone .detail-order .detial .form .inputDual .input-box input:focus {
   border: 1px solid #cc9933;
 }
 
 @media screen and (min-width: 768px) {
-  .content.contact .form-contact .inputDual .input-box input {
+  .meeting-page .meeting-page-zone .detail-order .detial .form .inputDual .input-box input {
     width: 100%;
   }
 }
 
-.content.contact .form-contact .inputSingle {
+.meeting-page .meeting-page-zone .detail-order .detial .form .inputSingle {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr;
@@ -1063,20 +1035,24 @@ body {
 }
 
 @media screen and (min-width: 768px) {
-  .content.contact .form-contact .inputSingle {
+  .meeting-page .meeting-page-zone .detail-order .detial .form .inputSingle {
     -ms-grid-columns: 20% 80%;
         grid-template-columns: 20% 80%;
   }
 }
 
 @media screen and (min-width: 1366px) {
-  .content.contact .form-contact .inputSingle {
+  .meeting-page .meeting-page-zone .detail-order .detial .form .inputSingle {
     -ms-grid-columns: 100%;
         grid-template-columns: 100%;
   }
 }
 
-.content.contact .form-contact .inputSingle input {
+.meeting-page .meeting-page-zone .detail-order .detial .form .inputSingle label {
+  color: #fff;
+}
+
+.meeting-page .meeting-page-zone .detail-order .detial .form .inputSingle input {
   width: 100%;
   height: 40px;
   border: 1px solid #777777;
@@ -1085,17 +1061,17 @@ body {
   padding: 0 3%;
 }
 
-.content.contact .form-contact .inputSingle input:focus {
+.meeting-page .meeting-page-zone .detail-order .detial .form .inputSingle input:focus {
   border: 1px solid #cc9933;
 }
 
 @media screen and (min-width: 768px) {
-  .content.contact .form-contact .inputSingle input {
+  .meeting-page .meeting-page-zone .detail-order .detial .form .inputSingle input {
     width: 100%;
   }
 }
 
-.content.contact .form-contact .textSingle {
+.meeting-page .meeting-page-zone .detail-order .detial .form .textSingle {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 100%;
@@ -1103,17 +1079,21 @@ body {
   padding: 5px 5%;
 }
 
-.content.contact .form-contact .textSingle textarea {
+.meeting-page .meeting-page-zone .detail-order .detial .form .textSingle label {
+  color: #fff;
+}
+
+.meeting-page .meeting-page-zone .detail-order .detial .form .textSingle textarea {
   padding: 0 3%;
   border-radius: 10px;
 }
 
-.content.contact .form-contact .button {
+.meeting-page .meeting-page-zone .detail-order .detial .form .button {
   text-align: center;
   margin-top: 15px;
 }
 
-.content.contact .form-contact .button button {
+.meeting-page .meeting-page-zone .detail-order .detial .form .button button {
   width: 100px;
   height: 40px;
   background-color: #cc9933;
@@ -1127,92 +1107,94 @@ body {
   cursor: pointer;
 }
 
-.content.contact .form-contact .button button:hover {
+.meeting-page .meeting-page-zone .detail-order .detial .form .button button:hover {
   background: #79472c;
   -webkit-transition: .3s;
   transition: .3s;
 }
 
-.content.service {
-  padding: 3% 0;
+.meeting-page .meeting-page-zone .detail-order .contact {
+  margin-top: 5%;
+  padding: 5%;
+  border-radius: 10px;
 }
 
-@media screen and (min-width: 1366px) {
-  .content.service {
-    padding: 3%;
-  }
+.meeting-page .meeting-page-zone .detail-order .contact .title {
+  text-align: center;
 }
 
-.content.service .box-grid {
+.meeting-page .meeting-page-zone .detail-order .contact .title h1 {
+  color: #cc9933;
+}
+
+.meeting-page .meeting-page-zone .detail-order .contact .title span {
+  font-family: Lkanit;
+  font-style: italic;
+}
+
+.meeting-page .meeting-page-zone .detail-order .contact .title h2 {
   color: #fff;
+  font-family: Lkanit;
 }
 
-@media screen and (min-width: 1366px) {
-  .content.service .box-grid {
-    -ms-grid-columns: (calc(98%/3))[3];
-        grid-template-columns: repeat(3, calc(98%/3));
-    grid-gap: 1%;
-  }
+.meeting-page .meeting-page-zone .detail-order .contact .logo {
+  text-align: center;
+  margin: 5% 0;
 }
 
-@media screen and (min-width: 1366px) {
-  .content.room {
-    padding-bottom: 2%;
-  }
+.meeting-page .meeting-page-zone .detail-order .contact .logo img {
+  width: 70%;
+  height: 100%;
 }
 
-@media screen and (min-width: 1366px) {
-  .content.room .title {
-    padding: 2% 0;
-  }
+.meeting-page .meeting-page-zone .detail-order .contact .icon {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
+  grid-row-gap: 10px;
+  margin-top: 3%;
 }
 
-.content.service .title span, .content.room .title span {
-  color: #fff;
-}
-
-@media screen and (min-width: 1024px) {
-  .content.row1 {
-    width: 95%;
-    margin: 0 auto;
-  }
-}
-
-@media screen and (min-width: 1366px) {
-  .content.row1 {
-    width: 95%;
-    margin: 5% auto;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .content.row3 {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 58% 40%;
-        grid-template-columns: 58% 40%;
-    grid-gap: 2%;
-    width: 90%;
-    margin: 0 auto;
-  }
-  .content.row3 .bigimg {
-    -ms-grid-row: 1;
-        grid-row-start: 1;
-    grid-row-end: 4;
-  }
-  .content.row3 .bigimg img {
-    height: unset;
-  }
-  .content.row3 .title, .content.row3 .ck {
-    text-align: left;
-  }
-  .content.row3 .icon {
+@media screen and (min-width: 1600px) {
+  .meeting-page .meeting-page-zone .detail-order .contact .icon {
     display: block;
-  }
-  .content.row3 .icon .item {
-    display: inline-block;
-    margin-right: 3%;
-    margin-bottom: 1%;
+    padding-right: 25%;
   }
 }
-/*# sourceMappingURL=home.css.map */
+
+.meeting-page .meeting-page-zone .detail-order .contact .icon .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media screen and (min-width: 1600px) {
+  .meeting-page .meeting-page-zone .detail-order .contact .icon .item {
+    display: inline-block;
+    margin-bottom: 3%;
+    margin-right: 1%;
+  }
+}
+
+.meeting-page .meeting-page-zone .detail-order .contact .icon .item img {
+  width: 18px;
+  height: 18px;
+  -webkit-filter: invert(100%);
+          filter: invert(100%);
+}
+
+.meeting-page .meeting-page-zone .detail-order .contact .icon .item span {
+  color: #fff;
+  font-size: 0.8em;
+  word-break: break-all;
+  text-align: center;
+}
+/*# sourceMappingURL=meeting.css.map */

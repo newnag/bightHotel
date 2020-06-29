@@ -192,8 +192,15 @@ body {
 
 .header nav .menu .menulist a.active {
   background: #cc9933;
-  padding: 0 2%;
+  padding: 5%;
   border-radius: 5px;
+  color: #fff !important;
+}
+
+.header nav .menu .menulist a:hover {
+  color: #cc9933;
+  -webkit-transition: .3s;
+  transition: .3s;
 }
 
 .header nav .menu .menulist .room {
@@ -203,7 +210,7 @@ body {
 
 .header nav .menu .menulist .room.active {
   background: #cc9933;
-  padding: 0 2%;
+  padding: 5%;
   border-radius: 5px;
 }
 
@@ -239,6 +246,10 @@ body {
 
 .header nav .menu .menulist .room .subroom.active {
   display: block;
+}
+
+.header nav .menu .menulist .room .subroom a {
+  color: #fff !important;
 }
 
 .header nav .menu .icon {
@@ -564,8 +575,8 @@ body {
 
 @media screen and (min-width: 1366px) {
   .footer {
-    -ms-grid-columns: 15% 25% 25% 35%;
-        grid-template-columns: 15% 25% 25% 35%;
+    -ms-grid-columns: 15% 22% 28% 35%;
+        grid-template-columns: 15% 22% 28% 35%;
   }
 }
 

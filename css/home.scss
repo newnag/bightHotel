@@ -71,24 +71,32 @@
     }
 
     .grid-room{
-        @media screen and (min-width:$tablet) {
-            display: grid;
-            grid-template-columns: repeat(2,50%);
+        display: flex;
+        overflow-x: scroll;
+        cursor: pointer;
+
+        &.drag{
+            cursor: grabbing;
+            cursor: -webkit-grabbing;
         }
-        @media screen and (min-width:$ipadpro) {
-            display: grid;
-            grid-template-columns: repeat(3,calc(100%/3));
+        &::-webkit-scrollbar{
+            width: 50%;
+            height: 5px;
         }
-        @media screen and (min-width:$laptop) {
-            display: grid;
-            grid-template-columns: repeat(5,calc(100%/5));
+        &::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px grey;
+            border-radius: 10px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: $brown;
+            border-radius: 10px;
         }
 
         .item-room{
-            padding: 5% 0;
+            padding: 2%;
 
             .box{
-                width: 90%;
+                width: 270px;
                 margin: 0 auto;
                 border: 1px solid lightgray;
                 border-radius: 10px;

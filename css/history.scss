@@ -1,0 +1,134 @@
+@import "brightStyle";
+
+.history-page{
+    width: 95%;
+    margin: 3% auto;
+
+    @media screen and (min-width:$laptop) {
+        width: 90%;
+    }
+    @media screen and (min-width:1900px) {
+        width: 80%;
+    }
+
+    .title{
+        @include title();
+        margin-top: 5%;
+    }
+
+    .history-page-zone{
+        .grid-item{
+            display: grid;
+            grid-template-columns: 100%;
+            grid-row-gap: 30px;
+
+            .item{
+                background-color: $blue;
+                color: $background1;
+                overflow-x: scroll;
+                padding: 3%;
+                border-radius: 10px;
+
+                @media screen and (min-width:$laptop) {
+                    padding: 1% 3%;
+                    overflow-x: unset;
+                }
+
+                .table-head{
+                    span{
+                        grid-area: span 1 / span 1;  
+                        
+                        @media screen and (min-width:$laptop) {
+                            font-size: 1.2em!important;
+                        }
+                    }
+                    span:nth-child(2){
+                        margin: 0 auto;
+                    }
+                    .discount,.group-price,.status{
+                        text-align: center;
+                    }
+                    .delete{
+                        text-align: end;
+                        padding-right: 10%;
+                    }
+                }
+
+                .table-body{
+                    .group-nameroom,.group-price{
+                        display: flex;
+                        flex-direction: column;
+                        margin: 0 auto;
+                    }
+                    .discount,.group-price,.status{
+                        text-align: center;
+                    }
+                    .delete{
+                        text-align: end;
+                        padding-right: 10%;
+                        position: relative;
+                        z-index: 5;
+                    }
+                    .status{
+                        .non-pay{
+                            background-color: red;
+                            color: $background1;
+                            padding: 3%;
+                            border-radius: 10px;
+                        }
+                        .prepare{
+                            background-color: yellow;
+                            color: $text-main;
+                            padding: 3%;
+                            border-radius: 10px;
+                        }
+                        .success{
+                            background-color: greenyellow;
+                            color: $text-main;
+                            padding: 3%;
+                            border-radius: 10px;
+                        }
+                    }
+                }
+
+                .table-end{
+                    span:first-child{
+                        grid-column-start: 1;
+                        grid-column-end: 4;
+                    }
+                    span:nth-child(2){
+                        text-align: center;
+                    }
+                }
+
+                .table-head,.table-body,.table-end{
+                    margin: 3% 0;
+                    width: 200%;
+                    display: grid;
+                    grid-template-columns: 30% 20% 10% 15% 15% 10%;
+                    border-bottom: 1px solid $background1;
+
+                    @media screen and (min-width:$tablet) {
+                        width: 100%;
+                    }
+                    @media screen and (min-width:$laptop) {
+                        margin: 2% 0;
+                    }
+
+                    span{
+                        font-size: .8em;
+
+                        @media screen and (min-width:$ipadpro) {
+                            font-size: 1em;
+                        }
+                    }
+                }
+
+                &.hide{
+                    opacity: 0;
+                    transition: 1s;
+                }
+            }
+        }
+    }
+}

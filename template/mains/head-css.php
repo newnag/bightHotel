@@ -12,18 +12,23 @@
   <meta property='og:description' content="<?= $head['description'] ?>">
   <meta property='og:image' content="<?= SITE_URL . $head['thumbnail'] ?>">
   <title><?= $head['title'] ?></title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
   <link rel="stylesheet" href="<?=ROOT_URL?>css/home.min.css?v=<?=time()?>">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <link rel="stylesheet" href="<?=ROOT_URL?>plugin/OwlCarousel/dist/assets/owl.carousel.min.css">
   <link rel="stylesheet" href="<?=ROOT_URL?>plugin/OwlCarousel/dist/assets/owl.theme.default.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+  
 
   <?php // สไตล์ในหน้าต่างๆที่เตรียมแยก ?>
   <link rel="stylesheet" href="<?=ROOT_URL?>css/gallary.min.css">
-  <link rel="stylesheet" href="<?=ROOT_URL?>css/room.min.css">
   <link rel="stylesheet" href="<?=ROOT_URL?>css/booking-room.min.css">
   <link rel="stylesheet" href="<?=ROOT_URL?>css/contact.min.css">
   <link rel="stylesheet" href="<?=ROOT_URL?>css/promotion.min.css">
+  <link rel="stylesheet" href="<?=ROOT_URL?>css/room.min.css?v=<?=time()?>">
+  <link rel="stylesheet" href="<?=ROOT_URL?>css/meeting.min.css">
+  <link rel="stylesheet" href="<?=ROOT_URL?>css/history.min.css">
+
 
   <?php /*
     <link rel="stylesheet" href="/css/style.min.css?v=<?=time()?>">

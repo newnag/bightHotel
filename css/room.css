@@ -192,8 +192,15 @@ body {
 
 .header nav .menu .menulist a.active {
   background: #cc9933;
-  padding: 0 2%;
+  padding: 5%;
   border-radius: 5px;
+  color: #fff !important;
+}
+
+.header nav .menu .menulist a:hover {
+  color: #cc9933;
+  -webkit-transition: .3s;
+  transition: .3s;
 }
 
 .header nav .menu .menulist .room {
@@ -203,7 +210,7 @@ body {
 
 .header nav .menu .menulist .room.active {
   background: #cc9933;
-  padding: 0 2%;
+  padding: 5%;
   border-radius: 5px;
 }
 
@@ -239,6 +246,10 @@ body {
 
 .header nav .menu .menulist .room .subroom.active {
   display: block;
+}
+
+.header nav .menu .menulist .room .subroom a {
+  color: #fff !important;
 }
 
 .header nav .menu .icon {
@@ -470,6 +481,12 @@ body {
   border: 1px solid #cc9933;
 }
 
+@media screen and (min-width: 1366px) and (max-width: 1600px) {
+  .booking .formBook .input-box input {
+    width: 90% !important;
+  }
+}
+
 .booking .formBook .input-box input[type=number] {
   text-align: center;
 }
@@ -488,6 +505,12 @@ body {
 
 .booking .formBook .input-box img.right {
   right: 3%;
+}
+
+@media screen and (min-width: 1366px) and (max-width: 1600px) {
+  .booking .formBook .input-box img.right {
+    right: 11% !important;
+  }
 }
 
 .booking .formBook .button {
@@ -552,8 +575,8 @@ body {
 
 @media screen and (min-width: 1366px) {
   .footer {
-    -ms-grid-columns: 15% 25% 25% 35%;
-        grid-template-columns: 15% 25% 25% 35%;
+    -ms-grid-columns: 15% 22% 28% 35%;
+        grid-template-columns: 15% 22% 28% 35%;
   }
 }
 
@@ -699,5 +722,796 @@ body {
   .footer .map iframe {
     height: 250px;
   }
+}
+
+.room-page {
+  width: 95%;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 1600px) {
+  .room-page {
+    width: 90%;
+  }
+}
+
+@media screen and (min-width: 1900px) {
+  .room-page {
+    width: 80%;
+  }
+}
+
+.room-page .title {
+  text-align: center;
+  margin-top: 5%;
+}
+
+.room-page .title h1 {
+  color: #cc9933;
+}
+
+.room-page .title span {
+  font-family: Lkanit;
+  font-style: italic;
+}
+
+.room-page .room-page-zone {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
+  grid-row-gap: 10px;
+  margin: 5% 0;
+}
+
+@media screen and (min-width: 1024px) {
+  .room-page .room-page-zone {
+    -ms-grid-columns: 57% 40%;
+        grid-template-columns: 57% 40%;
+    grid-gap: 3%;
+  }
+}
+
+.room-page .room-page-zone .gird-room {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
+  grid-row-gap: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .room-page .room-page-zone .gird-room {
+    -ms-grid-columns: 49% 49%;
+        grid-template-columns: 49% 49%;
+    grid-gap: 2%;
+    grid-row-gap: 15px;
+  }
+}
+
+.room-page .room-page-zone .gird-room .list-room .img-review {
+  position: relative;
+}
+
+.room-page .room-page-zone .gird-room .list-room .img-review figure img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.room-page .room-page-zone .gird-room .list-room .img-review .virwFull {
+  position: absolute;
+  top: 5%;
+  right: 3%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: #000000b6;
+  border-radius: 30px;
+  padding: 0 3%;
+  cursor: pointer;
+}
+
+.room-page .room-page-zone .gird-room .list-room .img-review .virwFull p {
+  color: #fff;
+  font-family: Lkanit;
+}
+
+.room-page .room-page-zone .gird-room .list-room .img-review .carousel {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 55px;
+  padding: 0 2%;
+}
+
+.room-page .room-page-zone .gird-room .list-room .img-review .carousel .list-img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  cursor: pointer;
+}
+
+.room-page .room-page-zone .gird-room .list-room .img-review .carousel .list-img::-webkit-scrollbar {
+  display: none;
+}
+
+.room-page .room-page-zone .gird-room .list-room .img-review .carousel .list-img figure {
+  margin-right: 5px;
+}
+
+.room-page .room-page-zone .gird-room .list-room .img-review .carousel .list-img figure img {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+.room-page .room-page-zone .gird-room .list-room .img-review .carousel .list-img figure img.active {
+  border: 1px solid #fff;
+}
+
+.room-page .room-page-zone .gird-room .list-room .img-review .carousel .list-img.drag {
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.room-page .room-page-zone .gird-room .list-room .detail-room {
+  padding: 2% 0;
+  border: 1px solid #22324b;
+}
+
+.room-page .room-page-zone .gird-room .list-room .detail-room .title-room {
+  background-color: #22324b;
+  width: 80%;
+  margin: 0 auto;
+  padding: 1% 0;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.room-page .room-page-zone .gird-room .list-room .detail-room .title-room h2 {
+  color: #fff;
+  font-family: Lkanit;
+}
+
+@media screen and (min-width: 1024px) {
+  .room-page .room-page-zone .gird-room .list-room .detail-room .title-room h2 {
+    font-size: 1.4em;
+  }
+}
+
+.room-page .room-page-zone .gird-room .list-room .detail-room .priceBeforeSale {
+  text-align: center;
+}
+
+.room-page .room-page-zone .gird-room .list-room .detail-room .priceBeforeSale span.price {
+  text-decoration: line-through;
+  margin-top: 5%;
+  margin-left: 20%;
+}
+
+.room-page .room-page-zone .gird-room .list-room .detail-room .priceBeforeSale span {
+  font-size: .8em;
+}
+
+.room-page .room-page-zone .gird-room .list-room .detail-room .currentPrice {
+  text-align: center;
+  background-color: #22324b;
+}
+
+.room-page .room-page-zone .gird-room .list-room .detail-room .currentPrice h3 {
+  color: #fff;
+  font-size: 3em;
+}
+
+.room-page .room-page-zone .gird-room .list-room .detail-room .facilities {
+  text-align: center;
+  margin: 3% auto;
+  width: 80%;
+}
+
+.room-page .room-page-zone .gird-room .list-room .detail-room .facilities p {
+  color: #777777;
+  font-size: .6em;
+}
+
+.room-page .room-page-zone .gird-room .list-room .detail-room .inroom {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[6];
+      grid-template-columns: repeat(6, 1fr);
+  padding: 0 3%;
+  margin: 3% 0;
+}
+
+.room-page .room-page-zone .gird-room .list-room .detail-room .inroom .item {
+  text-align: center;
+  position: relative;
+}
+
+.room-page .room-page-zone .gird-room .list-room .detail-room .inroom .item span {
+  display: none;
+  position: absolute;
+  top: -30px;
+  left: 0;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  background: gray;
+  color: #fff;
+  padding: 0 5px;
+  border-radius: 5px;
+}
+
+.room-page .room-page-zone .gird-room .list-room .detail-room .inroom .item span.active {
+  display: block;
+}
+
+.room-page .room-page-zone .gird-room .list-room .detail-room .inroom .item img {
+  width: 32px;
+  height: 32px;
+  -webkit-filter: brightness(4%) sepia(100) saturate(100) hue-rotate(215deg);
+          filter: brightness(4%) sepia(100) saturate(100) hue-rotate(215deg);
+}
+
+@media screen and (min-width: 1366px) {
+  .room-page .room-page-zone .gird-room .list-room .detail-room .inroom .item:hover span {
+    display: block;
+  }
+}
+
+.room-page .room-page-zone .gird-room .list-room .detail-room .button {
+  text-align: center;
+}
+
+.room-page .room-page-zone .gird-room .list-room .detail-room .button button {
+  width: 150px;
+  height: 40px;
+  background-color: #cc9933;
+  color: #fff;
+  -webkit-box-shadow: 0px 1px 5px #777777;
+          box-shadow: 0px 1px 5px #777777;
+  font-size: 1.4em;
+  font-family: Bkanit;
+  border: unset;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.room-page .room-page-zone .gird-room .list-room .detail-room .button button:hover {
+  background: #79472c;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.room-page .room-page-zone .detail-order .detial {
+  padding: 0 5%;
+  border-radius: 10px;
+}
+
+.room-page .room-page-zone .detail-order .detial .title {
+  text-align: center;
+}
+
+.room-page .room-page-zone .detail-order .detial .title h1 {
+  color: #cc9933;
+}
+
+.room-page .room-page-zone .detail-order .detial .title span {
+  font-family: Lkanit;
+  font-style: italic;
+}
+
+@media screen and (min-width: 1024px) {
+  .room-page .room-page-zone .detail-order .detial .title {
+    padding-top: 5%;
+    margin: unset;
+  }
+}
+
+.room-page .room-page-zone .detail-order .detial .title h2 {
+  color: #fff;
+  font-family: Lkanit;
+}
+
+.room-page .room-page-zone .detail-order .detial .box-date .input-box {
+  display: -ms-grid;
+  display: grid;
+  margin: 1% 0;
+  position: relative;
+}
+
+.room-page .room-page-zone .detail-order .detial .box-date .input-box label {
+  color: #fff;
+}
+
+.room-page .room-page-zone .detail-order .detial .box-date .input-box input {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #777777;
+  border-radius: 10px;
+  padding: 0 20px;
+}
+
+.room-page .room-page-zone .detail-order .detial .box-date .input-box input:focus {
+  border: 1px solid #cc9933;
+}
+
+.room-page .room-page-zone .detail-order .detial .box-date .input-box input[type=number] {
+  text-align: center;
+}
+
+.room-page .room-page-zone .detail-order .detial .box-date .input-box img.left, .room-page .room-page-zone .detail-order .detial .box-date .input-box img.right {
+  position: absolute;
+  bottom: 17%;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.room-page .room-page-zone .detail-order .detial .box-date .input-box img.left {
+  left: 3%;
+}
+
+.room-page .room-page-zone .detail-order .detial .box-date .input-box img.right {
+  right: 3%;
+}
+
+.room-page .room-page-zone .detail-order .detial .detail-list {
+  display: block;
+  background-color: #fff;
+  border-radius: 10px;
+  margin-top: 5%;
+  padding: 2%;
+}
+
+.room-page .room-page-zone .detail-order .detial .detail-list .list-item {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 30% 15% 15% 40%;
+      grid-template-columns: 30% 15% 15% 40%;
+  border-bottom: 1px solid #777777;
+  margin-bottom: 2%;
+}
+
+.room-page .room-page-zone .detail-order .detial .detail-list .list-item:last-child {
+  border: unset;
+  margin: unset;
+}
+
+.room-page .room-page-zone .detail-order .detial .detail-list .list-item span {
+  font-size: .6em;
+  font-family: Lkanit;
+}
+
+.room-page .room-page-zone .detail-order .detial .detail-list .list-item span.nameRoom {
+  margin-left: 5%;
+}
+
+.room-page .room-page-zone .detail-order .detial .detail-list .list-item span.amound-room, .room-page .room-page-zone .detail-order .detial .detail-list .list-item span.amound-day {
+  text-align: center;
+}
+
+.room-page .room-page-zone .detail-order .detial .detail-list .list-item span.amound-pricePerDay {
+  text-align: end;
+  margin-right: 5%;
+}
+
+.room-page .room-page-zone .detail-order .detial .amound-price {
+  background-color: #fff;
+  padding: 2%;
+  margin-top: 5%;
+  border-radius: 10px;
+}
+
+.room-page .room-page-zone .detail-order .detial .amound-price .list {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (50%)[2];
+      grid-template-columns: repeat(2, 50%);
+}
+
+.room-page .room-page-zone .detail-order .detial .amound-price .list span:nth-child(odd) {
+  text-align: left;
+}
+
+.room-page .room-page-zone .detail-order .detial .amound-price .list span:nth-child(even) {
+  text-align: end;
+}
+
+.room-page .room-page-zone .detail-order .detial .discount {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 70% 30%;
+      grid-template-columns: 70% 30%;
+}
+
+.room-page .room-page-zone .detail-order .detial .discount .input-box {
+  display: -ms-grid;
+  display: grid;
+  margin: 1% 0;
+  position: relative;
+}
+
+.room-page .room-page-zone .detail-order .detial .discount .input-box label {
+  color: #fff;
+}
+
+.room-page .room-page-zone .detail-order .detial .discount .input-box input {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #777777;
+  border-radius: 10px;
+  padding: 0 20px;
+}
+
+.room-page .room-page-zone .detail-order .detial .discount .input-box input:focus {
+  border: 1px solid #cc9933;
+}
+
+.room-page .room-page-zone .detail-order .detial .discount .button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  padding-bottom: 5%;
+}
+
+.room-page .room-page-zone .detail-order .detial .discount .button button {
+  width: 80%;
+  height: 40px;
+  background-color: #cc9933;
+  color: #fff;
+  -webkit-box-shadow: 0px 1px 5px #777777;
+          box-shadow: 0px 1px 5px #777777;
+  font-size: 1.4em;
+  font-family: Bkanit;
+  border: unset;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.room-page .room-page-zone .detail-order .detial .discount .button button:hover {
+  background: #79472c;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.room-page .room-page-zone .detail-order .detial .booking-button {
+  text-align: center;
+  padding: 5% 0;
+}
+
+.room-page .room-page-zone .detail-order .detial .booking-button button {
+  width: 150px;
+  height: 40px;
+  background-color: #cc9933;
+  color: #fff;
+  -webkit-box-shadow: 0px 1px 5px #777777;
+          box-shadow: 0px 1px 5px #777777;
+  font-size: 1.4em;
+  font-family: Bkanit;
+  border: unset;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.room-page .room-page-zone .detail-order .detial .booking-button button:hover {
+  background: #79472c;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.room-page .room-page-zone .detail-order .contact {
+  margin-top: 5%;
+  padding: 5%;
+  border-radius: 10px;
+}
+
+.room-page .room-page-zone .detail-order .contact .title {
+  text-align: center;
+}
+
+.room-page .room-page-zone .detail-order .contact .title h1 {
+  color: #cc9933;
+}
+
+.room-page .room-page-zone .detail-order .contact .title span {
+  font-family: Lkanit;
+  font-style: italic;
+}
+
+.room-page .room-page-zone .detail-order .contact .title h2 {
+  color: #fff;
+  font-family: Lkanit;
+}
+
+.room-page .room-page-zone .detail-order .contact .logo {
+  text-align: center;
+  margin: 5% 0;
+}
+
+.room-page .room-page-zone .detail-order .contact .logo img {
+  width: 70%;
+  height: 100%;
+}
+
+.room-page .room-page-zone .detail-order .contact .icon {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
+  grid-row-gap: 10px;
+  margin-top: 3%;
+}
+
+@media screen and (min-width: 1600px) {
+  .room-page .room-page-zone .detail-order .contact .icon {
+    display: block;
+    padding-right: 25%;
+  }
+}
+
+.room-page .room-page-zone .detail-order .contact .icon .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media screen and (min-width: 1600px) {
+  .room-page .room-page-zone .detail-order .contact .icon .item {
+    display: inline-block;
+    margin-bottom: 3%;
+    margin-right: 1%;
+  }
+}
+
+.room-page .room-page-zone .detail-order .contact .icon .item img {
+  width: 18px;
+  height: 18px;
+  -webkit-filter: invert(100%);
+          filter: invert(100%);
+}
+
+.room-page .room-page-zone .detail-order .contact .icon .item span {
+  color: #fff;
+  font-size: 0.8em;
+  word-break: break-all;
+  text-align: center;
+}
+
+.dialog-fullview {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background-color: #000000b4;
+}
+
+.dialog-fullview .inner-dialog {
+  background-color: #fff;
+  width: 95%;
+  height: 90%;
+  position: inherit;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-radius: 10px;
+  padding: 0 2%;
+  overflow-y: scroll;
+}
+
+@media screen and (min-width: 768px) {
+  .dialog-fullview .inner-dialog {
+    width: 85%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .dialog-fullview .inner-dialog {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 60% 40%;
+        grid-template-columns: 60% 40%;
+    padding-top: 3%;
+    height: auto;
+  }
+}
+
+@media screen and (min-width: 1366px) {
+  .dialog-fullview .inner-dialog {
+    height: 90%;
+    width: 75%;
+  }
+}
+
+.dialog-fullview .inner-dialog .image-review .img-bigbox figure {
+  height: 220px;
+}
+
+@media screen and (min-width: 768px) {
+  .dialog-fullview .inner-dialog .image-review .img-bigbox figure {
+    height: 400px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .dialog-fullview .inner-dialog .image-review .img-bigbox figure {
+    height: 350px;
+  }
+}
+
+.dialog-fullview .inner-dialog .image-review .img-bigbox figure img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.dialog-fullview .inner-dialog .image-review .carousel {
+  margin: 2% 0;
+}
+
+.dialog-fullview .inner-dialog .image-review .carousel .list-img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  cursor: pointer;
+}
+
+.dialog-fullview .inner-dialog .image-review .carousel .list-img::-webkit-scrollbar {
+  display: none;
+}
+
+.dialog-fullview .inner-dialog .image-review .carousel .list-img figure {
+  margin-right: 5px;
+}
+
+.dialog-fullview .inner-dialog .image-review .carousel .list-img figure img {
+  width: 80px;
+  height: 80px;
+  border-radius: 5px;
+}
+
+.dialog-fullview .inner-dialog .image-review .carousel .list-img figure img.active {
+  border: 1px solid #fff;
+}
+
+.dialog-fullview .inner-dialog .image-review .carousel .list-img.drag {
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.dialog-fullview .inner-dialog .detail-room .nameroom, .dialog-fullview .inner-dialog .detail-room .price, .dialog-fullview .inner-dialog .detail-room .description {
+  text-align: center;
+  position: relative;
+}
+
+.dialog-fullview .inner-dialog .detail-room .nameroom h2, .dialog-fullview .inner-dialog .detail-room .nameroom span, .dialog-fullview .inner-dialog .detail-room .nameroom p, .dialog-fullview .inner-dialog .detail-room .price h2, .dialog-fullview .inner-dialog .detail-room .price span, .dialog-fullview .inner-dialog .detail-room .price p, .dialog-fullview .inner-dialog .detail-room .description h2, .dialog-fullview .inner-dialog .detail-room .description span, .dialog-fullview .inner-dialog .detail-room .description p {
+  color: #22324b;
+}
+
+.dialog-fullview .inner-dialog .detail-room .nameroom span, .dialog-fullview .inner-dialog .detail-room .price span, .dialog-fullview .inner-dialog .detail-room .description span {
+  position: absolute;
+  top: 0;
+}
+
+.dialog-fullview .inner-dialog .detail-room .price h2 {
+  font-size: 3em;
+}
+
+.dialog-fullview .inner-dialog .facilities .title {
+  text-align: center;
+}
+
+.dialog-fullview .inner-dialog .facilities .title h5 {
+  color: #22324b;
+}
+
+.dialog-fullview .inner-dialog .facilities .inroom {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[1];
+      grid-template-columns: repeat(1, 1fr);
+  grid-row-gap: 10px;
+  margin: 3% 0;
+}
+
+@media screen and (min-width: 768px) {
+  .dialog-fullview .inner-dialog .facilities .inroom {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .dialog-fullview .inner-dialog .facilities .inroom {
+    -ms-grid-columns: (1fr)[6];
+        grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.dialog-fullview .inner-dialog .facilities .inroom .item {
+  text-align: center;
+  position: relative;
+}
+
+.dialog-fullview .inner-dialog .facilities .inroom .item img {
+  width: 32px;
+  height: 32px;
+  -webkit-filter: brightness(4%) sepia(100) saturate(100) hue-rotate(215deg);
+          filter: brightness(4%) sepia(100) saturate(100) hue-rotate(215deg);
+}
+
+.dialog-fullview .inner-dialog .facilities .inroom .item p {
+  color: #22324b;
+}
+
+@media screen and (min-width: 1024px) {
+  .dialog-fullview .inner-dialog .facilities .inroom .item p {
+    height: 9em;
+    overflow: hidden;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .dialog-fullview .inner-dialog .logo {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+.dialog-fullview .inner-dialog .logo figure {
+  text-align: center;
+}
+
+.dialog-fullview .inner-dialog .logo figure img {
+  width: 40%;
+  height: 100%;
+}
+
+.dialog-fullview .inner-dialog .close {
+  width: 100%;
+  display: block;
+  text-align: end;
+}
+
+@media screen and (min-width: 1024px) {
+  .dialog-fullview .inner-dialog .close {
+    position: absolute;
+    top: 0;
+    right: 10px;
+  }
+}
+
+.dialog-fullview .inner-dialog .close button {
+  background-color: inherit;
+  border: unset;
 }
 /*# sourceMappingURL=room.css.map */

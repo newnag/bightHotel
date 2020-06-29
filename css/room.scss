@@ -183,12 +183,22 @@
                                 color: #fff;
                                 padding: 0 5px;
                                 border-radius: 5px;
+
+                                &.active{
+                                    display: block;
+                                }
                             }
                             img{
                                 width: 32px;
                                 height: 32px;
                                 filter: brightness(4%) sepia(100) saturate(100) hue-rotate(215deg);
                             }
+
+                            @media screen and (min-width:$laptop) {
+                                &:hover span{
+                                    display: block;
+                                }
+                            }  
                         }
                     }
     
