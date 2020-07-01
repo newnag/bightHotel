@@ -1,5 +1,6 @@
 window.onload = ()=>{
-    DragImg('.room .grid-room')
+    DragImg('.room .grid-room') 
+    checkNumberTel() 
 }
 
 function clickMenuMobile(){
@@ -7,17 +8,10 @@ function clickMenuMobile(){
 }
 
 function toggleSubRoom(){
-    if(screen.width < 1024){
+    if(screen.width <= 1024){
         document.querySelector('.room .subroom').classList.toggle('active')
     }  
 }
-
-// กดดูคำอธิบายของในห้องพัก เดี๋ยวมาทำต่อ
-// Array.from(document.querySelectorAll('.item')).map(e => {
-//     e.addEventListener('click',function(e){
-//         console.log(e.target.closest('.item'))
-//     })
-// })
 
 // date pick
 $('.formBook .input-box .dateCheck').flatpickr({
@@ -27,8 +21,10 @@ $('.formBook .input-box .dateCheck').flatpickr({
 
 function checkNumberTel() {
     let val = document.querySelector('nav .search input').value
-    if(!checkIsNumber(val)){
-        Swal.fire('กรุณากรอกเป็นตัวเลข')
-        document.querySelector('nav .search input').value = ''
-    }
+    document.querySelector('nav .search input').addEventListener("keyup",(e)=>{
+        if(!checkIsNumber(val)){
+            e.target.value=parseFloat(e.target.value)||''
+        }
+    })
+    
 }

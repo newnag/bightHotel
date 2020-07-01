@@ -1,21 +1,21 @@
 @font-face {
   font-family: kanit;
-  src: url(/src/font/Kanit/Kanit-Regular.ttf);
+  src: url(/font/Kanit/Kanit-Regular.ttf);
 }
 
 @font-face {
   font-family: Bkanit;
-  src: url(/src/font/Kanit/Kanit-Bold.ttf);
+  src: url(/font/Kanit/Kanit-Bold.ttf);
 }
 
 @font-face {
   font-family: Lkanit;
-  src: url(/src/font/Kanit/Kanit-Light.ttf);
+  src: url(/font/Kanit/Kanit-Light.ttf);
 }
 
 @font-face {
   font-family: Skanit;
-  src: url(/src/font/Kanit/Kanit-SemiBold.ttf);
+  src: url(/font/Kanit/Kanit-SemiBold.ttf);
 }
 
 *, *:after, *:before {
@@ -90,10 +90,12 @@ input:focus, select:focus, textarea:focus, button:focus {
 
 input:disabled {
   background: #fff;
+  opacity: 1;
 }
 
 body {
   background: #fff;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .header {
@@ -180,9 +182,14 @@ body {
   }
 }
 
+.header nav .menu .menulist {
+  margin: 2% 0;
+}
+
 @media screen and (min-width: 768px) {
   .header nav .menu .menulist {
     width: calc(100%/9);
+    margin: unset;
   }
 }
 
@@ -192,9 +199,15 @@ body {
 
 .header nav .menu .menulist a.active {
   background: #cc9933;
-  padding: 5%;
+  padding: 1%;
   border-radius: 5px;
   color: #fff !important;
+}
+
+@media screen and (min-width: 768px) {
+  .header nav .menu .menulist a.active {
+    padding: 5% !important;
+  }
 }
 
 .header nav .menu .menulist a:hover {
@@ -248,7 +261,11 @@ body {
   display: block;
 }
 
-.header nav .menu .menulist .room .subroom a {
+.header nav .menu .menulist .room .subroom li {
+  padding: 2% 0;
+}
+
+.header nav .menu .menulist .room .subroom li a {
   color: #fff !important;
 }
 
@@ -295,7 +312,8 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 10%;
-  margin: 3% auto;
+  padding: 3% 0;
+  margin: 0 auto;
 }
 
 @media screen and (min-width: 768px) {
@@ -309,7 +327,7 @@ body {
   width: 30px;
   height: 3px;
   display: inline-block;
-  margin: 2px 0;
+  margin: 3px 0;
 }
 
 .header nav .search {
@@ -803,13 +821,12 @@ body {
   position: absolute;
   top: 5%;
   right: 3%;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+  width: 135px;
   background-color: #000000b6;
   border-radius: 30px;
   padding: 0 3%;
   cursor: pointer;
+  text-align: center;
 }
 
 .room-page .room-page-zone .gird-room .list-room .img-review .virwFull p {
@@ -918,6 +935,11 @@ body {
 .room-page .room-page-zone .gird-room .list-room .detail-room .facilities p {
   color: #777777;
   font-size: .6em;
+  height: 4.4em;
+  overflow-y: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }
 
 .room-page .room-page-zone .gird-room .list-room .detail-room .inroom {
@@ -1319,7 +1341,8 @@ body {
           transform: translate(-50%, -50%);
   border-radius: 10px;
   padding: 0 2%;
-  overflow-y: scroll;
+  overflow-y: auto;
+  z-index: 11;
 }
 
 @media screen and (min-width: 768px) {
@@ -1453,6 +1476,7 @@ body {
   .dialog-fullview .inner-dialog .facilities .inroom {
     -ms-grid-columns: (1fr)[6];
         grid-template-columns: repeat(6, 1fr);
+    grid-gap: 1%;
   }
 }
 
@@ -1513,5 +1537,9 @@ body {
 .dialog-fullview .inner-dialog .close button {
   background-color: inherit;
   border: unset;
+}
+
+.dialog-fullview.active {
+  display: block;
 }
 /*# sourceMappingURL=room.css.map */

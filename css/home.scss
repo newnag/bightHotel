@@ -285,7 +285,7 @@
     }
 
     &.service{
-        padding: 3% 0;
+        padding: 3% 1%;
 
         @media screen and (min-width:$laptop) {
             padding: 3%;
@@ -334,6 +334,8 @@
     }
 
     &.row3{
+        margin: 5% 1%;
+        
         @media screen and (min-width:$ipadpro) {
             display: grid;
             grid-template-columns: 58% 40%;

@@ -1,3 +1,31 @@
+<body>
+    <!-- สคริปของเฟสบุ๊ค -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v7.0&appId=599318023929202&autoLogAppEvents=1" nonce="0s4WMai9"></script>
+    <!-- Header Web -->
+    <?php require_once "mains/header.php"; ?>
+    <article>
+        <div class="gallary-page">
+            <div class="title">
+                <h1>แกเลอรี่</h1>
+                <span>ภาพบรรยากาศ ที่ Bright Hotel</span>
+            </div>
+            <div class="gallary-zone">
+                <figure><img src="<?=ROOT_URL?>img/test1.jpg" alt=""></figure>
+                <figure><img src="<?=ROOT_URL?>img/test2.jpg" alt=""></figure>
+                <figure><img src="<?=ROOT_URL?>img/test3.jpg" alt=""></figure>
+                <figure><img src="<?=ROOT_URL?>img/test4.jpg" alt=""></figure>
+                <figure><img src="<?=ROOT_URL?>img/test5.jpg" alt=""></figure>
+                <figure><img src="<?=ROOT_URL?>img/test1.jpg" alt=""></figure>
+                <figure><img src="<?=ROOT_URL?>img/test2.jpg" alt=""></figure>
+                <figure><img src="<?=ROOT_URL?>img/test3.jpg" alt=""></figure>
+            </div>
+
+            <div class="loadmore">
+                <button>More</button>
+            </div>
+        </div>
+    </article>
 
     <!-- โซนฟุตเตอร์ -->
     <footer>
@@ -44,14 +72,11 @@
             </div>
         </div>
     </footer>
-
-
     
-  <!-- โซนสคริป -->
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-  <script src="<?=ROOT_URL?>plugin/OwlCarousel/dist/owl.carousel.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.3/flatpickr.min.js"></script>
-  <script type="text/javascript" src="<?=ROOT_URL?>js/page/functions.js?v=<?=time()?>"></script>
-  <script type="text/javascript" src="<?=ROOT_URL?>js/page/hotel.js?v=<?=time()?>"></script>
-  <script type="text/javascript" src="<?=ROOT_URL?>js/page/bookHome.js"></script>
-  <script src="<?=ROOT_URL?>js/page/slide.js"></script>
+    <!-- โซนสคริป -->
+    <script src="<?=ROOT_URL?>plugin/OwlCarousel/dist/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="<?=ROOT_URL?>js/page/hotel.js"></script>
+    <script type="text/javascript" src="<?=ROOT_URL?>js/page/bookHome.js"></script>
+    <script src="<?=ROOT_URL?>js/page/slide.js"></script>
+</body>
+</html>

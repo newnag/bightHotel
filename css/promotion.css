@@ -192,15 +192,8 @@ body {
 
 .header nav .menu .menulist a.active {
   background: #cc9933;
-  padding: 5%;
+  padding: 0 2%;
   border-radius: 5px;
-  color: #fff !important;
-}
-
-.header nav .menu .menulist a:hover {
-  color: #cc9933;
-  -webkit-transition: .3s;
-  transition: .3s;
 }
 
 .header nav .menu .menulist .room {
@@ -210,7 +203,7 @@ body {
 
 .header nav .menu .menulist .room.active {
   background: #cc9933;
-  padding: 5%;
+  padding: 0 2%;
   border-radius: 5px;
 }
 
@@ -246,10 +239,6 @@ body {
 
 .header nav .menu .menulist .room .subroom.active {
   display: block;
-}
-
-.header nav .menu .menulist .room .subroom a {
-  color: #fff !important;
 }
 
 .header nav .menu .icon {
@@ -481,12 +470,6 @@ body {
   border: 1px solid #cc9933;
 }
 
-@media screen and (min-width: 1366px) and (max-width: 1600px) {
-  .booking .formBook .input-box input {
-    width: 90% !important;
-  }
-}
-
 .booking .formBook .input-box input[type=number] {
   text-align: center;
 }
@@ -505,12 +488,6 @@ body {
 
 .booking .formBook .input-box img.right {
   right: 3%;
-}
-
-@media screen and (min-width: 1366px) and (max-width: 1600px) {
-  .booking .formBook .input-box img.right {
-    right: 11% !important;
-  }
 }
 
 .booking .formBook .button {
@@ -575,8 +552,8 @@ body {
 
 @media screen and (min-width: 1366px) {
   .footer {
-    -ms-grid-columns: 15% 22% 28% 35%;
-        grid-template-columns: 15% 22% 28% 35%;
+    -ms-grid-columns: 15% 25% 25% 35%;
+        grid-template-columns: 15% 25% 25% 35%;
   }
 }
 

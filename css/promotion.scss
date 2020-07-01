@@ -22,7 +22,7 @@
                 grid-gap: 1%;
             }
             @media screen and (min-width:$ipadpro) {
-                grid-template-columns: repeat(4,calc(97%/4));
+                grid-template-columns: repeat(2,calc(97%/2));
                 grid-gap: 1%;
                 grid-row-gap: 30px;
             }
@@ -49,29 +49,23 @@
                     }
                     .code{
                         position: absolute;
-                        top: 20%;
+                        top: 25%;
                         right: 20%;
 
-                        @media screen and (min-width:$ipadpro) {
-                            font-size: 1.4em;
-                        }
                         @media screen and (min-width:$pc) {
                             top: 25%;
-                            font-size: 1.8em;
+                            font-size: 3em;
                         }
                     }
                     .room{
                         position: absolute;
-                        top: 50%;
+                        top: 53%;
                         right: 10%;
                         width: 55%;
                         text-align: center;
 
-                        @media screen and (min-width:$ipadpro) {
-                            font-size: 1em;
-                        }
                         @media screen and (min-width:$pc) {
-                            font-size: 1.4em;
+                            font-size: 1.8em;
                         }
                     }
                 }

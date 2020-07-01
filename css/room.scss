@@ -54,11 +54,12 @@
                         position: absolute;
                         top: 5%;
                         right: 3%;
-                        width: fit-content;
+                        width: 135px;
                         background-color: #000000b6;
                         border-radius: 30px;
                         padding: 0 3%;
                         cursor: pointer;
+                        text-align: center;
     
                         p{
                             color: $background1;
@@ -160,6 +161,11 @@
                         p{
                             color: $text-gray;
                             font-size: .6em;
+                            height: 4.4em;
+                            overflow-y: hidden;
+                            display: -webkit-box;
+                            -webkit-box-orient: vertical;
+                            -webkit-line-clamp: 3;
                         }
                     }
     
@@ -444,7 +450,8 @@
         transform: translate(-50%, -50%);
         border-radius: 10px;
         padding: 0 2%;
-        overflow-y: scroll;
+        overflow-y: auto;
+        z-index: 11;
 
         @media screen and (min-width:$tablet) {
             width: 85%;
@@ -562,6 +569,7 @@
                 }
                 @media screen and (min-width:$ipadpro) {
                     grid-template-columns: repeat(6,1fr);
+                    grid-gap: 1%;
                 }
     
                 .item{
@@ -619,5 +627,9 @@
                 border: unset;
             }
         }
+    }
+
+    &.active{
+        display: block;
     }
 }

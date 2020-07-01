@@ -72,6 +72,7 @@
                     </div>
                 </div>
             </div>
+  
         </article>
 
         <!-- โซนคอนเทนท์ที่3 ห้องพัก-->
@@ -84,10 +85,7 @@
 
                 <div class="grid-room">
                     <?php
-                    
-
-                    echo($get);
-                    
+                       echo($get);
                     ?>
                 </div>
             </div>
@@ -126,8 +124,6 @@
                 </div>
             </div>
         </article>
-
-
 
     <!-- Footer -->
     <?php 

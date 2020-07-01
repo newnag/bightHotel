@@ -1,7 +1,7 @@
 <!-- หัวเว็บมีโลโก้ เมนู ค้นหา -->
 <header> 
         <div class="header">
-            <div class="logo"><figure><a href=""><img src="<?=ROOT_URL?>img/logo-01.png" alt=""></a></figure></div>
+            <div class="logo"><figure><a href="<?=ROOT_URL?>"><img src="<?=ROOT_URL?>img/logo-01.png" alt=""></a></figure></div>
             <nav>
                 <ul class="menu">
                     <?=$MYNAV_MENU_TOP?>
@@ -11,7 +11,7 @@
                         <a target="_blank" href="https://facebook.com/<?=$CONTACT_WEB->facebook?>"><img src="<?=ROOT_URL?>img/icon/facebook-brands.svg" alt="line icon"></a>
                     </div> 
                 </ul>
-                <div class="hamburger">
+                <div class="hamburger" onclick="clickMenuMobile()">
                     <div class="line"></div>
                     <div class="line"></div>
                     <div class="line"></div>

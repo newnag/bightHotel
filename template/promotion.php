@@ -9,7 +9,7 @@
         <div class="grid-box">
             <div class="item">
                 <div class="head">
-                    <img src="<?=ROOT_URL?>img/promotion-01.png" alt="">
+                    <img src="<?=ROOT_URL?>img/promotion-02-01.png" alt="">
                     <h2 class="code">AD15JF6</h2>
                     <h5 class="room">TRIPLE ROOM</h5>
                 </div>
@@ -25,7 +25,7 @@
 
             <div class="item">
                 <div class="head">
-                    <img src="<?=ROOT_URL?>img/promotion-01.png" alt="">
+                    <img src="<?=ROOT_URL?>img/promotion-02-01.png" alt="">
                     <h2 class="code">AD15JF6</h2>
                     <h5 class="room">TRIPLE ROOM</h5>
                 </div>

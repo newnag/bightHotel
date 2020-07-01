@@ -2,19 +2,19 @@
 // font
 @font-face{
     font-family: kanit;
-    src: url(/src/font/Kanit/Kanit-Regular.ttf);
+    src: url(/font/Kanit/Kanit-Regular.ttf);
 }
 @font-face{
     font-family: Bkanit;
-    src: url(/src/font/Kanit/Kanit-Bold.ttf);
+    src: url(/font/Kanit/Kanit-Bold.ttf);
 }
 @font-face{
     font-family: Lkanit;
-    src: url(/src/font/Kanit/Kanit-Light.ttf);
+    src: url(/font/Kanit/Kanit-Light.ttf);
 }
 @font-face{
     font-family: Skanit;
-    src: url(/src/font/Kanit/Kanit-SemiBold.ttf);
+    src: url(/font/Kanit/Kanit-SemiBold.ttf);
 }
 
 
@@ -120,11 +120,13 @@ input,select,textarea,button{
 
 input:disabled{
     background: $background1;
+    opacity: 1;
 }
 
 // class use
 body{
     background: $background1;
+    -webkit-tap-highlight-color:transparent;
 }
 
 .header{
@@ -186,8 +188,11 @@ body{
             }
 
             .menulist{
+                margin: 2% 0;
+
                 @media screen and (min-width:$tablet) {
                     width: calc(100%/9);
+                    margin: unset;
                 }
 
                 a{
@@ -195,9 +200,13 @@ body{
 
                     &.active{
                         background: $brown;
-                        padding: 5%;
+                        padding: 1%;
                         border-radius: 5px;
                         color: $background1!important;
+
+                        @media screen and (min-width:$tablet) {
+                            padding: 5%!important;
+                        }
                     }
 
                     &:hover{
@@ -246,9 +255,13 @@ body{
                             display: block;
                         }
 
-                        a{
-                            color: $background1!important;
+                        li{
+                            padding: 2% 0;
+                            a{
+                                color: $background1!important;
+                            }
                         }
+                        
                     }
                 }
             }
@@ -283,7 +296,8 @@ body{
             display: flex;
             flex-direction: column;
             width: 10%;
-            margin: 3% auto;
+            padding: 3% 0;
+            margin: 0 auto;
 
             @media screen and (min-width:$tablet) {
                 display: none;
@@ -294,7 +308,7 @@ body{
                 width: 30px;
                 height: 3px;
                 display: inline-block;
-                margin: 2px 0;
+                margin: 3px 0;
             }
         }
         .search{
