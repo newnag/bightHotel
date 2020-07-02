@@ -66,6 +66,10 @@
                 cursor: pointer;
             }
         }
+
+        &.active{
+            display: block;
+        }
     }
 
     .loadmore{

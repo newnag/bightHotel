@@ -1,21 +1,21 @@
 @font-face {
   font-family: kanit;
-  src: url(/font/Kanit/Kanit-Regular.ttf);
+  src: url(/src/font/Kanit/Kanit-Regular.ttf);
 }
 
 @font-face {
   font-family: Bkanit;
-  src: url(/font/Kanit/Kanit-Bold.ttf);
+  src: url(/src/font/Kanit/Kanit-Bold.ttf);
 }
 
 @font-face {
   font-family: Lkanit;
-  src: url(/font/Kanit/Kanit-Light.ttf);
+  src: url(/src/font/Kanit/Kanit-Light.ttf);
 }
 
 @font-face {
   font-family: Skanit;
-  src: url(/font/Kanit/Kanit-SemiBold.ttf);
+  src: url(/src/font/Kanit/Kanit-SemiBold.ttf);
 }
 
 *, *:after, *:before {
@@ -90,12 +90,10 @@ input:focus, select:focus, textarea:focus, button:focus {
 
 input:disabled {
   background: #fff;
-  opacity: 1;
 }
 
 body {
   background: #fff;
-  -webkit-tap-highlight-color: transparent;
 }
 
 .header {
@@ -182,14 +180,9 @@ body {
   }
 }
 
-.header nav .menu .menulist {
-  margin: 2% 0;
-}
-
 @media screen and (min-width: 768px) {
   .header nav .menu .menulist {
     width: calc(100%/9);
-    margin: unset;
   }
 }
 
@@ -199,21 +192,8 @@ body {
 
 .header nav .menu .menulist a.active {
   background: #cc9933;
-  padding: 1%;
+  padding: 0 2%;
   border-radius: 5px;
-  color: #fff !important;
-}
-
-@media screen and (min-width: 768px) {
-  .header nav .menu .menulist a.active {
-    padding: 5% !important;
-  }
-}
-
-.header nav .menu .menulist a:hover {
-  color: #cc9933;
-  -webkit-transition: .3s;
-  transition: .3s;
 }
 
 .header nav .menu .menulist .room {
@@ -223,7 +203,7 @@ body {
 
 .header nav .menu .menulist .room.active {
   background: #cc9933;
-  padding: 5%;
+  padding: 0 2%;
   border-radius: 5px;
 }
 
@@ -259,18 +239,6 @@ body {
 
 .header nav .menu .menulist .room .subroom.active {
   display: block;
-}
-
-.header nav .menu .menulist .room .subroom li {
-  padding: 2% 0;
-}
-
-.header nav .menu .menulist .room .subroom li a {
-  color: #fff !important;
-}
-
-.header nav .menu .menulist .room .subroom li a:hover {
-  border-bottom: 2px solid #fff;
 }
 
 .header nav .menu .icon {
@@ -316,8 +284,7 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 10%;
-  padding: 3% 0;
-  margin: 0 auto;
+  margin: 3% auto;
 }
 
 @media screen and (min-width: 768px) {
@@ -331,7 +298,7 @@ body {
   width: 30px;
   height: 3px;
   display: inline-block;
-  margin: 3px 0;
+  margin: 2px 0;
 }
 
 .header nav .search {
@@ -503,12 +470,6 @@ body {
   border: 1px solid #cc9933;
 }
 
-@media screen and (min-width: 1366px) and (max-width: 1600px) {
-  .booking .formBook .input-box input {
-    width: 90% !important;
-  }
-}
-
 .booking .formBook .input-box input[type=number] {
   text-align: center;
 }
@@ -527,12 +488,6 @@ body {
 
 .booking .formBook .input-box img.right {
   right: 3%;
-}
-
-@media screen and (min-width: 1366px) and (max-width: 1600px) {
-  .booking .formBook .input-box img.right {
-    right: 11% !important;
-  }
 }
 
 .booking .formBook .button {
@@ -597,8 +552,8 @@ body {
 
 @media screen and (min-width: 1366px) {
   .footer {
-    -ms-grid-columns: 15% 22% 28% 35%;
-        grid-template-columns: 15% 22% 28% 35%;
+    -ms-grid-columns: 15% 25% 25% 35%;
+        grid-template-columns: 15% 25% 25% 35%;
   }
 }
 
@@ -769,12 +724,6 @@ body {
   margin-top: 5%;
 }
 
-@media screen and (min-width: 1366px) {
-  .promotion-page .pro-zone {
-    padding: 0 15%;
-  }
-}
-
 .promotion-page .pro-zone .grid-box {
   display: -ms-grid;
   display: grid;
@@ -793,8 +742,8 @@ body {
 
 @media screen and (min-width: 1024px) {
   .promotion-page .pro-zone .grid-box {
-    -ms-grid-columns: (calc(97%/2))[2];
-        grid-template-columns: repeat(2, calc(97%/2));
+    -ms-grid-columns: (calc(97%/4))[4];
+        grid-template-columns: repeat(4, calc(97%/4));
     grid-gap: 1%;
     grid-row-gap: 30px;
   }
@@ -827,28 +776,40 @@ body {
 
 .promotion-page .pro-zone .grid-box .item .head .code {
   position: absolute;
-  top: 25%;
+  top: 20%;
   right: 20%;
+}
+
+@media screen and (min-width: 1024px) {
+  .promotion-page .pro-zone .grid-box .item .head .code {
+    font-size: 1.4em;
+  }
 }
 
 @media screen and (min-width: 1600px) {
   .promotion-page .pro-zone .grid-box .item .head .code {
     top: 25%;
-    font-size: 3em;
+    font-size: 1.8em;
   }
 }
 
 .promotion-page .pro-zone .grid-box .item .head .room {
   position: absolute;
-  top: 53%;
+  top: 50%;
   right: 10%;
   width: 55%;
   text-align: center;
 }
 
+@media screen and (min-width: 1024px) {
+  .promotion-page .pro-zone .grid-box .item .head .room {
+    font-size: 1em;
+  }
+}
+
 @media screen and (min-width: 1600px) {
   .promotion-page .pro-zone .grid-box .item .head .room {
-    font-size: 1.8em;
+    font-size: 1.4em;
   }
 }
 

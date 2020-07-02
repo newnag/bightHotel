@@ -447,7 +447,7 @@ body {
 }
 
 .booking {
-  padding: 2% 5%;
+  padding: 1% 5%;
 }
 
 @media screen and (min-width: 1366px) {
@@ -829,6 +829,10 @@ body {
   color: #fff;
   font-size: 2em;
   cursor: pointer;
+}
+
+.gallary-page .showpic.active {
+  display: block;
 }
 
 .gallary-page .loadmore {
