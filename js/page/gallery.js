@@ -1,8 +1,17 @@
-function clickImgUrlBig(){
-    // const img = document.querySelectorAll('.gallary-zone figure img')
-    // img.forEach(Img=>{
+window.onload = ()=>{
+    openBigImg()
+    closeBigImg()
+    clickImgUrlBig()
+}
 
-    // })
+function clickImgUrlBig(){
+    const img = document.querySelectorAll('.gallary-zone figure img')
+    img.forEach(Img=>{
+        Img.addEventListener('click',()=>{
+            let url = Img.src
+            document.querySelector('.showpic .bigpic figure img').src = url
+        })
+    })
 }
 
 function openBigImg(){
@@ -15,5 +24,7 @@ function openBigImg(){
 }
 
 function closeBigImg(){
-    const close = document.querySelectorAll('.bigpic .close')
+    document.querySelector('.bigpic .close').addEventListener('click',()=>{
+        document.querySelector('.showpic').classList.remove('active')
+    })
 }
