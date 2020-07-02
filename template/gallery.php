@@ -21,6 +21,15 @@
                 <figure><img src="<?=ROOT_URL?>img/test3.jpg" alt=""></figure>
             </div>
 
+            <div class="showpic">
+                <div class="bigpic">
+                    <figure><img src="<?=ROOT_URL?>img/test1.jpg" alt=""></figure>
+                    <div class="close">
+                        X
+                    </div>
+                </div>
+            </div>
+
             <div class="loadmore">
                 <button>More</button>
             </div>

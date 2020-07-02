@@ -13,10 +13,9 @@ function toggleSubRoom(){
     }  
 }
 
-// date pick
 $('.formBook .input-box .dateCheck').flatpickr({
     dateFormat: "d-m-Y",
-    disableMobile: "true"
+    disableMobile: "true",
 });
 
 function checkNumberTel() {

@@ -1,21 +1,21 @@
 @font-face {
   font-family: kanit;
-  src: url(/src/font/Kanit/Kanit-Regular.ttf);
+  src: url(/font/Kanit/Kanit-Regular.ttf);
 }
 
 @font-face {
   font-family: Bkanit;
-  src: url(/src/font/Kanit/Kanit-Bold.ttf);
+  src: url(/font/Kanit/Kanit-Bold.ttf);
 }
 
 @font-face {
   font-family: Lkanit;
-  src: url(/src/font/Kanit/Kanit-Light.ttf);
+  src: url(/font/Kanit/Kanit-Light.ttf);
 }
 
 @font-face {
   font-family: Skanit;
-  src: url(/src/font/Kanit/Kanit-SemiBold.ttf);
+  src: url(/font/Kanit/Kanit-SemiBold.ttf);
 }
 
 *, *:after, *:before {
@@ -90,10 +90,12 @@ input:focus, select:focus, textarea:focus, button:focus {
 
 input:disabled {
   background: #fff;
+  opacity: 1;
 }
 
 body {
   background: #fff;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .header {
@@ -180,9 +182,14 @@ body {
   }
 }
 
+.header nav .menu .menulist {
+  margin: 2% 0;
+}
+
 @media screen and (min-width: 768px) {
   .header nav .menu .menulist {
     width: calc(100%/9);
+    margin: unset;
   }
 }
 
@@ -192,8 +199,21 @@ body {
 
 .header nav .menu .menulist a.active {
   background: #cc9933;
-  padding: 0 2%;
+  padding: 1%;
   border-radius: 5px;
+  color: #fff !important;
+}
+
+@media screen and (min-width: 768px) {
+  .header nav .menu .menulist a.active {
+    padding: 5% !important;
+  }
+}
+
+.header nav .menu .menulist a:hover {
+  color: #cc9933;
+  -webkit-transition: .3s;
+  transition: .3s;
 }
 
 .header nav .menu .menulist .room {
@@ -203,7 +223,7 @@ body {
 
 .header nav .menu .menulist .room.active {
   background: #cc9933;
-  padding: 0 2%;
+  padding: 5%;
   border-radius: 5px;
 }
 
@@ -239,6 +259,18 @@ body {
 
 .header nav .menu .menulist .room .subroom.active {
   display: block;
+}
+
+.header nav .menu .menulist .room .subroom li {
+  padding: 2% 0;
+}
+
+.header nav .menu .menulist .room .subroom li a {
+  color: #fff !important;
+}
+
+.header nav .menu .menulist .room .subroom li a:hover {
+  border-bottom: 2px solid #fff;
 }
 
 .header nav .menu .icon {
@@ -284,7 +316,8 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 10%;
-  margin: 3% auto;
+  padding: 3% 0;
+  margin: 0 auto;
 }
 
 @media screen and (min-width: 768px) {
@@ -298,7 +331,7 @@ body {
   width: 30px;
   height: 3px;
   display: inline-block;
-  margin: 2px 0;
+  margin: 3px 0;
 }
 
 .header nav .search {
@@ -470,6 +503,12 @@ body {
   border: 1px solid #cc9933;
 }
 
+@media screen and (min-width: 1366px) and (max-width: 1600px) {
+  .booking .formBook .input-box input {
+    width: 90% !important;
+  }
+}
+
 .booking .formBook .input-box input[type=number] {
   text-align: center;
 }
@@ -488,6 +527,12 @@ body {
 
 .booking .formBook .input-box img.right {
   right: 3%;
+}
+
+@media screen and (min-width: 1366px) and (max-width: 1600px) {
+  .booking .formBook .input-box img.right {
+    right: 11% !important;
+  }
 }
 
 .booking .formBook .button {
@@ -552,8 +597,8 @@ body {
 
 @media screen and (min-width: 1366px) {
   .footer {
-    -ms-grid-columns: 15% 25% 25% 35%;
-        grid-template-columns: 15% 25% 25% 35%;
+    -ms-grid-columns: 15% 22% 28% 35%;
+        grid-template-columns: 15% 22% 28% 35%;
   }
 }
 
@@ -794,39 +839,41 @@ body {
   text-align: center;
 }
 
-@media screen and (min-width: 768px) {
-  .content .grid-room {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: (50%)[2];
-        grid-template-columns: repeat(2, 50%);
-  }
+.content .grid-room {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow-x: scroll;
+  cursor: pointer;
 }
 
-@media screen and (min-width: 1024px) {
-  .content .grid-room {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: (calc(100%/3))[3];
-        grid-template-columns: repeat(3, calc(100%/3));
-  }
+.content .grid-room.drag {
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
 }
 
-@media screen and (min-width: 1366px) {
-  .content .grid-room {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: (calc(100%/5))[5];
-        grid-template-columns: repeat(5, calc(100%/5));
-  }
+.content .grid-room::-webkit-scrollbar {
+  width: 50%;
+  height: 5px;
+}
+
+.content .grid-room::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 5px grey;
+          box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+.content .grid-room::-webkit-scrollbar-thumb {
+  background: #cc9933;
+  border-radius: 10px;
 }
 
 .content .grid-room .item-room {
-  padding: 5% 0;
+  padding: 2%;
 }
 
 .content .grid-room .item-room .box {
-  width: 90%;
+  width: 270px;
   margin: 0 auto;
   border: 1px solid lightgray;
   border-radius: 10px;
@@ -983,8 +1030,8 @@ body {
 
 @media screen and (min-width: 1366px) {
   .content.contact .form-contact .inputDual {
-    -ms-grid-columns: 50% 50%;
-        grid-template-columns: 50% 50%;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
     grid-gap: 1%;
   }
 }
@@ -1016,7 +1063,7 @@ body {
   border: 1px solid #777777;
   border-radius: 10px;
   width: 250px;
-  padding: 0 3%;
+  padding: 0 20px;
 }
 
 .content.contact .form-contact .inputDual .input-box input:focus {
@@ -1057,7 +1104,7 @@ body {
   border: 1px solid #777777;
   border-radius: 10px;
   width: 250px;
-  padding: 0 3%;
+  padding: 0 20px;
 }
 
 .content.contact .form-contact .inputSingle input:focus {
@@ -1079,7 +1126,7 @@ body {
 }
 
 .content.contact .form-contact .textSingle textarea {
-  padding: 0 3%;
+  padding: 0 20px;
   border-radius: 10px;
 }
 
@@ -1109,7 +1156,7 @@ body {
 }
 
 .content.service {
-  padding: 3% 0;
+  padding: 3% 1%;
 }
 
 @media screen and (min-width: 1366px) {
@@ -1133,6 +1180,7 @@ body {
 @media screen and (min-width: 1366px) {
   .content.room {
     padding-bottom: 2%;
+    padding: 0 5%;
   }
 }
 
@@ -1158,6 +1206,10 @@ body {
     width: 95%;
     margin: 5% auto;
   }
+}
+
+.content.row3 {
+  margin: 5% 1%;
 }
 
 @media screen and (min-width: 1024px) {

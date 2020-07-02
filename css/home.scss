@@ -215,7 +215,7 @@
                 padding-bottom: 5px;
 
                 @media screen and (min-width:$laptop) {
-                    grid-template-columns: 50% 50%;
+                    grid-template-columns: 1fr 1fr;
                     grid-gap: 1%;
                 }
 
@@ -233,7 +233,7 @@
                     input{
                         @include input();
                         width: 250px;
-                        padding: 0 3%;
+                        padding: 0 20px;
 
                         @media screen and (min-width:$tablet) {
                             width: 100%;
@@ -256,7 +256,7 @@
                 input{
                     @include input();
                     width: 250px;
-                    padding: 0 3%;
+                    padding: 0 20px;
 
                     @media screen and (min-width:$tablet) {
                         width: 100%;
@@ -269,7 +269,7 @@
                 padding: 5px 5%;
 
                 textarea{
-                    padding: 0 3%;
+                    padding: 0 20px;
                     border-radius: 10px;
                 }
             }
@@ -304,6 +304,7 @@
     &.room{
         @media screen and (min-width:$laptop) {
             padding-bottom: 2%;
+            padding: 0 5%;
         }
 
         .title{

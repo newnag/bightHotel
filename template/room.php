@@ -19,34 +19,42 @@
                     <div class="box-date">
                         <div class="input-box">
                             <label><?=$lang_config['page_room_order_detail_label']?></label>
-                            <input type="date" class="dateCheck">
+                            <input type="date" class="dateCheck checkIn">
                         </div>
 
                         <div class="input-box">
                             <label><?=$lang_config['page_room_order_detail_label_checkout']?></label>
-                            <input type="date" class="dateCheck">
+                            <input type="date" class="dateCheck checkOut">
                         </div>
                     </div>
 
                     <div class="detail-list">
                         <div class="list-item">
                             <span class="nameRoom">Triple Room</span>
-                            <span class="amound-room">1 ห้อง</span>
-                            <span class="amound-day">1 คืน</span>
+                            <div class="amound-room">
+                                <span class="minus">-</span>
+                                <span class="amound-room">1 ห้อง</span>
+                                <span class="plus">+</span>
+                            </div>
                             <span class="amound-pricePerDay">1,400 บาท/คืน</span>
+                            <div class="delete">X</div>
                         </div>
 
                             <div class="list-item">
                                 <span class="nameRoom">Superior Room Double Bed</span>
-                                <span class="amound-room">1 ห้อง</span>
-                                <span class="amound-day">1 คืน</span>
+                                <div class="amound-room">
+                                    <span class="minus">-</span>
+                                    <span class="amound-room">1 ห้อง</span>
+                                    <span class="plus">+</span>
+                                </div>
                                 <span class="amound-pricePerDay">1,400 บาท/คืน</span>
+                                <div class="delete">X</div>
                             </div>
                         </div>
 
                     <div class="amound-price">
                         <div class="list">
-                            <span>การเข้าพัก / คืน</span>
+                            <span>การเข้าพัก</span>
                             <span>1 ห้อง</span>
                         </div>
                         <div class="list">
@@ -129,6 +137,7 @@
             </div>
 
             <div class="detail-room">
+                <div class="logo"><figure><img src="<?=ROOT_URL?>img/logo-B-01.png" alt=""></figure></div>
                 <div class="nameroom">
                     <h2>Triple Room</h2>
                 </div>
@@ -137,8 +146,7 @@
                     <span>บาท / คืน</span>
                 </div>
                 <div class="description">
-                    <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias temporibus quisquam fugiat repellendus? Quae illo inventore dolorum eveniet. Provident excepturi at incidunt laborum itaque. A molestiae quam saepe voluptate at.
+                    <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias temporibus quisquam fugiat repellendus? Quae illo inventore dolorum eveniet. Provident excepturi at incidunt laborum itaque. A molestiae quam saepe voluptate at.
                     </p>
                 </div>
             </div>
@@ -149,14 +157,7 @@
                 </div>
 
                 <div class="inroom">
-                    <div class="item">
-                        <img src="<?=ROOT_URL?>img/icon/key-card.svg" alt="">
-                        <p>
-                            ข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่าง
-                            ข้อความตัวอย่างข้อความตัวอย่าง ข้อความตัวอย่าง ข้อความตัวอย่าง ข้อความตัวอย่าง
-                            ข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่าง
-                        </p>
-                    </div>
+            
                     <div class="item">
                         <img src="<?=ROOT_URL?>img/icon/tv.svg" alt="">
                         <p>
@@ -200,17 +201,18 @@
                 </div>
             </div>
 
-            <div class="logo"><figure><img src="<?=ROOT_URL?>img/logo-B-01.png" alt=""></figure></div>
+            
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="<?=ROOT_URL?>/plugin/OwlCarousel/dist/owl.carousel.min.js"></script>
     <script src="<?=ROOT_URL?>js/page/functions.js?v=1.1.2<?=time()?>"></script>
-    <script src="<?=ROOT_URL?>js/page/slide.js?v=1.1.2<?=time()?>"></script>
+     <script src="<?=ROOT_URL?>js/page/slide.js?v=1.1.2<?=time()?>"></script>
     <script src="<?=ROOT_URL?>js/page/hotel.js?v=1.1.2<?=time()?>"></script>
     <script src="<?=ROOT_URL?>js/page/bookHome.js?v=1.1.2<?=time()?>"></script>
     <script src="<?=ROOT_URL?>js/page/room.js?v=1.1.2<?=time()?>"></script>
+    <script src="<?=ROOT_URL?>js/page/reserve.js?v=1.1.2<?=time()?>"></script> 
 </body>
 </html>

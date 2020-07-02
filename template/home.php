@@ -101,16 +101,22 @@
                     <div class="inputDual">
                         <div class="input-box">
                             <label>ชื่อ</label>
-                            <input type="text" placeholder="กรุณากรอกชื่อ">
+                            <input type="text" placeholder="กรอกชื่อ">
+                        </div>
+                        <div class="input-box">
+                            <label>นามสกุล</label>
+                            <input type="text" placeholder="กรอกนามสกุล">
+                        </div>
+                    </div>
+                    <div class="inputDual">
+                        <div class="input-box">
+                            <label>เบอร์โทร</label>
+                            <input type="tel" placeholder="กรอกเบอร์โทร">
                         </div>
                         <div class="input-box">
                             <label>อีเมล</label>
-                            <input type="text" placeholder="กรอกอีเมล">
+                            <input type="email" placeholder="กรอกอีเมล">
                         </div>
-                    </div>
-                    <div class="inputSingle">
-                        <label>เบอร์โทร</label>
-                        <input type="tel" placeholder="กรอกเบอร์โทร">
                     </div>
                     <div class="inputSingle">
                         <label>เรื่อง</label>
@@ -118,7 +124,7 @@
                     </div>
                     <div class="textSingle">
                         <label>ข้อความ</label>
-                        <textarea name="" id="" cols="30" rows="2" placeholder="กรอกข้อความ"></textarea>
+                        <textarea name="" id="" cols="30" rows="3" placeholder="กรอกข้อความ"></textarea>
                     </div>
                     <div class="button"><button>ส่ง</button></div>
                 </div>

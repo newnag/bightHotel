@@ -269,6 +269,10 @@ body {
   color: #fff !important;
 }
 
+.header nav .menu .menulist .room .subroom li a:hover {
+  border-bottom: 2px solid #fff;
+}
+
 .header nav .menu .icon {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -834,6 +838,12 @@ body {
   font-family: Lkanit;
 }
 
+.room-page .room-page-zone .gird-room .list-room .img-review .virwFull:hover {
+  background-color: #cc9933;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
 .room-page .room-page-zone .gird-room .list-room .img-review .carousel {
   position: absolute;
   bottom: 0;
@@ -1095,8 +1105,8 @@ body {
 .room-page .room-page-zone .detail-order .detial .detail-list .list-item {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 30% 15% 15% 40%;
-      grid-template-columns: 30% 15% 15% 40%;
+  -ms-grid-columns: 50% 20% 25% 5%;
+      grid-template-columns: 50% 20% 25% 5%;
   border-bottom: 1px solid #777777;
   margin-bottom: 2%;
 }
@@ -1107,21 +1117,52 @@ body {
 }
 
 .room-page .room-page-zone .detail-order .detial .detail-list .list-item span {
-  font-size: .6em;
+  font-size: .8em;
   font-family: Lkanit;
 }
 
 .room-page .room-page-zone .detail-order .detial .detail-list .list-item span.nameRoom {
   margin-left: 5%;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-family: kanit;
 }
 
-.room-page .room-page-zone .detail-order .detial .detail-list .list-item span.amound-room, .room-page .room-page-zone .detail-order .detial .detail-list .list-item span.amound-day {
+.room-page .room-page-zone .detail-order .detial .detail-list .list-item span.amound-day {
   text-align: center;
 }
 
 .room-page .room-page-zone .detail-order .detial .detail-list .list-item span.amound-pricePerDay {
   text-align: end;
   margin-right: 5%;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.room-page .room-page-zone .detail-order .detial .detail-list .list-item .amound-room {
+  text-align: center;
+}
+
+.room-page .room-page-zone .detail-order .detial .detail-list .list-item .amound-room .minus, .room-page .room-page-zone .detail-order .detial .detail-list .list-item .amound-room .plus {
+  cursor: pointer;
+  font-size: 1em;
+  font-family: kanit;
+}
+
+.room-page .room-page-zone .detail-order .detial .detail-list .list-item .amound-room .minus {
+  margin-right: 10px;
+}
+
+.room-page .room-page-zone .detail-order .detial .detail-list .list-item .amound-room .plus {
+  margin-left: 10px;
+}
+
+.room-page .room-page-zone .detail-order .detial .detail-list .list-item .delete {
+  text-align: center;
+  font-size: .8em;
+  cursor: pointer;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .room-page .room-page-zone .detail-order .detial .amound-price {
@@ -1355,8 +1396,9 @@ body {
   .dialog-fullview .inner-dialog {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 60% 40%;
-        grid-template-columns: 60% 40%;
+    -ms-grid-columns: 49% 48%;
+        grid-template-columns: 49% 48%;
+    grid-column-gap: 3%;
     padding-top: 3%;
     height: auto;
   }
@@ -1364,9 +1406,33 @@ body {
 
 @media screen and (min-width: 1366px) {
   .dialog-fullview .inner-dialog {
-    height: 90%;
+    height: 70%;
     width: 75%;
   }
+}
+
+@media screen and (min-width: 1600px) {
+  .dialog-fullview .inner-dialog {
+    height: 70%;
+    width: 60%;
+  }
+}
+
+.dialog-fullview .inner-dialog::-webkit-scrollbar {
+  width: 5px;
+}
+
+.dialog-fullview .inner-dialog::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.dialog-fullview .inner-dialog::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.dialog-fullview .inner-dialog::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 .dialog-fullview .inner-dialog .image-review .img-bigbox figure {
@@ -1381,7 +1447,7 @@ body {
 
 @media screen and (min-width: 1024px) {
   .dialog-fullview .inner-dialog .image-review .img-bigbox figure {
-    height: 350px;
+    height: 300px;
   }
 }
 
@@ -1423,6 +1489,12 @@ body {
   border: 1px solid #fff;
 }
 
+.dialog-fullview .inner-dialog .image-review .carousel .list-img figure img:hover {
+  border: 3px solid #cc9933;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
 .dialog-fullview .inner-dialog .image-review .carousel .list-img.drag {
   cursor: grabbing;
   cursor: -webkit-grabbing;
@@ -1439,13 +1511,60 @@ body {
   color: #22324b;
 }
 
-.dialog-fullview .inner-dialog .detail-room .nameroom span, .dialog-fullview .inner-dialog .detail-room .price span, .dialog-fullview .inner-dialog .detail-room .description span {
-  position: absolute;
-  top: 0;
+.dialog-fullview .inner-dialog .detail-room .price {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .dialog-fullview .inner-dialog .detail-room .price {
+    width: 60%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 1366px) {
+  .dialog-fullview .inner-dialog .detail-room .price {
+    width: 60%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .dialog-fullview .inner-dialog .detail-room .price {
+    width: 80%;
+    margin: 0 auto;
+  }
 }
 
 .dialog-fullview .inner-dialog .detail-room .price h2 {
-  font-size: 3em;
+  font-size: 2em;
+}
+
+@media screen and (min-width: 768px) {
+  .dialog-fullview .inner-dialog .detail-room .price h2 {
+    font-size: 3em;
+  }
+}
+
+.dialog-fullview .inner-dialog .detail-room .price span {
+  position: absolute;
+  right: 0;
+}
+
+@media screen and (min-width: 1024px) {
+  .dialog-fullview .inner-dialog .facilities {
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+    grid-column-end: 3;
+  }
 }
 
 .dialog-fullview .inner-dialog .facilities .title {
@@ -1474,9 +1593,9 @@ body {
 
 @media screen and (min-width: 1024px) {
   .dialog-fullview .inner-dialog .facilities .inroom {
-    -ms-grid-columns: (1fr)[6];
-        grid-template-columns: repeat(6, 1fr);
-    grid-gap: 1%;
+    -ms-grid-columns: (1fr)[8];
+        grid-template-columns: repeat(8, 1fr);
+    grid-row-gap: 15px;
   }
 }
 
@@ -1498,16 +1617,14 @@ body {
 
 @media screen and (min-width: 1024px) {
   .dialog-fullview .inner-dialog .facilities .inroom .item p {
-    height: 9em;
+    height: 3em;
     overflow: hidden;
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (max-width: 768px) {
   .dialog-fullview .inner-dialog .logo {
-    position: absolute;
-    bottom: 0;
-    right: 0;
+    display: none;
   }
 }
 
@@ -1516,8 +1633,8 @@ body {
 }
 
 .dialog-fullview .inner-dialog .logo figure img {
-  width: 40%;
-  height: 100%;
+  width: 128px;
+  height: 128px;
 }
 
 .dialog-fullview .inner-dialog .close {
@@ -1537,9 +1654,28 @@ body {
 .dialog-fullview .inner-dialog .close button {
   background-color: inherit;
   border: unset;
+  cursor: pointer;
 }
 
 .dialog-fullview.active {
   display: block;
+}
+
+@-webkit-keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 /*# sourceMappingURL=room.css.map */

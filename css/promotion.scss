@@ -12,6 +12,10 @@
     .pro-zone{
         margin-top: 5%;
 
+        @media screen and (min-width:$laptop) {
+            padding: 0 15%;
+        }
+
         .grid-box{
             display: grid;
             grid-template-columns: 100%;

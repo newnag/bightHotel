@@ -20,14 +20,16 @@
   <link rel="stylesheet" href="<?=ROOT_URL?>plugin/OwlCarousel/dist/assets/owl.theme.default.min.css">
   
   <?php // สไตล์ในหน้าต่างๆที่เตรียมแยก ?>
-  <link rel="stylesheet" href="<?=ROOT_URL?>css/gallary.min.css">
-  <link rel="stylesheet" href="<?=ROOT_URL?>css/booking-room.min.css">
-  <link rel="stylesheet" href="<?=ROOT_URL?>css/contact.min.css">
-  <link rel="stylesheet" href="<?=ROOT_URL?>css/promotion.min.css">
+  <link rel="stylesheet" href="<?=ROOT_URL?>css/gallary.min.css?v=<?=time()?>">
+  <link rel="stylesheet" href="<?=ROOT_URL?>css/booking-room.min.css?v=<?=time()?>">
+  <link rel="stylesheet" href="<?=ROOT_URL?>css/contact.min.css?v=<?=time()?>">
+  <link rel="stylesheet" href="<?=ROOT_URL?>css/promotion.min.css?v=<?=time()?>">
   <link rel="stylesheet" href="<?=ROOT_URL?>css/room.min.css?v=<?=time()?>">
-  <link rel="stylesheet" href="<?=ROOT_URL?>css/meeting.min.css">
-  <link rel="stylesheet" href="<?=ROOT_URL?>css/history.min.css">
-  <script>let site_url = "<?=ROOT_URL?>";</script>
+  <link rel="stylesheet" href="<?=ROOT_URL?>css/meeting.min.css?v=<?=time()?>">
+  <link rel="stylesheet" href="<?=ROOT_URL?>css/history.min.css?v=<?=time()?>">
+  <link rel="stylesheet" href="<?=ROOT_URL?>css/meStyle.css?v=<?=time()?>">
+
+  <script>let hostname = "<?=ROOT_URL?>";</script>
 
   <?php /*
     <link rel="stylesheet" href="/css/style.min.css?v=<?=time()?>">

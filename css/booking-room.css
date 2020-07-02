@@ -269,6 +269,10 @@ body {
   color: #fff !important;
 }
 
+.header nav .menu .menulist .room .subroom li a:hover {
+  border-bottom: 2px solid #fff;
+}
+
 .header nav .menu .icon {
   display: -webkit-box;
   display: -ms-flexbox;

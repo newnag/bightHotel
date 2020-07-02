@@ -65,6 +65,11 @@
                             color: $background1;
                             font-family: Lkanit;
                         }
+
+                        &:hover{
+                            background-color: $brown;
+                            transition: .3s;
+                        }
                     }
     
                     .carousel{
@@ -278,7 +283,7 @@
 
                     .list-item{
                         display: grid;
-                        grid-template-columns: 30% 15% 15% 40%;
+                        grid-template-columns: 50% 20% 25% 5%;
                         border-bottom: 1px solid $text-gray;
                         margin-bottom: 2%;
 
@@ -288,19 +293,46 @@
                         }
 
                         span{
-                            font-size: .6em;
+                            font-size: .8em;
                             font-family: Lkanit;
 
                             &.nameRoom{
                                 margin-left: 5%;
+                                margin-top: auto;
+                                margin-bottom: auto;
+                                font-family: kanit;
                             }
-                            &.amound-room,&.amound-day{
+                            &.amound-day{
                                 text-align: center;
                             }
                             &.amound-pricePerDay{
                                 text-align: end;
                                 margin-right: 5%;
+                                margin-top: auto;
+                                margin-bottom: auto;
                             }
+                        }
+                        .amound-room{
+                            text-align: center;
+
+                            .minus,.plus{
+                                cursor: pointer;
+                                font-size: 1em;
+                                font-family: kanit;
+                            }
+                            .minus{
+                                margin-right: 10px;
+                            }
+                            .plus{
+                                margin-left: 10px;
+                            }
+                        }
+                        .delete{
+                            text-align: center;
+                            font-size: .8em;
+                            cursor: pointer;
+                            margin-top: auto;
+                            margin-bottom: auto;
                         }
 
                     }
@@ -458,13 +490,32 @@
         }
         @media screen and (min-width:$ipadpro) {
             display: grid;
-            grid-template-columns: 60% 40%;
+            grid-template-columns: 49% 48%;
+            grid-column-gap: 3%;
             padding-top: 3%;
             height: auto;
         }
         @media screen and (min-width:$laptop) {
-            height: 90%;
+            height: 70%;
             width: 75%;
+        }
+        @media screen and (min-width:$pc) {
+            height: 70%;
+            width: 60%;
+        }
+
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: #888; 
+            border-radius: 10px;
+        }
+        &::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        &::-webkit-scrollbar-thumb:hover {
+            background: #555; 
         }
 
         .image-review{
@@ -476,7 +527,7 @@
                         height: 400px;
                     }
                     @media screen and (min-width:$ipadpro) {
-                        height: 350px;
+                        height: 300px;
                     }
     
                     img{
@@ -512,6 +563,11 @@
                             &.active{
                                 border: 1px solid $background1;
                             }
+
+                            &:hover{
+                                border: 3px solid $brown;
+                                transition: .3s;
+                            }
                         }
                     }
 
@@ -532,23 +588,45 @@
                 h2,span,p{
                     color: $blue;
                 }
-                span{
-                    position: absolute;
-                    top: 0;
-                }
+                
             }
             .price{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                @media screen and (min-width:$tablet) and (max-width:$bipadpro) {
+                    width: 60%;
+                    margin: 0 auto;
+                }
+                @media screen and (min-width:$laptop) {
+                    width: 60%;
+                    margin: 0 auto;
+                }
+                @media screen and (min-width:$pc) {
+                    width: 80%;
+                    margin: 0 auto;
+                }
+
                 h2{
-                    font-size: 3em;
+                    font-size: 2em;
+
+                    @media screen and (min-width:$tablet) {
+                        font-size: 3em;
+                    }
+                }
+                span{
+                    position: absolute;
+                    right: 0;
                 }
             }
         }
 
         .facilities{
-            // @media screen and (min-width:$ipadpro) {
-            //     grid-column-start: 1;
-            //     grid-column-end: 3;
-            // }
+            @media screen and (min-width:$ipadpro) {
+                grid-column-start: 1;
+                grid-column-end: 3;
+            }
 
             .title{
                 text-align: center;
@@ -568,8 +646,8 @@
                     grid-template-columns: repeat(2,1fr);
                 }
                 @media screen and (min-width:$ipadpro) {
-                    grid-template-columns: repeat(6,1fr);
-                    grid-gap: 1%;
+                    grid-template-columns: repeat(8,1fr);
+                    grid-row-gap: 15px;
                 }
     
                 .item{
@@ -586,7 +664,7 @@
                         color: $blue;
 
                         @media screen and (min-width:$ipadpro) {
-                            height: 9em;
+                            height: 3em;
                             overflow: hidden;
                         }
                     }
@@ -595,18 +673,16 @@
         }
         
         .logo{
-            @media screen and (min-width:$ipadpro) {
-                position: absolute;
-                bottom: 0;
-                right: 0;
+            @media screen and (max-width:$tablet) {
+                display: none;
             }   
 
             figure{
                 text-align: center;
 
                 img{
-                    width: 40%;
-                    height: 100%;
+                    width: 128px;
+                    height: 128px;
                 }
             }
         }
@@ -625,11 +701,18 @@
             button{
                 background-color: inherit;
                 border: unset;
+                cursor: pointer;
             }
         }
     }
 
     &.active{
         display: block;
+        //animation: fade .5s;
+    }
+
+    @keyframes fade {
+        0%{opacity: 0;}
+        100%{opacity: 1;}
     }
 }
