@@ -75,6 +75,9 @@
                                 grid-template-columns: 49% 49%;
                                 grid-gap: 1%;
                             }
+                            @media screen and (min-width:$laptop) {
+                                grid-template-columns: 34% 34% 1fr 1fr;
+                            }
 
                             .input-box{
                                 display: grid;
@@ -93,6 +96,7 @@
                                 }
                                 input[type=number]{
                                     text-align: center;
+                                    padding-left: 30px;
                                 }
                                 img.left,img.right{
                                     position: absolute;
@@ -100,6 +104,7 @@
                                     width: 16px;
                                     height: 16px;
                                     cursor: pointer;
+                                    filter: invert(100%);
                                 }
                                 img.left{
                                     left: 3%;
@@ -110,7 +115,7 @@
                             }
 
                             .input-box:nth-child(1),.input-box:nth-child(2){
-                                @media screen and (min-width:$tablet) {
+                                @media screen and (min-width:$tablet) and (max-width:1365px) {
                                     grid-column-start: 1;
                                     grid-column-end: 3;
                                 }
@@ -244,6 +249,15 @@
                 }
             }
 
+            .booking{
+                margin-top: 5%;
+                text-align: center;
+
+                button{
+                    @include button(150px)
+                }
+            }
+
             .buttonPayment{
                 display: grid;
                 grid-template-columns: 100%;
@@ -357,7 +371,56 @@
                             display: none;
                         }
                     }
-                }           
+                } 
+                
+                &.credit{
+                    display: none;
+                    .right-box{
+                        .date-box{
+                            display: grid;
+                            grid-template-columns: repeat(3,1fr);
+                            grid-gap: 1%;
+
+                            .input-box{
+                                align-items: flex-end;
+                                select{
+                                    @include input();
+                                    height: 40px;
+                                }
+                            }
+                        }
+                    }
+
+                    .info-box{
+                        grid-column-start: 1;
+                        grid-column-end: 3;
+                        display: grid;
+
+                        @media screen and (min-width:$tablet) {
+                            grid-template-columns: repeat(2,1fr);
+                            grid-gap: 2%;
+                        }
+
+                        .input-box{
+                            display: grid;
+                            margin: 1% 0;
+                            position: relative;
+
+                            @media screen and (min-width:$ipadpro) {
+                                margin-bottom: 3%;
+                            }
+                
+                            label{
+                                color: $background1;
+                            }
+                            input{
+                                @include input();
+                                padding: 0 20px;
+                                border: unset;
+                            }
+                        }
+                    }
+                }
             }
 
             .buttonFinalPay{
@@ -372,17 +435,17 @@
 
         .detail-order{
             @media screen and (min-width:$ipadpro) {
-                margin-top: 54px;
+                margin-top: 44px;
             }
             .detial{
-                padding: 0 5%;
+                padding: 3% 5%;
                 border-radius: 10px;
 
                 .title{
                     @include title();
 
                     @media screen and (min-width:$ipadpro) {
-                        padding-top: 5%;
+                        //padding-top: 5%;
                         margin: unset;
                     }
 
@@ -397,29 +460,10 @@
                         display: grid;
                         margin: 1% 0;
                         position: relative;
+                        grid-template-columns: repeat(2,50%);
             
                         label{
                             color: $background1;
-                        }
-                        input{
-                            @include input();
-                            padding: 0 20px;
-                        }
-                        input[type=number]{
-                            text-align: center;
-                        }
-                        img.left,img.right{
-                            position: absolute;
-                            bottom: 17%;
-                            width: 16px;
-                            height: 16px;
-                            cursor: pointer;
-                        }
-                        img.left{
-                            left: 3%;
-                        }
-                        img.right{
-                            right: 3%;
                         }
                     }
                 }
@@ -433,7 +477,7 @@
 
                     .list-item{
                         display: grid;
-                        grid-template-columns: 30% 15% 15% 40%;
+                        grid-template-columns: 1fr 1fr 1fr;
                         border-bottom: 1px solid $text-gray;
                         margin-bottom: 2%;
 
@@ -443,7 +487,7 @@
                         }
 
                         span{
-                            font-size: .6em;
+                            font-size: .8em;
                             font-family: Lkanit;
 
                             &.nameRoom{

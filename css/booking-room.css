@@ -746,6 +746,10 @@ body {
   }
 }
 
+.flatpickr-current-month {
+  font-size: 100% !important;
+}
+
 .bookingroom-page {
   width: 95%;
   margin: 0 auto;
@@ -853,6 +857,13 @@ body {
   }
 }
 
+@media screen and (min-width: 1366px) {
+  .bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-bookingRoom .bookingRoom .row .form-grid {
+    -ms-grid-columns: 34% 34% 1fr 1fr;
+        grid-template-columns: 34% 34% 1fr 1fr;
+  }
+}
+
 .bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-bookingRoom .bookingRoom .row .form-grid .input-box {
   display: -ms-grid;
   display: grid;
@@ -881,6 +892,7 @@ body {
 
 .bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-bookingRoom .bookingRoom .row .form-grid .input-box input[type=number] {
   text-align: center;
+  padding-left: 30px;
 }
 
 .bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-bookingRoom .bookingRoom .row .form-grid .input-box img.left, .bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-bookingRoom .bookingRoom .row .form-grid .input-box img.right {
@@ -889,6 +901,8 @@ body {
   width: 16px;
   height: 16px;
   cursor: pointer;
+  -webkit-filter: invert(100%);
+          filter: invert(100%);
 }
 
 .bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-bookingRoom .bookingRoom .row .form-grid .input-box img.left {
@@ -899,7 +913,7 @@ body {
   right: 3%;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1365px) {
   .bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-bookingRoom .bookingRoom .row .form-grid .input-box:nth-child(1), .bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-bookingRoom .bookingRoom .row .form-grid .input-box:nth-child(2) {
     -ms-grid-column: 1;
         grid-column-start: 1;
@@ -1079,6 +1093,31 @@ body {
   right: 3%;
 }
 
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .booking {
+  margin-top: 5%;
+  text-align: center;
+}
+
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .booking button {
+  width: 150px;
+  height: 40px;
+  background-color: #cc9933;
+  color: #fff;
+  -webkit-box-shadow: 0px 1px 5px #777777;
+          box-shadow: 0px 1px 5px #777777;
+  font-size: 1.4em;
+  font-family: Bkanit;
+  border: unset;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .booking button:hover {
+  background: #79472c;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
 .bookingroom-page .bookingroom-page-zone .detail-booking-zone .buttonPayment {
   display: -ms-grid;
   display: grid;
@@ -1256,6 +1295,82 @@ body {
   display: none;
 }
 
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.credit {
+  display: none;
+}
+
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.credit .right-box .date-box {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1%;
+}
+
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.credit .right-box .date-box .input-box {
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.credit .right-box .date-box .input-box select {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #777777;
+  border-radius: 10px;
+  height: 40px;
+}
+
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.credit .right-box .date-box .input-box select:focus {
+  border: 1px solid #cc9933;
+}
+
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.credit .info-box {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 3;
+  display: -ms-grid;
+  display: grid;
+}
+
+@media screen and (min-width: 768px) {
+  .bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.credit .info-box {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2%;
+  }
+}
+
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.credit .info-box .input-box {
+  display: -ms-grid;
+  display: grid;
+  margin: 1% 0;
+  position: relative;
+}
+
+@media screen and (min-width: 1024px) {
+  .bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.credit .info-box .input-box {
+    margin-bottom: 3%;
+  }
+}
+
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.credit .info-box .input-box label {
+  color: #fff;
+}
+
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.credit .info-box .input-box input {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #777777;
+  border-radius: 10px;
+  padding: 0 20px;
+  border: unset;
+}
+
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.credit .info-box .input-box input:focus {
+  border: 1px solid #cc9933;
+}
+
 .bookingroom-page .bookingroom-page-zone .detail-booking-zone .buttonFinalPay {
   margin-top: 5%;
   text-align: center;
@@ -1283,12 +1398,12 @@ body {
 
 @media screen and (min-width: 1024px) {
   .bookingroom-page .bookingroom-page-zone .detail-order {
-    margin-top: 54px;
+    margin-top: 44px;
   }
 }
 
 .bookingroom-page .bookingroom-page-zone .detail-order .detial {
-  padding: 0 5%;
+  padding: 3% 5%;
   border-radius: 10px;
 }
 
@@ -1307,7 +1422,6 @@ body {
 
 @media screen and (min-width: 1024px) {
   .bookingroom-page .bookingroom-page-zone .detail-order .detial .title {
-    padding-top: 5%;
     margin: unset;
   }
 }
@@ -1322,42 +1436,12 @@ body {
   display: grid;
   margin: 1% 0;
   position: relative;
+  -ms-grid-columns: (50%)[2];
+      grid-template-columns: repeat(2, 50%);
 }
 
 .bookingroom-page .bookingroom-page-zone .detail-order .detial .box-date .input-box label {
   color: #fff;
-}
-
-.bookingroom-page .bookingroom-page-zone .detail-order .detial .box-date .input-box input {
-  width: 100%;
-  height: 40px;
-  border: 1px solid #777777;
-  border-radius: 10px;
-  padding: 0 20px;
-}
-
-.bookingroom-page .bookingroom-page-zone .detail-order .detial .box-date .input-box input:focus {
-  border: 1px solid #cc9933;
-}
-
-.bookingroom-page .bookingroom-page-zone .detail-order .detial .box-date .input-box input[type=number] {
-  text-align: center;
-}
-
-.bookingroom-page .bookingroom-page-zone .detail-order .detial .box-date .input-box img.left, .bookingroom-page .bookingroom-page-zone .detail-order .detial .box-date .input-box img.right {
-  position: absolute;
-  bottom: 17%;
-  width: 16px;
-  height: 16px;
-  cursor: pointer;
-}
-
-.bookingroom-page .bookingroom-page-zone .detail-order .detial .box-date .input-box img.left {
-  left: 3%;
-}
-
-.bookingroom-page .bookingroom-page-zone .detail-order .detial .box-date .input-box img.right {
-  right: 3%;
 }
 
 .bookingroom-page .bookingroom-page-zone .detail-order .detial .detail-list {
@@ -1371,8 +1455,8 @@ body {
 .bookingroom-page .bookingroom-page-zone .detail-order .detial .detail-list .list-item {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 30% 15% 15% 40%;
-      grid-template-columns: 30% 15% 15% 40%;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
   border-bottom: 1px solid #777777;
   margin-bottom: 2%;
 }
@@ -1383,7 +1467,7 @@ body {
 }
 
 .bookingroom-page .bookingroom-page-zone .detail-order .detial .detail-list .list-item span {
-  font-size: .6em;
+  font-size: .8em;
   font-family: Lkanit;
 }
 

@@ -54,5 +54,5 @@
   <script type="text/javascript" src="<?=ROOT_URL?>js/page/functions.js?v=<?=time()?>"></script>
   <script type="text/javascript" src="<?=ROOT_URL?>js/page/hotel.js?v=<?=time()?>"></script>
   <script type="text/javascript" src="<?=ROOT_URL?>js/page/bookHome.js"></script>
- 
+  <script type="text/javascript" src="<?=ROOT_URL?>js/page/room.js?v=<?=time()?>"></script>
   <script src="<?=ROOT_URL?>js/page/slide.js"></script>

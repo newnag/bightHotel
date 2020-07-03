@@ -22,10 +22,15 @@
         grid-row-gap: 10px;
         margin: 5% 0;
 
-        @media screen and (min-width:$ipadpro) {
+        @media screen and (min-width:$ipadpro) and (max-width:1599px) {
+            grid-template-columns: 57% 42%;
+            grid-gap: 1%;
+        }
+        @media screen and (min-width:$pc) {
             grid-template-columns: 57% 40%;
             grid-gap: 3%;
         }
+        
 
         .gird-room{
             display: grid;
@@ -225,7 +230,7 @@
 
         .detail-order{
             .detial{
-                padding: 0 5%;
+                padding: 0 3%;
                 border-radius: 10px;
 
                 .title{
@@ -283,9 +288,13 @@
 
                     .list-item{
                         display: grid;
-                        grid-template-columns: 50% 20% 25% 5%;
+                        grid-template-columns: 1fr 1fr 1fr 5%;
                         border-bottom: 1px solid $text-gray;
                         margin-bottom: 2%;
+
+                        @media screen and (min-width:$pc){
+                            grid-template-columns: 50% 20% 25% 5%;
+                        }
 
                         &:last-child{
                             border: unset;
@@ -314,11 +323,21 @@
                         }
                         .amound-room{
                             text-align: center;
+                            margin-top: auto;
+                            margin-bottom: auto;
+
+                            &::selection{
+                                background: transparent;
+                            }
 
                             .minus,.plus{
                                 cursor: pointer;
                                 font-size: 1em;
                                 font-family: kanit;
+
+                                &::selection{
+                                    background: transparent;
+                                }
                             }
                             .minus{
                                 margin-right: 10px;
@@ -600,7 +619,7 @@
                     margin: 0 auto;
                 }
                 @media screen and (min-width:$laptop) {
-                    width: 60%;
+                    width: 70%;
                     margin: 0 auto;
                 }
                 @media screen and (min-width:$pc) {

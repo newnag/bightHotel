@@ -11,6 +11,8 @@ window.onload = ()=>{
     if(screen.width < 1366){
         facilitiesIcon('.detail-room .inroom .item')
     }
+    deleteListRoom()
+    increaseNumberRoom()
 }
 
 function openDialogRoom(){
@@ -60,5 +62,28 @@ function clickToCloseDialog(){
         if(ev.target.className === 'dialog-fullview active'){
             element.classList.remove('active')
         }
+    })
+}
+
+function deleteListRoom(){
+    const button = document.querySelectorAll('.detial .detail-list .list-item .delete')
+    button.forEach(X=>{
+        X.addEventListener('click',()=>{
+            X.parentElement.remove()
+        })
+    })
+}
+
+function increaseNumberRoom(){
+    const room = document.querySelectorAll('.detail-list .list-item div.amound-room')
+    room.forEach(element => {
+        console.log(element)
+        let str = element.textContent
+        str = str.slice(0,1)
+        const left = element.querySelector('.minus')
+        const right = element.querySelector('.plus')
+        left.addEventListener('click',()=>{
+            
+        })
     })
 }

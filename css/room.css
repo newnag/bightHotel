@@ -746,6 +746,10 @@ body {
   }
 }
 
+.flatpickr-current-month {
+  font-size: 100% !important;
+}
+
 .room-page {
   width: 95%;
   margin: 0 auto;
@@ -786,7 +790,15 @@ body {
   margin: 5% 0;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1024px) and (max-width: 1599px) {
+  .room-page .room-page-zone {
+    -ms-grid-columns: 57% 42%;
+        grid-template-columns: 57% 42%;
+    grid-gap: 1%;
+  }
+}
+
+@media screen and (min-width: 1600px) {
   .room-page .room-page-zone {
     -ms-grid-columns: 57% 40%;
         grid-template-columns: 57% 40%;
@@ -1022,7 +1034,7 @@ body {
 }
 
 .room-page .room-page-zone .detail-order .detial {
-  padding: 0 5%;
+  padding: 0 3%;
   border-radius: 10px;
 }
 
@@ -1105,10 +1117,17 @@ body {
 .room-page .room-page-zone .detail-order .detial .detail-list .list-item {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 50% 20% 25% 5%;
-      grid-template-columns: 50% 20% 25% 5%;
+  -ms-grid-columns: 1fr 1fr 1fr 5%;
+      grid-template-columns: 1fr 1fr 1fr 5%;
   border-bottom: 1px solid #777777;
   margin-bottom: 2%;
+}
+
+@media screen and (min-width: 1600px) {
+  .room-page .room-page-zone .detail-order .detial .detail-list .list-item {
+    -ms-grid-columns: 50% 20% 25% 5%;
+        grid-template-columns: 50% 20% 25% 5%;
+  }
 }
 
 .room-page .room-page-zone .detail-order .detial .detail-list .list-item:last-child {
@@ -1141,12 +1160,30 @@ body {
 
 .room-page .room-page-zone .detail-order .detial .detail-list .list-item .amound-room {
   text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.room-page .room-page-zone .detail-order .detial .detail-list .list-item .amound-room::-moz-selection {
+  background: transparent;
+}
+
+.room-page .room-page-zone .detail-order .detial .detail-list .list-item .amound-room::selection {
+  background: transparent;
 }
 
 .room-page .room-page-zone .detail-order .detial .detail-list .list-item .amound-room .minus, .room-page .room-page-zone .detail-order .detial .detail-list .list-item .amound-room .plus {
   cursor: pointer;
   font-size: 1em;
   font-family: kanit;
+}
+
+.room-page .room-page-zone .detail-order .detial .detail-list .list-item .amound-room .minus::-moz-selection, .room-page .room-page-zone .detail-order .detial .detail-list .list-item .amound-room .plus::-moz-selection {
+  background: transparent;
+}
+
+.room-page .room-page-zone .detail-order .detial .detail-list .list-item .amound-room .minus::selection, .room-page .room-page-zone .detail-order .detial .detail-list .list-item .amound-room .plus::selection {
+  background: transparent;
 }
 
 .room-page .room-page-zone .detail-order .detial .detail-list .list-item .amound-room .minus {
@@ -1532,7 +1569,7 @@ body {
 
 @media screen and (min-width: 1366px) {
   .dialog-fullview .inner-dialog .detail-room .price {
-    width: 60%;
+    width: 70%;
     margin: 0 auto;
   }
 }

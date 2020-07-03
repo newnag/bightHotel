@@ -13,7 +13,7 @@ function toggleSubRoom(){
     }  
 }
 
-$('.formBook .input-box .dateCheck').flatpickr({
+$('.dateCheck').flatpickr({
     dateFormat: "d-m-Y",
     disableMobile: "true",
 });

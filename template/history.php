@@ -1,3 +1,8 @@
+
+
+<body>
+
+<?php require_once "mains/header.php"; ?>
 <div class="history-page">
     <div class="title">
         <h1>ประวัติการจอง</h1>
@@ -107,3 +112,9 @@
         </div>
     </div>
 </div>
+
+   <!-- Footer -->
+   <?php 
+        require_once "mains/footer.php"; 
+    ?>
+</body>

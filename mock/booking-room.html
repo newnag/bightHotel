@@ -116,14 +116,18 @@
                                     <input type="text" placeholder="กรอกนามสกุลผู้เข้าพัก">
                                 </div>
 
-                                <div class="input-box">
-                                    <label>ผู้ใหญ่</label>
-                                    <input type="number" value="1" disabled>
+                                <div class="input-box adult">
+                                    <label>ผู้ใหญ่/คน</label>
+                                    <input type="number" class="inputAdult" value="5" disabled>
+                                    <img class="left" src="/img/icon/minus.svg" alt="">
+                                    <img class="right" src="/img/icon/plus.svg" alt="">
                                 </div>
-
-                                <div class="input-box">
-                                    <label>เด็ก</label>
-                                    <input type="number" value="1" disabled>
+                    
+                                <div class="input-box child">
+                                    <label>เด็ก/คน</label>
+                                    <input type="number" class="inputChild" value="0" disabled>
+                                    <img class="left" src="/img/icon/minus.svg" alt="">
+                                    <img class="right" src="/img/icon/plus.svg" alt="">
                                 </div>
                             </div>
                         </div>
@@ -155,14 +159,18 @@
                                     <input type="text" placeholder="กรอกนามสกุลผู้เข้าพัก">
                                 </div>
 
-                                <div class="input-box">
-                                    <label>ผู้ใหญ่</label>
-                                    <input type="number" value="1" disabled>
+                                <div class="input-box adult">
+                                    <label>ผู้ใหญ่/คน</label>
+                                    <input type="number" class="inputAdult" value="5" disabled>
+                                    <img class="left" src="/img/icon/minus.svg" alt="">
+                                    <img class="right" src="/img/icon/plus.svg" alt="">
                                 </div>
-
-                                <div class="input-box">
-                                    <label>เด็ก</label>
-                                    <input type="number" value="1" disabled>
+                    
+                                <div class="input-box child">
+                                    <label>เด็ก/คน</label>
+                                    <input type="number" class="inputChild" value="0" disabled>
+                                    <img class="left" src="/img/icon/minus.svg" alt="">
+                                    <img class="right" src="/img/icon/plus.svg" alt="">
                                 </div>
                             </div>
                         </div>
@@ -254,14 +262,14 @@
                     </div>
                 </div>
 
-                <div class="buttonPayment">
+                <!-- <div class="buttonPayment">
                     <div class="PayBank">
                         <button>โอนเงินผ่านธนาคาร</button>
                     </div>
                     <div class="PayCredit">
                         <button>ชำระผ่านบัตรเครดิต</button>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="title"><h2>ข้อมูลการชำระเงิน</h2></div>
 
@@ -296,6 +304,73 @@
                             <span>เพิ่มภาพ</span>
                             <label for="slip-upload" id="inputfile"></label>
                             <input type="file" id="slip-upload">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box-payment credit">
+                    <div class="box-bank">
+                        <div class="input-box">
+                            <label>Credit Card Number</label>
+                            <input type="text" placeholder="">
+                        </div>
+
+                        <div class="input-box">
+                            <label>Country/Region</label>
+                            <select name="" id="">
+                                <option value="">Thailand</option>
+                                <option value="">Japan</option>
+                                <option value="">Germany</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="right-box">
+                        <div class="date-box">
+                            <div class="input-box">
+                                <label>Expiration</label>
+                                <select name="" id="">
+                                    <option value="">01</option>
+                                    <option value="">02</option>
+                                    <option value="">03</option>
+                                    <option value="">04</option>
+                                    <option value="">05</option>
+                                    <option value="">06</option>
+                                    <option value="">07</option>
+                                    <option value="">08</option>
+                                    <option value="">09</option>
+                                    <option value="">10</option>
+                                    <option value="">11</option>
+                                    <option value="">12</option>
+                                </select>
+                            </div>
+
+                            <div class="input-box">
+                                <label></label>
+                                <select name="" id="">
+                                    <option value="">2020</option>
+                                    <option value="">2021</option>
+                                    <option value="">2022</option>
+                                    <option value="">2023</option>
+                                    <option value="">2024</option>
+                                </select>
+                            </div>
+
+                            <div class="input-box">
+                                <label>CSC</label>
+                                <input type="tel" maxlength="3">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <div class="input-box">
+                            <label>First Name</label>
+                            <input type="text" placeholder="">
+                        </div>
+                        <div class="input-box">
+                            <label>Last Name</label>
+                            <input type="text" placeholder="">
                         </div>
                     </div>
                 </div>

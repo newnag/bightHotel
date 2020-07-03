@@ -746,6 +746,10 @@ body {
   }
 }
 
+.flatpickr-current-month {
+  font-size: 100% !important;
+}
+
 .contact-page {
   width: 95%;
   margin: 0 auto;
