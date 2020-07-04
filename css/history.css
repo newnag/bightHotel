@@ -234,7 +234,7 @@ body {
           filter: invert(100%);
 }
 
-@media screen and (min-width: 1025px) {
+@media (hover: hover) and (pointer: fine) {
   .header nav .menu .menulist .room:hover .subroom {
     display: block;
   }

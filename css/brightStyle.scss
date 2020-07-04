@@ -231,12 +231,12 @@ body{
                         filter: invert(100%);
                     }
 
-                    @media screen and (min-width:$pipadpro) {
+                    @media(hover: hover) and (pointer: fine) {
                         &:hover .subroom{
                             display: block;
                         }
                     }
-                    
+                        
                     .subroom{
                         display: none;
                         background: $brown;

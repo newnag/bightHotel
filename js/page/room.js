@@ -77,13 +77,19 @@ function deleteListRoom(){
 function increaseNumberRoom(){
     const room = document.querySelectorAll('.detail-list .list-item div.amound-room')
     room.forEach(element => {
-        console.log(element)
-        let str = element.textContent
-        str = str.slice(0,1)
+        let txt = Number(element.querySelector('span.amound-room p').textContent)
         const left = element.querySelector('.minus')
         const right = element.querySelector('.plus')
         left.addEventListener('click',()=>{
-            
+            if(txt > 1){
+                txt -= 1
+                element.querySelector('span.amound-room p').textContent = txt
+            }
+        })
+        right.addEventListener('click',()=>{
+            alert('เช็คจำนวนห้องจากหลังบ้าน ถ้ามีจำนวนห้องให้กดเพิ่มได้')
+            txt += 1
+            element.querySelector('span.amound-room p').textContent = txt
         })
     })
 }

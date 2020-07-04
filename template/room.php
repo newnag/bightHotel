@@ -1,5 +1,4 @@
 <body>
-    
     <?php  require_once "mains/header.php"; ?>
     <div class="room-page">
         <div class="title">
@@ -33,7 +32,7 @@
                             <span class="nameRoom">Triple Room</span>
                             <div class="amound-room">
                                 <span class="minus">-</span>
-                                <span class="amound-room">1 ห้อง</span>
+                                <span class="amound-room"><p>1</p> ห้อง</span>
                                 <span class="plus">+</span>
                             </div>
                             <span class="amound-pricePerDay">1,400 บาท/คืน</span>
@@ -44,7 +43,7 @@
                                 <span class="nameRoom">Superior Room Double Bed</span>
                                 <div class="amound-room">
                                     <span class="minus">-</span>
-                                    <span class="amound-room">1 ห้อง</span>
+                                    <span class="amound-room"><p>1</p> ห้อง</span>
                                     <span class="plus">+</span>
                                 </div>
                                 <span class="amound-pricePerDay">1,400 บาท/คืน</span>
@@ -204,15 +203,6 @@
             
         </div>
     </div>
-
-   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script src="<?=ROOT_URL?>/plugin/OwlCarousel/dist/owl.carousel.min.js"></script>
-    <script src="<?=ROOT_URL?>js/page/functions.js?v=1.1.2<?=time()?>"></script>
-     <script src="<?=ROOT_URL?>js/page/slide.js?v=1.1.2<?=time()?>"></script>
-    <script src="<?=ROOT_URL?>js/page/hotel.js?v=1.1.2<?=time()?>"></script>
-    <script src="<?=ROOT_URL?>js/page/bookHome.js?v=1.1.2<?=time()?>"></script>
-    <script src="<?=ROOT_URL?>js/page/room.js?v=1.1.2<?=time()?>"></script>
-    <script src="<?=ROOT_URL?>js/page/reserve.js?v=1.1.2<?=time()?>"></script> 
+    <!-- โซนฟุตเตอร์ -->
+    <?php require_once "mains/footer.php"; ?>
 </body>
-</html>

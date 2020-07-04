@@ -8,7 +8,8 @@ function clickMenuMobile(){
 }
 
 function toggleSubRoom(){
-    if(screen.width <= 1024){
+    if(screen.width <= 1024 && navigator.userAgent.match(/iPhone|iPad|iPod|Android/i)){
+        console.log('mobile')
         document.querySelector('.room .subroom').classList.toggle('active')
     }  
 }

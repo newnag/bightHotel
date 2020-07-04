@@ -234,7 +234,7 @@ body {
           filter: invert(100%);
 }
 
-@media screen and (min-width: 1025px) {
+@media (hover: hover) and (pointer: fine) {
   .header nav .menu .menulist .room:hover .subroom {
     display: block;
   }
@@ -1170,6 +1170,10 @@ body {
 
 .room-page .room-page-zone .detail-order .detial .detail-list .list-item .amound-room::selection {
   background: transparent;
+}
+
+.room-page .room-page-zone .detail-order .detial .detail-list .list-item .amound-room p {
+  display: inline-block;
 }
 
 .room-page .room-page-zone .detail-order .detial .detail-list .list-item .amound-room .minus, .room-page .room-page-zone .detail-order .detial .detail-list .list-item .amound-room .plus {
