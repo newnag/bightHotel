@@ -597,8 +597,9 @@ body {
 
 @media screen and (min-width: 1366px) {
   .footer {
-    -ms-grid-columns: 15% 22% 28% 35%;
-        grid-template-columns: 15% 22% 28% 35%;
+    -ms-grid-columns: 14% 21% 27% 35%;
+        grid-template-columns: 14% 21% 27% 35%;
+    grid-gap: 1%;
   }
 }
 

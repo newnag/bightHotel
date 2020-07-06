@@ -597,8 +597,9 @@ body {
 
 @media screen and (min-width: 1366px) {
   .footer {
-    -ms-grid-columns: 15% 22% 28% 35%;
-        grid-template-columns: 15% 22% 28% 35%;
+    -ms-grid-columns: 14% 21% 27% 35%;
+        grid-template-columns: 14% 21% 27% 35%;
+    grid-gap: 1%;
   }
 }
 
@@ -791,6 +792,15 @@ body {
   cursor: pointer;
   width: 100%;
   height: 100%;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .gallary-page .gallary-zone figure img:hover {
+    -webkit-filter: opacity(70%);
+            filter: opacity(70%);
+    -webkit-transition: .5s;
+    transition: .5s;
+  }
 }
 
 .gallary-page .showpic {

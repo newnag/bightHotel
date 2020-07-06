@@ -597,8 +597,9 @@ body {
 
 @media screen and (min-width: 1366px) {
   .footer {
-    -ms-grid-columns: 15% 22% 28% 35%;
-        grid-template-columns: 15% 22% 28% 35%;
+    -ms-grid-columns: 14% 21% 27% 35%;
+        grid-template-columns: 14% 21% 27% 35%;
+    grid-gap: 1%;
   }
 }
 
@@ -773,6 +774,10 @@ body {
 .contact-page .title span {
   font-family: Lkanit;
   font-style: italic;
+}
+
+.contact-page .title h2 {
+  color: #cc9933;
 }
 
 .contact-page .content-contact {
@@ -1018,7 +1023,7 @@ body {
 }
 
 .contact-page .map-form .form-contact .button button {
-  width: 100px;
+  width: 180px;
   height: 40px;
   background-color: #cc9933;
   color: #fff;

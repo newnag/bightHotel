@@ -10,7 +10,7 @@
     }
 
     .pro-zone{
-        margin-top: 5%;
+        margin: 5% 0;
 
         @media screen and (min-width:$laptop) {
             padding: 0 15%;
@@ -53,23 +53,26 @@
                     }
                     .code{
                         position: absolute;
-                        top: 25%;
-                        right: 20%;
+                        top: 20%;
+                        right: 0%;
+                        width: 80%;
+                        font-size: 1.3em;
+                        overflow-x: hidden;
 
                         @media screen and (min-width:$pc) {
-                            top: 25%;
-                            font-size: 3em;
+                            font-size: 2em;
                         }
                     }
                     .room{
                         position: absolute;
-                        top: 53%;
+                        top: 50%;
                         right: 10%;
                         width: 55%;
                         text-align: center;
+                        font-size: 1em;
 
                         @media screen and (min-width:$pc) {
-                            font-size: 1.8em;
+                            font-size: 1.4em;
                         }
                     }
                 }

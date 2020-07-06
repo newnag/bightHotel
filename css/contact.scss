@@ -10,6 +10,9 @@
 
     .title{
         @include title();
+        h2{
+            color: $brown;
+        }
         margin-top: 5%;
     }
 
@@ -182,7 +185,7 @@
                 margin-top: 15px;
 
                 button{
-                    @include button(100px);
+                    @include button(180px);
                 }
             }
         }
