@@ -2,7 +2,7 @@ window.onload = ()=>{
     if(screen.width >= 1366){
         DragImg('.img-review .carousel .list-img')
     }
-    if($('.room-page-zone')){
+    if($('.room-page .room-page-zone')){
         openDialogRoom()
         closeDialogRoom()
     }
@@ -16,15 +16,18 @@ window.onload = ()=>{
 }
 
 function openDialogRoom(){
+    console.log('this open')
     const viewFull = document.querySelectorAll('.room-page-zone .gird-room .list-room .img-review .virwFull')
     viewFull.forEach(ele=>{
         ele.addEventListener('click',()=>{
+            console.log('this open 2')
             document.querySelector('.dialog-fullview').classList.add('active')
         })
     })
 }
 
 function closeDialogRoom(){
+    console.log('this work')
     try {
         document.querySelector('.dialog-fullview .inner-dialog .close button').addEventListener('click',()=>{
             document.querySelector('.dialog-fullview').classList.remove('active')
