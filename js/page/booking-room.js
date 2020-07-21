@@ -16,7 +16,7 @@ function valuePeopleBook(){
         let inputVal = Number(value.value)
 
         left.addEventListener('click',()=>{
-            if(inputVal > 0){
+            if(inputVal > 1){
                 inputVal -= 1
             }
             value.value = inputVal
@@ -34,7 +34,7 @@ function valuePeopleBook(){
         let inputVal = Number(value2.value)
 
         left.addEventListener('click',()=>{
-            if(inputVal > 0){
+            if(inputVal > 1){
                 inputVal -= 1
             }
             value2.value = inputVal

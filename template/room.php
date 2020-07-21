@@ -1,4 +1,5 @@
 <body>
+
     <?php  require_once "mains/header.php"; ?>
     <div class="room-page">
         <div class="title">
@@ -14,67 +15,44 @@
                     <div class="title">
                         <h2><?=$lang_config['page_room_order_detail_h2']?></h2>
                     </div>
-
                     <div class="box-date">
                         <div class="input-box">
                             <label><?=$lang_config['page_room_order_detail_label']?></label>
-                            <input type="date" class="dateCheck checkIn">
+                            <input type="date" class="dateCheck checkIn" id="input_checkin">
                         </div>
 
                         <div class="input-box">
                             <label><?=$lang_config['page_room_order_detail_label_checkout']?></label>
-                            <input type="date" class="dateCheck checkOut">
+                            <input type="date" class="dateCheck checkOut" id="input_checkout" > 
                         </div>
                     </div>
 
                     <div class="detail-list">
-                        <div class="list-item">
-                            <span class="nameRoom">Triple Room</span>
-                            <div class="amound-room">
-                                <span class="minus">-</span>
-                                <span class="amound-room"><p>1</p> ห้อง</span>
-                                <span class="plus">+</span>
-                            </div>
-                            <span class="amound-pricePerDay">1,400 บาท/คืน</span>
-                            <div class="delete">X</div>
-                        </div>
-
-                            <div class="list-item">
-                                <span class="nameRoom">Superior Room Double Bed</span>
-                                <div class="amound-room">
-                                    <span class="minus">-</span>
-                                    <span class="amound-room"><p>1</p> ห้อง</span>
-                                    <span class="plus">+</span>
-                                </div>
-                                <span class="amound-pricePerDay">1,400 บาท/คืน</span>
-                                <div class="delete">X</div>
-                            </div>
-                        </div>
+                        <?=(($cart_list!=="")?$cart_list:"")?>
+                    </div>
 
                     <div class="amound-price">
                         <div class="list">
                             <span>การเข้าพัก</span>
-                            <span>1 ห้อง</span>
+                            <span>
+                                <span class="room-amount">0</span> คืน</span>
                         </div>
                         <div class="list">
-                            <span>ค่าห้อง</span>
-                            <span>3,800</span>
+                            <span>ค่าห้อง ( รวมค่าอาหารเช้า )</span>
+                            <span class="room-price">0</span>
                         </div>
+                      
                         <div class="list">
-                            <span>ค่าอาหาร</span>
-                            <span>-</span>
-                        </div>
-                        <div class="list">
-                            <span>ภาษีและค่าธรรมเนียม</span>
-                            <span>-</span>
+                            <span>ค่าบริการเพิ่มเติม</span>
+                            <span class="room-vat">0</span>
                         </div>
                         <div class="list">
                             <span>ส่วนลด</span>
-                            <span>800</span>
+                            <span class="room-discount">0</span>
                         </div>
                         <div class="list">
                             <span>ค่าใช้จ่ายทั้งหมด</span>
-                            <span>3,000</span>
+                            <span class="room-netpay">0</span>
                         </div>
                     </div>
 
@@ -89,7 +67,7 @@
                     </div>
 
                     <div class="booking-button">
-                        <button>จอง</button>
+                        <a href="<?=ROOT_URL."ยืนยันการจอง"?>" ><button>จอง</button> </a>
                     </div>
                 </div>
 
@@ -204,5 +182,11 @@
         </div>
     </div>
     <!-- โซนฟุตเตอร์ -->
+    <!-- หน้าห้อง -->
+
     <?php require_once "mains/footer.php"; ?>
-</body>
+    <!-- หน้ารายละเอียดการจองห้อง -->
+    <!-- หน้าประวัติการจอง -->
+    <script src="<?=ROOT_URL?>js/page/room.js?v=<?=time()?>"></script>    
+
+</body> 

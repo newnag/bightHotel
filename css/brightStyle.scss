@@ -62,9 +62,11 @@ $pc: 1600px;
     border-radius: 30px;
     cursor: pointer;
 
-    &:hover{
-        background: $brown-hover;
-        transition: .3s;
+    @media(hover: hover) and (pointer: fine) {
+        &:hover{
+            background: $brown-hover;
+            transition: .3s;
+        }
     }
 }
 @mixin title {
@@ -347,6 +349,7 @@ body{
                 top: 50%;
                 transform: translateY(-50%);
                 filter: invert(1);
+                cursor: pointer;
             }
         }
     }

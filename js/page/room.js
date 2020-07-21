@@ -1,8 +1,8 @@
-window.onload = ()=>{
+window.onload = ()=>{ 
     if(screen.width >= 1366){
         DragImg('.img-review .carousel .list-img')
     }
-    if($('.room-page .room-page-zone')){
+    if($('.room-page-zone')){ 
         openDialogRoom()
         closeDialogRoom()
     }
@@ -11,23 +11,26 @@ window.onload = ()=>{
     if(screen.width < 1366){
         facilitiesIcon('.detail-room .inroom .item')
     }
-    deleteListRoom()
-    increaseNumberRoom()
+    //deleteListRoom()
+    //increaseNumberRoom()
+    checkChild_detailList()
 }
 
+$('.box-date .input-box .checkOut').flatpickr({
+    minDate: new Date().fp_incr(1),
+    dateFormat: "d-m-Y",
+})
+
 function openDialogRoom(){
-    console.log('this open')
     const viewFull = document.querySelectorAll('.room-page-zone .gird-room .list-room .img-review .virwFull')
     viewFull.forEach(ele=>{
         ele.addEventListener('click',()=>{
-            console.log('this open 2')
             document.querySelector('.dialog-fullview').classList.add('active')
         })
     })
 }
 
 function closeDialogRoom(){
-    console.log('this work')
     try {
         document.querySelector('.dialog-fullview .inner-dialog .close button').addEventListener('click',()=>{
             document.querySelector('.dialog-fullview').classList.remove('active')
@@ -84,15 +87,37 @@ function increaseNumberRoom(){
         const left = element.querySelector('.minus')
         const right = element.querySelector('.plus')
         left.addEventListener('click',()=>{
-            if(txt > 1){
-                txt -= 1
-                element.querySelector('span.amound-room p').textContent = txt
-            }
+            console.log('left')
         })
         right.addEventListener('click',()=>{
-            alert('เช็คจำนวนห้องจากหลังบ้าน ถ้ามีจำนวนห้องให้กดเพิ่มได้')
-            txt += 1
-            element.querySelector('span.amound-room p').textContent = txt
+            console.log('right')
+        })
+        // left.addEventListener('click',()=>{ 
+        //     if(txt > 1){
+        //         txt -= 1
+        //         element.querySelector('span.amound-room p').textContent = txt
+        //     }
+        // }) 
+        // right.addEventListener('click',()=>{
+        //     alert('เช็คจำนวนห้องจากหลังบ้าน ถ้ามีจำนวนห้องให้กดเพิ่มได้')
+        //     txt += 1
+        //     element.querySelector('span.amound-room p').textContent = txt
+        // })
+    })
+}
+
+function checkChild_detailList(){
+    const list = document.querySelector('.detail-list')
+    if(list.hasChildNodes()){
+        list.classList.add('hide')
+    }
+    else{
+        list.classList.remove('hide')
+    }
+    const button = document.querySelectorAll('.btn_reserve')
+    button.forEach(bt => {
+        bt.addEventListener('click',()=>{
+            list.classList.remove('hide')
         })
     })
 }

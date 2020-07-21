@@ -61,6 +61,8 @@ function get_more_images(){
 
 }
 
+
+
 // function get_more_images(){
 //     let formData = new FormData();
 //     formData.append("action","get_image_gallery");

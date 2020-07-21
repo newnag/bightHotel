@@ -393,6 +393,7 @@ body {
           transform: translateY(-50%);
   -webkit-filter: invert(1);
           filter: invert(1);
+  cursor: pointer;
 }
 
 .slide {
@@ -574,10 +575,12 @@ body {
   cursor: pointer;
 }
 
-.booking .formBook .button button:hover {
-  background: #79472c;
-  -webkit-transition: .3s;
-  transition: .3s;
+@media (hover: hover) and (pointer: fine) {
+  .booking .formBook .button button:hover {
+    background: #79472c;
+    -webkit-transition: .3s;
+    transition: .3s;
+  }
 }
 
 .footer {
@@ -1036,9 +1039,11 @@ body {
   cursor: pointer;
 }
 
-.contact-page .map-form .form-contact .button button:hover {
-  background: #79472c;
-  -webkit-transition: .3s;
-  transition: .3s;
+@media (hover: hover) and (pointer: fine) {
+  .contact-page .map-form .form-contact .button button:hover {
+    background: #79472c;
+    -webkit-transition: .3s;
+    transition: .3s;
+  }
 }
 /*# sourceMappingURL=contact.css.map */

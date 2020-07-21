@@ -393,6 +393,7 @@ body {
           transform: translateY(-50%);
   -webkit-filter: invert(1);
           filter: invert(1);
+  cursor: pointer;
 }
 
 .slide {
@@ -574,10 +575,12 @@ body {
   cursor: pointer;
 }
 
-.booking .formBook .button button:hover {
-  background: #79472c;
-  -webkit-transition: .3s;
-  transition: .3s;
+@media (hover: hover) and (pointer: fine) {
+  .booking .formBook .button button:hover {
+    background: #79472c;
+    -webkit-transition: .3s;
+    transition: .3s;
+  }
 }
 
 .footer {
@@ -850,11 +853,27 @@ body {
   z-index: 5;
 }
 
+.history-page .history-page-zone .grid-item .item .table-body .status {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 3% 0;
+}
+
 .history-page .history-page-zone .grid-item .item .table-body .status .non-pay {
   background-color: red;
   color: #fff;
   padding: 3%;
   border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .history-page .history-page-zone .grid-item .item .table-body .status .prepare {
@@ -869,6 +888,51 @@ body {
   color: #000;
   padding: 3%;
   border-radius: 10px;
+}
+
+.history-page .history-page-zone .grid-item .item .table-body .status span {
+  cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.history-page .history-page-zone .grid-item .item .table-body .confirm_payment {
+  border: 2px solid greenyellow;
+  border-radius: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+  text-align: center;
+  font-size: 0.9em;
+  margin: 5% 0;
+  background: #82ce10;
+  color: #22324b;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+@media screen and (max-width: 480px) {
+  .history-page .history-page-zone .grid-item .item .table-body .confirm_payment {
+    font-size: 0.6em;
+  }
+}
+
+.history-page .history-page-zone .grid-item .item .table-body .confirm_payment:hover {
+  background: inherit;
+  -webkit-transition: .2s;
+  transition: .2s;
+  color: #fff;
 }
 
 .history-page .history-page-zone .grid-item .item .table-end span:first-child {

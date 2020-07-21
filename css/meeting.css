@@ -393,6 +393,7 @@ body {
           transform: translateY(-50%);
   -webkit-filter: invert(1);
           filter: invert(1);
+  cursor: pointer;
 }
 
 .slide {
@@ -574,10 +575,12 @@ body {
   cursor: pointer;
 }
 
-.booking .formBook .button button:hover {
-  background: #79472c;
-  -webkit-transition: .3s;
-  transition: .3s;
+@media (hover: hover) and (pointer: fine) {
+  .booking .formBook .button button:hover {
+    background: #79472c;
+    -webkit-transition: .3s;
+    transition: .3s;
+  }
 }
 
 .footer {
@@ -1134,10 +1137,12 @@ body {
   cursor: pointer;
 }
 
-.meeting-page .meeting-page-zone .detail-order .detial .form .button button:hover {
-  background: #79472c;
-  -webkit-transition: .3s;
-  transition: .3s;
+@media (hover: hover) and (pointer: fine) {
+  .meeting-page .meeting-page-zone .detail-order .detial .form .button button:hover {
+    background: #79472c;
+    -webkit-transition: .3s;
+    transition: .3s;
+  }
 }
 
 .meeting-page .meeting-page-zone .detail-order .contact {

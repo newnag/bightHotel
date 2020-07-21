@@ -1,5 +1,6 @@
 function checkIsNumber(val){
-    if(val.match(/^-{0,1}\d+$/)){
+    let num = /^[-+]?[0-9]+$/
+    if(val.match(num)){
         return true;
     }
     else{

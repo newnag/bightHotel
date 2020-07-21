@@ -393,6 +393,7 @@ body {
           transform: translateY(-50%);
   -webkit-filter: invert(1);
           filter: invert(1);
+  cursor: pointer;
 }
 
 .slide {
@@ -574,10 +575,12 @@ body {
   cursor: pointer;
 }
 
-.booking .formBook .button button:hover {
-  background: #79472c;
-  -webkit-transition: .3s;
-  transition: .3s;
+@media (hover: hover) and (pointer: fine) {
+  .booking .formBook .button button:hover {
+    background: #79472c;
+    -webkit-transition: .3s;
+    transition: .3s;
+  }
 }
 
 .footer {
@@ -1029,10 +1032,12 @@ body {
   cursor: pointer;
 }
 
-.room-page .room-page-zone .gird-room .list-room .detail-room .button button:hover {
-  background: #79472c;
-  -webkit-transition: .3s;
-  transition: .3s;
+@media (hover: hover) and (pointer: fine) {
+  .room-page .room-page-zone .gird-room .list-room .detail-room .button button:hover {
+    background: #79472c;
+    -webkit-transition: .3s;
+    transition: .3s;
+  }
 }
 
 .room-page .room-page-zone .detail-order .detial {
@@ -1208,6 +1213,10 @@ body {
   margin-bottom: auto;
 }
 
+.room-page .room-page-zone .detail-order .detial .detail-list.hide {
+  display: none;
+}
+
 .room-page .room-page-zone .detail-order .detial .amound-price {
   background-color: #fff;
   padding: 2%;
@@ -1287,10 +1296,12 @@ body {
   cursor: pointer;
 }
 
-.room-page .room-page-zone .detail-order .detial .discount .button button:hover {
-  background: #79472c;
-  -webkit-transition: .3s;
-  transition: .3s;
+@media (hover: hover) and (pointer: fine) {
+  .room-page .room-page-zone .detail-order .detial .discount .button button:hover {
+    background: #79472c;
+    -webkit-transition: .3s;
+    transition: .3s;
+  }
 }
 
 .room-page .room-page-zone .detail-order .detial .booking-button {
@@ -1312,10 +1323,12 @@ body {
   cursor: pointer;
 }
 
-.room-page .room-page-zone .detail-order .detial .booking-button button:hover {
-  background: #79472c;
-  -webkit-transition: .3s;
-  transition: .3s;
+@media (hover: hover) and (pointer: fine) {
+  .room-page .room-page-zone .detail-order .detial .booking-button button:hover {
+    background: #79472c;
+    -webkit-transition: .3s;
+    transition: .3s;
+  }
 }
 
 .room-page .room-page-zone .detail-order .contact {

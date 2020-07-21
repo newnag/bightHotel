@@ -70,11 +70,17 @@
                         z-index: 5;
                     }
                     .status{
+                        display: flex;
+                        justify-content: center;
+                        padding: 3% 0;
+
                         .non-pay{
                             background-color: red;
                             color: $background1;
                             padding: 3%;
                             border-radius: 10px;
+                            display: flex;
+                            align-items: center; 
                         }
                         .prepare{
                             background-color: yellow;
@@ -87,6 +93,35 @@
                             color: $text-main;
                             padding: 3%;
                             border-radius: 10px;
+                        }
+                        
+                        span{
+                            cursor: default;
+                            user-select: none;
+                        }
+                    }
+                    .confirm_payment{
+                        border: 2px solid greenyellow;
+                        border-radius: 15px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+                        text-align: center;
+                        font-size: 0.9em;
+                        margin: 5% 0;
+                        background: #82ce10;
+                        color: $blue;
+                        user-select: none;
+
+                        @media screen and (max-width:$mobile) {
+                            font-size: 0.6em;
+                        }
+
+                        &:hover{
+                            background: inherit;
+                            transition: .2s;
+                            color: $background1;
                         }
                     }
                 }

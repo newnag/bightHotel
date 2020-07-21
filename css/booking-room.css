@@ -393,6 +393,7 @@ body {
           transform: translateY(-50%);
   -webkit-filter: invert(1);
           filter: invert(1);
+  cursor: pointer;
 }
 
 .slide {
@@ -574,10 +575,12 @@ body {
   cursor: pointer;
 }
 
-.booking .formBook .button button:hover {
-  background: #79472c;
-  -webkit-transition: .3s;
-  transition: .3s;
+@media (hover: hover) and (pointer: fine) {
+  .booking .formBook .button button:hover {
+    background: #79472c;
+    -webkit-transition: .3s;
+    transition: .3s;
+  }
 }
 
 .footer {
@@ -949,10 +952,12 @@ body {
   cursor: pointer;
 }
 
-.bookingroom-page .bookingroom-page-zone .detail-booking-zone .cancle-button button:hover {
-  background: #79472c;
-  -webkit-transition: .3s;
-  transition: .3s;
+@media (hover: hover) and (pointer: fine) {
+  .bookingroom-page .bookingroom-page-zone .detail-booking-zone .cancle-button button:hover {
+    background: #79472c;
+    -webkit-transition: .3s;
+    transition: .3s;
+  }
 }
 
 .bookingroom-page .bookingroom-page-zone .detail-booking-zone .info-person {
@@ -1113,10 +1118,12 @@ body {
   cursor: pointer;
 }
 
-.bookingroom-page .bookingroom-page-zone .detail-booking-zone .booking button:hover {
-  background: #79472c;
-  -webkit-transition: .3s;
-  transition: .3s;
+@media (hover: hover) and (pointer: fine) {
+  .bookingroom-page .bookingroom-page-zone .detail-booking-zone .booking button:hover {
+    background: #79472c;
+    -webkit-transition: .3s;
+    transition: .3s;
+  }
 }
 
 .bookingroom-page .bookingroom-page-zone .detail-booking-zone .buttonPayment {
@@ -1154,10 +1161,12 @@ body {
   cursor: pointer;
 }
 
-.bookingroom-page .bookingroom-page-zone .detail-booking-zone .buttonPayment .PayBank button:hover, .bookingroom-page .bookingroom-page-zone .detail-booking-zone .buttonPayment .PayCredit button:hover {
-  background: #79472c;
-  -webkit-transition: .3s;
-  transition: .3s;
+@media (hover: hover) and (pointer: fine) {
+  .bookingroom-page .bookingroom-page-zone .detail-booking-zone .buttonPayment .PayBank button:hover, .bookingroom-page .bookingroom-page-zone .detail-booking-zone .buttonPayment .PayCredit button:hover {
+    background: #79472c;
+    -webkit-transition: .3s;
+    transition: .3s;
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -1391,10 +1400,12 @@ body {
   cursor: pointer;
 }
 
-.bookingroom-page .bookingroom-page-zone .detail-booking-zone .buttonFinalPay button:hover {
-  background: #79472c;
-  -webkit-transition: .3s;
-  transition: .3s;
+@media (hover: hover) and (pointer: fine) {
+  .bookingroom-page .bookingroom-page-zone .detail-booking-zone .buttonFinalPay button:hover {
+    background: #79472c;
+    -webkit-transition: .3s;
+    transition: .3s;
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -1564,10 +1575,12 @@ body {
   cursor: pointer;
 }
 
-.bookingroom-page .bookingroom-page-zone .detail-order .detial .discount .button button:hover {
-  background: #79472c;
-  -webkit-transition: .3s;
-  transition: .3s;
+@media (hover: hover) and (pointer: fine) {
+  .bookingroom-page .bookingroom-page-zone .detail-order .detial .discount .button button:hover {
+    background: #79472c;
+    -webkit-transition: .3s;
+    transition: .3s;
+  }
 }
 
 .bookingroom-page .bookingroom-page-zone .detail-order .detial .booking-button {
@@ -1589,10 +1602,12 @@ body {
   cursor: pointer;
 }
 
-.bookingroom-page .bookingroom-page-zone .detail-order .detial .booking-button button:hover {
-  background: #79472c;
-  -webkit-transition: .3s;
-  transition: .3s;
+@media (hover: hover) and (pointer: fine) {
+  .bookingroom-page .bookingroom-page-zone .detail-order .detial .booking-button button:hover {
+    background: #79472c;
+    -webkit-transition: .3s;
+    transition: .3s;
+  }
 }
 
 .bookingroom-page .bookingroom-page-zone .detail-order .contact {

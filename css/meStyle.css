@@ -1,0 +1,41 @@
+.unslc-text {
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;          /* Likely future */  
+}
+
+.input-invalid {
+    border: 2px solid red !important;
+}
+
+body {
+    scroll-behavior: smooth;
+}
+
+.form-contact input.error {
+    border: 2px solid red !important;
+}
+
+.box-bookingRoom .bookingRoom  {
+    position: relative;
+}
+.box-bookingRoom .bookingRoom div.remove-order {
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    right: 3%;
+    top: 2%;
+}
+.box-bookingRoom .bookingRoom div.remove-order:hover {
+    cursor: pointer;
+}
+.box-bookingRoom .bookingRoom div.remove-order:active {
+   color: #cac6c6;
+}
+
+ @media screen AND (max-width: 450px){
+    body .swal2-popup h2#swal2-title {
+        font-size: 1.5em !important
+    }
+ }
