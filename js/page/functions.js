@@ -57,3 +57,19 @@ function facilitiesIcon(ele){
         })
     })
 }
+
+
+$("header .search").on("click","img",function(){  
+    console.log('test')
+    let tel = $(".header .reservation_search").val();
+    location.href = hostname+"ประวัติการจอง/"+tel; 
+  });
+  
+  $("header .search").on("change","input",function(){  
+    console.log('222')
+  
+    let tel = $(".header .reservation_search").val();
+    if(tel.length == 10){
+        location.href = hostname+"ประวัติการจอง/"+tel; 
+    }
+  });

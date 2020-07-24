@@ -98,6 +98,15 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
+@media screen and (max-width: 1365px) {
+  body {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
+  }
+}
+
 .header {
   margin-bottom: 3%;
 }
@@ -113,18 +122,24 @@ body {
 }
 
 .header .logo figure img {
-  width: 95%;
+  width: 80%;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 768px) {
   .header .logo figure img {
     width: 50%;
   }
 }
 
-@media screen and (min-width: 1366px) {
+@media screen and (min-width: 1024px) {
   .header .logo figure img {
     width: 40%;
+  }
+}
+
+@media screen and (min-width: 1366px) {
+  .header .logo figure img {
+    width: 25%;
   }
 }
 
@@ -149,7 +164,18 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    padding: 0 5%;
+    padding: 0 12%;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .header nav {
+    margin: unset;
+    padding: unset;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0 15%;
   }
 }
 
@@ -165,13 +191,22 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: space-evenly;
-        -ms-flex-pack: space-evenly;
-            justify-content: space-evenly;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
     background-color: unset;
+    width: 95%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: ipadpro) {
+  .header nav .menu {
+    width: 80%;
+    margin: 0 auto;
   }
 }
 
@@ -188,7 +223,7 @@ body {
 
 @media screen and (min-width: 768px) {
   .header nav .menu .menulist {
-    width: calc(100%/9);
+    width: 12%;
     margin: unset;
   }
 }
@@ -290,17 +325,85 @@ body {
           filter: invert(1);
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 768px) {
   .header nav .menu .icon {
-    display: unset;
     padding: unset;
+    margin-left: 28%;
   }
 }
 
 @media screen and (min-width: 1366px) {
   .header nav .menu .icon a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     margin-left: 5px;
   }
+}
+
+.header nav .menu .searchBM {
+  position: relative;
+}
+
+@media screen and (min-width: 768px) {
+  .header nav .menu .searchBM {
+    display: none;
+  }
+}
+
+.header nav .menu .searchBM input {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #777777;
+  border-radius: 10px;
+  padding: 0 3%;
+  background-color: #cc9933;
+  color: #fff;
+  border-radius: 20px;
+  width: 80%;
+}
+
+@media screen and (max-width: 480px) {
+  .header nav .menu .searchBM input {
+    font-size: 0.9em;
+    height: 30px;
+  }
+}
+
+.header nav .menu .searchBM input:focus {
+  border: 1px solid #cc9933;
+}
+
+.header nav .menu .searchBM input::-webkit-input-placeholder {
+  color: #fff;
+}
+
+.header nav .menu .searchBM input:-ms-input-placeholder {
+  color: #fff;
+}
+
+.header nav .menu .searchBM input::-ms-input-placeholder {
+  color: #fff;
+}
+
+.header nav .menu .searchBM input::placeholder {
+  color: #fff;
+}
+
+.header nav .menu .searchBM img {
+  position: absolute;
+  width: 26px;
+  height: 32px;
+  right: 13%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-filter: invert(1);
+          filter: invert(1);
+  cursor: pointer;
 }
 
 .header nav .menu.active {
@@ -332,15 +435,43 @@ body {
   height: 3px;
   display: inline-block;
   margin: 3px 0;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.header nav .hamburger.active .line:nth-child(1) {
+  -webkit-transform: rotate(135deg) translate(1px, -2px);
+          transform: rotate(135deg) translate(1px, -2px);
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.header nav .hamburger.active .line:nth-child(2) {
+  opacity: 0;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.header nav .hamburger.active .line:nth-child(3) {
+  -webkit-transform: rotate(45deg) translate(-10px, -12px);
+          transform: rotate(45deg) translate(-10px, -12px);
+  -webkit-transition: .5s;
+  transition: .5s;
 }
 
 .header nav .search {
   position: relative;
 }
 
+@media screen and (max-width: 767px) {
+  .header nav .search {
+    display: none;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .header nav .search {
-    width: 90%;
+    width: 35%;
     margin: 0 auto;
   }
 }
@@ -361,6 +492,13 @@ body {
   background-color: #cc9933;
   color: #fff;
   border-radius: 20px;
+}
+
+@media screen and (max-width: 480px) {
+  .header nav .search input {
+    font-size: 0.9em;
+    height: 30px;
+  }
 }
 
 .header nav .search input:focus {
@@ -448,12 +586,12 @@ body {
 }
 
 .booking {
-  padding: 1% 5%;
+  padding: 3% 2%;
 }
 
 @media screen and (min-width: 1366px) {
   .booking {
-    width: 90%;
+    width: 80%;
     margin: -4% auto;
     border-radius: 80px;
     position: relative;
@@ -461,14 +599,12 @@ body {
   }
 }
 
-@media screen and (min-width: 768px) {
-  .booking .formBook {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: (49%)[2];
-        grid-template-columns: repeat(2, 49%);
-    grid-gap: 1%;
-  }
+.booking .formBook {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (49%)[2];
+      grid-template-columns: repeat(2, 49%);
+  grid-gap: 1%;
 }
 
 @media screen and (min-width: 1366px) {
@@ -500,6 +636,13 @@ body {
   padding: 0 20px;
 }
 
+@media screen and (max-width: 480px) {
+  .booking .formBook .input-box input {
+    font-size: 0.9em;
+    height: 30px;
+  }
+}
+
 .booking .formBook .input-box input:focus {
   border: 1px solid #cc9933;
 }
@@ -522,6 +665,12 @@ body {
   cursor: pointer;
 }
 
+@media screen and (max-width: 480px) {
+  .booking .formBook .input-box img.left, .booking .formBook .input-box img.right {
+    bottom: 10%;
+  }
+}
+
 .booking .formBook .input-box img.left {
   left: 3%;
 }
@@ -539,14 +688,9 @@ body {
 .booking .formBook .button {
   text-align: center;
   margin: 3% 0;
-}
-
-@media screen and (min-width: 768px) {
-  .booking .formBook .button {
-    -ms-grid-column: 1;
-        grid-column-start: 1;
-    grid-column-end: 3;
-  }
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 3;
 }
 
 @media screen and (min-width: 1366px) {
@@ -573,6 +717,44 @@ body {
   border: unset;
   border-radius: 30px;
   cursor: pointer;
+}
+
+@media screen and (max-width: 480px) {
+  .booking .formBook .button button {
+    width: 130px;
+    height: 40px;
+    background-color: #cc9933;
+    color: #fff;
+    -webkit-box-shadow: 0px 1px 5px #777777;
+            box-shadow: 0px 1px 5px #777777;
+    font-size: 1.4em;
+    font-family: Bkanit;
+    border: unset;
+    border-radius: 30px;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 480px) and (max-width: 480px) {
+  .booking .formBook .button button {
+    height: 30px;
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 480px) and (hover: hover) and (pointer: fine) {
+  .booking .formBook .button button:hover {
+    background: #79472c;
+    -webkit-transition: .3s;
+    transition: .3s;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .booking .formBook .button button {
+    height: 30px;
+    font-size: 1em;
+  }
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -754,6 +936,33 @@ body {
   font-size: 100% !important;
 }
 
+.buttonTop {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
+  background-color: #305692;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+}
+
+.buttonTop figure img {
+  width: 28px;
+  height: 28px;
+  -webkit-filter: invert(100%);
+          filter: invert(100%);
+}
+
 .room-page {
   width: 95%;
   margin: 0 auto;
@@ -780,9 +989,21 @@ body {
   color: #cc9933;
 }
 
+@media screen and (max-width: 480px) {
+  .room-page .title h1 {
+    font-size: 1.3em;
+  }
+}
+
 .room-page .title span {
   font-family: Lkanit;
   font-style: italic;
+}
+
+@media screen and (max-width: 480px) {
+  .room-page .title span {
+    font-size: .8em;
+  }
 }
 
 .room-page .room-page-zone {
@@ -923,6 +1144,12 @@ body {
   font-family: Lkanit;
 }
 
+@media screen and (min-width: 480px) {
+  .room-page .room-page-zone .gird-room .list-room .detail-room .title-room h2 {
+    font-size: 1.6em;
+  }
+}
+
 @media screen and (min-width: 1024px) {
   .room-page .room-page-zone .gird-room .list-room .detail-room .title-room h2 {
     font-size: 1.4em;
@@ -950,7 +1177,13 @@ body {
 
 .room-page .room-page-zone .gird-room .list-room .detail-room .currentPrice h3 {
   color: #fff;
-  font-size: 3em;
+  font-size: 2em;
+}
+
+@media screen and (min-width: 1366px) {
+  .room-page .room-page-zone .gird-room .list-room .detail-room .currentPrice h3 {
+    font-size: 2.2em;
+  }
 }
 
 .room-page .room-page-zone .gird-room .list-room .detail-room .facilities {
@@ -1032,6 +1265,13 @@ body {
   cursor: pointer;
 }
 
+@media screen and (max-width: 480px) {
+  .room-page .room-page-zone .gird-room .list-room .detail-room .button button {
+    height: 30px;
+    font-size: 1em;
+  }
+}
+
 @media (hover: hover) and (pointer: fine) {
   .room-page .room-page-zone .gird-room .list-room .detail-room .button button:hover {
     background: #79472c;
@@ -1053,9 +1293,21 @@ body {
   color: #cc9933;
 }
 
+@media screen and (max-width: 480px) {
+  .room-page .room-page-zone .detail-order .detial .title h1 {
+    font-size: 1.3em;
+  }
+}
+
 .room-page .room-page-zone .detail-order .detial .title span {
   font-family: Lkanit;
   font-style: italic;
+}
+
+@media screen and (max-width: 480px) {
+  .room-page .room-page-zone .detail-order .detial .title span {
+    font-size: .8em;
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -1089,6 +1341,13 @@ body {
   padding: 0 20px;
 }
 
+@media screen and (max-width: 480px) {
+  .room-page .room-page-zone .detail-order .detial .box-date .input-box input {
+    font-size: 0.9em;
+    height: 30px;
+  }
+}
+
 .room-page .room-page-zone .detail-order .detial .box-date .input-box input:focus {
   border: 1px solid #cc9933;
 }
@@ -1113,6 +1372,10 @@ body {
   right: 3%;
 }
 
+.room-page .room-page-zone .detail-order .detial .box-date .input-box input.input-invalid {
+  border: 2px solid #cc9933 !important;
+}
+
 .room-page .room-page-zone .detail-order .detial .detail-list {
   display: block;
   background-color: #fff;
@@ -1124,8 +1387,8 @@ body {
 .room-page .room-page-zone .detail-order .detial .detail-list .list-item {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr 1fr 5%;
-      grid-template-columns: 1fr 1fr 1fr 5%;
+  -ms-grid-columns: .5fr 1fr 1fr 5%;
+      grid-template-columns: .5fr 1fr 1fr 5%;
   border-bottom: 1px solid #777777;
   margin-bottom: 2%;
 }
@@ -1265,6 +1528,13 @@ body {
   padding: 0 20px;
 }
 
+@media screen and (max-width: 480px) {
+  .room-page .room-page-zone .detail-order .detial .discount .input-box input {
+    font-size: 0.9em;
+    height: 30px;
+  }
+}
+
 .room-page .room-page-zone .detail-order .detial .discount .input-box input:focus {
   border: 1px solid #cc9933;
 }
@@ -1296,6 +1566,13 @@ body {
   cursor: pointer;
 }
 
+@media screen and (max-width: 480px) {
+  .room-page .room-page-zone .detail-order .detial .discount .button button {
+    height: 30px;
+    font-size: 1em;
+  }
+}
+
 @media (hover: hover) and (pointer: fine) {
   .room-page .room-page-zone .detail-order .detial .discount .button button:hover {
     background: #79472c;
@@ -1323,6 +1600,13 @@ body {
   cursor: pointer;
 }
 
+@media screen and (max-width: 480px) {
+  .room-page .room-page-zone .detail-order .detial .booking-button button {
+    height: 30px;
+    font-size: 1em;
+  }
+}
+
 @media (hover: hover) and (pointer: fine) {
   .room-page .room-page-zone .detail-order .detial .booking-button button:hover {
     background: #79472c;
@@ -1345,9 +1629,21 @@ body {
   color: #cc9933;
 }
 
+@media screen and (max-width: 480px) {
+  .room-page .room-page-zone .detail-order .contact .title h1 {
+    font-size: 1.3em;
+  }
+}
+
 .room-page .room-page-zone .detail-order .contact .title span {
   font-family: Lkanit;
   font-style: italic;
+}
+
+@media screen and (max-width: 480px) {
+  .room-page .room-page-zone .detail-order .contact .title span {
+    font-size: .8em;
+  }
 }
 
 .room-page .room-page-zone .detail-order .contact .title h2 {

@@ -21,7 +21,7 @@ $(".form-contact").on('click',"button",function(){
 
 function validate_contact_data(){
     let param = {
-        action: 'submit_contact',
+        action: 'submit_contact', 
         name: $(".form-contact .txt_name").val(),
         lastname: $(".form-contact .txt_lastname").val(),
         tel: $(".form-contact .txt_tel").val(),

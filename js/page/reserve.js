@@ -294,7 +294,6 @@ $(".bookingroom-page .box-bookingRoom .bookingRoom .form-grid .adult").on('click
         dataType: 'json',
         data: _param,
         success: function(response){
-            console.log(response['cart']['result'])
             let result = response['cart']['result'];
             reset_cart_detail(result);
         },

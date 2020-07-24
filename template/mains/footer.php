@@ -58,6 +58,10 @@
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3854.2311303549764!2d102.08191621528145!3d14.9798695716843!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31228827f7d124ed%3A0x1dcee4ef7e4bcaa0!2sBright%20Hotel!5e0!3m2!1sth!2sth!4v1592885106260!5m2!1sth!2sth" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
             </div>
         </div>
+
+        <div class="buttonTop" onclick="warpTop()">
+            <figure><img src="<?=ROOT_URL?>img/icon/upload.svg" alt=""></figure>
+        </div>
   </footer>
     
   <!-- โซนสคริป -->
@@ -66,5 +70,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.3/flatpickr.min.js"></script>
   <script type="text/javascript" src="<?=ROOT_URL?>js/page/functions.js?v=<?=time()?>"></script>
   <script type="text/javascript" src="<?=ROOT_URL?>js/page/hotel.js?v=<?=time()?>"></script>
-  <script type="text/javascript" src="<?=ROOT_URL?>js/page/bookHome.js"></script>
-  <script type="text/javascript" src="<?=ROOT_URL?>js/page/slide.js"></script>
+  <script type="text/javascript" src="<?=ROOT_URL?>js/page/bookHome.js?v=<?=time()?>"></script>
+  <script type="text/javascript" src="<?=ROOT_URL?>js/page/slide.js?v=<?=time()?>"></script>
+  <script src="<?=ROOT_URL?>js/page/reserve.js?v=<?=time()?>"></script> 
+  <script src="<?=ROOT_URL?>js/page/manage.js?v=<?=time()?>"></script> 
+

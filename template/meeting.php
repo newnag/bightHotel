@@ -1,5 +1,5 @@
     <?php  require_once "mains/header.php"; ?>
-    <div class="meeting-page">
+<div class="meeting-page">
     <div class="title">
         <h1>ห้องประชุม</h1>
         <span>ห้องประชุมประกอบด้วยห้องมาตรฐาน 79 ห้อง หรูหรา ระดับพรีเมี่ยมคลาส</span>
@@ -7,197 +7,7 @@
 
     <div class="meeting-page-zone">
         <div class="gird-room">
-            <div class="list-room">
-                <div class="img-review">
-                    <figure><img src="<?=ROOT_URL?>img/hotel/MRX_0258.JPG" alt=""></figure>
-                    <div class="virwFull"><p>view full Detail</p></div>
-                    <div class="carousel">
-                    <div class="list-img">
-                            <figure><img class="active" src="<?=ROOT_URL?>img/hotel/MRX_0303.JPG" alt=""></figure>
-                            <figure><img src="<?=ROOT_URL?>img/hotel/MRX_0520.JPG" alt=""></figure>
-                            <figure><img src="<?=ROOT_URL?>img/hotel/MRX_7000.JPG" alt=""></figure>
-                            <figure><img src="<?=ROOT_URL?>img/hotel/MRX_6976.JPG" alt=""></figure>
-                            <figure><img src="<?=ROOT_URL?>img/hotel/MRX_6971.JPG" alt=""></figure>
-                            <figure><img src="<?=ROOT_URL?>img/hotel/MRX_6908.JPG" alt=""></figure>
-                            <figure><img src="<?=ROOT_URL?>img/hotel/MRX_6905.JPG" alt=""></figure>
-                            <figure><img src="<?=ROOT_URL?>img/hotel/MRX_6908.jpg" alt=""></figure>
-                            <figure><img src="<?=ROOT_URL?>img/hotel/MRX_7247.jpg" alt=""></figure>
-                            <figure><img src="<?=ROOT_URL?>img/hotel/MRX_7265.jpg" alt=""></figure>
-                            <figure><img src="<?=ROOT_URL?>img/hotel/MRX_7256.JPG" alt=""></figure>
-                            <figure><img src="<?=ROOT_URL?>img/hotel/MRX_6908.jpg" alt=""></figure>
-                            <figure><img src="<?=ROOT_URL?>img/hotel/MRX_7012.jpg" alt=""></figure>
-                            <figure><img src="<?=ROOT_URL?>img/hotel/MRX_0359.JPG" alt=""></figure>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="detail-room">
-                    <div class="title-room">
-                        <h2>ห้องประชุม ดวงตะวัน</h2>
-                    </div>
-                    <div class="facilities">
-                        <p>
-                            ห้องประชุม ไบรท์โฮเต็ล เปิดประสบการณ์ใหม่กับบรรยากาศห้องประชุม ในโรงแรมใหม่สไตล์โมเดิร์นสุดคลาสสิก ที่ให้ความรู้สึกที่ 
-                            สงบและหรูหราในบรรยากาศที่น่าพักผ่อน โดยคุณสามารถติดต่อจองห้องประชุม เพื่อจัดงานอบรม สัมมนา งานประชุม และบริการ
-                            รับจัดงานเลี้ยง เป็นต้น สามารถรองรับได้ตั้งแต่ 50-110 ท่าน พร้อมอุปกรณ์ครบครัน
-                        </p>
-                    </div>
-                    <div class="inroom">
-                        <div class="item">
-                            <span>โต๊ะทำงาน</span>
-                            <img src="<?=ROOT_URL?>img/icon/key-card.svg" alt="">
-                        </div>
-                        <div class="item">
-                            <span>โต๊ะทำงาน</span>
-                            <img src="<?=ROOT_URL?>img/icon/tv.svg" alt="">
-                        </div>
-                        <div class="item">
-                            <span>โต๊ะทำงาน</span>
-                            <img src="<?=ROOT_URL?>img/icon/desk.svg" alt="">
-                        </div>
-                        <div class="item">
-                            <span>โต๊ะทำงาน</span>
-                            <img src="<?=ROOT_URL?>img/icon/bed.svg" alt="">
-                        </div>
-                        <div class="item">
-                            <span>โต๊ะทำงาน</span>
-                            <img src="<?=ROOT_URL?>img/icon/balcony.svg" alt="">
-                        </div>
-                        <div class="item">
-                            <span>โต๊ะทำงาน</span>
-                            <img src="<?=ROOT_URL?>img/icon/bathroom.svg" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="list-room">
-                <div class="img-review">
-                    <figure><img src="<?=ROOT_URL?>img/hotel/MRX_0258.JPG" alt=""></figure>
-                    <div class="virwFull"><p>view full Detail</p></div>
-                    <div class="carousel">
-                    <div class="list-img">
-                            <figure><img class="active" src="<?=ROOT_URL?>img/hotel/MRX_0303.JPG" alt=""></figure>
-                            <figure><img src="<?=ROOT_URL?>img/hotel/MRX_0520.JPG" alt=""></figure>
-                            <figure><img src="<?=ROOT_URL?>img/hotel/MRX_7000.JPG" alt=""></figure>
-                            <figure><img src="<?=ROOT_URL?>img/hotel/MRX_6976.JPG" alt=""></figure>
-                            <figure><img src="<?=ROOT_URL?>img/hotel/MRX_6971.JPG" alt=""></figure>
-                            <figure><img src="<?=ROOT_URL?>img/hotel/MRX_6908.JPG" alt=""></figure>
-                            <figure><img src="<?=ROOT_URL?>img/hotel/MRX_6905.JPG" alt=""></figure>
-                            <figure><img src="<?=ROOT_URL?>img/hotel/MRX_6908.jpg" alt=""></figure>
-                            <figure><img src="<?=ROOT_URL?>img/hotel/MRX_7247.jpg" alt=""></figure>
-                            <figure><img src="<?=ROOT_URL?>img/hotel/MRX_7265.jpg" alt=""></figure>
-                            <figure><img src="<?=ROOT_URL?>img/hotel/MRX_7256.JPG" alt=""></figure>
-                            <figure><img src="<?=ROOT_URL?>img/hotel/MRX_6908.jpg" alt=""></figure>
-                            <figure><img src="<?=ROOT_URL?>img/hotel/MRX_7012.jpg" alt=""></figure>
-                            <figure><img src="<?=ROOT_URL?>img/hotel/MRX_0359.JPG" alt=""></figure>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="detail-room">
-                    <div class="title-room">
-                        <h2>ห้องประชุม ดวงตะวัน</h2>
-                    </div>
-                    <div class="facilities">
-                        <p>
-                            ห้องประชุม ไบรท์โฮเต็ล เปิดประสบการณ์ใหม่กับบรรยากาศห้องประชุม ในโรงแรมใหม่สไตล์โมเดิร์นสุดคลาสสิก ที่ให้ความรู้สึกที่ 
-                            สงบและหรูหราในบรรยากาศที่น่าพักผ่อน โดยคุณสามารถติดต่อจองห้องประชุม เพื่อจัดงานอบรม สัมมนา งานประชุม และบริการ
-                            รับจัดงานเลี้ยง เป็นต้น สามารถรองรับได้ตั้งแต่ 50-110 ท่าน พร้อมอุปกรณ์ครบครัน
-                        </p>
-                    </div>
-                    <div class="inroom">
-                        <div class="item">
-                            <span>โต๊ะทำงาน</span>
-                            <img src="<?=ROOT_URL?>img/icon/key-card.svg" alt="">
-                        </div>
-                        <div class="item">
-                            <span>โต๊ะทำงาน</span>
-                            <img src="<?=ROOT_URL?>img/icon/tv.svg" alt="">
-                        </div>
-                        <div class="item">
-                            <span>โต๊ะทำงาน</span>
-                            <img src="<?=ROOT_URL?>img/icon/desk.svg" alt="">
-                        </div>
-                        <div class="item">
-                            <span>โต๊ะทำงาน</span>
-                            <img src="<?=ROOT_URL?>img/icon/bed.svg" alt="">
-                        </div>
-                        <div class="item">
-                            <span>โต๊ะทำงาน</span>
-                            <img src="<?=ROOT_URL?>img/icon/balcony.svg" alt="">
-                        </div>
-                        <div class="item">
-                            <span>โต๊ะทำงาน</span>
-                            <img src="<?=ROOT_URL?>img/icon/bathroom.svg" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="list-room">
-                <div class="img-review">
-                    <figure><img src="<?=ROOT_URL?>img/hotel/MRX_0258.JPG" alt=""></figure>
-                    <div class="virwFull"><p>view full Detail</p></div>
-                    <div class="carousel">
-                    <div class="list-img">
-                            <figure><img class="active" src="<?=ROOT_URL?>img/hotel/MRX_0303.JPG" alt=""></figure>
-                            <figure><img src="<?=ROOT_URL?>img/hotel/MRX_0520.JPG" alt=""></figure>
-                            <figure><img src="<?=ROOT_URL?>img/hotel/MRX_7000.JPG" alt=""></figure>
-                            <figure><img src="<?=ROOT_URL?>img/hotel/MRX_6976.JPG" alt=""></figure>
-                            <figure><img src="<?=ROOT_URL?>img/hotel/MRX_6971.JPG" alt=""></figure>
-                            <figure><img src="<?=ROOT_URL?>img/hotel/MRX_6908.JPG" alt=""></figure>
-                            <figure><img src="<?=ROOT_URL?>img/hotel/MRX_6905.JPG" alt=""></figure>
-                            <figure><img src="<?=ROOT_URL?>img/hotel/MRX_6908.jpg" alt=""></figure>
-                            <figure><img src="<?=ROOT_URL?>img/hotel/MRX_7247.jpg" alt=""></figure>
-                            <figure><img src="<?=ROOT_URL?>img/hotel/MRX_7265.jpg" alt=""></figure>
-                            <figure><img src="<?=ROOT_URL?>img/hotel/MRX_7256.JPG" alt=""></figure>
-                            <figure><img src="<?=ROOT_URL?>img/hotel/MRX_6908.jpg" alt=""></figure>
-                            <figure><img src="<?=ROOT_URL?>img/hotel/MRX_7012.jpg" alt=""></figure>
-                            <figure><img src="<?=ROOT_URL?>img/hotel/MRX_0359.JPG" alt=""></figure>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="detail-room">
-                    <div class="title-room">
-                        <h2>ห้องประชุม ดวงตะวัน</h2>
-                    </div>
-                    <div class="facilities">
-                        <p>
-                            ห้องประชุม ไบรท์โฮเต็ล เปิดประสบการณ์ใหม่กับบรรยากาศห้องประชุม ในโรงแรมใหม่สไตล์โมเดิร์นสุดคลาสสิก ที่ให้ความรู้สึกที่ 
-                            สงบและหรูหราในบรรยากาศที่น่าพักผ่อน โดยคุณสามารถติดต่อจองห้องประชุม เพื่อจัดงานอบรม สัมมนา งานประชุม และบริการ
-                            รับจัดงานเลี้ยง เป็นต้น สามารถรองรับได้ตั้งแต่ 50-110 ท่าน พร้อมอุปกรณ์ครบครัน
-                        </p>
-                    </div>
-                    <div class="inroom">
-                        <div class="item">
-                            <span>โต๊ะทำงาน</span>
-                            <img src="<?=ROOT_URL?>img/icon/key-card.svg" alt="">
-                        </div>
-                        <div class="item">
-                            <span>โต๊ะทำงาน</span>
-                            <img src="<?=ROOT_URL?>img/icon/tv.svg" alt="">
-                        </div>
-                        <div class="item">
-                            <span>โต๊ะทำงาน</span>
-                            <img src="<?=ROOT_URL?>img/icon/desk.svg" alt="">
-                        </div>
-                        <div class="item">
-                            <span>โต๊ะทำงาน</span>
-                            <img src="<?=ROOT_URL?>img/icon/bed.svg" alt="">
-                        </div>
-                        <div class="item">
-                            <span>โต๊ะทำงาน</span>
-                            <img src="<?=ROOT_URL?>img/icon/balcony.svg" alt="">
-                        </div>
-                        <div class="item">
-                            <span>โต๊ะทำงาน</span>
-                            <img src="<?=ROOT_URL?>img/icon/bathroom.svg" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?=$meeting?>
         </div>
 
         <div class="detail-order">
@@ -210,24 +20,24 @@
                     <div class="inputDual">
                         <div class="input-box">
                             <label>ชื่อ</label>
-                            <input type="text" placeholder="กรุณากรอกชื่อ">
+                            <input type="text" class="txt_name" placeholder="กรุณากรอกชื่อ">
                         </div>
                         <div class="input-box">
                             <label>อีเมล</label>
-                            <input type="text" placeholder="กรอกอีเมล">
+                            <input type="text" class="txt_email" placeholder="กรอกอีเมล">
                         </div>
                     </div>
                     <div class="inputSingle">
                         <label>เบอร์โทร</label>
-                        <input type="tel" placeholder="กรอกเบอร์โทร">
+                        <input type="tel" class="txt_tel" placeholder="กรอกเบอร์โทร">
                     </div>
                     <div class="inputSingle">
                         <label>เรื่อง</label>
-                        <input type="text" placeholder="กรอกเรื่อง">
+                        <input type="text" class="txt_subject" placeholder="กรอกเรื่อง">
                     </div>
                     <div class="textSingle">
                         <label>ข้อความ</label>
-                        <textarea name="" id="" cols="30" rows="2" placeholder="กรอกข้อความ"></textarea>
+                        <textarea name="" id="" class="txt_message" cols="30" rows="2" placeholder="กรอกข้อความ"></textarea>
                     </div>
                     <div class="button"><button>ส่ง</button></div>
                 </div>
@@ -258,5 +68,95 @@
                 </div>
             </div>
         </div>
+    </div> 
+</div>
+
+<div class="dialog-fullview">
+    <div class="inner-dialog">
+        <div class="close"><button>X</button></div>
+
+        <div class="image-review">
+            <div class="img-bigbox"><figure><img src="<?=$thumbgenerator?>img/hotel/MRX_0268.JPG&size=x250" alt=""></figure></div>
+            <div class="carousel">
+                <div class="list-img">
+                    <figure><img class="active" src="<?=$thumbgenerator?>img/hotel/MRX_0303.JPG&size=x250" alt=""></figure>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-room">
+            <div class="logo"><figure><img src="<?=ROOT_URL?>img/logo-B-01.png" alt=""></figure></div>
+            <div class="nameroom">
+                <h2>Triple Room</h2>
+            </div>
+            <div class="price">
+                <h2>1,400</h2>
+                <span>บาท / คืน</span>
+            </div>
+            <div class="description">
+                <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias temporibus quisquam fugiat repellendus? Quae illo inventore dolorum eveniet. Provident excepturi at incidunt laborum itaque. A molestiae quam saepe voluptate at.
+                </p>
+            </div>
+        </div>
+
+        <div class="facilities">
+            <div class="title">
+                <h5>สิ่งอำนวยความสะดวก</h5>
+            </div>
+
+            <div class="inroom">
+        
+                <div class="item">
+                    <img src="<?=ROOT_URL?>img/icon/tv.svg" alt="">
+                    <p>
+                        ข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่าง
+                        ข้อความตัวอย่างข้อความตัวอย่าง ข้อความตัวอย่าง ข้อความตัวอย่าง ข้อความตัวอย่าง
+                        ข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่าง
+                    </p>
+                </div>
+                <div class="item">
+                    <img src="<?=ROOT_URL?>img/icon/desk.svg" alt="">
+                    <p>
+                        ข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่าง
+                        ข้อความตัวอย่างข้อความตัวอย่าง ข้อความตัวอย่าง ข้อความตัวอย่าง ข้อความตัวอย่าง
+                        ข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่าง
+                    </p>
+                </div>
+                <div class="item">
+                    <img src="<?=ROOT_URL?>img/icon/bed.svg" alt="">
+                    <p>
+                        ข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่าง
+                        ข้อความตัวอย่างข้อความตัวอย่าง ข้อความตัวอย่าง ข้อความตัวอย่าง ข้อความตัวอย่าง
+                        ข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่าง
+                    </p>
+                </div>
+                <div class="item">
+                    <img src="<?=ROOT_URL?>img/icon/balcony.svg" alt="">
+                    <p>
+                        ข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่าง
+                        ข้อความตัวอย่างข้อความตัวอย่าง ข้อความตัวอย่าง ข้อความตัวอย่าง ข้อความตัวอย่าง
+                        ข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่าง
+                    </p>
+                </div>
+                <div class="item">
+                    <img src="<?=ROOT_URL?>img/icon/bathroom.svg" alt="">
+                    <p>
+                        ข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่าง
+                        ข้อความตัวอย่างข้อความตัวอย่าง ข้อความตัวอย่าง ข้อความตัวอย่าง ข้อความตัวอย่าง
+                        ข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่าง
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        
     </div>
 </div>
+
+<?php
+    require_once "mains/footer.php";
+?>
+<script src="<?=ROOT_URL."js/page/meeting.js?v=1.2.3".time()?>"></script>
+<script src="<?=ROOT_URL."js/page/room.js?v=1.2.3".time()?>"></script>
+
+</body>

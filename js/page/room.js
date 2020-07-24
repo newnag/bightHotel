@@ -14,15 +14,17 @@ window.onload = ()=>{
     //deleteListRoom()
     //increaseNumberRoom()
     checkChild_detailList()
+    selectRoomWarpToDetail()
 }
 
 $('.box-date .input-box .checkOut').flatpickr({
     minDate: new Date().fp_incr(1),
     dateFormat: "d-m-Y",
+    disableMobile: "true",
 })
 
 function openDialogRoom(){
-    const viewFull = document.querySelectorAll('.room-page-zone .gird-room .list-room .img-review .virwFull')
+    const viewFull = document.querySelectorAll('.gird-room .list-room .img-review .virwFull')
     viewFull.forEach(ele=>{
         ele.addEventListener('click',()=>{
             document.querySelector('.dialog-fullview').classList.add('active')
@@ -71,53 +73,69 @@ function clickToCloseDialog(){
     })
 }
 
-function deleteListRoom(){
-    const button = document.querySelectorAll('.detial .detail-list .list-item .delete')
-    button.forEach(X=>{
-        X.addEventListener('click',()=>{
-            X.parentElement.remove()
-        })
-    })
-}
+// function deleteListRoom(){
+//     const button = document.querySelectorAll('.detial .detail-list .list-item .delete')
+//     const list = document.querySelector('.detail-list')
+//     button.forEach(X=>{
+//         X.addEventListener('click',()=>{
+//             //
+//         })
+//     })
+// }
 
-function increaseNumberRoom(){
-    const room = document.querySelectorAll('.detail-list .list-item div.amound-room')
-    room.forEach(element => {
-        let txt = Number(element.querySelector('span.amound-room p').textContent)
-        const left = element.querySelector('.minus')
-        const right = element.querySelector('.plus')
-        left.addEventListener('click',()=>{
-            console.log('left')
-        })
-        right.addEventListener('click',()=>{
-            console.log('right')
-        })
-        // left.addEventListener('click',()=>{ 
-        //     if(txt > 1){
-        //         txt -= 1
-        //         element.querySelector('span.amound-room p').textContent = txt
-        //     }
-        // }) 
-        // right.addEventListener('click',()=>{
-        //     alert('เช็คจำนวนห้องจากหลังบ้าน ถ้ามีจำนวนห้องให้กดเพิ่มได้')
-        //     txt += 1
-        //     element.querySelector('span.amound-room p').textContent = txt
-        // })
-    })
-}
+// function increaseNumberRoom(){
+//     const room = document.querySelectorAll('.detail-list .list-item div.amound-room')
+//     room.forEach(element => {
+//         let txt = Number(element.querySelector('span.amound-room p').textContent)
+//         const left = element.querySelector('.minus')
+//         const right = element.querySelector('.plus')
+//         left.addEventListener('click',()=>{
+//             console.log('left')
+//         })
+//         right.addEventListener('click',()=>{
+//             console.log('right')
+//         })
+//         // left.addEventListener('click',()=>{ 
+//         //     if(txt > 1){
+//         //         txt -= 1
+//         //         element.querySelector('span.amound-room p').textContent = txt
+//         //     }
+//         // }) 
+//         // right.addEventListener('click',()=>{
+//         //     alert('เช็คจำนวนห้องจากหลังบ้าน ถ้ามีจำนวนห้องให้กดเพิ่มได้')
+//         //     txt += 1
+//         //     element.querySelector('span.amound-room p').textContent = txt
+//         // })
+//     })
+// }
 
 function checkChild_detailList(){
     const list = document.querySelector('.detail-list')
-    if(list.hasChildNodes()){
-        list.classList.add('hide')
+    if(document.querySelector('.detail-list')){
+        if(list.hasChildNodes()){
+            list.classList.add('hide')
+        }
+        else{
+            list.classList.remove('hide')
+        }
+        const button = document.querySelectorAll('.btn_reserve')
+        button.forEach(bt => {
+            bt.addEventListener('click',()=>{
+                if(list.hasChildNodes()){
+                    list.classList.remove('hide')
+                } 
+            })
+        })
     }
-    else{
-        list.classList.remove('hide')
-    }
+}
+
+function selectRoomWarpToDetail(){
     const button = document.querySelectorAll('.btn_reserve')
     button.forEach(bt => {
         bt.addEventListener('click',()=>{
-            list.classList.remove('hide')
+            // location.hash = '#' + "detail-order";
+            const block = document.querySelector("#detail-order")
+            block.scrollIntoView()
         })
     })
 }

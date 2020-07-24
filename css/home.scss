@@ -3,6 +3,10 @@
 .content{
     margin: 5% 0;
 
+    @media screen and (max-width:$mobile) {
+       margin: unset; 
+    }
+
     .title{
         @include title();
         margin: 2% 0;
@@ -16,6 +20,9 @@
             }
         }
         
+        p{
+            line-height: 1.8;
+        }
         img{
             width: 100%;
         }
@@ -134,10 +141,13 @@
                     border-radius: 0 0 35px 35px;
                     display: flex;
                     flex-direction: column;
+                    position: relative;
 
                     .discount{
                         text-align: center;
                         margin-left: 25%;
+                        position: absolute;
+                        right: 10%;
 
                         span{
                             font-size: 0.6em;
@@ -149,6 +159,10 @@
                         span{
                             color: $background1;
                             font-size: 1.6em;
+
+                            @media screen and (max-width:$mobile) {
+                                font-size: 1.4em;
+                            }
                         }
                     }
                 }
@@ -201,9 +215,14 @@
     }
 
     &.contact{
+        @media screen and (min-width:$ipadpro) {
+            width: 80%;
+            margin: 0 auto;
+        }
+
         .form-contact{
             @media screen and (min-width:$laptop) {
-                width: 60%;
+                width: 55%;
                 margin: 0 auto;
             }
 
@@ -214,7 +233,7 @@
                 padding: 0 5%;
                 padding-bottom: 5px;
 
-                @media screen and (min-width:$laptop) {
+                @media screen and (min-width:$ipadpro) {
                     grid-template-columns: 1fr 1fr;
                     grid-gap: 1%;
                 }
@@ -249,6 +268,9 @@
                 @media screen and (min-width:$tablet) {
                     grid-template-columns: 20% 80%;
                 }
+                @media screen and (min-width:$ipadpro) {
+                    grid-template-columns: 10% 90%;
+                }
                 @media screen and (min-width:$laptop) {
                     grid-template-columns: 100%;
                 }
@@ -275,7 +297,7 @@
             }
             .button{
                 text-align: center;
-                margin-top: 15px;
+                margin: 15px 0;
 
                 button{
                     @include button(100px);
@@ -287,21 +309,52 @@
     &.service{
         padding: 3% 1%;
 
+        .title{
+            h1{
+                color: $background1;
+            }
+        }
+
+        @media screen and (max-width:$tablet) {
+            margin: unset;
+        }
         @media screen and (min-width:$laptop) {
-            padding: 3%;
+            padding: 1% 8% 4% 8%;
         }
 
         .box-grid{
             color: $background1;
 
-            @media screen and (min-width:$laptop) {
-                grid-template-columns: repeat(3,calc(98%/3));
+            @media screen and (min-width:$tablet) {
+                grid-template-columns: repeat(5,calc(96%/5));
                 grid-gap: 1%;
+            }
+
+            .column{
+                span{
+                    @media screen and (min-width:$tablet) and (max-width:1023px) {
+                        font-size: .9em;
+                    }
+                }
+                .ck{
+                    @media screen and (min-width:$tablet) {
+                        height: 350px;
+                    }
+                    @media screen and (min-width:$ipadpro) {
+                        height: 230px;
+                    }
+                    @media screen and (min-width:$laptop) {
+                        height: 180px;
+                    }
+                }
             }
         }
     }
 
     &.room{
+        @media screen and (max-width:$mobile) {
+            margin: unset;
+        }
         @media screen and (min-width:$laptop) {
             padding-bottom: 2%;
             padding: 0 5%;
@@ -310,6 +363,9 @@
         .title{
             @media screen and (min-width:$laptop) {
                 padding: 2% 0;
+            }
+            h1{
+                color: $background1;
             }
         }
     }
@@ -324,24 +380,30 @@
     }
 
     &.row1{
+        padding: 0 1%;
         @media screen and (min-width:$ipadpro) {
             width: 95%;
             margin: 0 auto;
         }
         @media screen and (min-width:$laptop) {
-            width: 95%;
+            width: 85%;
             margin: 5% auto;
+        }
+        .ck{
+            p,h1,h2,h3,h4,h5,h6,span{
+                font-size: .8em;
+            }
         }
     }
 
     &.row3{
-        margin: 5% 1%;
+        margin: 3% 1%;
         
         @media screen and (min-width:$ipadpro) {
             display: grid;
             grid-template-columns: 58% 40%;
             grid-gap: 2%;
-            width: 90%;
+            width: 85%;
             margin: 0 auto;
 
             .bigimg{
@@ -373,5 +435,19 @@
                 }
             }
         }    
+        .ck{
+            p,h1,h2,h3,h4,h5,h6,span{
+                font-size: .8em;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:1365px) {
+    article:nth-child(6){
+        grid-row-start: 6;
+    }
+    article:nth-child(7){
+        grid-row-start: 5;
     }
 }

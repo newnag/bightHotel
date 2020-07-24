@@ -10,7 +10,7 @@
             <div class="gird-room">
                 <?=$rooms?>
             </div>
-            <div class="detail-order">
+            <div class="detail-order" id="detail-order">
                 <div class="detial" style="background:url('<?=$thumbgenerator?>img/BG.jpg&size=x300')">
                     <div class="title">
                         <h2><?=$lang_config['page_room_order_detail_h2']?></h2>
@@ -18,12 +18,12 @@
                     <div class="box-date">
                         <div class="input-box">
                             <label><?=$lang_config['page_room_order_detail_label']?></label>
-                            <input type="date" class="dateCheck checkIn" id="input_checkin">
+                            <input type="date" class="dateCheck checkIn" id="input_checkin" placeholder="กรุณากรอกวันที่">
                         </div>
 
                         <div class="input-box">
                             <label><?=$lang_config['page_room_order_detail_label_checkout']?></label>
-                            <input type="date" class="dateCheck checkOut" id="input_checkout" > 
+                            <input type="date" class="dateCheck checkOut" id="input_checkout" placeholder="กรุณากรอกวันที่"> 
                         </div>
                     </div>
 

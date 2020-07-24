@@ -17,13 +17,17 @@ function deleteHistory(){
 confirm_payment_by_otp();
 function confirm_payment_by_otp(){
     Swal.fire({
+        customClass: {
+            popup: 'history-popup',
+        },
         width: '600px',
         title: 'ตรวจสอบการจอง',
         text: 'กรุณากรอกเลขบัตรประชาชน 4 หลักสุดท้ายของท่าน',
         input: 'text',
         inputPlaceholder: 'รหัส 4 หลัก',
         inputAttributes: {
-          autocapitalize: 'off'
+          autocapitalize: 'off',
+          maxlength: 4
         },
         showCancelButton: true,
         confirmButtonText: 'ตรวจสอบ',
@@ -34,7 +38,7 @@ function confirm_payment_by_otp(){
                 url: hostname+'api/myapi.php',
                 type: 'POST',
                 dataType: 'json',
-                data: { action:"check_otp",otp: _otp, tel: '0123456789' },
+                data: { action:"check_otp",otp: _otp, tel: $(".reservation_search").val() },
                 success: function(response){
                     if(response['status'] === "success"){
                         return response
@@ -55,13 +59,13 @@ function confirm_payment_by_otp(){
         allowOutsideClick: () => !Swal.isLoading()
       }).then((result) => {
         if(result.value){
-            get_history(result.value.id)
+             
             $(".history-page-zone .grid-item").html(result.value.html)
              const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
             showConfirmButton: false,
-            timer: 3000,
+            timer: 2000,
             timerProgressBar: true,
             onOpen: (toast) => {
               toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -80,17 +84,29 @@ function confirm_payment_by_otp(){
     })
 }
 
-function get_history(_id){
-//    $.ajax({
-//         url: hostname+'api/myapi.php',
-//         type: 'post',
-//         dataType: 'json',
-//         data: {action: 'get_all_history', code: _id },
-//         success: function(response){
-//             console.log(response)
-//         },
-//         error: function(){
+ 
+$(".history-page").on("click",".confirm_payment",function(){
+    $.ajax({
+        url: hostname+"api/myapi.php",
+        type: "POST",
+        dataType: "json",
+        data: {action: "update_reserve_payment", id: $(this).data('id') },
+        success: function(response){
+            if(response['status'] == "success"){
+                location.href = response['path'];
+            }else{
+                Swal.fire({
+                    width: '400px',
+                    text: 'การจองล้มเหลว!',
+                    icon: 'error',
+                    confirmButtonText: 'ตกลง'
+                });
+                return false;
+            }
+        },
+        error: function(error){
 
-//         }
-//    });
-}
+        }
+    }); 
+});
+

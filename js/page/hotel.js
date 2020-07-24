@@ -2,9 +2,13 @@ window.onload = ()=>{
     DragImg('.room .grid-room') 
     checkNumberTel() 
 }
+window.onscroll = ()=>{
+    scrollFunction()
+}
 
 function clickMenuMobile(){
     document.querySelector('.header .menu').classList.toggle('active')
+    document.querySelector('.header .hamburger').classList.toggle('active')
 }
 
 function toggleSubRoom(){
@@ -38,7 +42,6 @@ $('.box-payment .right-box .input-box input').flatpickr({
     enableTime: true,
     dateFormat: "d-m-Y H:i",
     disableMobile: "true",
-    minDate: "today",
 });
 
 function checkNumberTel() {
@@ -49,4 +52,23 @@ function checkNumberTel() {
             document.querySelector('nav .search input').value = ''
         }
     })
+}
+
+function warpTop(){
+    document.querySelector('.buttonTop').addEventListener('click',()=>{
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
+    })
+}
+
+function scrollFunction(){
+    if(document.body.scrollTop > 100 || document.documentElement.scrollTop > 100){
+      document.querySelector('.buttonTop').style.display = 'flex'
+    }
+    else{
+      document.querySelector('.buttonTop').style.display = 'none'
+    }
 }

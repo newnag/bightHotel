@@ -46,6 +46,11 @@ $pc: 1600px;
     border: 1px solid $text-gray;
     border-radius: 10px;
 
+    @media screen and (max-width:$mobile){
+        font-size: 0.9em;
+        height: 30px;
+    }
+
     &:focus{
         border: 1px solid $brown;
     }
@@ -62,6 +67,11 @@ $pc: 1600px;
     border-radius: 30px;
     cursor: pointer;
 
+    @media screen and (max-width:$mobile) {
+        height: 30px;
+        font-size: 1em;
+    }
+
     @media(hover: hover) and (pointer: fine) {
         &:hover{
             background: $brown-hover;
@@ -74,10 +84,18 @@ $pc: 1600px;
 
     h1{
         color: $brown;
+
+        @media screen and (max-width:$mobile) {
+            font-size: 1.3em;
+        }
     }
     span{
         font-family: Lkanit;
         font-style: italic;
+
+        @media screen and (max-width:$mobile) {
+            font-size: .8em;
+        }
     }
 }
 
@@ -129,6 +147,11 @@ input:disabled{
 body{
     background: $background1;
     -webkit-tap-highlight-color:transparent;
+
+    @media screen and (max-width:1365px) {
+        display: grid;
+        grid-template-columns: 100%;
+    }
 }
 
 .header{
@@ -143,13 +166,16 @@ body{
             text-align: center;
 
             img{
-                width: 95%;
+                width: 80%;
 
-                @media screen and (min-width:$ipadpro) {
+                @media screen and (min-width:$tablet) {
                     width: 50%
                 }
-                @media screen and (min-width:$laptop) {
+                @media screen and (min-width:$ipadpro) {
                     width: 40%
+                }
+                @media screen and (min-width:$laptop) {
+                    width: 25%
                 }
             }
         }
@@ -169,7 +195,13 @@ body{
             margin: unset;
             padding: unset;
             display: flex;
-            padding: 0 5%;
+            padding: 0 12%;
+        }
+        @media screen and (min-width:$pc) {
+            margin: unset;
+            padding: unset;
+            display: flex;
+            padding: 0 15%;
         }
 
         .menu{
@@ -180,9 +212,15 @@ body{
 
             @media screen and (min-width:$tablet) {
                 display: flex;
-                justify-content: space-evenly;
+                justify-content: flex-start;
                 align-items: center;
                 background-color: unset;
+                width: 95%;
+                margin: 0 auto;
+            }
+            @media screen and (min-width:ipadpro) {
+                width: 80%;
+                margin: 0 auto;
             }
             @media screen and (min-width:$laptop) {
                 width: 70%;
@@ -193,7 +231,7 @@ body{
                 margin: 2% 0;
 
                 @media screen and (min-width:$tablet) {
-                    width: calc(100%/9);
+                    width: 12%;
                     margin: unset;
                 }
 
@@ -282,15 +320,48 @@ body{
                     filter: invert(1);
                 }
 
-                @media screen and (min-width:$ipadpro) {
-                    display: unset;
+                @media screen and (min-width:$tablet) {
                     padding: unset;
+                    margin-left: 28%;
                 }
 
                 a{
                     @media screen and (min-width:$laptop) {
+                        display: flex;
+                        align-items: center;
                         margin-left: 5px;
                     }
+                }
+            }
+            .searchBM{
+                position: relative;
+    
+                @media screen and (min-width:$tablet) {
+                     display: none;
+                }
+    
+                input{
+                    @include input();
+                    padding: 0 3%;
+                    background-color: $brown;
+                    color: $background1;
+                    border-radius: 20px;
+                    width: 80%;
+    
+                    &::placeholder{
+                        color: $background1;
+                    }
+                }
+    
+                img{
+                    position: absolute;
+                    width: 26px;
+                    height: 32px;
+                    right: 13%;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    filter: invert(1);
+                    cursor: pointer;
                 }
             }
 
@@ -315,13 +386,32 @@ body{
                 height: 3px;
                 display: inline-block;
                 margin: 3px 0;
+                transition: .5s;
+            }
+
+            &.active{
+                .line:nth-child(1){
+                    transform: rotate(135deg) translate(1px, -2px);
+                    transition: .5s;
+                }
+                .line:nth-child(2){
+                    opacity: 0;
+                    transition: .2s;
+                }
+                .line:nth-child(3){
+                    transform: rotate(45deg) translate(-10px, -12px);
+                    transition: .5s;
+                }
             }
         }
         .search{
             position: relative;
 
+            @media screen and (max-width:767px) {
+                display: none;
+            }
             @media screen and (min-width:$tablet) {
-                 width: 90%;
+                 width: 35%;
                  margin: 0 auto;   
             }
             @media screen and (min-width:$laptop) {
@@ -396,10 +486,10 @@ body{
 }
 
 .booking{
-    padding: 1% 5%;
+    padding: 3% 2%;
 
     @media screen and (min-width:$laptop) {
-        width: 90%;
+        width: 80%;
         margin: -4% auto;
         border-radius: 80px;
         position: relative;
@@ -407,11 +497,10 @@ body{
     }
 
     .formBook{
-        @media screen and (min-width:$tablet) {
-            display: grid;
-            grid-template-columns: repeat(2,49%);
-            grid-gap: 1%;
-        }
+        display: grid;
+        grid-template-columns: repeat(2,49%);
+        grid-gap: 1%;
+
         @media screen and (min-width:$laptop) {
             display: flex;
             justify-content: space-around;
@@ -442,6 +531,10 @@ body{
                 width: 16px;
                 height: 16px;
                 cursor: pointer;
+
+                @media screen and (max-width:$mobile) {
+                    bottom: 10%;
+                }
             }
             img.left{
                 left: 3%;
@@ -457,11 +550,9 @@ body{
         .button{
             text-align: center;
             margin: 3% 0;
+            grid-column-start: 1;
+            grid-column-end: 3;
 
-            @media screen and (min-width:$tablet) {
-                grid-column-start: 1;
-                grid-column-end: 3;
-            }
             @media screen and (min-width:$laptop) {
                 display: flex;
                 align-items: flex-end;
@@ -469,6 +560,9 @@ body{
             }
 
             button{
+                @media screen and (max-width:$mobile) {
+                    @include button(130px);
+                }
                 @include button(150px)
             }
         }
@@ -602,4 +696,26 @@ body{
 
 .flatpickr-current-month{
     font-size: 100%!important;
+}
+
+.buttonTop{
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    background-color: #305692;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    figure{
+        img{
+            width: 28px;
+            height: 28px;
+            filter: invert(100%);
+        }
+    }
 }
