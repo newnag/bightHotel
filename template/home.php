@@ -6,13 +6,10 @@
         <article>
             <div class="content row1">
                 <div class="title">
-                    <h1><?=$lang_config['home_intro_title_h1']?></h1>
-                    <span><?=$lang_config['home_intro_title_span']?></span>
+                    <h1> <?=$post->title?></h1>
                 </div>
                 <div class="ck">
-                    ???????????????????
-                    CK OR DESCRIPTION 
-                    ???????????????????
+                   <?=$post->content?>
                 </div>
             </div>
         </article>
@@ -33,16 +30,13 @@
         <!-- โซนคอนเทนท์ที่3 ที่มีรูปใหญ่ๆ-->
         <article>
             <div class="content row3">
-                <figure class="bigimg"><img src="<?=ROOT_URL?>img/view.jpg" alt=""></figure>
+                <figure class="bigimg"><img src="<?=ROOT_URL.$article->thumbnail?>" alt=""></figure>
                 <div class="title">
-                    <h1>ไบรท์โฮเต็ล ???CONTENT OR DESCRIPTION??? </h1>
-                    <h1>(BRIGHT HOTEL)</h1>
+                    <h1><?=$article->title?></h1>
+                    <h1><?=$article->description?></h1>
                 </div>
                 <div class="ck">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse praesentium ipsum a suscipit deserunt quos repellendus autem dolorem. Veritatis quos aperiam, quaerat nulla ea nisi corporis optio suscipit molestiae sit?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse praesentium ipsum a suscipit deserunt quos repellendus autem dolorem. Veritatis quos aperiam, quaerat nulla ea nisi corporis optio suscipit molestiae sit?
-                    </p>
+                    <p> <?=$article->content?> </p>
                 </div>
     
                 <div class="icon">
@@ -101,30 +95,30 @@
                     <div class="inputDual">
                         <div class="input-box">
                             <label>ชื่อ</label>
-                            <input type="text" placeholder="กรอกชื่อ">
+                            <input type="text" class="txt_name" placeholder="กรอกชื่อ">
                         </div>
                         <div class="input-box">
                             <label>นามสกุล</label>
-                            <input type="text" placeholder="กรอกนามสกุล">
+                            <input type="text" class="txt_lastname" placeholder="กรอกนามสกุล">
                         </div>
                     </div>
                     <div class="inputDual">
                         <div class="input-box">
                             <label>เบอร์โทร</label>
-                            <input type="tel" placeholder="กรอกเบอร์โทร">
+                            <input type="tel" class="txt_tel" maxlength="10" placeholder="กรอกเบอร์โทร">
                         </div>
                         <div class="input-box">
                             <label>อีเมล</label>
-                            <input type="email" placeholder="กรอกอีเมล">
+                            <input type="email" class="txt_email" placeholder="กรอกอีเมล">
                         </div>
                     </div>
                     <div class="inputSingle">
                         <label>เรื่อง</label>
-                        <input type="text" placeholder="กรอกเรื่อง">
+                        <input type="text" placeholder="กรอกเรื่อง" class="txt_subject">
                     </div>
                     <div class="textSingle">
                         <label>ข้อความ</label>
-                        <textarea name="" id="" cols="30" rows="3" placeholder="กรอกข้อความ"></textarea>
+                        <textarea name="" id="" cols="30" rows="5" class="txt_message" placeholder="กรอกข้อความ"></textarea>
                     </div>
                     <div class="button"><button>ส่ง</button></div>
                 </div>

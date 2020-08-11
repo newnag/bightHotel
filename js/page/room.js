@@ -48,7 +48,7 @@ function clickImgChangeURL(){
         let urlImg = big.querySelectorAll('.carousel .list-img figure img')
         urlImg.forEach(url=>{
             url.addEventListener('click',()=>{
-                big.children[0].children[0].src = url.src
+                big.children[0].children[0].src = url.dataset.src
             })
         })
     })
@@ -65,12 +65,17 @@ function clickImgDialogChangeURL(){
 }
 
 function clickToCloseDialog(){
-    let element = document.querySelector('.dialog-fullview')
-    element.addEventListener('click',(ev)=>{
-        if(ev.target.className === 'dialog-fullview active'){
-            element.classList.remove('active')
-        }
-    })
+    try{
+        let element = document.querySelector('.dialog-fullview')
+        element.addEventListener('click',(ev)=>{
+            if(ev.target.className === 'dialog-fullview active'){
+                element.classList.remove('active')
+            }
+        })
+    }
+    catch(error){
+        console.log(error)
+    }
 }
 
 // function deleteListRoom(){
@@ -110,13 +115,16 @@ function clickToCloseDialog(){
 // }
 
 function checkChild_detailList(){
-    const list = document.querySelector('.detail-list')
-    if(document.querySelector('.detail-list')){
-        if(list.hasChildNodes()){
-            list.classList.add('hide')
+    //console.log('in')
+    const list = document.querySelector('.detial .detail-list')
+    let numList = false
+    if(list){
+        if(list.textContent !== ''){numList = true}
+        if(numList === true){
+            list.classList.remove('hide')
         }
         else{
-            list.classList.remove('hide')
+            list.classList.add('hide')
         }
         const button = document.querySelectorAll('.btn_reserve')
         button.forEach(bt => {
@@ -126,6 +134,9 @@ function checkChild_detailList(){
                 } 
             })
         })
+    }
+    else{
+        console.log("not has")
     }
 }
 

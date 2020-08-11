@@ -1,6 +1,7 @@
 window.onload = ()=>{
     DragImg('.room .grid-room') 
-    checkNumberTel() 
+    checkNumberTel('nav .search input') 
+    checkNumberTel('.input-box .txt_tel') 
 }
 window.onscroll = ()=>{
     scrollFunction()
@@ -12,10 +13,9 @@ function clickMenuMobile(){
 }
 
 function toggleSubRoom(){
-    if(screen.width <= 1024 && navigator.userAgent.match(/iPhone|iPad|iPod|Android/i)){
-        console.log('mobile')
+
         document.querySelector('.room .subroom').classList.toggle('active')
-    }  
+    
 }
 
 
@@ -44,12 +44,14 @@ $('.box-payment .right-box .input-box input').flatpickr({
     disableMobile: "true",
 });
 
-function checkNumberTel() {
-    document.querySelector('nav .search input').addEventListener("keyup",(evt)=>{
-        let charCode = (evt.which) ? evt.which : event.keyCode
-        // charcode ตอนแรกเป็นโค้ดkeyของ แป้นตัวหนังสือ ตอนสองเป็นฝั่ง numpad 
-        if(charCode > 31 && (charCode < 48 || charCode > 57) && (charCode < 96 || charCode > 105)){ 
-            document.querySelector('nav .search input').value = ''
+function checkNumberTel(ele) {
+    document.querySelector(ele).addEventListener("keypress",(e)=>{
+        if ((e.keyCode >= 48 && e.keyCode <= 57) || (e.which >= 48 && e.which <= 57)) {
+            return true;
+        } 
+        else {
+            e.preventDefault();
+            return false;
         }
     })
 }

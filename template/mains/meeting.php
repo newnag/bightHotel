@@ -1,4 +1,4 @@
-<div class="meeting-page">
+<!-- <div class="meeting-page">
     <div class="title">
         <h1>ห้องประชุม</h1>
         <span>ห้องประชุมประกอบด้วยห้องมาตรฐาน 79 ห้อง หรูหรา ระดับพรีเมี่ยมคลาส</span>
@@ -258,4 +258,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->

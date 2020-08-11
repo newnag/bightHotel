@@ -1,131 +1,52 @@
+<body>
+<?php require_once "mains/header.php"; ?>
 <div class="bookingroom-page">
     <div class="title">
-        <h1>รายละเอียดการจอง</h1>
-        <span>โรงแรมสไตล์โมเดิร์นคลาสิค แห่งแรกในจังหวัดขอนแก่น</span>
+        <h1><?=$article->title?></h1>
+        <span><?=$article->description?></span>
     </div>
-
+ 
     <div class="bookingroom-page-zone">
-        <div class="detail-booking-zone">
+        <div class="detail-booking-zone"> 
             <div class="title"><h2>รายละเอียดการจอง</h2></div>
-
             <div class="box-bookingRoom">
-                <div class="bookingRoom">
-                    <div class="row">
-                        <div class="nameroom"><h2>Triple Room</h2></div>
-                        <div class="price"><h2>1,400 บาท/คืน</h2></div>
-                    </div>
-
-                    <div class="row">
-                        <div class="form-grid">
-                            <div class="input-box">
-                                <label>*ชื่อ (ผู้เข้าพัก)</label>
-                                <input type="text" placeholder="กรอกชื่อผู้เข้าพัก">
-                            </div>
-
-                            <div class="input-box">
-                                <label>*นามสกุล (ผู้เข้าพัก)</label>
-                                <input type="text" placeholder="กรอกนามสกุลผู้เข้าพัก">
-                            </div>
-
-                            <div class="input-box adult">
-                                <label>ผู้ใหญ่/คน</label>
-                                <input type="number" class="inputAdult" value="0" disabled>
-                                <img class="left" src="<?=ROOT_URL?>img/icon/minus.svg" alt="">
-                                <img class="right" src="<?=ROOT_URL?>img/icon/plus.svg" alt="">
-                            </div>
-
-                            <div class="input-box child">
-                                <label>เด็ก/คน</label>
-                                <input type="number" class="inputChild" value="0" disabled>
-                                <img class="left" src="<?=ROOT_URL?>img/icon/minus.svg" alt="">
-                                <img class="right" src="<?=ROOT_URL?>img/icon/plus.svg" alt="">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="ps">
-                            <p>
-                                ***หมายเหตุ นี่เป็นข้อความตัวอย่าง หาใช่โลเร็มอะไรนั่นไม่ ให้ใส่ข้อความที่ต้องการหมายเหตุที่จุดนี้
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bookingRoom">
-                    <div class="row">
-                        <div class="nameroom"><h2>Deluxe Room</h2></div>
-                        <div class="price"><h2>2,400 บาท/คืน</h2></div>
-                    </div>
-
-                    <div class="row">
-                        <div class="form-grid">
-                            <div class="input-box">
-                                <label>*ชื่อ (ผู้เข้าพัก)</label>
-                                <input type="text" placeholder="กรอกชื่อผู้เข้าพัก">
-                            </div>
-
-                            <div class="input-box">
-                                <label>*นามสกุล (ผู้เข้าพัก)</label>
-                                <input type="text" placeholder="กรอกนามสกุลผู้เข้าพัก">
-                            </div>
-
-                            <div class="input-box adult">
-                                <label>ผู้ใหญ่/คน</label>
-                                <input type="number" class="inputAdult" value="0" disabled>
-                                <img class="left" src="<?=ROOT_URL?>img/icon/minus.svg" alt="">
-                                <img class="right" src="<?=ROOT_URL?>img/icon/plus.svg" alt="">
-                            </div>
-
-                            <div class="input-box child">
-                                <label>เด็ก/คน</label>
-                                <input type="number" class="inputChild" value="0" disabled>
-                                <img class="left" src="<?=ROOT_URL?>img/icon/minus.svg" alt="">
-                                <img class="right" src="<?=ROOT_URL?>img/icon/plus.svg" alt="">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="ps">
-                            <p>
-                                ***หมายเหตุ นี่เป็นข้อความตัวอย่าง หาใช่โลเร็มอะไรนั่นไม่ ให้ใส่ข้อความที่ต้องการหมายเหตุที่จุดนี้
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                   <?=$orders['detail']?>
             </div>
-
+            <div class="button"><a href=""><button>กดเพิ่มการจอง</button></a></div>
             <div class="title"><h2>ข้อมูลที่ใช้จอง</h2></div>
-
             <div class="info-person">
                 <div class="dataPersonal">
                     <div class="row">
                         <div class="input-box">
                             <label>*ชื่อ</label>
-                            <input type="text" placeholder="ชื่อ">
+                            <input type="text" placeholder="ชื่อ" class="txt_name">
                         </div>
 
                         <div class="input-box">
                             <label>*นามสกุล</label>
-                            <input type="text" placeholder="นามสกุล">
+                            <input type="text" placeholder="นามสกุล" class="txt_lastname">
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-box">
                             <label>*เบอร์โทร</label>
-                            <input type="tel" placeholder="เบอร์โทร">
+                            <input type="tel" maxlength="10"  placeholder="เบอร์โทร" class="txt_tel" >
                         </div>
 
                         <div class="input-box">
                             <label>*Email</label>
-                            <input type="email" placeholder="Email">
+                            <input type="email" placeholder="Email" class="txt_email">
                         </div>
 
                         <div class="input-box">
                             <label>Line:ID</label>
-                            <input type="text" placeholder="Line">
+                            <input type="text" placeholder="Line" class="txt_line">
+                        </div>
+
+                        <div class="input-box">
+                            <label><?=$lang_config['page_confirm_detail_label_idcard']?></label>
+                            <input type="tel" maxlength="4"  placeholder="รหัสบัตร 4 หลักท้าย " class="txt_code" >
                         </div>
                     </div>
                 </div>
@@ -134,42 +55,43 @@
                     <div class="row">
                         <div class="input-box">
                             <label>*ที่อยู่</label>
-                            <input type="text" placeholder="ที่อยู่">
+                            <input type="text" placeholder="ที่อยู่" class="txt_address">
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-box">
                             <label>*ตำบล</label>
-                            <input type="text" placeholder="ตำบล">
+                            <input type="text" placeholder="ตำบล" class="txt_subdistrict">
                         </div>
 
                         <div class="input-box">
                             <label>*อำเภอ</label>
-                            <input type="text" placeholder="อำเภอ">
+                            <input type="text" placeholder="อำเภอ" class="txt_district">
                         </div>
 
                         <div class="input-box">
                             <label>*จังหวัด</label>
-                            <input type="text" placeholder="จังหวัด">
+                            <input type="text" placeholder="จังหวัด" class="txt_province">
                         </div>
 
                         <div class="input-box">
                             <label>*รหัสไปรษณีย์</label>
-                            <input type="text" placeholder="รหัสไปรษณีย์">
+                            <input type="tel" maxlength="5" placeholder="รหัสไปรษณีย์" class="txt_postcode">
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-box">
                             <label>หมายเหตุ</label>
-                            <input type="text" placeholder="ข้อความ">
+                            <input type="text" placeholder="ข้อความ" class="txt_message">
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="booking">
+                <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response" value="">
                 <button>จอง</button>
             </div>
         </div>
@@ -177,74 +99,62 @@
         <div class="detail-order">
             <div class="detial" style="background:url('<?=ROOT_URL?>img/BG.jpg')">
                 <div class="title">
-                    <h2>สรุปรายละเอียดการจอง</h2>
+                    <h2><?=$lang_config['page_bookingroom_detail_title_h2']?></h2>
                 </div>
 
                 <div class="box-date">
                     <div class="input-box">
                         <label>เช็คอิน</label>
-                        <label>23/07/2020</label>
+                        <label><?=$date_in?></label>
                     </div>
 
                     <div class="input-box">
                         <label>เช็คเอาท์</label>
-                        <label>24/07/2020</label>
+                        <label><?=$date_out?></label>
                     </div>
                 </div>
 
                 <div class="detail-list">
-                    <div class="list-item">
-                        <span class="nameRoom">Triple Room</span>
-                        <span class="amound-room">1 ห้อง</span>
-                        <span class="amound-pricePerDay">1,400 บาท/คืน</span>
-                    </div>
+                     
+                     <?=$orders['result']?>
 
-                    <div class="list-item">
-                        <span class="nameRoom">Superior Room Twin Bed</span>
-                        <span class="amound-room">1 ห้อง</span>
-                        <span class="amound-pricePerDay">1,400 บาท/คืน</span>
-                    </div>
-
-                    <div class="list-item">
-                        <span class="nameRoom">President Room</span>
-                        <span class="amound-room">1 ห้อง</span>
-                        <span class="amound-pricePerDay">1,400 บาท/คืน</span>
-                    </div>
-
-                    <div class="list-item">
-                        <span class="nameRoom">Superior Room Double Bed</span>
-                        <span class="amound-room">1 ห้อง</span>
-                        <span class="amound-pricePerDay">1,400 บาท/คืน</span>
-                    </div>
                 </div>
 
                 <div class="amound-price">
-                    <div class="list">
-                        <span>การเข้าพัก</span>
-                        <span>1</span>
+                        <div class="list">
+                            <span>การเข้าพัก</span>
+                            <span>
+                                <span class="room-amount"><?=$cart_result['result']['amount']?></span> คืน
+                            </span>
+                        </div>
+                        <div class="list">
+                            <span>ค่าห้อง ( รวมค่าอาหารเช้า )</span>
+                            <span class="room-price"><?=$cart_result['result']['price']?></span>
+                        </div>
+                      
+                        <div class="list">
+                            <span>ค่าบริการเพิ่มเติม</span>
+                            <span class="room-vat"><?=$cart_result['result']['extra']?></span>
+                        </div>
+                        <div class="list">
+                            <span>ส่วนลด</span>
+                            <span class="room-discount"><?=$cart_result['result']['discount']?></span>
+                        </div>
+                        <div class="list">
+                            <span>ค่าใช้จ่ายทั้งหมด</span>
+                            <span class="room-netpay"><?=$cart_result['result']['netpay']?></span>
+                        </div>
                     </div>
-                    <div class="list">
-                        <span>ค่าห้อง</span>
-                        <span>3,800</span>
-                    </div>
-                    <div class="list">
-                        <span>ค่าอาหาร</span>
-                        <span>-</span>
-                    </div>
-                    <div class="list">
-                        <span>ภาษีและค่าธรรมเนียม</span>
-                        <span>-</span>
-                    </div>
-                    <div class="list">
-                        <span>ส่วนลด</span>
-                        <span>800</span>
-                    </div>
-                    <div class="list">
-                        <span>ค่าใช้จ่ายทั้งหมด</span>
-                        <span>3,000</span>
+                    <div class="discount">
+                        <div class="input-box">
+                            <label>ส่วนลด</label>
+                            <input type="text" >
+                        </div>
+                        <div class="button">
+                            <button>ลด</button>
+                        </div>
                     </div>
                 </div>
-            </div>
 
             <div class="contact" style="background:url('<?=ROOT_URL?>img/BG.jpg')">
                 <div class="title">
@@ -273,3 +183,19 @@
         </div>
     </div>
 </div>
+
+   <!-- Footer -->
+   <?php 
+        require_once "mains/footer.php"; 
+    ?>
+    <script src="<?=ROOT_URL?>js/page/booking-room.js?v=1.1.2<?=time()?>"></script>
+    <script>
+    grecaptcha.ready(function() {
+        grecaptcha.execute('6LfYAbwZAAAAAMHxHuGHnNWfFR3-lr9UVrbCAoQH', {action: 'submit_contact'}).then(function(token) {
+            // ค่า token ที่ถูกส่งกลับมา จะถูกนำไปใช้ส่งไปตรวจสอบกับ api อีกครั้ง
+            // เราเอาค่า token ไปไว้ใน input hidden ชื่อg-recaptcha-response
+            document.getElementById('g-recaptcha-response').value = token;
+        });
+    });
+    </script>   
+</body>

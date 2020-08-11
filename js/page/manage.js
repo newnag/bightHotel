@@ -85,12 +85,12 @@ function validate_contact_data(){
 
 mytest();
 function mytest(){
-    $(".txt_name").val('testset 1 2');
-    $(".txt_lastname").val('testset 2321');
-    $(".txt_email").val('sdd@sf.sd');
-    $(".txt_tel").val('testse345t');
-    $(".txt_subject").val('tes435373tset');
-    $(".txt_message").val('testset 89034'); 
+    $(".txt_name").val('firstname');
+    $(".txt_lastname").val('lastname');
+    $(".txt_email").val('wynn@sf.sd');
+    $(".txt_tel").val('0989999999');
+    $(".txt_subject").val('ทดสอบหัวเรื่อง');
+    $(".txt_message").val('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat '); 
 }
 
 function validateEmail(email) {

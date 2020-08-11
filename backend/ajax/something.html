@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .facility-list {
+                display: grid;
+                grid-template-columns: repeat(3,1fr);
+       }
+       
+        @media screen and (min-width: 768px){
+            .facility-list {
+                grid-template-columns: repeat(4,1fr);
+            }
+        }
+
+        .facility-list .checkmark:after {
+            left: 9px;
+            top: 5px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+        .facility-list input.chk_fac {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;width: 50px;
+        }
+      
+
+    </style>
+</head>
+<body style="background:black; font-size: 16px; font-size: 1.5em;">
+   
+</body>
+</html>
+
+

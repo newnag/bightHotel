@@ -1,5 +1,13 @@
 @import "brightStyle";
 
+@mixin limitInroom {
+    @for $i from 6 through 20 {
+        &:nth-child(#{$i}) {
+          display: none;
+        }
+    }
+}
+
 .content{
     margin: 5% 0;
 
@@ -66,7 +74,7 @@
             img{
                 width: 32px;
                 height: 32px;
-                filter: brightness(5%) sepia(100) saturate(100) hue-rotate(200deg);
+                filter: brightness(5%) sepia(100) saturate(100) hue-rotate(180deg);
             }
             span{
                 color: $text-gray;
@@ -87,6 +95,7 @@
             cursor: -webkit-grabbing;
         }
         &::-webkit-scrollbar{
+            display: none;
             width: 50%;
             height: 5px;
         }
@@ -183,6 +192,7 @@
                     .item{
                         text-align: center;
                         position: relative;
+                        @include limitInroom();
                         
                         span{
                             display: none;
@@ -293,6 +303,14 @@
                 textarea{
                     padding: 0 20px;
                     border-radius: 10px;
+
+                    &::-webkit-scrollbar{
+                        width: 2px;
+                    }
+                    &::-webkit-scrollbar-thumb{
+                        background-color: $blue;
+                        border-radius: 30px;
+                    }
                 }
             }
             .button{
@@ -319,7 +337,7 @@
             margin: unset;
         }
         @media screen and (min-width:$laptop) {
-            padding: 1% 8% 4% 8%;
+            padding: 1% 8% 0% 8%;
         }
 
         .box-grid{
@@ -444,10 +462,10 @@
 }
 
 @media screen and (max-width:1365px) {
-    article:nth-child(6){
+    article.pHome:nth-child(6){
         grid-row-start: 6;
     }
-    article:nth-child(7){
+    article.pHome:nth-child(7){
         grid-row-start: 5;
     }
 }

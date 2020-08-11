@@ -1,21 +1,21 @@
 // ---------------- component ----------------- //
 // font
-@font-face{
-    font-family: kanit;
-    src: url(/font/Kanit/Kanit-Regular.ttf);
-}
-@font-face{
-    font-family: Bkanit;
-    src: url(/font/Kanit/Kanit-Bold.ttf);
-}
-@font-face{
-    font-family: Lkanit;
-    src: url(/font/Kanit/Kanit-Light.ttf);
-}
-@font-face{
-    font-family: Skanit;
-    src: url(/font/Kanit/Kanit-SemiBold.ttf);
-}
+// @font-face{
+//     font-family: kanit;
+//     src: url(/font/Kanit/Kanit-Regular.ttf);
+// }
+// @font-face{
+//     font-family: Bkanit;
+//     src: url(/font/Kanit/Kanit-Bold.ttf);
+// }
+// @font-face{
+//     font-family: Lkanit;
+//     src: url(/font/Kanit/Kanit-Light.ttf);
+// }
+// @font-face{
+//     font-family: Skanit;
+//     src: url(/font/Kanit/Kanit-SemiBold.ttf);
+// }
 
 
 // color
@@ -61,7 +61,7 @@ $pc: 1600px;
     background-color: $brown;
     color: $background1;
     box-shadow: 0px 1px 5px $text-gray;
-    font-size: 1.4em;
+    font-size: 1.2em;
     font-family: Bkanit;
     border: unset;
     border-radius: 30px;
@@ -105,7 +105,7 @@ $pc: 1600px;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: kanit;
+    font-family: 'Kanit', sans-serif;
     font-size: 20px;
 }
 h1,h2,h3,h4,h5,h6{
@@ -486,7 +486,7 @@ body{
 }
 
 .booking{
-    padding: 3% 2%;
+    padding: 2%;
 
     @media screen and (min-width:$laptop) {
         width: 80%;
@@ -581,6 +581,7 @@ body{
     @media screen and (min-width:$laptop) {
         grid-template-columns: 14% 21% 27% 35%;
         grid-gap: 1%;
+        padding: 2% 10%;
     }
 
     .logo{
@@ -674,7 +675,7 @@ body{
             @media screen and (min-width:$laptop) {
                 overflow: hidden;
                 height: 250px;
-                text-align: left;
+                //text-align: left;
             }
         }
     }
@@ -705,7 +706,7 @@ body{
     width: 50px;
     height: 50px;
     border-radius: 30px;
-    background-color: #305692;
+    background-color: #305692b3;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -718,4 +719,8 @@ body{
             filter: invert(100%);
         }
     }
+}
+
+.grecaptcha-badge{
+    display: none;
 }

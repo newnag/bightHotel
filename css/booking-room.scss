@@ -2,7 +2,7 @@
 
 .bookingroom-page{
     width: 95%;
-    margin: 0 auto;
+    margin: 3% auto;
 
     @media screen and (min-width:$pc) {
         width: 90%;
@@ -122,6 +122,23 @@
                             }
                         }
 
+                        .breakfast,.taxinvoice,.extrabed{
+                            margin: 1% 0;
+
+                            label{
+                                color: $background1;
+                            }
+                            input[type="text"]{
+                                @include input();
+                                width: 50%;
+                                padding: 0 3%;
+
+                                &.input-invalid{
+                                    border: 2px solid $brown!important;
+                                }
+                            }
+                        }
+
                         .ps{
                             margin-top: 3%;
                             p{
@@ -129,6 +146,14 @@
                             }
                         }
                     }
+                }
+            }
+
+            .button{
+                text-align: center;
+                margin: 3% 0;
+                button{
+                    @include button(30%)
                 }
             }
 
@@ -371,6 +396,17 @@
                         input[type="file"]{
                             display: none;
                         }
+                        
+                    }
+
+                    .review.addimg{
+                        margin-top: 3%;
+
+                        >img{
+                            width: 100%;
+                            height: 100%;
+                            filter: invert(0);
+                        }
                     }
                 } 
                 
@@ -583,7 +619,7 @@
                     margin: 5% 0;
 
                     img{
-                        width: 70%;
+                        width: 35%;
                         height: 100%;
                     }
                 }

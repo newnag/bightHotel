@@ -1,21 +1,21 @@
 @font-face {
   font-family: kanit;
-  src: url(/font/Kanit/Kanit-Regular.ttf);
+  src: url(/src/font/Kanit/Kanit-Regular.ttf);
 }
 
 @font-face {
   font-family: Bkanit;
-  src: url(/font/Kanit/Kanit-Bold.ttf);
+  src: url(/src/font/Kanit/Kanit-Bold.ttf);
 }
 
 @font-face {
   font-family: Lkanit;
-  src: url(/font/Kanit/Kanit-Light.ttf);
+  src: url(/src/font/Kanit/Kanit-Light.ttf);
 }
 
 @font-face {
   font-family: Skanit;
-  src: url(/font/Kanit/Kanit-SemiBold.ttf);
+  src: url(/src/font/Kanit/Kanit-SemiBold.ttf);
 }
 
 *, *:after, *:before {
@@ -90,21 +90,10 @@ input:focus, select:focus, textarea:focus, button:focus {
 
 input:disabled {
   background: #fff;
-  opacity: 1;
 }
 
 body {
   background: #fff;
-  -webkit-tap-highlight-color: transparent;
-}
-
-@media screen and (max-width: 1365px) {
-  body {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 100%;
-        grid-template-columns: 100%;
-  }
 }
 
 .header {
@@ -122,24 +111,18 @@ body {
 }
 
 .header .logo figure img {
-  width: 80%;
+  width: 95%;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .header .logo figure img {
     width: 50%;
   }
 }
 
-@media screen and (min-width: 1024px) {
-  .header .logo figure img {
-    width: 40%;
-  }
-}
-
 @media screen and (min-width: 1366px) {
   .header .logo figure img {
-    width: 25%;
+    width: 40%;
   }
 }
 
@@ -164,18 +147,7 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    padding: 0 12%;
-  }
-}
-
-@media screen and (min-width: 1600px) {
-  .header nav {
-    margin: unset;
-    padding: unset;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    padding: 0 15%;
+    padding: 0 5%;
   }
 }
 
@@ -191,22 +163,13 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
     background-color: unset;
-    width: 95%;
-    margin: 0 auto;
-  }
-}
-
-@media screen and (min-width: ipadpro) {
-  .header nav .menu {
-    width: 80%;
-    margin: 0 auto;
   }
 }
 
@@ -217,14 +180,9 @@ body {
   }
 }
 
-.header nav .menu .menulist {
-  margin: 2% 0;
-}
-
 @media screen and (min-width: 768px) {
   .header nav .menu .menulist {
-    width: 12%;
-    margin: unset;
+    width: calc(100%/9);
   }
 }
 
@@ -234,21 +192,8 @@ body {
 
 .header nav .menu .menulist a.active {
   background: #cc9933;
-  padding: 1%;
+  padding: 0 2%;
   border-radius: 5px;
-  color: #fff !important;
-}
-
-@media screen and (min-width: 768px) {
-  .header nav .menu .menulist a.active {
-    padding: 5% !important;
-  }
-}
-
-.header nav .menu .menulist a:hover {
-  color: #cc9933;
-  -webkit-transition: .3s;
-  transition: .3s;
 }
 
 .header nav .menu .menulist .room {
@@ -258,7 +203,7 @@ body {
 
 .header nav .menu .menulist .room.active {
   background: #cc9933;
-  padding: 5%;
+  padding: 0 2%;
   border-radius: 5px;
 }
 
@@ -269,7 +214,7 @@ body {
           filter: invert(100%);
 }
 
-@media (hover: hover) and (pointer: fine) {
+@media screen and (min-width: 1025px) {
   .header nav .menu .menulist .room:hover .subroom {
     display: block;
   }
@@ -296,18 +241,6 @@ body {
   display: block;
 }
 
-.header nav .menu .menulist .room .subroom li {
-  padding: 2% 0;
-}
-
-.header nav .menu .menulist .room .subroom li a {
-  color: #fff !important;
-}
-
-.header nav .menu .menulist .room .subroom li a:hover {
-  border-bottom: 2px solid #fff;
-}
-
 .header nav .menu .icon {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -325,85 +258,17 @@ body {
           filter: invert(1);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .header nav .menu .icon {
+    display: unset;
     padding: unset;
-    margin-left: 28%;
   }
 }
 
 @media screen and (min-width: 1366px) {
   .header nav .menu .icon a {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
     margin-left: 5px;
   }
-}
-
-.header nav .menu .searchBM {
-  position: relative;
-}
-
-@media screen and (min-width: 768px) {
-  .header nav .menu .searchBM {
-    display: none;
-  }
-}
-
-.header nav .menu .searchBM input {
-  width: 100%;
-  height: 40px;
-  border: 1px solid #777777;
-  border-radius: 10px;
-  padding: 0 3%;
-  background-color: #cc9933;
-  color: #fff;
-  border-radius: 20px;
-  width: 80%;
-}
-
-@media screen and (max-width: 480px) {
-  .header nav .menu .searchBM input {
-    font-size: 0.9em;
-    height: 30px;
-  }
-}
-
-.header nav .menu .searchBM input:focus {
-  border: 1px solid #cc9933;
-}
-
-.header nav .menu .searchBM input::-webkit-input-placeholder {
-  color: #fff;
-}
-
-.header nav .menu .searchBM input:-ms-input-placeholder {
-  color: #fff;
-}
-
-.header nav .menu .searchBM input::-ms-input-placeholder {
-  color: #fff;
-}
-
-.header nav .menu .searchBM input::placeholder {
-  color: #fff;
-}
-
-.header nav .menu .searchBM img {
-  position: absolute;
-  width: 26px;
-  height: 32px;
-  right: 13%;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  -webkit-filter: invert(1);
-          filter: invert(1);
-  cursor: pointer;
 }
 
 .header nav .menu.active {
@@ -419,8 +284,7 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 10%;
-  padding: 3% 0;
-  margin: 0 auto;
+  margin: 3% auto;
 }
 
 @media screen and (min-width: 768px) {
@@ -434,44 +298,16 @@ body {
   width: 30px;
   height: 3px;
   display: inline-block;
-  margin: 3px 0;
-  -webkit-transition: .5s;
-  transition: .5s;
-}
-
-.header nav .hamburger.active .line:nth-child(1) {
-  -webkit-transform: rotate(135deg) translate(1px, -2px);
-          transform: rotate(135deg) translate(1px, -2px);
-  -webkit-transition: .5s;
-  transition: .5s;
-}
-
-.header nav .hamburger.active .line:nth-child(2) {
-  opacity: 0;
-  -webkit-transition: .2s;
-  transition: .2s;
-}
-
-.header nav .hamburger.active .line:nth-child(3) {
-  -webkit-transform: rotate(45deg) translate(-10px, -12px);
-          transform: rotate(45deg) translate(-10px, -12px);
-  -webkit-transition: .5s;
-  transition: .5s;
+  margin: 2px 0;
 }
 
 .header nav .search {
   position: relative;
 }
 
-@media screen and (max-width: 767px) {
-  .header nav .search {
-    display: none;
-  }
-}
-
 @media screen and (min-width: 768px) {
   .header nav .search {
-    width: 35%;
+    width: 90%;
     margin: 0 auto;
   }
 }
@@ -492,13 +328,6 @@ body {
   background-color: #cc9933;
   color: #fff;
   border-radius: 20px;
-}
-
-@media screen and (max-width: 480px) {
-  .header nav .search input {
-    font-size: 0.9em;
-    height: 30px;
-  }
 }
 
 .header nav .search input:focus {
@@ -531,7 +360,6 @@ body {
           transform: translateY(-50%);
   -webkit-filter: invert(1);
           filter: invert(1);
-  cursor: pointer;
 }
 
 .slide {
@@ -586,12 +414,12 @@ body {
 }
 
 .booking {
-  padding: 3% 2%;
+  padding: 2% 5%;
 }
 
 @media screen and (min-width: 1366px) {
   .booking {
-    width: 80%;
+    width: 90%;
     margin: -4% auto;
     border-radius: 80px;
     position: relative;
@@ -599,12 +427,14 @@ body {
   }
 }
 
-.booking .formBook {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (49%)[2];
-      grid-template-columns: repeat(2, 49%);
-  grid-gap: 1%;
+@media screen and (min-width: 768px) {
+  .booking .formBook {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (49%)[2];
+        grid-template-columns: repeat(2, 49%);
+    grid-gap: 1%;
+  }
 }
 
 @media screen and (min-width: 1366px) {
@@ -636,21 +466,8 @@ body {
   padding: 0 20px;
 }
 
-@media screen and (max-width: 480px) {
-  .booking .formBook .input-box input {
-    font-size: 0.9em;
-    height: 30px;
-  }
-}
-
 .booking .formBook .input-box input:focus {
   border: 1px solid #cc9933;
-}
-
-@media screen and (min-width: 1366px) and (max-width: 1600px) {
-  .booking .formBook .input-box input {
-    width: 90% !important;
-  }
 }
 
 .booking .formBook .input-box input[type=number] {
@@ -665,12 +482,6 @@ body {
   cursor: pointer;
 }
 
-@media screen and (max-width: 480px) {
-  .booking .formBook .input-box img.left, .booking .formBook .input-box img.right {
-    bottom: 10%;
-  }
-}
-
 .booking .formBook .input-box img.left {
   left: 3%;
 }
@@ -679,18 +490,17 @@ body {
   right: 3%;
 }
 
-@media screen and (min-width: 1366px) and (max-width: 1600px) {
-  .booking .formBook .input-box img.right {
-    right: 11% !important;
-  }
-}
-
 .booking .formBook .button {
   text-align: center;
   margin: 3% 0;
-  -ms-grid-column: 1;
-      grid-column-start: 1;
-  grid-column-end: 3;
+}
+
+@media screen and (min-width: 768px) {
+  .booking .formBook .button {
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+    grid-column-end: 3;
+  }
 }
 
 @media screen and (min-width: 1366px) {
@@ -719,50 +529,10 @@ body {
   cursor: pointer;
 }
 
-@media screen and (max-width: 480px) {
-  .booking .formBook .button button {
-    width: 130px;
-    height: 40px;
-    background-color: #cc9933;
-    color: #fff;
-    -webkit-box-shadow: 0px 1px 5px #777777;
-            box-shadow: 0px 1px 5px #777777;
-    font-size: 1.4em;
-    font-family: Bkanit;
-    border: unset;
-    border-radius: 30px;
-    cursor: pointer;
-  }
-}
-
-@media screen and (max-width: 480px) and (max-width: 480px) {
-  .booking .formBook .button button {
-    height: 30px;
-    font-size: 1em;
-  }
-}
-
-@media screen and (max-width: 480px) and (hover: hover) and (pointer: fine) {
-  .booking .formBook .button button:hover {
-    background: #79472c;
-    -webkit-transition: .3s;
-    transition: .3s;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .booking .formBook .button button {
-    height: 30px;
-    font-size: 1em;
-  }
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .booking .formBook .button button:hover {
-    background: #79472c;
-    -webkit-transition: .3s;
-    transition: .3s;
-  }
+.booking .formBook .button button:hover {
+  background: #79472c;
+  -webkit-transition: .3s;
+  transition: .3s;
 }
 
 .footer {
@@ -782,9 +552,8 @@ body {
 
 @media screen and (min-width: 1366px) {
   .footer {
-    -ms-grid-columns: 14% 21% 27% 35%;
-        grid-template-columns: 14% 21% 27% 35%;
-    grid-gap: 1%;
+    -ms-grid-columns: 15% 25% 25% 35%;
+        grid-template-columns: 15% 25% 25% 35%;
   }
 }
 
@@ -930,36 +699,5 @@ body {
   .footer .map iframe {
     height: 250px;
   }
-}
-
-.flatpickr-current-month {
-  font-size: 100% !important;
-}
-
-.buttonTop {
-  position: fixed;
-  bottom: 5%;
-  right: 5%;
-  width: 50px;
-  height: 50px;
-  border-radius: 30px;
-  background-color: #305692;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  cursor: pointer;
-}
-
-.buttonTop figure img {
-  width: 28px;
-  height: 28px;
-  -webkit-filter: invert(100%);
-          filter: invert(100%);
 }
 /*# sourceMappingURL=brightStyle.css.map */

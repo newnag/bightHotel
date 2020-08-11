@@ -1,0 +1,1 @@
+[28-Aug-2019 21:53:16 Asia/Bangkok] PHP Fatal error:  Out of memory (allocated 90177536) (tried to allocate 20480 bytes) in /home/cp277207/public_html/sel/classes/thumb-generator/thumb.php on line 124

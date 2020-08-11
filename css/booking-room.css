@@ -1,29 +1,9 @@
-@font-face {
-  font-family: kanit;
-  src: url(/font/Kanit/Kanit-Regular.ttf);
-}
-
-@font-face {
-  font-family: Bkanit;
-  src: url(/font/Kanit/Kanit-Bold.ttf);
-}
-
-@font-face {
-  font-family: Lkanit;
-  src: url(/font/Kanit/Kanit-Light.ttf);
-}
-
-@font-face {
-  font-family: Skanit;
-  src: url(/font/Kanit/Kanit-SemiBold.ttf);
-}
-
 *, *:after, *:before {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: kanit;
+  font-family: 'Kanit', sans-serif;
   font-size: 20px;
 }
 
@@ -586,7 +566,7 @@ body {
 }
 
 .booking {
-  padding: 3% 2%;
+  padding: 2%;
 }
 
 @media screen and (min-width: 1366px) {
@@ -712,7 +692,7 @@ body {
   color: #fff;
   -webkit-box-shadow: 0px 1px 5px #777777;
           box-shadow: 0px 1px 5px #777777;
-  font-size: 1.4em;
+  font-size: 1.2em;
   font-family: Bkanit;
   border: unset;
   border-radius: 30px;
@@ -727,7 +707,7 @@ body {
     color: #fff;
     -webkit-box-shadow: 0px 1px 5px #777777;
             box-shadow: 0px 1px 5px #777777;
-    font-size: 1.4em;
+    font-size: 1.2em;
     font-family: Bkanit;
     border: unset;
     border-radius: 30px;
@@ -785,6 +765,7 @@ body {
     -ms-grid-columns: 14% 21% 27% 35%;
         grid-template-columns: 14% 21% 27% 35%;
     grid-gap: 1%;
+    padding: 2% 10%;
   }
 }
 
@@ -911,7 +892,6 @@ body {
   .footer .social .facebookPage {
     overflow: hidden;
     height: 250px;
-    text-align: left;
   }
 }
 
@@ -943,7 +923,7 @@ body {
   width: 50px;
   height: 50px;
   border-radius: 30px;
-  background-color: #305692;
+  background-color: #305692b3;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -963,9 +943,13 @@ body {
           filter: invert(100%);
 }
 
+.grecaptcha-badge {
+  display: none;
+}
+
 .bookingroom-page {
   width: 95%;
-  margin: 0 auto;
+  margin: 3% auto;
 }
 
 @media screen and (min-width: 1600px) {
@@ -1153,12 +1137,78 @@ body {
   }
 }
 
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-bookingRoom .bookingRoom .row .breakfast, .bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-bookingRoom .bookingRoom .row .taxinvoice, .bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-bookingRoom .bookingRoom .row .extrabed {
+  margin: 1% 0;
+}
+
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-bookingRoom .bookingRoom .row .breakfast label, .bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-bookingRoom .bookingRoom .row .taxinvoice label, .bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-bookingRoom .bookingRoom .row .extrabed label {
+  color: #fff;
+}
+
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-bookingRoom .bookingRoom .row .breakfast input[type="text"], .bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-bookingRoom .bookingRoom .row .taxinvoice input[type="text"], .bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-bookingRoom .bookingRoom .row .extrabed input[type="text"] {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #777777;
+  border-radius: 10px;
+  width: 50%;
+  padding: 0 3%;
+}
+
+@media screen and (max-width: 480px) {
+  .bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-bookingRoom .bookingRoom .row .breakfast input[type="text"], .bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-bookingRoom .bookingRoom .row .taxinvoice input[type="text"], .bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-bookingRoom .bookingRoom .row .extrabed input[type="text"] {
+    font-size: 0.9em;
+    height: 30px;
+  }
+}
+
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-bookingRoom .bookingRoom .row .breakfast input[type="text"]:focus, .bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-bookingRoom .bookingRoom .row .taxinvoice input[type="text"]:focus, .bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-bookingRoom .bookingRoom .row .extrabed input[type="text"]:focus {
+  border: 1px solid #cc9933;
+}
+
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-bookingRoom .bookingRoom .row .breakfast input[type="text"].input-invalid, .bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-bookingRoom .bookingRoom .row .taxinvoice input[type="text"].input-invalid, .bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-bookingRoom .bookingRoom .row .extrabed input[type="text"].input-invalid {
+  border: 2px solid #cc9933 !important;
+}
+
 .bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-bookingRoom .bookingRoom .row .ps {
   margin-top: 3%;
 }
 
 .bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-bookingRoom .bookingRoom .row .ps p {
   color: #fff;
+}
+
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .button {
+  text-align: center;
+  margin: 3% 0;
+}
+
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .button button {
+  width: 30%;
+  height: 40px;
+  background-color: #cc9933;
+  color: #fff;
+  -webkit-box-shadow: 0px 1px 5px #777777;
+          box-shadow: 0px 1px 5px #777777;
+  font-size: 1.2em;
+  font-family: Bkanit;
+  border: unset;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 480px) {
+  .bookingroom-page .bookingroom-page-zone .detail-booking-zone .button button {
+    height: 30px;
+    font-size: 1em;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .bookingroom-page .bookingroom-page-zone .detail-booking-zone .button button:hover {
+    background: #79472c;
+    -webkit-transition: .3s;
+    transition: .3s;
+  }
 }
 
 .bookingroom-page .bookingroom-page-zone .detail-booking-zone .cancle-button {
@@ -1173,7 +1223,7 @@ body {
   color: #fff;
   -webkit-box-shadow: 0px 1px 5px #777777;
           box-shadow: 0px 1px 5px #777777;
-  font-size: 1.4em;
+  font-size: 1.2em;
   font-family: Bkanit;
   border: unset;
   border-radius: 30px;
@@ -1360,7 +1410,7 @@ body {
   color: #fff;
   -webkit-box-shadow: 0px 1px 5px #777777;
           box-shadow: 0px 1px 5px #777777;
-  font-size: 1.4em;
+  font-size: 1.2em;
   font-family: Bkanit;
   border: unset;
   border-radius: 30px;
@@ -1410,7 +1460,7 @@ body {
   color: #fff;
   -webkit-box-shadow: 0px 1px 5px #777777;
           box-shadow: 0px 1px 5px #777777;
-  font-size: 1.4em;
+  font-size: 1.2em;
   font-family: Bkanit;
   border: unset;
   border-radius: 30px;
@@ -1590,6 +1640,17 @@ body {
   display: none;
 }
 
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment .right-box .review.addimg {
+  margin-top: 3%;
+}
+
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment .right-box .review.addimg > img {
+  width: 100%;
+  height: 100%;
+  -webkit-filter: invert(0);
+          filter: invert(0);
+}
+
 .bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.credit {
   display: none;
 }
@@ -1692,7 +1753,7 @@ body {
   color: #fff;
   -webkit-box-shadow: 0px 1px 5px #777777;
           box-shadow: 0px 1px 5px #777777;
-  font-size: 1.4em;
+  font-size: 1.2em;
   font-family: Bkanit;
   border: unset;
   border-radius: 30px;
@@ -1893,7 +1954,7 @@ body {
   color: #fff;
   -webkit-box-shadow: 0px 1px 5px #777777;
           box-shadow: 0px 1px 5px #777777;
-  font-size: 1.4em;
+  font-size: 1.2em;
   font-family: Bkanit;
   border: unset;
   border-radius: 30px;
@@ -1927,7 +1988,7 @@ body {
   color: #fff;
   -webkit-box-shadow: 0px 1px 5px #777777;
           box-shadow: 0px 1px 5px #777777;
-  font-size: 1.4em;
+  font-size: 1.2em;
   font-family: Bkanit;
   border: unset;
   border-radius: 30px;
@@ -1991,7 +2052,7 @@ body {
 }
 
 .bookingroom-page .bookingroom-page-zone .detail-order .contact .logo img {
-  width: 70%;
+  width: 35%;
   height: 100%;
 }
 

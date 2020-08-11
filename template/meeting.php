@@ -1,8 +1,8 @@
     <?php  require_once "mains/header.php"; ?>
-<div class="meeting-page">
+    <div class="meeting-page">
     <div class="title">
-        <h1>ห้องประชุม</h1>
-        <span>ห้องประชุมประกอบด้วยห้องมาตรฐาน 79 ห้อง หรูหรา ระดับพรีเมี่ยมคลาส</span>
+        <h1><?=$article->title?></h1>
+        <span><?=$article->description?></span>
     </div>
 
     <div class="meeting-page-zone">
@@ -13,7 +13,7 @@
         <div class="detail-order">
             <div class="detial" style="background:url('<?=ROOT_URL?>img/BG.jpg')">
                 <div class="title">
-                    <h2>สอบถาม</h2>
+                    <h2>ติดต่อจองห้องประชุม</h2>
                 </div>
                 
                 <div class="form">
@@ -37,9 +37,9 @@
                     </div>
                     <div class="textSingle">
                         <label>ข้อความ</label>
-                        <textarea name="" id="" class="txt_message" cols="30" rows="2" placeholder="กรอกข้อความ"></textarea>
+                        <textarea name="" id="" class="txt_message" cols="30" rows="5" placeholder="กรอกข้อความ"></textarea>
                     </div>
-                    <div class="button"><button>ส่ง</button></div>
+                    <div class="button"><button class="reserv_meeting">ส่ง</button></div>
                 </div>
             </div>
 
@@ -68,95 +68,15 @@
                 </div>
             </div>
         </div>
-    </div> 
-</div>
-
-<div class="dialog-fullview">
-    <div class="inner-dialog">
-        <div class="close"><button>X</button></div>
-
-        <div class="image-review">
-            <div class="img-bigbox"><figure><img src="<?=$thumbgenerator?>img/hotel/MRX_0268.JPG&size=x250" alt=""></figure></div>
-            <div class="carousel">
-                <div class="list-img">
-                    <figure><img class="active" src="<?=$thumbgenerator?>img/hotel/MRX_0303.JPG&size=x250" alt=""></figure>
-                </div>
-            </div>
-        </div>
-
-        <div class="detail-room">
-            <div class="logo"><figure><img src="<?=ROOT_URL?>img/logo-B-01.png" alt=""></figure></div>
-            <div class="nameroom">
-                <h2>Triple Room</h2>
-            </div>
-            <div class="price">
-                <h2>1,400</h2>
-                <span>บาท / คืน</span>
-            </div>
-            <div class="description">
-                <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias temporibus quisquam fugiat repellendus? Quae illo inventore dolorum eveniet. Provident excepturi at incidunt laborum itaque. A molestiae quam saepe voluptate at.
-                </p>
-            </div>
-        </div>
-
-        <div class="facilities">
-            <div class="title">
-                <h5>สิ่งอำนวยความสะดวก</h5>
-            </div>
-
-            <div class="inroom">
-        
-                <div class="item">
-                    <img src="<?=ROOT_URL?>img/icon/tv.svg" alt="">
-                    <p>
-                        ข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่าง
-                        ข้อความตัวอย่างข้อความตัวอย่าง ข้อความตัวอย่าง ข้อความตัวอย่าง ข้อความตัวอย่าง
-                        ข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่าง
-                    </p>
-                </div>
-                <div class="item">
-                    <img src="<?=ROOT_URL?>img/icon/desk.svg" alt="">
-                    <p>
-                        ข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่าง
-                        ข้อความตัวอย่างข้อความตัวอย่าง ข้อความตัวอย่าง ข้อความตัวอย่าง ข้อความตัวอย่าง
-                        ข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่าง
-                    </p>
-                </div>
-                <div class="item">
-                    <img src="<?=ROOT_URL?>img/icon/bed.svg" alt="">
-                    <p>
-                        ข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่าง
-                        ข้อความตัวอย่างข้อความตัวอย่าง ข้อความตัวอย่าง ข้อความตัวอย่าง ข้อความตัวอย่าง
-                        ข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่าง
-                    </p>
-                </div>
-                <div class="item">
-                    <img src="<?=ROOT_URL?>img/icon/balcony.svg" alt="">
-                    <p>
-                        ข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่าง
-                        ข้อความตัวอย่างข้อความตัวอย่าง ข้อความตัวอย่าง ข้อความตัวอย่าง ข้อความตัวอย่าง
-                        ข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่าง
-                    </p>
-                </div>
-                <div class="item">
-                    <img src="<?=ROOT_URL?>img/icon/bathroom.svg" alt="">
-                    <p>
-                        ข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่าง
-                        ข้อความตัวอย่างข้อความตัวอย่าง ข้อความตัวอย่าง ข้อความตัวอย่าง ข้อความตัวอย่าง
-                        ข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่าง
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        
     </div>
 </div>
+
+
 
 <?php
     require_once "mains/footer.php";
 ?>
+    <script src="<?=ROOT_URL?>js/page/room.js?v=<?=time()?>"></script>    
 <script src="<?=ROOT_URL."js/page/meeting.js?v=1.2.3".time()?>"></script>
-<script src="<?=ROOT_URL."js/page/room.js?v=1.2.3".time()?>"></script>
 
 </body>

@@ -2,7 +2,7 @@
 
 .meeting-page{
     width: 95%;
-    margin: 0 auto;
+    margin: 6% auto;
 
     @media screen and (min-width:$pc) {
         width: 90%;
@@ -107,7 +107,7 @@
     
                     .title-room{
                         background-color: $blue;
-                        width: 80%;
+                        width: 45%;
                         margin: 0 auto;
                         padding: 1% 0;
                         text-align: center;
@@ -130,19 +130,18 @@
     
                         p{
                             color: $text-gray;
-                            font-size: .8em;
+                            font-size: .7em;
                         }
                     }
     
                     .inroom{
-                        display: grid;
-                        grid-template-columns: repeat(6,1fr);
-                        padding: 0 3%;
-                        margin: 3% 0;
+                        display: flex;
+                        justify-content: center;
     
                         .item{
                             text-align: center;
                             position: relative;
+                            margin: 0 3%;
                             
                             span{
                                 display: none;
@@ -154,6 +153,7 @@
                                 color: #fff;
                                 padding: 0 5px;
                                 border-radius: 5px;
+                                font-size: .7em;
 
                                 &.active{
                                     display: block;
@@ -269,6 +269,14 @@
                         textarea{
                             padding: 0 3%;
                             border-radius: 10px;
+
+                            &::-webkit-scrollbar{
+                                width: 2px;
+                            }
+                            &::-webkit-scrollbar-thumb{
+                                background-color: $blue;
+                                border-radius: 30px;
+                            }
                         }
                     }
                     .button{
@@ -301,7 +309,7 @@
                     margin: 5% 0;
 
                     img{
-                        width: 70%;
+                        width: 35%;
                         height: 100%;
                     }
                 }
@@ -314,7 +322,7 @@
     
                     @media screen and (min-width:$pc) {
                         display: block;
-                        padding-right: 25%;
+                        text-align: center;
                     }
     
                     .item{

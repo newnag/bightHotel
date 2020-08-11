@@ -2,8 +2,8 @@
 <?php require_once "mains/header.php"; ?>
 <div class="bookingroom-page">
     <div class="title">
-        <h1><?=$lang_config['page_confirm_h1']?></h1>
-        <span><?=$lang_config['page_confirm_title_span']?></span>
+        <h1><?=$article->title?></h1>
+        <span><?=$article->description?></span>
     </div>
 
     <div class="bookingroom-page-zone">
@@ -123,23 +123,27 @@
                         <label><?=$lang_config['page_confirm_payment_input_price']?></label>
                         <input type="text" class="txt_price" placeholder="จำนวนเงิน">
                     </div>
-                </div>
 
-                <div class="right-box">
                     <div class="date-box">
                         <div class="input-box">
                             <label><?=$lang_config['page_confirm_payment_input_date']?></label>
                             <input type="date" placeholder="xx-xx-xxxx" class="dateCheck">
                         </div>
                     </div>
+                </div>
+
+                <div class="right-box">
+                    
 
                     <div class="upload-slip">
                         <figure><img src="<?=ROOT_URL?>img/icon/photo.svg" alt=""></figure>
                         <span><?=$lang_config['page_confirm_payment_btn_uploadimg']?></span>
                         <label for="slip-upload" id="inputfile"></label>
-                        <input type="file" id="add-images-hidden">
+                        <!-- <input type="file" id="add-images-hidden"> -->
                         <input type="file" id="slip-upload" data-id="<?=$getpost['id']?>">
                     </div>
+
+                    <figure class="review"><img src="" alt=""></figure>
                 </div>
             </div>
 
@@ -210,8 +214,9 @@
                 </div>
             </div>
 
-            <div class="buttonFinalPay">
-                <button><?=$lang_config['page_confirm_payment_btn_confirm']?></button>
+            <div class="buttonFinalPay" data-id="<?=$_SESSION['payment_id']?>">
+
+                <button ><?=$lang_config['page_confirm_payment_btn_confirm']?></button>
             </div>
         </div>
 
@@ -226,7 +231,6 @@
                         <label>เช็คอิน</label>
                         <label class="result"><?=$date_in?></label>
                     </div>
-
                     <div class="input-box">
                         <label>เช็คเอาท์</label>
                         <label><?=$date_out?></label>
@@ -234,12 +238,12 @@
                 </div>
 
                 <div class="detail-list">
-                    <?=$cart_result['room_result']?>
+                    <?=$detail['room_result']?>
                 </div>
-
 
                 <div class="amound-price">
                         <div class="list">
+                        
                             <span>การเข้าพัก</span>
                             <span>
                                 <span class="room-amount"><?=$detail['result']['amount']?></span> คืน</span>
@@ -250,7 +254,7 @@
                         </div>
                       
                         <div class="list">
-                            <span>ค่าบริการเพิ่มเติม</span>
+                            <span>ค่าบริการ (Extra bed)</span>
                             <span class="room-vat"><?=$detail['result']['extra']?></span>
                         </div>
                         <div class="list">
@@ -262,7 +266,6 @@
                             <span class="room-netpay"><?=$detail['result']['netpay']?></span>
                         </div>
                     </div>
-                  
                 </div>
 
             </div>

@@ -6,6 +6,9 @@ $('.detail-booking-zone .box-payment .right-box .date-box .dateCheck').flatpickr
 
 window.onload = ()=>{
     valuePeopleBook()
+    ClickLabel('EB')
+    ClickLabel('Bf')
+    ClickLabel('TAX')
 }
 
 function valuePeopleBook(){
@@ -22,8 +25,11 @@ function valuePeopleBook(){
             value.value = inputVal
         })
         right.addEventListener('click',()=>{
+            
             inputVal += 1
             value.value = inputVal
+            
+            
         })
     })
 
@@ -34,7 +40,7 @@ function valuePeopleBook(){
         let inputVal = Number(value2.value)
 
         left.addEventListener('click',()=>{
-            if(inputVal > 1){
+            if(inputVal > 0){
                 inputVal -= 1
             }
             value2.value = inputVal
@@ -44,4 +50,37 @@ function valuePeopleBook(){
             value2.value = inputVal
         })
     })
+}
+
+function ClickLabel(type){
+    if(type === 'Bf'){
+        let ele = document.querySelectorAll('.breakfast') 
+        ele.forEach(check=>{
+            check.children[1].addEventListener('click',()=>{
+                check.querySelector('.breakfast-check').click()
+            })
+        })
+    }
+    else if(type === 'TAX'){
+        let ele = document.querySelectorAll('.taxinvoice') 
+        ele.forEach(check=>{
+            check.children[1].addEventListener('click',()=>{
+                check.querySelector('.taxinvoice-check').click()
+                if(check.querySelector('.taxinvoice-check').checked == true){
+                    check.children[2].disabled = false
+                }
+                else{
+                    check.children[2].disabled = true
+                }
+            })
+        })
+    }
+    else if(type === 'EB'){
+        let ele = document.querySelectorAll('.extrabed') 
+        ele.forEach(check=>{
+            check.children[1].addEventListener('click',()=>{
+                check.querySelector('.extrabed-check').click()
+            })
+        })
+    }
 }
