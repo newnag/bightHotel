@@ -1,7 +1,10 @@
-$('.detail-booking-zone .box-payment .right-box .date-box .dateCheck').flatpickr({
+$('.detail-booking-zone .box-payment .box-bank .date-box .dateCheck').flatpickr({
     disableMobile: "true",
     enableTime: true,
     dateFormat: "d-m-Y H:i",
+    defaultHour: 00,
+    defaultMinute: 0,
+    time_24hr: true,
 })
 
 window.onload = ()=>{
@@ -61,20 +64,6 @@ function ClickLabel(type){
             })
         })
     }
-    else if(type === 'TAX'){
-        let ele = document.querySelectorAll('.taxinvoice') 
-        ele.forEach(check=>{
-            check.children[1].addEventListener('click',()=>{
-                check.querySelector('.taxinvoice-check').click()
-                if(check.querySelector('.taxinvoice-check').checked == true){
-                    check.children[2].disabled = false
-                }
-                else{
-                    check.children[2].disabled = true
-                }
-            })
-        })
-    }
     else if(type === 'EB'){
         let ele = document.querySelectorAll('.extrabed') 
         ele.forEach(check=>{
@@ -84,3 +73,7 @@ function ClickLabel(type){
         })
     }
 }
+
+// $(".detail-booking-zone").on("click","",function(){
+//     $(".taxinvoice-check")
+// });

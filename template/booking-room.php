@@ -8,11 +8,13 @@
  
     <div class="bookingroom-page-zone">
         <div class="detail-booking-zone"> 
-            <div class="title"><h2>รายละเอียดการจอง</h2></div>
+            <div class="title">
+                <h2>รายละเอียดการจอง</h2>
+                <div class="button"><a href="<?=ROOT_URL."ห้อง/ห้องพัก/".(date("d-m-Y",strtotime($_SESSION['cart']['result']['datein'])))."/".(date("d-m-Y",strtotime($_SESSION['cart']['result']['dateout'])))?>"><button>จองห้องเพิ่มเติม</button></a></div>
+            </div>
             <div class="box-bookingRoom">
                    <?=$orders['detail']?>
             </div>
-            <div class="button"><a href=""><button>กดเพิ่มการจอง</button></a></div>
             <div class="title"><h2>ข้อมูลที่ใช้จอง</h2></div>
             <div class="info-person">
                 <div class="dataPersonal">
@@ -47,6 +49,14 @@
                         <div class="input-box">
                             <label><?=$lang_config['page_confirm_detail_label_idcard']?></label>
                             <input type="tel" maxlength="4"  placeholder="รหัสบัตร 4 หลักท้าย " class="txt_code" >
+                        </div>
+
+                        <div class="input-box taxinvoice">
+                            <div style="display:flex;">
+                                <input type="checkbox" class="taxinvoice-check" style=" max-width: 45px; margin: auto 0px;">
+                                <label for="taxinvoice-check" style="margin: auto 0px;">รับใบกำกับภาษี</label>
+                            </div>
+                            <input type="text" name="tax_invoice"  class="txt_invoice" placeholder="ใส่ชื่อบริษัท">
                         </div>
                     </div>
                 </div>
@@ -128,12 +138,16 @@
                             </span>
                         </div>
                         <div class="list">
-                            <span>ค่าห้อง ( รวมค่าอาหารเช้า )</span>
+                            <span>ค่าห้อง </span>
                             <span class="room-price"><?=$cart_result['result']['price']?></span>
+                        </div>
+                        <div class="list">
+                            <span>ค่าอาหารเช้า </span>
+                            <span class="room-breakfast"><?=$cart_result['result']['breakfast']?></span>
                         </div>
                       
                         <div class="list">
-                            <span>ค่าบริการเพิ่มเติม</span>
+                            <span>ค่าบริการเตียงเสริม</span>
                             <span class="room-vat"><?=$cart_result['result']['extra']?></span>
                         </div>
                         <div class="list">
@@ -188,6 +202,7 @@
    <?php 
         require_once "mains/footer.php"; 
     ?>
+
     <script src="<?=ROOT_URL?>js/page/booking-room.js?v=1.1.2<?=time()?>"></script>
     <script>
     grecaptcha.ready(function() {

@@ -30,7 +30,7 @@
   <link rel="stylesheet" href="<?=ROOT_URL?>css/history.min.css?v=<?=time()?>">
   <link rel="stylesheet" href="<?=ROOT_URL?>css/meStyle.css?v=<?=time()?>">
 
-  <script>let hostname = "<?=ROOT_URL?>";</script>
+  <script>let hostname = "<?=SITE_URL?>";</script>
   <?php /*
     <link rel="stylesheet" href="/css/style.min.css?v=<?=time()?>">
   */ ?> 

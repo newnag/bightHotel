@@ -5,6 +5,19 @@
 function add_room_product(){
 
 }
+$("#search-content").on('keyup',function(e){
+    let keycode = e.keyCode;
+    if(keycode == 13){
+      let path = location.search.split("&search");
+      if($(this).val() !=""){
+        location.href = location.origin+"/backend"+path[0]+"&search="+$(this).val();
+      }else{
+        location.href = location.origin+"/backend"+path[0];
+      }
+    }
+   
+});
+
 
 $(".action-btn").on("click",".edit-product",function(){
     edit_room_product($(this).data('id'));
@@ -32,14 +45,16 @@ function prepare_form(param,_id,_action){
         },
         title: param['modatl_title'],
         html: param['html'],
-        input: 'checkbox',
+        input: 'checkbox',  
         inputValue: 1,
         showCancelButton: true,
         confirmButtonText: param['modal_btn'],
         cancelButtonText: 'ยกเลิก',
         showLoaderOnConfirm: true,
         preConfirm: (_otp) => { 
+            console.log(_otp);
             let display =  ($("#displayStatus").prop("checked"))?"active":"no";
+            let extra_status =  ($("#extrabed").prop("checked"))?"yes":"no";
             let myparam = {
               id: _id,
               name: $(".room-product .txt_name").val(),
@@ -48,13 +63,20 @@ function prepare_form(param,_id,_action){
               roomamount: $(".room-product .txt_room_amount").val(),
               price: $(".room-product .txt_price").val(),
               currentprice: $(".room-product .txt_current_price").val(),
+              breakfast: $(".room-product .txt_breakfast").val(),
               extra: $(".room-product .txt_extra").val(),
               timein: $(".room-product .txt_timein").val(),
               timeout: $(".room-product .txt_timeout").val(),
               thumbnail: $("#edit-images-thumbnail-hidden").val(),
               facility: ",",
               action: _action,
+              extra_status,
               display
+            }
+            if(myparam.timein <= myparam.timeout){
+              Swal.showValidationMessage(
+                `เวลาที่เช็คอิน ไม่ควรน้อยกว่าเวลาเช็คเอ้าท์ `
+              )
             }
             if(myparam.thumbnail == ""){
               $(".room-product  .img_thumbnail").addClass("invalid");
@@ -122,7 +144,6 @@ $(".page_hotel_manager ").on("change",'#add-images-content',function () {
 });
 
 
-
 $(".page_hotel_manager").on('click','.delete-product',function(){
   Swal.fire({
     title: 'ยืนยันการลบ?',
@@ -160,7 +181,7 @@ $(".page_hotel_manager").on('click','.delete-product',function(){
     });
 });
 
-$(".page_hotel_manager").on("click",".add-room-product",function(){
+$(".page_hotel_manager").on("click",".add-room-product",function(){ 
     $.ajax({
       url: site_url + "ajax/ajax.hotel_manage.php",
      type: 'POST',
@@ -180,9 +201,10 @@ $(".page_hotel_manager").on("click",".add-room-product",function(){
 $(".page_hotel_manager").on('click','.change_price',function(){
   let oldp = $(".page_hotel_manager .txt_change_price").data('old');
   let newp = $(".page_hotel_manager .txt_change_price").val();
+  let afterprice = $(".page_hotel_manager .txt_change_price").val() - $(".page_hotel_manager .txt_change_price").data('breakfast');
   let param = {
     action: 'change_room_current_price',
-    price: $(".page_hotel_manager .txt_change_price").val(),
+    price: afterprice,
     id: $(this).data('id')
   }
   if(oldp != newp){
@@ -217,7 +239,6 @@ function change_room_price(param){
     data: param,
     success: function(response){ 
       if(response['status'] == 'success'){
-        console.log(param);
         $(".page_hotel_manager .txt_change_price[data-id='"+param.id+"']").data('old',param.price);
       }
       Swal.fire({
@@ -240,11 +261,12 @@ $(".page_hotel_manager").on('click','.increase_room',function(){
     action: 'room_increasing',
     id: $(this).data('id')
   }
-  let numb =  $('.page_hotel_manager .room-current-amount[data-id="'+$(this).data('id')+'"]').html();
-  numb = (Number(numb)) + 1;
+  let numb =  Number($('.page_hotel_manager .room-amount[data-id="'+$(this).data('id')+'"]').html()) + 1 ;
+  let current =  Number($('.page_hotel_manager .room-current-amount[data-id="'+$(this).data('id')+'"]').html()) + 1 ;
+
   let timerInterval;
   Swal.fire({
-    title: 'Incresing!',
+    title: 'Increasing!',
     html: 'กำลังเพิ่มจำนวนห้องพัก.',
     timer: 1000,
     timerProgressBar: true,
@@ -272,7 +294,8 @@ $(".page_hotel_manager").on('click','.increase_room',function(){
       data: param,
       success: function(response){
         if(response['status'] == 'success'){
-          $('.page_hotel_manager .room-current-amount[data-id="'+param.id+'"]').html(numb)
+          $('.page_hotel_manager .room-amount[data-id="'+param.id+'"]').html(numb)
+          $('.page_hotel_manager .room-current-amount[data-id="'+param.id+'"]').html(current)
         }else{
             Swal.fire({
               position: 'top-center',
@@ -306,7 +329,7 @@ $(".page_hotel_manager").on('click','.decrease_room',function(){
   Swal.fire({
     title: 'Decreasing!',
     html: 'กำลังลดจำนวนห้องพัก.',
-    timer: 1500,
+    timer: 1000,
     timerProgressBar: true,
     onBeforeOpen: () => {
       Swal.showLoading()
@@ -324,37 +347,102 @@ $(".page_hotel_manager").on('click','.decrease_room',function(){
       clearInterval(timerInterval)
     }
   })
-  let numb =  $('.page_hotel_manager .room-current-amount[data-id="'+$(this).data('id')+'"]').html();
-  numb = (Number(numb)) - 1
-  $.ajax({
-      url: site_url + "ajax/ajax.hotel_manage.php",
-      type: 'POST',
-      dataType: 'json',
-      data: param,
-      success: function(response){
-          if(response['status'] == 'success'){
-            $('.page_hotel_manager .room-current-amount[data-id="'+param.id+'"]').html(numb)
-          }else{
-            Swal.fire({
-              position: 'top-center',
-              icon: 'error',
-              title: 'ผิดพลาดกรุณาลองใหม่',
-              showConfirmButton: false,
-              timer: 1500
-            })
-          }
-      },
-      error: function(error){
-        Swal.fire({
-          position: 'top-center',
-          icon: 'error',
-          title: 'ผิดพลาดกรุณาลองใหม่',
-          showConfirmButton: false,
-          timer: 1500
-        })
-      }
+  let numb =  Number($('.page_hotel_manager .room-amount[data-id="'+$(this).data('id')+'"]').html()) - 1 ;
+  let current =  Number($('.page_hotel_manager .room-current-amount[data-id="'+$(this).data('id')+'"]').html()) - 1 ;
+  if(0 <= numb){
+ 
+    $.ajax({
+        url: site_url + "ajax/ajax.hotel_manage.php",
+        type: 'POST',
+        dataType: 'json',
+        data: param,
+        success: function(response){
+            if(response['status'] == 'success'){
+              $('.page_hotel_manager .room-amount[data-id="'+param.id+'"]').html(numb)
+              $('.page_hotel_manager .room-current-amount[data-id="'+param.id+'"]').html(current)
 
+            }else{
+              Swal.fire({
+                position: 'top-center',
+                icon: 'error',
+                title: 'ผิดพลาดกรุณาลองใหม่',
+                showConfirmButton: false,
+                timer: 1500
+              })
+            }
+        },
+        error: function(error){
+          Swal.fire({
+            position: 'top-center',
+            icon: 'error',
+            title: 'ผิดพลาดกรุณาลองใหม่',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        }
     })
+
+  }else{
+    Swal.fire({
+      width: '350px',
+      position: 'top-center',
+      icon: 'error',
+      title: 'ไม่สำเร็จ',
+      html: 'จำนวนห้องพักทั้งหมดเหลือ 0 ',
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
 });
 
 
+$("#sortable").sortable();
+$("#sortable").disableSelection();
+
+$(".room-priority").on('click','.slc-btn',function(){
+  if($(this).hasClass('active')){
+    $("#sortable").slideUp();
+    $(this).removeClass('active');
+  }else{
+    $("#sortable").slideDown();
+    $(this).addClass('active');
+  } 
+});
+
+
+
+$("#sortable").on("mouseup","li",function(){  
+  let id = $(this).val();
+  setTimeout(function(){ 
+    let sort = $( "#sortable" ).sortable( "toArray", {attribute: 'value'});
+    let param = { 
+      action: 'update_priority', 
+      sort , 
+      id 
+    } 
+    $.ajax({
+      url: site_url + "ajax/ajax.hotel_manage.php",
+        type:"POST",
+        dataType: 'json',
+        data: param,
+        success: function(response){
+
+        },
+        error: function(errro){
+  
+        }
+    });
+  }, 200);
+});
+
+// กด outer ช่องจัดเรียงลำดับห้องพักแล้วให้ปิดกล่องจัดเรียง
+function closeSortRoom_Outer(){
+  let element = document.querySelector('.page_hotel_manager .box-tools .ui-sortable')
+  document.querySelector('body').addEventListener('click',(e)=>{
+    if(e.target.className !== 'slc-btn active'){
+      $(element).slideUp();
+      document.querySelector('.page_hotel_manager .box-tools .slc-btn').classList.remove('active')
+    }
+  })
+}
+closeSortRoom_Outer()

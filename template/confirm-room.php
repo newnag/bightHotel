@@ -51,7 +51,15 @@
                         </div>
                         <div class="input-box">
                             <label><?=$lang_config['page_confirm_detail_label_idcard']?></label>
-                            <input type="text" placeholder="เลขบัตรประชาชน 4 หลักท้าย"   value="<?=$detail['contact']['otp']?>"  disabled>
+                            <input type="text" placeholder="เลขบัตรประชาชน 4 หลักท้าย"    value="<?=$detail['contact']['otp']?>"  disabled>
+                        </div>
+                        <div class="input-box taxinvoice">
+                            <div>
+                            <input type="checkbox" class="taxinvoice-check" DISABLED <?=(($detail['contact']['taxinvoice_name'] != "")?"CHECKED":"")?> > 
+                            <label for="taxinvoice-check">รับใบกำกับภาษี</label>
+                            </div>
+                            
+                            <input type="text" name="tax_invoice"  class="txt_invoice" value="<?=$detail['contact']['taxinvoice_name']?>" DISABLED placeholder="ใส่ชื่อบริษัท">
                         </div>
                     </div>
                 </div>
@@ -114,14 +122,13 @@
                             <?=$slc_bank?>
                         </select>
                     </div>
-
                     <div class="input-box">
                         <label><?=$lang_config['page_confirm_payment_input_name']?></label>
                         <input type="text" class="txt_name" placeholder="ชื่อ">
                     </div>
                     <div class="input-box">
-                        <label><?=$lang_config['page_confirm_payment_input_price']?></label>
-                        <input type="text" class="txt_price" placeholder="จำนวนเงิน">
+                        <label><?=$lang_config['page_confirm_payment_input_price']?> / บาท</label>
+                        <input type="text" class="txt_price" placeholder="จำนวนเงิน" disabled value="<?=$detail['result']['netpay']?>">
                     </div>
 
                     <div class="date-box">
@@ -139,7 +146,7 @@
                         <figure><img src="<?=ROOT_URL?>img/icon/photo.svg" alt=""></figure>
                         <span><?=$lang_config['page_confirm_payment_btn_uploadimg']?></span>
                         <label for="slip-upload" id="inputfile"></label>
-                        <!-- <input type="file" id="add-images-hidden"> -->
+                        <input type="hidden" id="add-images-hidden" value="">
                         <input type="file" id="slip-upload" data-id="<?=$getpost['id']?>">
                     </div>
 
@@ -215,7 +222,7 @@
             </div>
 
             <div class="buttonFinalPay" data-id="<?=$_SESSION['payment_id']?>">
-
+                <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response" value="">
                 <button ><?=$lang_config['page_confirm_payment_btn_confirm']?></button>
             </div>
         </div>
@@ -249,12 +256,16 @@
                                 <span class="room-amount"><?=$detail['result']['amount']?></span> คืน</span>
                         </div>
                         <div class="list">
-                            <span>ค่าห้อง ( รวมค่าอาหารเช้า )</span>
+                            <span>ค่าห้อง </span>
                             <span class="room-price"><?=$detail['result']['price']?></span>
+                        </div>
+                        <div class="list">
+                            <span>ค่าอาหารเช้า </span>
+                            <span class="room-breakfast"><?=$detail['result']['breakfast']?></span>
                         </div>
                       
                         <div class="list">
-                            <span>ค่าบริการ (Extra bed)</span>
+                            <span>ค่าบริการเตียงเสริม</span>
                             <span class="room-vat"><?=$detail['result']['extra']?></span>
                         </div>
                         <div class="list">
@@ -279,4 +290,18 @@
    <?php 
         require_once "mains/footer.php"; 
     ?>
+        <script src="<?=ROOT_URL?>js/page/booking-room.js?v=1.1.2<?=time()?>"></script>
+    <script>
+    function getReCaptcha(){
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6LfYAbwZAAAAAMHxHuGHnNWfFR3-lr9UVrbCAoQH', {action: 'submit_contact'}).then(function(token) {
+                // ค่า token ที่ถูกส่งกลับมา จะถูกนำไปใช้ส่งไปตรวจสอบกับ api อีกครั้ง
+                // เราเอาค่า token ไปไว้ใน input hidden ชื่อg-recaptcha-response
+                document.getElementById('g-recaptcha-response').value = token;
+            });
+        });
+    }
+    getReCaptcha();
+    setInterval(function(){getReCaptcha();}, 60000);
+    </script>
 </body>

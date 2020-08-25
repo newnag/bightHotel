@@ -1618,97 +1618,97 @@ ul.sidebar-menu.tree {
     }
 }
 @media screen and (min-width:768px) and (max-width:1200px){
-    .box-body .attachment-block:before{
+    .page_hotel_manager .box-body .attachment-block:before{
         display: none;
     }
-    .box-body .attachment-block{
+    .page_hotel_manager .box-body .attachment-block{
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
-    .box-body .attachment-block .content-info{
+    .page_hotel_manager .box-body .attachment-block .content-info{
         width: 100%!important;
     }
-    .box-body .attachment-block .priceroom{
+    .page_hotel_manager .box-body .attachment-block .priceroom{
         display: grid;
         grid-template-columns: repeat(2,1fr);
         grid-column-gap: 1%;
     }
-    .box-body .attachment-block .priceroom .input-current-price{
+    .page_hotel_manager .box-body .attachment-block .priceroom .input-current-price{
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
-    .box-body .attachment-block .priceroom .add-remove-room{
+    .page_hotel_manager .box-body .attachment-block .priceroom .add-remove-room{
         display: grid;
         grid-template-columns: 100%;
     }
-    .box-body .attachment-block .priceroom .add-remove-room button{
+    .page_hotel_manager .box-body .attachment-block .priceroom .add-remove-room button{
         width: 100%;
         margin: unset;
     }
-    .box-body .attachment-block .priceroom .input-current-price input{
+    .page_hotel_manager .box-body .attachment-block .priceroom .input-current-price input{
         padding: 0 3px;
         text-align: center;
     }
-    .box-body .attachment-block .priceroom .input-current-price button{
+    .page_hotel_manager .box-body .attachment-block .priceroom .input-current-price button{
         grid-column-start: 1;
         grid-column-end: 3;
         width: 100%;
         margin: unset;
     }
-    .box-body .attachment-block .inc-decRoom{
+    .page_hotel_manager .box-body .attachment-block .inc-decRoom{
         grid-template-columns: 100%!important;
     }
-    .box-body .attachment-block .inc-decRoom .config-room-amount{
+    .page_hotel_manager .box-body .attachment-block .inc-decRoom .config-room-amount{
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
-    .box-body .attachment-block .inc-decRoom .config-room-amount button{
+    .page_hotel_manager .box-body .attachment-block .inc-decRoom .config-room-amount button{
         width: unset;
         margin: 0 5px;
     }
 }
 @media screen and (min-width:481px) and (max-width:767px){
-    .box-body .attachment-block:before{
+    .page_hotel_manager .box-body .attachment-block:before{
         display: none;
     }
-    .box-body .attachment-block{
+    .page_hotel_manager .box-body .attachment-block{
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-row-gap: 5px;
     }
-    .box-body .attachment-block .content-info{
+    .page_hotel_manager .box-body .attachment-block .content-info{
         display: grid;
     }
-    .box-body .attachment-block .content-info p{
+    .page_hotel_manager .box-body .attachment-block .content-info p{
         overflow: unset;
         height: 100%!important;
     }
-    .box-body .attachment-block .priceroom{
+    .page_hotel_manager .box-body .attachment-block .priceroom{
         grid-template-columns: 100%!important;
         grid-column-gap: 1%;
     }
-    .box-body .attachment-block .priceroom .add-remove-room{
+    .page_hotel_manager .box-body .attachment-block .priceroom .add-remove-room{
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
-    .box-body .attachment-block .priceroom .add-remove-room button{
+    .page_hotel_manager .box-body .attachment-block .priceroom .add-remove-room button{
         width: auto;
     }
-    .box-body .attachment-block .inc-decRoom{
+    .page_hotel_manager .box-body .attachment-block .inc-decRoom{
         grid-template-columns: 100%!important;
         text-align: center!important;
     }
 }
 @media screen and (max-width:480px){
-    .box-body .attachment-block{
+    .page_hotel_manager .box-body .attachment-block{
         display: grid;
         grid-template-columns: 100%;
         grid-row-gap: 5px;
     }
-    .box-body .attachment-block .priceroom{
+    .page_hotel_manager .box-body .attachment-block .priceroom{
         grid-template-columns: 100%!important;
     }
-    .box-body .attachment-block .inc-decRoom{
+    .page_hotel_manager .box-body .attachment-block .inc-decRoom{
         grid-template-columns: 100%!important;
     }
 }

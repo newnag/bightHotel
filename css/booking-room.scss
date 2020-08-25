@@ -29,17 +29,46 @@
 
         .detail-booking-zone{
             .title{
+                margin-bottom: 3%;
+
                 &:nth-child(1){
                     @media screen and (min-width:$ipadpro) {
-                        margin: 0;
+                        //margin: 0;
                     }
                 }
                 @media screen and (min-width:$ipadpro) {
                     text-align: left;
+                    display: flex;
+                    justify-content: space-between;
                 }
 
                 h2{
                     color: $brown;
+
+                    @media screen and (min-width:$ipadpro) {
+                        font-size: 1.4em;
+                    }
+                    @media screen and (min-width:$laptop) {
+                        font-size: 1.8em;
+                    }
+                }
+
+                .button{
+                    margin: 3% auto;
+
+                    @media screen and (min-width:$ipadpro){
+                        text-align: end;
+                        width: 50%;
+                        margin: unset;
+                    }
+
+                    button{
+                        @include button(60%);
+
+                        @media screen and (max-width:$mobile){
+                            @include button(100%)
+                        }
+                    }
                 }
             }
 
@@ -122,7 +151,7 @@
                             }
                         }
 
-                        .breakfast,.taxinvoice,.extrabed{
+                        .breakfast,.extrabed{
                             margin: 1% 0;
 
                             label{
@@ -146,14 +175,6 @@
                             }
                         }
                     }
-                }
-            }
-
-            .button{
-                text-align: center;
-                margin: 3% 0;
-                button{
-                    @include button(30%)
                 }
             }
 
@@ -185,6 +206,10 @@
                 
                             label{
                                 color: $background1;
+
+                                @media screen and (min-width:$ipadpro) and (max-width:1365px) {
+                                    font-size: .7em;
+                                }
                             }
                             input{
                                 @include input();
@@ -208,6 +233,30 @@
                             }
                             img.right{
                                 right: 3%;
+                            }
+                        }
+                        .taxinvoice{
+                            @media screen and (min-width:$tablet) {
+                                grid-column-start: 2;
+                                grid-column-end: 4;
+                                align-items: end;
+                                grid-template-columns: 30% 69%;
+                                grid-column-gap: 1%;
+                            }
+                            >div{
+                                display: flex;
+                                align-items: center;
+
+                                @media screen and (min-width:$tablet) {
+                                    justify-content: center;
+                                }
+
+                                >input{
+                                    width: unset;
+                                }
+                                >label{
+                                    margin-left: 3px!important;
+                                }
                             }
                         }
 
@@ -488,7 +537,7 @@
 
                     h2{
                         color: $background1;
-                        font-family: Lkanit;
+                        
                     }
                 }
 
@@ -525,7 +574,7 @@
 
                         span{
                             font-size: .8em;
-                            font-family: Lkanit;
+                            
 
                             &.nameRoom{
                                 margin-left: 5%;
@@ -610,7 +659,7 @@
 
                     h2{
                         color: $background1;
-                        font-family: Lkanit;
+                        
                     }
                 }
 
@@ -663,5 +712,69 @@
                 }
             }
         }
+    }
+}
+
+
+.loading{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000c7;
+    z-index: 99;
+
+    .box-load{
+        position: inherit;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        text-align: center;
+
+        .lds-ring {
+            display: inline-block;
+            position: relative;
+            width: 80px;
+            height: 80px;
+        }
+        .lds-ring div {
+            box-sizing: border-box;
+            display: block;
+            position: absolute;
+            width: 64px;
+            height: 64px;
+            margin: 8px;
+            border: 8px solid #fff;
+            border-radius: 50%;
+            animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+            border-color: #fff transparent transparent transparent;
+        }
+        .lds-ring div:nth-child(1) {
+            animation-delay: -0.45s;
+        }
+        .lds-ring div:nth-child(2) {
+            animation-delay: -0.3s;
+        }
+        .lds-ring div:nth-child(3) {
+            animation-delay: -0.15s;
+        }
+        @keyframes lds-ring {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        p{
+            text-align: center;
+            color: $background1;
+        }
+    }
+
+    &.active{
+        display: block;
     }
 }

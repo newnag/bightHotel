@@ -1,22 +1,4 @@
 // ---------------- component ----------------- //
-// font
-// @font-face{
-//     font-family: kanit;
-//     src: url(/font/Kanit/Kanit-Regular.ttf);
-// }
-// @font-face{
-//     font-family: Bkanit;
-//     src: url(/font/Kanit/Kanit-Bold.ttf);
-// }
-// @font-face{
-//     font-family: Lkanit;
-//     src: url(/font/Kanit/Kanit-Light.ttf);
-// }
-// @font-face{
-//     font-family: Skanit;
-//     src: url(/font/Kanit/Kanit-SemiBold.ttf);
-// }
-
 
 // color
 $text-main: #000;
@@ -62,7 +44,6 @@ $pc: 1600px;
     color: $background1;
     box-shadow: 0px 1px 5px $text-gray;
     font-size: 1.2em;
-    font-family: Bkanit;
     border: unset;
     border-radius: 30px;
     cursor: pointer;
@@ -90,7 +71,6 @@ $pc: 1600px;
         }
     }
     span{
-        font-family: Lkanit;
         font-style: italic;
 
         @media screen and (max-width:$mobile) {
@@ -107,9 +87,6 @@ $pc: 1600px;
     box-sizing: border-box;
     font-family: 'Kanit', sans-serif;
     font-size: 20px;
-}
-h1,h2,h3,h4,h5,h6{
-    font-family: Bkanit;
 }
 h1{font-size: 2em;}
 h2{font-size: 1.8em;}
@@ -202,6 +179,71 @@ body{
             padding: unset;
             display: flex;
             padding: 0 15%;
+        }
+
+        .ham-social{
+            @media screen and (max-width:$mobile) {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .hamburger{
+                display: flex;
+                flex-direction: column;
+                width: 50%;
+                padding: 3% 0;
+                margin-left: 5%;
+    
+                @media screen and (min-width:$tablet) {
+                    display: none;
+                }
+    
+                .line{
+                    background: #000;
+                    width: 30px;
+                    height: 3px;
+                    display: inline-block;
+                    margin: 3px 0;
+                    transition: .5s;
+                }
+    
+                &.active{
+                    .line:nth-child(1){
+                        transform: rotate(135deg) translate(1px, -2px);
+                        transition: .5s;
+                    }
+                    .line:nth-child(2){
+                        opacity: 0;
+                        transition: .2s;
+                    }
+                    .line:nth-child(3){
+                        transform: rotate(45deg) translate(-10px, -12px);
+                        transition: .5s;
+                    }
+                }
+            }
+            .icon-mobile{
+                display: flex;
+                justify-content: flex-end;
+                padding: 3% 0;
+
+                img{
+                    width: 25px;
+                    height: 25px;
+                }
+
+                @media screen and (max-width:$mobile){
+                    width: 50%;
+                }
+                @media screen and (min-width:$tablet) {
+                    display: none;
+                }
+
+                a{
+                    margin: 0 5%;
+                }
+            }
         }
 
         .menu{
@@ -309,6 +351,7 @@ body{
                     }
                 }
             }
+
             .icon{
                 display: flex;
                 justify-content: space-evenly;
@@ -320,6 +363,9 @@ body{
                     filter: invert(1);
                 }
 
+                @media screen and (max-width:$mobile){
+                    display: none;
+                }
                 @media screen and (min-width:$tablet) {
                     padding: unset;
                     margin-left: 28%;
@@ -333,6 +379,7 @@ body{
                     }
                 }
             }
+            
             .searchBM{
                 position: relative;
     
@@ -369,41 +416,7 @@ body{
                 display: block;
             }
         }
-        .hamburger{
-            display: flex;
-            flex-direction: column;
-            width: 10%;
-            padding: 3% 0;
-            margin: 0 auto;
-
-            @media screen and (min-width:$tablet) {
-                display: none;
-            }
-
-            .line{
-                background: #000;
-                width: 30px;
-                height: 3px;
-                display: inline-block;
-                margin: 3px 0;
-                transition: .5s;
-            }
-
-            &.active{
-                .line:nth-child(1){
-                    transform: rotate(135deg) translate(1px, -2px);
-                    transition: .5s;
-                }
-                .line:nth-child(2){
-                    opacity: 0;
-                    transition: .2s;
-                }
-                .line:nth-child(3){
-                    transform: rotate(45deg) translate(-10px, -12px);
-                    transition: .5s;
-                }
-            }
-        }
+        
         .search{
             position: relative;
 

@@ -77,7 +77,7 @@
     
                         p{
                             color: $background1;
-                            font-family: Lkanit;
+                            
                         }
 
                         &:hover{
@@ -141,7 +141,7 @@
     
                         h2{
                             color: $background1;
-                            font-family: Lkanit;
+                            
 
                             @media screen and (min-width:$mobile) {
                                 font-size: 1.6em;
@@ -261,7 +261,7 @@
 
                     h2{
                         color: $background1;
-                        font-family: Lkanit;
+                        
                     }
                 }
 
@@ -325,13 +325,13 @@
 
                         span{
                             font-size: .8em;
-                            font-family: Lkanit;
+                            
 
                             &.nameRoom{
                                 margin-left: 5%;
                                 margin-top: auto;
                                 margin-bottom: auto;
-                                font-family: kanit;
+                                
                             }
                             &.amound-day{
                                 text-align: center;
@@ -359,7 +359,7 @@
                             .minus,.plus{
                                 cursor: pointer;
                                 font-size: 1em;
-                                font-family: kanit;
+                                
 
                                 &::selection{
                                     background: transparent;
@@ -455,7 +455,7 @@
 
                     h2{
                         color: $background1;
-                        font-family: Lkanit;
+                        
                     }
                 }
 
@@ -583,6 +583,7 @@
                         width: 100%;
                         height: 100%;
                         border-radius: 10px;
+                        object-fit: contain;
                     }
                 }
             }

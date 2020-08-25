@@ -30,6 +30,14 @@ function closeBigImg(){
     })
 }
 
+function warpToCurrentPic(){
+    const pic = document.querySelectorAll('.gallary-zone figure')
+    lastPic = [].slice.call(pic).pop()
+    setTimeout(() => {
+        lastPic.scrollIntoView()
+    },50);
+}
+
 function get_more_images(){
     let amount = 15;
     let number = $(".gallary-zone figure").length / amount;
@@ -40,18 +48,22 @@ function get_more_images(){
     }
 
     $.ajax({
-        url: hostname+'api/myapi.php',
+        url: location.origin+'/api/myapi.php',
         type: 'POST',
         dataType: 'json',
         data: param,
         success: function(response){
+            
             if(response['message'] === 'success'){
+                warpToCurrentPic()
                 $(".gallary-zone").append(response['images'])
                 openBigImg()
                 clickImgUrlBig()
                 if((15 - response['amount'])  > 0){
                     $(".loadmore button").hide();
                 }
+            }else{
+                $(".loadmore button").hide();
             }
         },
         error: function(res){

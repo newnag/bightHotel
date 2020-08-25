@@ -3,8 +3,8 @@
     <?php  require_once "mains/header.php"; ?>
     <div class="room-page">
         <div class="title">
-            <h1><?=$lang_config['page_room_h1']?></h1>
-            <span><?=$lang_config['page_room_title_span']?></span>
+            <h1><?=$article->title?></h1>
+            <span><?=$article->description?></span>
         </div>
         <div class="room-page-zone">    
             <div class="gird-room">
@@ -26,33 +26,38 @@
                             <input type="date" class="dateCheck checkOut" id="input_checkout" placeholder="กรุณากรอกวันที่"> 
                         </div>
                     </div>
-
-                    <div class="detail-list">
-                        <?=(($cart_list!=="")?$cart_list:"")?>
+        
+                    <div class="detail-list" <?=(($cart_list!="")?'style="display:block;"':'style="display:none;"')?> >
+                        <?=(($cart_list!="")?$cart_list:"")?>
                     </div>
-
+ 
                     <div class="amound-price">
                         <div class="list">
                             <span>การเข้าพัก</span>
                             <span>
-                                <span class="room-amount">0</span> คืน</span>
+                                <span class="room-amount"><?=$cart_result['result']['amount']?></span> คืน
+                            </span>
                         </div>
                         <div class="list">
-                            <span>ค่าห้อง ( รวมค่าอาหารเช้า )</span>
-                            <span class="room-price">0</span>
+                            <span>ค่าห้อง </span>
+                            <span class="room-price"><?=$cart_result['result']['price']?></span>
+                        </div>
+                        <div class="list">
+                            <span>ค่าอาหารเช้า </span>
+                            <span class="room-breakfast"><?=$cart_result['result']['breakfast']?></span>
                         </div>
                       
                         <div class="list">
-                            <span>ค่าบริการเพิ่มเติม</span>
-                            <span class="room-vat">0</span>
+                            <span>ค่าบริการเตียงเสริม</span>
+                            <span class="room-vat"><?=$cart_result['result']['extra']?></span>
                         </div>
                         <div class="list">
                             <span>ส่วนลด</span>
-                            <span class="room-discount">0</span>
+                            <span class="room-discount"><?=$cart_result['result']['discount']?></span>
                         </div>
                         <div class="list">
                             <span>ค่าใช้จ่ายทั้งหมด</span>
-                            <span class="room-netpay">0</span>
+                            <span class="room-netpay"><?=$cart_result['result']['netpay']?></span>
                         </div>
                     </div>
 
@@ -67,7 +72,7 @@
                     </div>
 
                     <div class="booking-button">
-                        <a href="<?=ROOT_URL."ยืนยันการจอง"?>" ><button>จอง</button> </a>
+                         <button>จอง</button> 
                     </div>
                 </div>
 
@@ -143,38 +148,7 @@
                             ข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่าง
                         </p>
                     </div>
-                    <div class="item">
-                        <img src="<?=ROOT_URL?>img/icon/desk.svg" alt="">
-                        <p>
-                            ข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่าง
-                            ข้อความตัวอย่างข้อความตัวอย่าง ข้อความตัวอย่าง ข้อความตัวอย่าง ข้อความตัวอย่าง
-                            ข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่าง
-                        </p>
-                    </div>
-                    <div class="item">
-                        <img src="<?=ROOT_URL?>img/icon/bed.svg" alt="">
-                        <p>
-                            ข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่าง
-                            ข้อความตัวอย่างข้อความตัวอย่าง ข้อความตัวอย่าง ข้อความตัวอย่าง ข้อความตัวอย่าง
-                            ข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่าง
-                        </p>
-                    </div>
-                    <div class="item">
-                        <img src="<?=ROOT_URL?>img/icon/balcony.svg" alt="">
-                        <p>
-                            ข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่าง
-                            ข้อความตัวอย่างข้อความตัวอย่าง ข้อความตัวอย่าง ข้อความตัวอย่าง ข้อความตัวอย่าง
-                            ข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่าง
-                        </p>
-                    </div>
-                    <div class="item">
-                        <img src="<?=ROOT_URL?>img/icon/bathroom.svg" alt="">
-                        <p>
-                            ข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่าง
-                            ข้อความตัวอย่างข้อความตัวอย่าง ข้อความตัวอย่าง ข้อความตัวอย่าง ข้อความตัวอย่าง
-                            ข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่างข้อความตัวอย่าง
-                        </p>
-                    </div>
+                  
                 </div>
             </div>
 
@@ -182,8 +156,7 @@
         </div>
     </div>
     <!-- โซนฟุตเตอร์ -->
-    <!-- หน้าห้อง -->
-
+    <!-- หน้าห้อง --> 
     <?php require_once "mains/footer.php"; ?>
     <!-- หน้ารายละเอียดการจองห้อง -->
     <!-- หน้าประวัติการจอง -->

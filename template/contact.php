@@ -24,16 +24,8 @@
                         <span><?=$CONTACT_WEB->email?></span>
                     </div>
                     <div class="item">
-                        <img src="<?=ROOT_URL?>img/icon/instagram-brands.svg" alt="">
-                        <span><?=$CONTACT_WEB->ig?></span>
-                    </div>
-                    <div class="item">
                         <img src="<?=ROOT_URL?>img/icon/facebook-brands.svg" alt="">
                         <span><?=$CONTACT_WEB->facebook?></span>
-                    </div>
-                    <div class="item">
-                        <img src="<?=ROOT_URL?>img/icon/share-alt-solid.svg" alt="">
-                        <span>share</span>
                     </div>
                 </div>
             </div>
@@ -79,9 +71,26 @@
                     <label>ข้อความ</label>
                     <textarea class="txt_message" name="" id="" cols="30" rows="5" placeholder="กรอกข้อความ"></textarea>
                 </div>
+                <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response" value="">
                 <div class="button"><button>ส่งข้อความ</button></div>
             </div>
         </div>
     </div>
+
+    <div class="loading">
+        <div class="box-load">
+            <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+            <p>กรุณารอสักครู่</p>
+        </div>
+    </div>
 <?php  require_once "mains/footer.php"; ?>
+    <script>
+    grecaptcha.ready(function() {
+        grecaptcha.execute('6LfYAbwZAAAAAMHxHuGHnNWfFR3-lr9UVrbCAoQH', {action: 'submit_contact'}).then(function(token) {
+            // ค่า token ที่ถูกส่งกลับมา จะถูกนำไปใช้ส่งไปตรวจสอบกับ api อีกครั้ง
+            // เราเอาค่า token ไปไว้ใน input hidden ชื่อg-recaptcha-response
+            document.getElementById('g-recaptcha-response').value = token;
+        });
+    });
+    </script>   
 </body>

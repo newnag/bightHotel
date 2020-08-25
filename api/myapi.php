@@ -120,6 +120,8 @@ class myapi extends Application
       $_SESSION['my_order'][$room][$set_position]['extra'] = $result->room_extra;
       $_SESSION['my_order'][$room][$set_position]['adult'] = ($adult>1)?$adult:1;
       $_SESSION['my_order'][$room][$set_position]['child'] =($child>0)?$child:0; 
+      $_SESSION['my_order'][$room][$set_position]['breakfast'] = "yes";
+      $_SESSION['my_order'][$room][$set_position]['breakfast_price'] = $result->breakfast_price;
 
       $ret['message'] = "success";
       $ret['detail'] = "room_available";
@@ -127,7 +129,7 @@ class myapi extends Application
       $ret['order'] =  $_SESSION['my_order'];  
  
     } else {
-      $ret['message'] =  'error';
+      $ret['message'] =  'error'; 
       $ret['detail'] =  'not_available';
     }
     if(!empty($_SESSION['my_order']) ){
@@ -234,78 +236,98 @@ class myapi extends Application
 
   public function submit_contact(){
 
-    $getpost['name'] = FILTER_VAR($_POST['name'],FILTER_SANITIZE_MAGIC_QUOTES);
-    $getpost['lastname'] = FILTER_VAR($_POST['lastname'],FILTER_SANITIZE_MAGIC_QUOTES);
-    $getpost['tel'] = FILTER_VAR($_POST['tel'],FILTER_SANITIZE_NUMBER_INT);
-    $getpost['email'] = FILTER_VAR($_POST['email'],FILTER_SANITIZE_EMAIL);
-    $getpost['subject'] = FILTER_VAR($_POST['subject'],FILTER_SANITIZE_MAGIC_QUOTES);
-    $getpost['message'] = FILTER_VAR($_POST['message'],FILTER_SANITIZE_MAGIC_QUOTES);
+    $recaptcha_secret = "6LfYAbwZAAAAALJA1v25PYjgeM5ErcJ-XqFXOqPc";
+    $recaptcha_response = trim($_POST['token']);
+    $recaptcha_remote_ip = $_SERVER['REMOTE_ADDR'];
 
-    $table = "leave_msg";
-    $field = "fullname,email,phone,topic,message,submit_date";
-    $param = ":fullname,:email,:phone,:topic,:message,:submit_date";						 
-    $value = array(	 
-      ":fullname"=> $getpost['name']." ".$getpost['lastname'],
-      ":email"=>$getpost['email'],
-      ":phone"=> $getpost['tel'],
-      ":topic"=> $getpost['subject'],
-      ":message"=> $getpost['message'],
-      ":submit_date" => date('Y-m-d H:i:s') 
-    );
-    $ret = $this->insertPrepare($table, $field,$param, $value);
-
-    $message = $this->form_message($getpost);
-    /* get details before send mail */
-    $getMail = "SELECT info_id,info_type,info_title,text_title,info_link,attribute FROM  web_info WHERE info_type = 'system_email' ORDER BY info_id ASC ";
-    $resultMail = $this->fetchAll($getMail,[]); 
-    $getContact = "SELECT title,thumbnail,email FROM contact_sel";
-    $resultContact = $this->fetchObject($getContact,[]); 
-      
-      /* ส่งอีเมลแจ้งข้อมูลการสั่งซื้อสินค้า */
-      // $setPW = base64_encode("w9y3n7n5s"."password1234");
-      $mail = array();  
-      $mail['host'] = trim($resultMail[0]['attribute']);
-      $mail['port'] = trim($resultMail[1]['attribute']); 
-      $mail['user'] = trim($resultMail[2]['attribute']);
-      $mail['password'] = str_replace("w9y3n7n5s","",(base64_decode($resultMail[3]['attribute']))); 
-      $mail['logo_web'] = $resultContact->logo; 
-      $mail['store_name'] = $resultContact->title; 
-      $mail['cont_name'] = $getpost['name'];
-      $mail['cont_lastname'] = $getpost['lastname'];
-      $mail['cont_email'] = $getpost['email'];
-      $mail['cont_tel'] = $getpost['tel'];
-
-      ob_start();
-      $statusEmail = $this->send_email_google(  
-        array(   
-          'SMTP_USER' => $mail['user'],
-          'SMTP_PASSWORD' => $mail['password'],
-          'SMTP_HOST' => $mail['host'],
-          'SMTP_PORT' => $mail['port'],
-          'mail_system' => $resultContact->email, 
-          'sendFromName' => $mail['store_name'],
-          'email' => $resultContact->email,
-          'subject' => $getpost['subject'],
-          'addAddress' => [
-            [
-              'email' => $mail['cont_email'],
-              'name'=>  $mail['cont_name']." ".$mail['cont_lastname']
-            ]
-          ],
-          'addBcc' => array( 
-                  array( 
-                    'email' => $mail['cont_email'],
-                    'name'=>  $mail['cont_name']." ".$mail['cont_lastname']
-                  ),
-                ), 
-          'content' =>  $message, 
+    $recaptcha_api = "https://www.google.com/recaptcha/api/siteverify?".
+        http_build_query(array(
+            'secret'=> $recaptcha_secret,
+            'response'=> $recaptcha_response,
+            'remoteip'=> $recaptcha_remote_ip
         )
     );
-    ob_end_clean();
-    if($statusEmail){
-      $ret['message'] = "OK";
-      echo json_encode($ret); 
+    $response=json_decode(file_get_contents($recaptcha_api), true);
+
+    if(isset($response) && $response['success'] == true){  // ตรวจสอบสำเร็จ 
+
+        $getpost['name'] = FILTER_VAR($_POST['name'],FILTER_SANITIZE_MAGIC_QUOTES);
+        $getpost['lastname'] = FILTER_VAR($_POST['lastname'],FILTER_SANITIZE_MAGIC_QUOTES);
+        $getpost['tel'] = FILTER_VAR($_POST['tel'],FILTER_SANITIZE_NUMBER_INT);
+        $getpost['email'] = FILTER_VAR($_POST['email'],FILTER_SANITIZE_EMAIL);
+        $getpost['subject'] = FILTER_VAR($_POST['subject'],FILTER_SANITIZE_MAGIC_QUOTES);
+        $getpost['message'] = FILTER_VAR($_POST['message'],FILTER_SANITIZE_MAGIC_QUOTES);
+
+        $table = "leave_msg";
+        $field = "fullname,email,phone,topic,message,submit_date";
+        $param = ":fullname,:email,:phone,:topic,:message,:submit_date";						 
+        $value = array(	 
+          ":fullname"=> $getpost['name']." ".$getpost['lastname'],
+          ":email"=>$getpost['email'],
+          ":phone"=> $getpost['tel'],
+          ":topic"=> $getpost['subject'],
+          ":message"=> $getpost['message'],
+          ":submit_date" => date('Y-m-d H:i:s') 
+        );
+        $ret = $this->insertPrepare($table, $field,$param, $value);
+
+        $message = $this->form_message($getpost);
+        /* get details before send mail */
+        $getMail = "SELECT info_id,info_type,info_title,text_title,info_link,attribute FROM  web_info WHERE info_type = 'system_email' ORDER BY info_id ASC ";
+        $resultMail = $this->fetchAll($getMail,[]); 
+        $getContact = "SELECT title,thumbnail,email FROM contact_sel";
+        $resultContact = $this->fetchObject($getContact,[]); 
+          
+          /* ส่งอีเมลแจ้งข้อมูลการสั่งซื้อสินค้า */
+          // $setPW = base64_encode("w9y3n7n5s"."password1234");
+          $mail = array();  
+          $mail['host'] = trim($resultMail[0]['attribute']);
+          $mail['port'] = trim($resultMail[1]['attribute']); 
+          $mail['user'] = trim($resultMail[2]['attribute']);
+          $mail['password'] = str_replace("w9y3n7n5s","",(base64_decode($resultMail[3]['attribute']))); 
+          $mail['logo_web'] = $resultContact->logo; 
+          $mail['store_name'] = $resultContact->title; 
+          $mail['cont_name'] = $getpost['name'];
+          $mail['cont_lastname'] = $getpost['lastname'];
+          $mail['cont_email'] = $getpost['email'];
+          $mail['cont_tel'] = $getpost['tel'];
+
+          ob_start();
+          $statusEmail = $this->send_email_google(  
+            array(   
+              'SMTP_USER' => $mail['user'],
+              'SMTP_PASSWORD' => $mail['password'],
+              'SMTP_HOST' => $mail['host'],
+              'SMTP_PORT' => $mail['port'],
+              'mail_system' => $resultContact->email, 
+              'sendFromName' => $mail['store_name'],
+              'email' => $resultContact->email,
+              'subject' => $getpost['subject'],
+              'addAddress' => [
+                [
+                  'email' => $mail['cont_email'],
+                  'name'=>  $mail['cont_name']." ".$mail['cont_lastname']
+                ]
+              ],
+              'addBcc' => array( 
+                      array( 
+                        'email' => $mail['cont_email'],
+                        'name'=>  $mail['cont_name']." ".$mail['cont_lastname']
+                      ),
+                    ), 
+              'content' =>  $message, 
+            )
+        );
+        ob_end_clean();
+        if($statusEmail){
+          $ret['message'] = "OK";
+          echo json_encode($ret); 
+        }
+    }else{
+      echo json_encode(['message'=>'error']);
     }
+
+    
     
   }
 
@@ -341,7 +363,8 @@ class myapi extends Application
   }
 
   public function form_message($getpost){
-     $html = '<div style=" background: url('.ROOT_URL.'img/new-bg.jpg); padding:20px; max-width: 768px; color:#c93; font-size: 16px" >
+     #$html = '<html><style>.mi{color:unset!important;}</style><body>';
+     $html += '<div style=" background: url('.ROOT_URL.'img/new-bg.jpg); padding:20px; max-width: 768px; color:#c93; font-size: 16px" >
                 <article  style="padding: 20px 0px; border: 1px solid #c93; margin: auto;  background:#22324b; font-family: LucidaGrande,tahoma,verdana,arial,sans-serif;">
                   <div style=" width:300px; margin:auto;">
                       <img src="'.ROOT_URL.'img/logo-01.png" style=" width:100%;">
@@ -372,12 +395,12 @@ class myapi extends Application
                     </div>
                 </article>
               </div>';
-
+    #$html += '</body></html>';
     return $html;
   }
-
-  public function formBookingEmail(){
-    $css_body = 'background: url(' . 'img/new-bg.jpg); padding:20px; color:#c93; font-size: 16px; width:768px; margin:auto';
+  //send mail after confirm booking
+  public function formBookingEmail($datas){
+    $css_body = 'background: url(' .BASE_URL. 'img/new-bg.jpg); padding:20px; color:#c93; font-size: 16px; width:768px; margin:auto';
     $css_article = 'background:#22324b; font-family: LucidaGrande,tahoma,verdana,arial,sans-serif; padding: 20px 0px; border: 1px solid #c93;';
     $css_logo = 'width:300px; margin:auto;';
     $css_name = 'text-align:center;';
@@ -387,142 +410,76 @@ class myapi extends Application
     $css_contactText = 'font-size:14px; padding:5px 20px';
     $address_block = 'background:#f4f4f4; margin:30px 80px; padding:20px; border-radius: 5px; text-align:center;';
 
+    $html_r = '';
+    $count_room = 0;
+    foreach($datas['order_detail'] as $key=>$val){
+      $html_r .= '<div style="'.$css_info.'">
+                  <div>'.$val['room_type_name'].'</div>
+                  <div style="margin-left:auto;">'.number_format($val['room_current_price'],0).'/คืน</div>
+                </div>';
+      $count_room++;
+    }
+
+    #$html = '<html><style>.mi{color:unset!important;}</style><body>';
     $html = '<div style="'.$css_body.'">
               <article style="'.$css_article.'">
                 <div style="'.$css_logo.'">
-                  <img src="'.'img/logo-01.png" style=" width:100%;">
+                  <img src="'.BASE_URL.'img/logo-01.png" style=" width:100%;">
                 </div>
-
-                <div style="'.$css_name.'"><h1>//**ชื่อผู้จอง**//</h1></div>
+                <div style="'.$css_name.'"><h1>'.$datas['customer_name'].'</h1></div>
                 <div style="'.$css_name.'"><span>ท่านได้ทำการจองเรียบร้อยแล้ว</span></div>
 
                 <div style="'.$address_block.'">
                     <div><h2>Bright Hotel</h2></div>
-                    <div><p>บริษัท ไบรท์โฮเต็ล จำกัด
-
-                    เลขที่ 177/88 ถนนมิตรภาพ หมู่17 ต.ในเมือง อ.เมือง จ.ขอนแก่น 40000</p></div>
+                    <div><p>'.$datas['company_data']['company_name'].' '.$datas['company_data']['address'].'</p></div>
                 </div>
 
                 <div style="'.$css_name.'"><h2>รายละเอียดการจอง</h2></div>
-
                 <div style="'.$css_info.'">
                   <div>การจองห้องพัก:</div>
-                  <div>//**จำนวนคืนห้องพัก**//</div>
+                  <div style="margin-left:auto;">จำนวน '.$count_room.' ห้อง '.$datas['room_count_day'].' คืน</div>
                 </div>
                 <div style="'.$css_info.'">
                   <div>เช็คอิน:</div>
-                  <div>//**วันเช็คอิน**//</div>
+                  <div style="margin-left:auto;">'.$datas['room_checkin'].'</div>
                 </div>
                 <div style="'.$css_info.'">
                   <div>เช็คเอาท์:</div>
-                  <div>//**วันเช็คเอาท์**//</div>
+                  <div style="margin-left:auto;">'.$datas['room_checkout'].'</div>
                 </div>
                 <div style="'.$css_info.'">
                   <div>ชื่อผู้เข้าพัก:</div>
-                  <div></div>
+                  <div style="margin-left:auto;">'.$datas['customer_name'].'</div>
                 </div>
                 <div style="'.$css_info.'">
                   <div>อาหารเช้า:</div>
-                  <div>รับ</div>
+                  <div style="margin-left:auto;">รับ</div>
                 </div>
                 <div style="'.$css_info.'">
                   <div>โปรโมชั่น:</div>
-                  <div></div>
+                  <div style="margin-left:auto;"></div>
                 </div>
 
                 <div style="'.$css_background_payment.'">
+                  ' . $html_r . '
                   <div style="'.$css_info.'">
-                    <div>//**ชนิดของห้องพัก**//</div>
-                    <div>//**ราคาของห้องพัก**//</div>
-                  </div>
-                  <div style="'.$css_info.'">
-                    <div>ราคารวม</div>
-                    <div>//**ราคารวมทั้งหมด**//</div>
+                    <div><b>ราคารวม<b></div>
+                    <div style="margin-left:auto;"><b style="color:red;">'.number_format($datas['price_sum']).'</b></div>
                   </div>
                 </div>
 
                 <div style="'.$css_contact.'">
-                    <div style="'.$css_contactText.'"><span>เบอร์โทร:098-765-4321 / 043-306777-79<span></div>
-                    <div style="'.$css_contactText.'"><span>อีเมล์: brighthotel@gmail.com<span></div>
-                    <div style="'.$css_contactText.'"><span>Facebook: brighthotelkhonkaen<span></div>
+                    <div style="'.$css_contactText.'"><span>เบอร์โทร: ' . $datas['company_data']['mobilephone'] . ' / '.$datas['company_data']['phone'] . '<span></div>
+                    <div style="'.$css_contactText.'"><span>อีเมล์: ' . $datas['company_data']['email'] . '<span></div>
+                    <div style="'.$css_contactText.'"><span>Facebook: ' . $datas['company_data']['facebook'] . '<span></div>
                 </div>
               </article>
             </div>';
+      #$html += '</body></html>';
+      return $html;
   }
 
-  public function formConfirmBookingEmail(){
-    $css_body = 'background: url(' . 'img/new-bg.jpg); padding:20px; color:#c93; font-size: 16px; width:768px; margin:auto';
-    $css_article = 'background:#22324b; font-family: LucidaGrande,tahoma,verdana,arial,sans-serif; padding: 20px 0px; border: 1px solid #c93;';
-    $css_logo = 'width:300px; margin:auto;';
-    $css_name = 'text-align:center;';
-    $css_info = 'display:flex; justify-content:space-between; padding:10px 20px; border-bottom:1px solid #666666';
-    $css_background_payment = 'background:#f4f4f4; padding:10px 20px';
-    $css_contact = 'margin-top:30px; display: flex; justify-content: space-between;';
-    $css_contactText = 'font-size:14px; padding:5px 20px';
-    $address_block = 'background:#f4f4f4; margin:30px 80px; padding:20px; border-radius: 5px; text-align:center;';
-
-    $html = '<div style="'.$css_body.'">
-              <article style="'.$css_article.'">
-                <div style="'.$css_logo.'">
-                  <img src="'.'img/logo-01.png" style=" width:100%;">
-                </div>
-
-                <div style="'.$css_name.'"><h1>//**ชื่อผู้จอง**//</h1></div>
-                <div style="'.$css_name.'"><span>การจองของท่านได้รับการยืนยันแล้ว</span></div>
-
-                <div style="'.$address_block.'">
-                    <div><h2>Bright Hotel</h2></div>
-                    <div><p>บริษัท ไบรท์โฮเต็ล จำกัด
-
-                    เลขที่ 177/88 ถนนมิตรภาพ หมู่17 ต.ในเมือง อ.เมือง จ.ขอนแก่น 40000</p></div>
-                </div>
-
-                <div style="'.$css_name.'"><h2>รายละเอียดการจอง</h2></div>
-
-                <div style="'.$css_info.'">
-                  <div>การจองห้องพัก:</div>
-                  <div>//**จำนวนคืนห้องพัก**//</div>
-                </div>
-                <div style="'.$css_info.'">
-                  <div>เช็คอิน:</div>
-                  <div>//**วันเช็คอิน**//</div>
-                </div>
-                <div style="'.$css_info.'">
-                  <div>เช็คเอาท์:</div>
-                  <div>//**วันเช็คเอาท์**//</div>
-                </div>
-                <div style="'.$css_info.'">
-                  <div>ชื่อผู้เข้าพัก:</div>
-                  <div></div>
-                </div>
-                <div style="'.$css_info.'">
-                  <div>อาหารเช้า:</div>
-                  <div>รับ</div>
-                </div>
-                <div style="'.$css_info.'">
-                  <div>โปรโมชั่น:</div>
-                  <div></div>
-                </div>
-
-                <div style="'.$css_background_payment.'">
-                  <div style="'.$css_info.'">
-                    <div>//**ชนิดของห้องพัก**//</div>
-                    <div>//**ราคาของห้องพัก**//</div>
-                  </div>
-                  <div style="'.$css_info.'">
-                    <div>ราคารวม</div>
-                    <div>//**ราคารวมทั้งหมด**//</div>
-                  </div>
-                </div>
-
-                <div style="'.$css_contact.'">
-                    <div style="'.$css_contactText.'"><span>เบอร์โทร:098-765-4321 / 043-306777-79<span></div>
-                    <div style="'.$css_contactText.'"><span>อีเมล์: brighthotel@gmail.com<span></div>
-                    <div style="'.$css_contactText.'"><span>Facebook: brighthotelkhonkaen<span></div>
-                </div>
-              </article>
-            </div>';
-  }
+  
 
   public function increase_decrease_room(){
       $room = FILTER_VAR($_POST['room'],FILTER_SANITIZE_MAGIC_QUOTES);
@@ -549,14 +506,17 @@ class myapi extends Application
   public function increase_decrease_children(){
     $room = FILTER_VAR($_POST['room'],FILTER_SANITIZE_MAGIC_QUOTES);
     $position = FILTER_VAR($_POST['position'],FILTER_SANITIZE_NUMBER_INT);
-    if($_SESSION['my_order'][$room][$position]['child'] >= 0 ){
+    $count = $_SESSION['my_order'][$room][$position]['child'];
+    if($count >= 0 ){
       if(isset($_SESSION['my_order'][$room][$position])){
         if($_POST['function'] == 'increase'){
           $_SESSION['my_order'][$room][$position]['child'] += 1;
           $ret['message'] = "increase";
         }else{
-          $_SESSION['my_order'][$room][$position]['child'] -= 1;
-          $ret['message'] = "decrease";
+          if($count > 0){
+            $_SESSION['my_order'][$room][$position]['child'] -= 1;
+            $ret['message'] = "decrease";
+          }
         }
       }
     }
@@ -567,25 +527,32 @@ class myapi extends Application
     if(!empty($_POST)){
       $getpost = array();
       foreach($_POST as $key => $val){
+        $val = str_replace("<script>","",$val);
         $getpost[$key] = FILTER_VAR($val,FILTER_SANITIZE_MAGIC_QUOTES);
       }
     }  
-   
     $setArr = array();
-    if(count($_POST['list']['room']) > 0){
-      foreach($_POST['list']['room'] as $key => $value){
-        $_SESSION['my_order'][$value][$_POST['list']['position'][$key]][$_POST['list']['type'][$key]] = FILTER_VAR($_POST['list']['value'][$key],FILTER_SANITIZE_MAGIC_QUOTES);
+    if(count($_POST['list']) > 0){
+      foreach($_POST['list'] as $key => $value){
+        $breakfast = FILTER_VAR($value['breakfast'],FILTER_SANITIZE_STRING,FILTER_SANITIZE_MAGIC_QUOTES);
+        $_SESSION['my_order'][$value['id']][$value['position']]['extra'] = FILTER_VAR($value['extra'],FILTER_SANITIZE_MAGIC_QUOTES);
+        $_SESSION['my_order'][$value['id']][$value['position']]['adult'] = FILTER_VAR($value['adult'],FILTER_SANITIZE_MAGIC_QUOTES);
+        $_SESSION['my_order'][$value['id']][$value['position']]['child'] = FILTER_VAR($value['child'],FILTER_SANITIZE_MAGIC_QUOTES);
+        $_SESSION['my_order'][$value['id']][$value['position']]['name'] = FILTER_VAR($value['name'],FILTER_SANITIZE_MAGIC_QUOTES);
+        $_SESSION['my_order'][$value['id']][$value['position']]['lastname'] = FILTER_VAR($value['lastname'],FILTER_SANITIZE_MAGIC_QUOTES);
+        $_SESSION['my_order'][$value['id']][$value['position']]['breakfast'] = ($breakfast != "true")?"no":"yes"; 
       }
     }
    
     $usage['datein'] = $_SESSION['cart']['result']['datein'];
-    $usage['dateout']= $_SESSION['cart']['result']['dateout'];
+    $usage['dateout'] = $_SESSION['cart']['result']['dateout'];
     if(!empty($_SESSION['my_order'])){
       $usage['condition'] ='';
       foreach($_SESSION['my_order'] as $key => $val){
-          $usage['condition'] .= ($usage['condition'] == "")?" rp.room_code = '".$key."' ":" OR rp.room_code = '".$key."'  "; 
-        }
+          $usage['condition'] .= ($usage['condition'] == "")?" rp.room_code = '".$key."' ": " OR rp.room_code = '".$key."'  "; 
+      }
     }
+
     $result = $this->check_room_available_array($usage);
     if(!empty($result)){
       foreach($result as $key =>$val){  
@@ -595,140 +562,226 @@ class myapi extends Application
         }
       }
     }
-    $total = $this->calculate_cost();
-    $sql ="SELECT max(resv_id) as numb FROM reserve_order";
-    $res = $this->fetchObject($sql,[]);
-    $number = $res->numb+1;
-    $form = "0000000";
-    $ab = 0 - strlen($number);
-    $setId = substr($form,0,$ab);
-    $code_order = "BH".(date("md")).($setId.$number);
-    
-    #insert order
-    $table = "reserve_order";
-    $field = "resv_code,
-              resv_action,
-              resv_status,
-              resv_datecreated,
-              resv_dateupdate,
-              date_checkin,
-              date_checkout,
-              resv_price,
-              resv_discount,
-              resv_extra,
-              resv_netpay
-              ";
-    $param = ":resv_code,  
-              :resv_action, 
-              :resv_status, 
-              :resv_datecreated,
-              :resv_dateupdate,
-              :date_checkin,
-              :date_checkout,
-              :resv_price,
-              :resv_discount,
-              :resv_extra,
-              :resv_netpay
-              ";						 
-    $value = array( 
-              ":resv_code" => $code_order,
-              ":resv_action" => md5($code_order.$_SESSION['encode_id']),  
-              ":resv_status" => 'pending',
-              ":resv_datecreated" => date('Y-m-d H:i:s'),     
-              ":resv_dateupdate" => date('Y-m-d H:i:s'), 
-              ":date_checkin" => $usage['datein'],
-              ":date_checkout" => $usage['dateout'],
-              ":resv_price" => $total['result']['price'],
-              ":resv_discount" => $total['result']['discount'],
-              ":resv_extra" => $total['result']['extra'],
-              ":resv_netpay" => $total['result']['netpay']
+  
+    //validate token recapcha
+    $recaptcha_secret = "6LfYAbwZAAAAALJA1v25PYjgeM5ErcJ-XqFXOqPc";
+    $recaptcha_response = trim($_POST['token']);
+    $recaptcha_remote_ip = $_SERVER['REMOTE_ADDR'];
+    $recaptcha_api = "https://www.google.com/recaptcha/api/siteverify?".
+        http_build_query(array(
+            'secret'=> $recaptcha_secret,
+            'response'=> $recaptcha_response,
+            'remoteip'=> $recaptcha_remote_ip
+        )
     );
-    $ins['order'] = $this->insertPrepare($table, $field,$param, $value);
+    $response=json_decode(file_get_contents($recaptcha_api), true);
+    if(isset($response) && $response['success'] == true){  // ตรวจสอบสำเร็จ 
+        $total = $this->calculate_cost();
+        $sql ="SELECT max(resv_id) as numb FROM reserve_order";
+        $res = $this->fetchObject($sql,[]);
+        $number = $res->numb+1;
+        $form = "0000000";
+        $ab = 0 - strlen($number);
+        $setId = substr($form,0,$ab);
+        $code_order = "BH".(date("md")).($setId.$number);
+        
+        #insert order
+        $table = "reserve_order";
+        $field = "resv_code,
+                  resv_action,
+                  resv_status,
+                  resv_datecreated,
+                  resv_dateupdate,
+                  date_checkin,
+                  date_checkout,
+                  resv_price,
+                  resv_breakfast,
+                  resv_discount,
+                  resv_extra,
+                  resv_netpay ";
+        $param = ":resv_code,  
+                  :resv_action, 
+                  :resv_status, 
+                  :resv_datecreated,
+                  :resv_dateupdate,
+                  :date_checkin,
+                  :date_checkout,
+                  :resv_price,
+                  :resv_breakfast,
+                  :resv_discount,
+                  :resv_extra,
+                  :resv_netpay";						 
+        $value = array( 
+                  ":resv_code" => $code_order,
+                  ":resv_action" => md5($code_order.$_SESSION['encode_id']),  
+                  ":resv_status" => 'pending',
+                  ":resv_datecreated" => date('Y-m-d H:i:s'),     
+                  ":resv_dateupdate" => date('Y-m-d H:i:s'), 
+                  ":date_checkin" => $usage['datein'],
+                  ":date_checkout" => $usage['dateout'],
+                  ":resv_price" => $total['result']['price'],
+                  ":resv_breakfast" => $total['result']['breakfast'],
+                  ":resv_discount" => $total['result']['discount'],
+                  ":resv_extra" => $total['result']['extra'],
+                  ":resv_netpay" => $total['result']['netpay']
+        ); 
+        $ins['order'] = $this->insertPrepare($table, $field,$param, $value);
+        #insert detail
+        if($ins['order']['message'] === "OK"){
+          $setDiscount ="";
+          foreach($_SESSION['my_order'] as $key => $val){  
+            $discount = (isset($_SESSION['discount'][$key]))?$_SESSION['discount'][$key]['code']:"";
+            $setDiscount .= ($discount != "")? (($setDiscount !="" )?" OR ": "")." pro_code = '".$discount."' ":"";
+            foreach($val as $bb){
+              $list[] = array(
+                'code' => $code_order,
+                'guest_name' => $bb['name'],
+                'guest_lastname' => $bb['lastname'],
+                'room_type' => $bb['id'], 
+                'adult' => $bb['adult'],
+                'children' => $bb['child'],
+                'discount_code' => $discount,
+                "price"=>$bb['price'],
+                "breakfast"=>$bb['breakfast_price'],
+              );  
+            }
+          }
+          $ins['detail'] = $this->multiInsert('reserve_detail',$list); 
 
-    #insert detail
-    if($ins['order']['message'] === "OK"){
-      $setDiscount ="";
-      foreach($_SESSION['my_order'] as $key => $val){  
-        $discount = (isset($_SESSION['discount'][$key]))?$_SESSION['discount'][$key]['code']:"";
-        $setDiscount .= ($discount != "")? (($setDiscount !="" )?" OR ": "")." pro_code = '".$discount."' ":"";
-        foreach($val as $bb){
-          $list[] = array(
-            'code' => $code_order,
-            'guest_name' => $bb['name'],
-            'guest_lastname' => $bb['lastname'],
-            'room_type' => $bb['id'], 
-            'adult' => $bb['adult'],
-            'children' => $bb['child'],
-            'discount_code' => $discount,
-            "price"=>$bb['price']
-          );  
+          #insert contact
+          $invoice = ($getpost['invoice_checked'] == 'true')?$getpost['invoice_name']:"";
+          $table = "reserve_contact";
+          $field = "contact_name,contact_lastname,contact_tel,contact_email,contact_line,contact_address,contact_district,contact_subdistrict,contact_province,contact_postcode,contact_description,contact_otp,code,contact_taxinvoice";
+          $param = ":contact_name,:contact_lastname,:contact_tel,:contact_email,:contact_line,:contact_address,:contact_district,:contact_subdistrict,:contact_province,:contact_postcode,:contact_description,:contact_otp,:code,:contact_taxinvoice ";						 
+          $value = array(	
+            ":contact_name" => $getpost['name'],
+            ":contact_lastname" => $getpost['lastname'],
+            ":contact_tel" => $getpost['tel'],
+            ":contact_email" => $getpost['email'],
+            ":contact_line" => $getpost['line'],
+            ":contact_address" => $getpost['address'],
+            ":contact_district" => $getpost['district'],
+            ":contact_subdistrict" => $getpost['subdistrict'],
+            ":contact_province" => $getpost['province'],
+            ":contact_postcode" => $getpost['postcode'],
+            ":contact_description" => $getpost['message'],
+            ":contact_otp" => $getpost['code'],
+            ":code" => $code_order,
+            ":contact_taxinvoice" => $invoice
+          );
+          $ins['contact'] = $this->insertPrepare($table, $field,$param, $value);
+
+          #insert payment
+          $table = "reserve_payment";
+          $field = "code,payment_date,thumbnail,status";
+          $param = ":code,:payment_date,:thumbnail,:status";						 
+          $value = array(	 
+            "code" => $code_order,
+            "payment_date" => date("Y-m-d H:i:s"),
+            "thumbnail" => "",
+            "status" => "pending"
+          );
+          $ins['payment'] = $this->insertPrepare($table, $field,$param, $value);
+          
+          # decrease quota discount
+          if(count($_SESSION['discount']) > 0 && $ins['detail']['message'] == "OK"){
+              $table = "reserve_promotion";
+              $set = "quota = quota - :value";
+              $where = 'pro_status = "publish"  AND ('. $setDiscount .' ) ';
+              $value = array(
+                  ":value" => 1
+              ); 
+            $upd['promotion'] = $this->update_prepare($table, $set, $where,$value);		
+          }
+        } 
+
+        
+        if($ins['order']['message'] == "OK"){ 
+          $_SESSION['payment_id'] = md5($code_order.$_SESSION['encode_id']);
+          unset($_SESSION['my_order']);
+          unset($_SESSION['cart']);
+          unset($_SESSSION['discount']);
+          $ret['message'] = "success";
+          $navig = $this->fetchObject("SELECT url FROM category WHERE cate_id = 4",[]);
+          $ret['page'] =  ROOT_URL.$navig->url;
+
+          //data order list && order detail
+          $order = $this->fetchObject('SELECT * FROM reserve_order ORDER BY resv_id DESC LIMIT 0, 1');
+          $order_detail = $this->query("SELECT * FROM reserve_detail rd LEFT JOIN room_product rp on rd.room_type = rp.room_code where rd.code = '$order->resv_code'");
+          
+          //data company
+          $company_data = $this->query("SELECT * FROM contact_sel");
+
+          //sent data jong to mail customer
+          $datas = [
+            'room_count_day' => round(abs(strtotime($usage['dateout']) - strtotime($usage['datein']))/60/60/24),                                           //จำนวนคืน พัก
+            'room_checkin' => date_format(date_create($usage['datein']),'d/m/Y'),
+            'room_checkout' => date_format(date_create($usage['dateout']),'d/m/Y'),
+            'customer_name' => $getpost['name'] . ' ' . $getpost['lastname'],
+            'food_moning' => '',
+            'promotion' => '',
+            'order_detail' => $order_detail,
+            'price_sum' => $order->resv_price,
+            'company_data' => $company_data[0]
+          ];
+        
+          //sent mail to customer after confirm jong room
+          $html_send = $this->formBookingEmail($datas);
+
+          /* get details before send mail */
+          $getMail = "SELECT info_id,info_type,info_title,text_title,info_link,attribute FROM  web_info WHERE info_type = 'system_email' ORDER BY info_id ASC ";
+          $resultMail = $this->fetchAll($getMail,[]); 
+          $getContact = "SELECT title,thumbnail,email FROM contact_sel";
+          $resultContact = $this->fetchObject($getContact,[]);
+
+          /* ส่งอีเมลแจ้งข้อมูลการสั่งซื้อสินค้า */
+          // $setPW = base64_encode("w9y3n7n5s"."password1234");
+          $mail = array();  
+          $mail['host'] = trim($resultMail[0]['attribute']);
+          $mail['port'] = trim($resultMail[1]['attribute']); 
+          $mail['user'] = trim($resultMail[2]['attribute']);
+          $mail['password'] = str_replace("w9y3n7n5s","",(base64_decode($resultMail[3]['attribute']))); 
+          $mail['logo_web'] = $resultContact->logo; 
+          $mail['store_name'] = $resultContact->title; 
+          $mail['cont_name'] = $getpost['name'];
+          $mail['cont_lastname'] = $getpost['lastname'];
+          $mail['cont_email'] = $getpost['email'];
+
+          ob_start();
+          $statusEmail = $this->send_email_google(
+            array(   
+              'SMTP_USER' => $mail['user'],
+              'SMTP_PASSWORD' => $mail['password'],
+              'SMTP_HOST' => $mail['host'],
+              'SMTP_PORT' => $mail['port'],
+              'mail_system' => $resultContact->email, 
+              'sendFromName' => $mail['store_name'],
+              'email' => $resultContact->email,
+              'subject' => $datas['company_data']['company_name'] . ' | คุณได้ทำการจองห้องพัก',
+              'addAddress' => [
+                [
+                  'email' => $mail['cont_email'],
+                  'name'=>  $mail['cont_name']." ".$mail['cont_lastname']
+                ]
+              ],
+              'addBcc' => array( 
+                      array( 
+                        'email' => $mail['cont_email'],
+                        'name'=>  $mail['cont_name']." ".$mail['cont_lastname']
+                      ),
+                    ), 
+              'content' =>  $html_send,
+            )
+          );
+        ob_end_clean();
+        }else{
+          $ret['page'] =  ROOT_URL;
+          $ret['message'] = "error";
         }
-      }
-      $ins['detail'] = $this->multiInsert('reserve_detail',$list); 
-   
-
-      #insert contact
-      $table = "reserve_contact";
-      $field = "contact_name,contact_lastname,contact_tel,contact_email,contact_line,contact_address,contact_district,contact_subdistrict,contact_province,contact_postcode,contact_description,contact_otp,code";
-      $param = ":contact_name,:contact_lastname,:contact_tel,:contact_email,:contact_line,:contact_address,:contact_district,:contact_subdistrict,:contact_province,:contact_postcode,:contact_description,:contact_otp,:code ";						 
-      $value = array(	
-        ":contact_name" => $getpost['name'],
-        ":contact_lastname" => $getpost['lastname'],
-        ":contact_tel" => $getpost['tel'],
-        ":contact_email" => $getpost['email'],
-        ":contact_line" => $getpost['line'],
-        ":contact_address" => $getpost['address'],
-        ":contact_district" => $getpost['district'],
-        ":contact_subdistrict" => $getpost['subdistrict'],
-        ":contact_province" => $getpost['province'],
-        ":contact_postcode" => $getpost['postcode'],
-        ":contact_description" => $getpost['message'],
-        ":contact_otp" => $getpost['code'],
-        ":code" => $code_order
-      );
-      $ins['contact'] = $this->insertPrepare($table, $field,$param, $value);
-
-      #insert payment
-      $table = "reserve_payment";
-      $field = "code,payment_date,thumbnail,status";
-      $param = ":code,:payment_date,:thumbnail,:status";						 
-      $value = array(	 
-      "code" => $code_order,
-      "payment_date" => date("Y-m-d H:i:s"),
-      "thumbnail" => "",
-      "status" => "pending"
-      );
-      $ins['payment'] = $this->insertPrepare($table, $field,$param, $value);
-      
-      # decrease quota discount
-      if(count($_SESSION['discount']) > 0 && $ins['detail']['message'] == "OK"){
-          $table = "reserve_promotion";
-          $set = "quota = quota - :value";
-          $where = 'pro_status = "publish"  AND ('. $setDiscount .' ) ';
-          $value = array(
-              ":value" => 1
-          ); 
-        $upd['promotion'] = $this->update_prepare($table, $set, $where,$value);		
-      }
-    }
-    
-    if($ins['order']['message'] == "OK"){
-      $_SESSION['payment_id'] = md5($code_order.$_SESSION['encode_id']);
-      unset($_SESSION['my_order']);
-      unset($_SESSION['cart']);
-      unset($_SESSSION['discount']);
-      $ret['message'] = "success";
-      $navig = $this->fetchObject("SELECT url FROM category WHERE cate_id = 4",[]);
-      $ret['page'] =  ROOT_URL.$navig->url;
-      
-      #ส่งข้อความตรงนี้
-      // $send_message = $this->send_mail_google();
-
+        echo json_encode($ret);
     }else{
-      $ret['page'] =  ROOT_URL;
-      $ret['message'] = "error";
+      echo json_encode(['page'=>ROOT_URL , 'message' => 'error']);
     }
-    echo json_encode($ret);
   }
  
   public function remove_order_by_room_position(){
@@ -740,11 +793,14 @@ class myapi extends Application
       }else{
         unset($_SESSION['my_order'][$room][$position]);
       }
+
       $ret['message'] = "remove_order";
       $ret['status'] = "success";
       $ret['cart'] = $this->calculate_cost();
       $ret['result'] = $_SESSION['room_result'];
+
     }else{
+
       $ret['message'] = "not_found";
       $ret['status'] = "error";
     }
@@ -762,7 +818,9 @@ class myapi extends Application
           ":code" =>  $id
       ); 
       $update = $this->update_prepare($table, $set, $where,$value);		
+      
       if($update['status'] == 200){
+        unset($_SESSION['payment_id']);
         echo json_encode([
           "message"=>"OK"
         ]);
@@ -776,12 +834,30 @@ class myapi extends Application
   }
   
   public function upload_payment(){
+      //validate token recapcha
+    $recaptcha_secret = "6LfYAbwZAAAAALJA1v25PYjgeM5ErcJ-XqFXOqPc";
+    $recaptcha_response = trim($_POST['token']);
+    $recaptcha_remote_ip = $_SERVER['REMOTE_ADDR'];
+    $recaptcha_api = "https://www.google.com/recaptcha/api/siteverify?".
+        http_build_query(array(
+            'secret'=> $recaptcha_secret,
+            'response'=> $recaptcha_response,
+            'remoteip'=> $recaptcha_remote_ip
+        )
+    );
+    $response=json_decode(file_get_contents($recaptcha_api), true);
+
+    if(isset($response) && $response['success'] == true){  // ตรวจสอบสำเร็จ 
+
       $name = FILTER_VAR($_POST['name'],FILTER_SANITIZE_MAGIC_QUOTES);
-      $date = FILTER_VAR($_POST['date'],FILTER_SANITIZE_MAGIC_QUOTES);
       $bank_id = FILTER_VAR($_POST['bank'],FILTER_SANITIZE_NUMBER_INT);
       $price = FILTER_VAR($_POST['price'],FILTER_SANITIZE_NUMBER_FLOAT);
       $image = FILTER_VAR($_POST['image'],FILTER_SANITIZE_MAGIC_QUOTES);
       $code = FILTER_VAR($_POST['id'],FILTER_SANITIZE_MAGIC_QUOTES);
+      $date = FILTER_VAR($_POST['date'],FILTER_SANITIZE_MAGIC_QUOTES);
+      $exp = explode(" ",$date);
+      $date = explode("-",$exp[0]);
+      $newdate = $date[2]."-".$date[1]."-".$date[0]." ".$exp[1];
       $sqlBank = "SELECT id FROM bank_info WHERE id = :id";
       $resBank = $this->fetchObject($sqlBank,[":id"=> $bank_id]);
       if(empty($resBank)){
@@ -798,13 +874,14 @@ class myapi extends Application
       $where = ' code = :code ';
       $value = array(
           ":code" => $result->resv_code,
-          ":date"=> $date,
+          ":date"=> $newdate,
           ":status" =>"success",  
           ":thumbnail"=>$image,
           ":description"=> "", 
           ":name"=> $name,
           ":bank"=> $resBank->id,
-          ":price"=> $price ); 
+          ":price"=> $price 
+        ); 
       $update = $this->update_prepare($table, $set, $where,$value);	
       if($update['message'] == "OK"){
           unset($_SESSION['my_order']);
@@ -812,6 +889,9 @@ class myapi extends Application
           unset($_SESSION['cart']);
       }
       echo json_encode($update);
+    }else{
+      echo json_encode(['message' => 'error']);
+    }
   }
 
   public function uploadImage_payment(){
@@ -859,7 +939,6 @@ class myapi extends Application
       }
       umask($oldmask);
       $handle = new Upload($_FILES['images']);
-      print_r($_FILES['images']);
       if ($handle->uploaded) {
           $newname = time() . "_" . date('Ymdhis') . "_" . $id;
           $ext = strchr($_FILES['images']['name'], ".");
@@ -881,8 +960,9 @@ class myapi extends Application
               INNER JOIN  reserve_order  as rso ON rso.resv_code = rc.code 
               WHERE rc.contact_tel = :tel 
                 AND rc.contact_otp = :otp 
-                    GROUP BY rso.resv_code ";
+                GROUP BY rso.resv_code ";
       $result=$this->fetchAll($sql,[":tel"=>$tel,":otp"=>$otp]);
+ 
       if(!empty($result)){
           $html = $this->get_all_history($result);
           echo json_encode([
@@ -932,6 +1012,8 @@ class myapi extends Application
           $items[$val['resv_code']][$val['room_type']]['children'] += $val['children'];
           $items[$val['resv_code']][$val['room_type']]['price'] = $val['room_current_price'];
           $items[$val['resv_code']][$val['room_type']]['extra'] = $val['room_extra'];
+          $items[$val['resv_code']][$val['room_type']]['breakfast'] = $val['breakfast'];
+          $items[$val['resv_code']][$val['room_type']]['breakfast_price'] = $val['breakfast_price'];
           $items[$val['resv_code']]['result']['order_id'] = $val['resv_action'];
           $items[$val['resv_code']]['result']['status'] = $val['resv_status'];
           $items[$val['resv_code']]['result']['payment'] = $val['status'];
@@ -945,7 +1027,7 @@ class myapi extends Application
         return $html;   
       }else{
         echo json_encode([
-          "message" =>"",
+          "message" =>"ไม่พบรายการ",
           "status"=>"error"
         ]);
         exit();
@@ -985,8 +1067,10 @@ class myapi extends Application
               continue;
             }
             $txt_discount .= '<div>'.number_format($discount) .'</div>';
-            $room .= '<span>'.($aa['room']). ' x ' .$aa['room_amount'].' ห้อง</span>';
-            $price .= '<span>'.(number_format($aa['price'])).' / ห้อง</span>';
+            $room .= '<div>'.($aa['room']). ' x ' .$aa['room_amount'].' ห้อง</div>';
+            $price .= '<div>'.(number_format($aa['price'])).' / ห้อง</div>';
+            $breakfast .= '<div>'.(number_format($aa['breakfast_price'])).'</div> ';
+
           }
           $html .=' <div class="item">
                       <div class="table-head">
@@ -994,6 +1078,7 @@ class myapi extends Application
                           <span>ประเภทห้อง</span>
                           <span class="discount">ส่วนลด</span>
                           <span class="group-price">ราคา</span>
+                          <span class="breakfast">อาหารเช้า</span>
                           <span class="status">สถานะ</span>
                       </div>
                       <div class="table-body">
@@ -1001,6 +1086,7 @@ class myapi extends Application
                           <div class="group-nameroom">  '.$room.' </div>
                           <span class="discount"> '.$txt_discount.' </span>
                           <div class="group-price"> '.$price.' </div>
+                          <div class="breakfast"> '.$breakfast.' </div>
                           <div class="status">
                               <span class="'.$type.'" data-id="'.$redirect.'">'.$text_status.'</span>
                           </div>
@@ -1033,10 +1119,10 @@ class myapi extends Application
           "status"=>"error"
         ]);
       }
-     
     }
     
     public function require_meeting_room(){
+
          $name = FILTER_VAR($_POST['name'],FILTER_SANITIZE_MAGIC_QUOTES);
          $email = FILTER_VAR($_POST['email'],FILTER_SANITIZE_MAGIC_QUOTES);
          $tel = FILTER_VAR($_POST['tel'],FILTER_SANITIZE_MAGIC_QUOTES);
@@ -1055,6 +1141,49 @@ class myapi extends Application
           ":submit_date" => date('Y-m-d H:i:s') 
         );
         $ret = $this->insertPrepare($table, $field,$param, $value);
+
+        $data = [
+          'name' => $name,
+          'last' => '',
+          'tel' => $tel,
+          'subject' => $subject,
+          'message' => $message
+        ];
+
+        //sent mail to user
+        $html_send = $this->form_message($data);
+
+        //data company
+        $company_data = $this->query("SELECT * FROM contact_sel");
+        $getMail = "SELECT info_id,info_type,info_title,text_title,info_link,attribute FROM  web_info WHERE info_type = 'system_email' ORDER BY info_id ASC ";
+        $resultMail = $this->fetchAll($getMail,[]);
+
+        ob_start();
+        $statusEmail = $this->send_email_google(
+          array(   
+            'SMTP_USER' => $resultMail[2]['attribute'],
+            'SMTP_PASSWORD' => str_replace("w9y3n7n5s","",(base64_decode($resultMail[3]['attribute']))),
+            'SMTP_HOST' => trim($resultMail[0]['attribute']),
+            'SMTP_PORT' => trim($resultMail[1]['attribute']),
+            'mail_system' => $resultMail[2]['attribute'], 
+            'sendFromName' => $company_data[0]['company_name'] . ' | คุณทำการติดต่อเรื่องห้องประชุม',
+            'subject' => $company_data[0]['company_name'] . ' | คุณทำการติดต่อเรื่องห้องประชุม',
+            'addAddress' => [
+              [
+                'email' => $email,
+                'name'=>  $name
+              ]
+            ],
+            'addBcc' => array( 
+                    array( 
+                      'email' => $email,
+                      'name'=>  $name
+                    ),
+                  ), 
+            'content' =>  $html_send,
+          )
+        );
+        ob_end_clean();
         if($ret['status'] == 200){
           #ส่งข้อความส่วนนี้
           echo json_encode([
@@ -1068,9 +1197,17 @@ class myapi extends Application
             "message" => "fail",
             "status" => "error",
             "detail" => "error_send"
-          ]);
+          ]); 
           exit();
         }
+  }
+
+  public function update_order_breakfast(){
+    $room =  FILTER_VAR($_POST['room'],FILTER_SANITIZE_STRING,FILTER_SANITIZE_MAGIC_QUOTES);
+    $position = FILTER_VAR($_POST['position'],FILTER_SANITIZE_NUMBER_INT);
+    $_SESSION['my_order'][$room][$position]['breakfast'] = ($_POST['breakfast'] != "true")?"no":"yes";
+    $calc = $this->calculate_cost();
+    echo json_encode(["message" => "OK","result"=> $calc['result']]);
   }
  
 

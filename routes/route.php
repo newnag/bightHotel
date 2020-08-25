@@ -73,7 +73,7 @@ Route::get(3,function(){
              $article = $App->get_content_by_id(1);
              $meeting = $App->get_meeting_room(); 
              require_once "template/meeting.php";
-          break;
+             break;
     case'8': #ห้องพัก
             if( $dateIn != $lvl3 || $dateOut != $lvl4 ){
               unset($_SESSION['my_order']); 
@@ -81,8 +81,10 @@ Route::get(3,function(){
             $date1=date_create($lvl3);
             $date2=date_create($lvl4);
             $diff = date_diff($date1,$date2);
-            if($diff->invert > 0 || ($date1 == $date2)){
+
+            if(($diff->invert > 0 || $lvl3 == $lvl4 ) && $lvl3 != "" ){
               echo "<script>location.href='".ROOT_URL."ห้อง/ห้องพัก' ;</script>";
+              exit();
             }
             $article = $App->get_content_by_id(2);
             $rooms = $App->get_all_product_detail($Route);
@@ -91,7 +93,8 @@ Route::get(3,function(){
             echo"<script> $('#input_checkin').val('".$lvl3."') </script>";
             echo"<script> $('#input_checkout').val('".$lvl4."') </script>";
           break;
-     default: echo "<script>location.href='".ROOT_URL."' ;</script>";
+     default: 
+          // echo "<script>location.href='".ROOT_URL."' ;</script>";
           break;
       
   }
@@ -158,7 +161,7 @@ Route::get(17,function(){
 Route::get(4,function(){
   global $App,$thumbgenerator,$myAds, $Route, $CATEGORY, $CONTENT, $CONTACT_WEB ,$MYNAV_MENU_TOP ,$lang_config,$head;
   if(!isset($_SESSION['payment_id'])){
-    echo "<script>location.href='".ROOT_URL."ห้อง/ห้องพัก' ;</script>";
+      echo "<script>location.href='".ROOT_URL."ห้อง/ห้องพัก';</script>";
   }
 
   $article = $App->get_content_by_id(4);
@@ -168,7 +171,7 @@ Route::get(4,function(){
   $date_out = date("d/m/Y",strtotime($_SESSION['cart']['result']['dateout']));
   $check = $App->check_reservation_order_id($getpost);
   if(empty($check) && !isset($_SESSION['payment_id'])){
-    //  echo"<script> location.href= '".ROOT_URL."'</script>";
+    // echo"<script> location.href= '".ROOT_URL."'</script>";
   } 
 
   $slc_bank = $App->select_bank_option();
@@ -193,7 +196,7 @@ Route::get(18,function(){
           icon: "error",
           confirmButtonText: "ตกลง"
         }).then((result)=>{
-          location.href = hostname;
+          location.href = location.origin;
         }); 
       </script>';
   }

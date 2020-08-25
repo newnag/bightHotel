@@ -13,9 +13,7 @@ function clickMenuMobile(){
 }
 
 function toggleSubRoom(){
-
-        document.querySelector('.room .subroom').classList.toggle('active')
-    
+    document.querySelector('.room .subroom').classList.toggle('active')
 }
 
 
@@ -45,15 +43,20 @@ $('.box-payment .right-box .input-box input').flatpickr({
 });
 
 function checkNumberTel(ele) {
-    document.querySelector(ele).addEventListener("keypress",(e)=>{
-        if ((e.keyCode >= 48 && e.keyCode <= 57) || (e.which >= 48 && e.which <= 57)) {
-            return true;
-        } 
-        else {
-            e.preventDefault();
-            return false;
-        }
-    })
+    try{
+        document.querySelector(ele).addEventListener("keypress",(e)=>{
+            if ((e.keyCode >= 48 && e.keyCode <= 57) || (e.which >= 48 && e.which <= 57)) {
+                return true;
+            } 
+            else {
+                e.preventDefault();
+                return false;
+            }
+        })
+    }
+    catch(e){
+
+    }
 }
 
 function warpTop(){
@@ -74,3 +77,17 @@ function scrollFunction(){
       document.querySelector('.buttonTop').style.display = 'none'
     }
 }
+
+// document.querySelector('.content .icon .item.share').addEventListener('click',()=>{
+//     Swal.fire({
+//         html: `
+//             <div style="margin:5% 0;">
+//             <a href="" style="display:flex;align-items:center;justify-content:center;color:#3085d6">
+//                 <img style="width:30px;margin-right:10px;filter:invert(45%) contrast(100%) brightness(30%) sepia(100) saturate(100) hue-rotate(220deg);" src="https://brighthotel.co.th/img/icon/facebook-brands.svg">
+//                 แชร์ Facebook
+//             </a>
+//             </div>
+//         `,
+//         confirmButtonText: 'ปิดหน้าต่าง',
+//     })
+// })

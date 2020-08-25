@@ -74,7 +74,7 @@
             img{
                 width: 32px;
                 height: 32px;
-                filter: brightness(5%) sepia(100) saturate(100) hue-rotate(180deg);
+                filter: invert(45%) contrast(85%) brightness(5%) sepia(100) saturate(100) hue-rotate(220deg);
             }
             span{
                 color: $text-gray;
@@ -89,6 +89,9 @@
         display: flex;
         overflow-x: scroll;
         cursor: pointer;
+        padding: 0 1%;
+        padding-bottom: 3%;
+        position: relative;
 
         &.drag{
             cursor: grabbing;
@@ -228,6 +231,7 @@
         @media screen and (min-width:$ipadpro) {
             width: 80%;
             margin: 0 auto;
+            margin-bottom: 5%;
         }
 
         .form-contact{
@@ -376,6 +380,7 @@
         @media screen and (min-width:$laptop) {
             padding-bottom: 2%;
             padding: 0 5%;
+            position: relative;
         }
 
         .title{
@@ -385,6 +390,23 @@
             h1{
                 color: $background1;
             }
+        }
+
+        &:before{
+            content: '<';
+            position: absolute;
+            top: 50%;
+            left: 3%;
+            color: #fff;
+            font-size: 2em;
+        }
+        &:after{
+            content: '>';
+            position: absolute;
+            top: 50%;
+            right: 3%;
+            color: #fff;
+            font-size: 2em;
         }
     }
 

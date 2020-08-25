@@ -52,18 +52,15 @@
                         <img src="<?=ROOT_URL?>img/icon/envelope-open-solid.svg" alt="">
                         <span><?=$CONTACT_WEB->email?></span>
                     </div>
-                    <div class="item">
-                        <img src="<?=ROOT_URL?>img/icon/instagram-brands.svg" alt="">
-                        <span><?=$CONTACT_WEB->ig?></span>
-                    </div>
+           
                     <div class="item">
                         <img src="<?=ROOT_URL?>img/icon/facebook-brands.svg" alt="">
                         <span><?=$CONTACT_WEB->facebook?></span>
                     </div>
-                    <div class="item">
+                    <!-- <div class="item share">
                         <img src="<?=ROOT_URL?>img/icon/share-alt-solid.svg" alt="">
                         <span>share</span>
-                    </div>
+                    </div> -->
                 </div>
             </div>
   
@@ -121,14 +118,38 @@
                         <textarea name="" id="" cols="30" rows="5" class="txt_message" placeholder="กรอกข้อความ"></textarea>
                     </div>
                     <div class="button"><button>ส่ง</button></div>
+                    <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response" value="">
                 </div>
             </div>
         </article>
+
+        
 
     <!-- Footer -->
     <?php 
         require_once "mains/footer.php"; 
     ?>
+
+  <script>
+    // grecaptcha.ready(function() {
+    //     grecaptcha.execute('6LfYAbwZAAAAAMHxHuGHnNWfFR3-lr9UVrbCAoQH', {action: 'submit_contact'}).then(function(token) {
+    //         // ค่า token ที่ถูกส่งกลับมา จะถูกนำไปใช้ส่งไปตรวจสอบกับ api อีกครั้ง
+    //         // เราเอาค่า token ไปไว้ใน input hidden ชื่อg-recaptcha-response
+    //         document.getElementById('g-recaptcha-response').value = token;
+    //     });
+    // },0);
+    function getReCaptcha(){
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6LfYAbwZAAAAAMHxHuGHnNWfFR3-lr9UVrbCAoQH', {action: 'submit_contact'}).then(function(token) {
+                // ค่า token ที่ถูกส่งกลับมา จะถูกนำไปใช้ส่งไปตรวจสอบกับ api อีกครั้ง
+                // เราเอาค่า token ไปไว้ใน input hidden ชื่อg-recaptcha-response
+                document.getElementById('g-recaptcha-response').value = token;
+            });
+        });
+    }
+    getReCaptcha();
+    setInterval(function(){getReCaptcha();}, 60000);
+  </script>    
 
     <!-- <div class="csrf-space-timeround"><?= $CSRF_TIMERROUND ?></div>
     <div class="csrf-space-province"><?= $CSRF_PROVINCE ?></div>

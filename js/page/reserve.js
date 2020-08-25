@@ -35,7 +35,6 @@ $(".list-room").on('click','.virwFull',function(){
     }); 
 });
 
-
 $(".room-page").on('click','.plus',function(){
     console.log('increase room');
     let _id = $(this).closest(".list-item").data('id');
@@ -69,6 +68,18 @@ $(".room-page ").on('click','.minus',function(){
 $(".room-page-zone .list-room").on('click','.btn_reserve',function(){
     reserve_by_room_id($(this).data('room'));
 });
+$(".room-page-zone .detail-order").on('click','button',function(){
+    if($(this).hasClass("let-reserve")){
+        location.href = hostname+"ยืนยันการจอง";
+    }else{
+        Swal.fire({
+            width: '400px',
+            text: 'ท่านยังไม่ได้เลือกห้องพัก!',
+            icon: 'error',
+            confirmButtonText: 'OK'
+        });
+    }
+});
 
 function reserve_by_room_id(_id){
     let date_in = document.querySelector(".room-page .detail-order .dateCheck.checkIn").value;
@@ -76,6 +87,8 @@ function reserve_by_room_id(_id){
     let adult = document.querySelector(".booking #adult").value; 
     let child = document.querySelector(".booking #child").value; 
     if(date_in ===""){
+         var element = document.getElementById("input_checkin");     
+         //element.scrollIntoView();
          $(".room-page .detail-order .dateCheck.checkIn").addClass("input-invalid");
          Swal.fire({
              width: '400px',
@@ -84,16 +97,17 @@ function reserve_by_room_id(_id){
              confirmButtonText: 'OK'
          });
          return false;
+ 
     }else if(date_out ===""){
          var element = document.getElementById("input_checkout");
-         element.scrollIntoView();
+         //element.scrollIntoView();
          $(".room-page .detail-order .dateCheck.checkOut").addClass("input-invalid");
          Swal.fire({
              width: '400px',
              text: 'กรุณากำหนดวันที่ออกจากที่พัก!',
              icon: 'error',
              confirmButtonText: 'OK'
-         });
+         })
          return false;
     } else {
   
@@ -121,12 +135,11 @@ function reserve_by_room_id(_id){
                      confirmButtonText: 'OK'
                  })
             }else{
+               $(".detail-order .booking-button button").addClass('let-reserve');
                let result = response['cart']['result'];
                reset_cart_detail(result);
                $(".detail-order .detail-list").css("display","block");
                $(".detail-order .detail-list").html(response['html']); 
-               const block = document.querySelector("#detail-order")
-               block.scrollIntoView()
                const Toast = Swal.mixin({
                    toast: true,
                    position: 'top-end',
@@ -142,7 +155,6 @@ function reserve_by_room_id(_id){
                    icon: 'success',
                    title: 'เพิ่มห้องสำเร็จแล้ว'
                 })
-                
             }
          }
      });
@@ -195,7 +207,6 @@ $(".booking .button").on("click","button",function(){
 //         }
 //     });
 // });
-
     
 $('.detail-order').on('click',".delete",function(){
     let param = {
@@ -205,9 +216,15 @@ $('.detail-order').on('click',".delete",function(){
     $.ajax({
         url: hostname+"api/myapi.php",
         type: 'POST',
-        dataType: 'json',
+        dataType: 'json', 
         data: param,
         success: function(response){
+            if(response['cart']){
+                if(response['cart']['result']['amount'] == 0 ){
+                    $(".detail-order .booking-button button").removeClass('let-reserve');
+                }
+            }
+
             let result = response['cart']['result'];
             reset_cart_detail(result);
             remove_by_room_id(response['id']);
@@ -351,10 +368,31 @@ function increaseAndDecreaseChild(_param){
     });
 }
 
-
 $(".bookingroom-page .booking").on("click","button",function(){
-    let list = get_name_list();
+    let list = [];
+    $.each($(".bookingroom-page .bookingRoom"), function(index, val){
+        let list_arr = []; 
+        let id = $(this).data('room');
+        let position = $(this).data('position');
+        let name = $(".bookingRoom[data-room='"+id+"'][data-position='"+position+"'] .txt_guest_name").val();
+        let lastname = $(".bookingRoom[data-room='"+id+"'][data-position='"+position+"'] .txt_guest_lastname").val();
+        let adult = $(".bookingRoom[data-room='"+id+"'][data-position='"+position+"'] .inputAdult").val(); 
+        let child = $(".bookingRoom[data-room='"+id+"'][data-position='"+position+"'] .inputChild").val();
+        let extra = $(".bookingRoom[data-room='"+id+"'][data-position='"+position+"'] .breakfast-check").prop('checked');
+         list_arr = { 
+            id,
+            position,
+            name,
+            lastname,
+            adult,
+            child,
+            extra,  
+        }
+        list.push(list_arr);
+    }); 
+    
     let param = {
+        action:'reservation_confirm',
         name: $(".info-person .txt_name").val(),
         lastname: $(".info-person .txt_lastname").val(),
         tel: $(".info-person .txt_tel").val(),
@@ -367,12 +405,15 @@ $(".bookingroom-page .booking").on("click","button",function(){
         province:  $(".info-person .txt_province").val(),
         postcode: $(".info-person .txt_postcode").val(),
         message:  $(".info-person .txt_message").val(),
-        action:'reservation_confirm',
         token: $('#g-recaptcha-response').val(),
+        invoice_name: $(".taxinvoice .txt_invoice").val(),
+        invoice_checked:$(".taxinvoice #taxinvoice-check").prop('checked'),
         list
     }
+
     validate_confirm_reservation(param);
 });
+
 
 $(".box-bookingRoom .bookingRoom").on("keyup","input",function(){
     let leng = $(this).val().length;
@@ -454,7 +495,6 @@ function validate_confirm_reservation(param){
         return false;
     }
 
-    //console.log(param); return;
 
     Swal.fire({
         title: 'ยืนยันการจองห้องพัก!',
@@ -466,6 +506,7 @@ function validate_confirm_reservation(param){
         confirmButtonText: 'ยืนยัน',
         cancelButtonText: 'ยกเลิก'
       }).then((result) => {
+          console.log(param)
         if (result.value) {
             $.ajax({
                 url: hostname+'api/myapi.php',
@@ -486,7 +527,7 @@ function validate_confirm_reservation(param){
                        }else{
                         Swal.fire({
                             width: '400px',
-                            title: 'จองห้องพักไม่สำเร็จ!',
+                            title: 'การจองล้มเหลว!',
                             icon: 'error',
                             confirmButtonText: 'ตกลง'
                         }).then((result) => {
@@ -547,32 +588,7 @@ $(".bookingroom-page .bookingRoom").on("click",".remove-order",function(){
         }
     });
 }); 
-
-function get_name_list(){
-    let room = []; 
-    let position = []; 
-    let value = []; 
-    let type = []; 
-    $.each($(".bookingroom-page .box-bookingRoom .bookingRoom input.txt_guest"), function(index, val){
-        let aa = $(this).closest('.bookingRoom').data('room');
-        room.push(aa);
-        let bb = $(this).closest('.bookingRoom').data('position');
-        position.push(bb);
-        let cc = $(this).val();
-        value.push(cc);
-        let dd = $(this).data('type');
-        type.push(dd);
-    });
-    let list = {
-        position,
-        room,
-        value,
-        type
-    }
  
-    return list;
-}
-
 
 $(".bookingroom-page-zone").on("click",".cancle-button",function(){
     Swal.fire({
