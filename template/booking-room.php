@@ -34,30 +34,26 @@
                         <div class="input-box">
                             <label>*เบอร์โทร</label>
                             <input type="tel" maxlength="10"  placeholder="เบอร์โทร" class="txt_tel" >
-                        </div>
-
+                        </div>  
                         <div class="input-box">
                             <label>*Email</label>
                             <input type="email" placeholder="Email" class="txt_email">
                         </div>
-
                         <div class="input-box">
                             <label>Line:ID</label>
                             <input type="text" placeholder="Line" class="txt_line">
                         </div>
-
                         <div class="input-box">
                             <label><?=$lang_config['page_confirm_detail_label_idcard']?></label>
-                            <input type="tel" maxlength="4"  placeholder="รหัสบัตร 4 หลักท้าย " class="txt_code" >
+                            <input type="tel" maxlength="4"  placeholder="รหัสบัตรท้าย 4 หลัก" class="txt_code" >
                         </div>
-
                         <div class="input-box taxinvoice">
                             <div style="display:flex;">
                                 <input type="checkbox" class="taxinvoice-check" style=" max-width: 45px; margin: auto 0px;">
                                 <label for="taxinvoice-check" style="margin: auto 0px;">รับใบกำกับภาษี</label>
                             </div>
                             <input type="text" name="tax_invoice"  class="txt_invoice" placeholder="ใส่ชื่อบริษัท">
-                        </div>
+                        </div>  
                     </div>
                 </div>
 
@@ -182,15 +178,15 @@
                 <div class="icon">
                     <div class="item">
                         <img src="<?=ROOT_URL?>img/icon/mobile-solid.svg" alt="">
-                        <span>098-1201970</span>
+                        <span><?=$CONTACT_WEB->mobilephone?></span>
                     </div>
                     <div class="item">
                         <img src="<?=ROOT_URL?>img/icon/envelope-open-solid.svg" alt="">
-                        <span>brighthotelkhonkaen@gmail.com</span>
+                        <span><?=$CONTACT_WEB->email?></span>
                     </div>
                     <div class="item">
                         <img src="<?=ROOT_URL?>img/icon/home.svg" alt="">
-                        <span>177/88 ถนนมิตรภาพ หมู่17 ต.ในเมือง อ.เมือง จ.ขอนแก่น 40000</span>
+                        <span><?=$CONTACT_WEB->address?></span>
                     </div>
                 </div>
             </div>
@@ -203,7 +199,6 @@
         require_once "mains/footer.php"; 
     ?>
 
-    <script src="<?=ROOT_URL?>js/page/booking-room.js?v=1.1.2<?=time()?>"></script>
     <script>
     grecaptcha.ready(function() {
         grecaptcha.execute('6LfYAbwZAAAAAMHxHuGHnNWfFR3-lr9UVrbCAoQH', {action: 'submit_contact'}).then(function(token) {

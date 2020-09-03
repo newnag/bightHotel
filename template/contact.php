@@ -12,7 +12,7 @@
                 </div>
                 <div class="icon">
                     <div class="item">
-                        <img src="<?=ROOT_URL?>img/icon/mobile-solid.svg" alt="">
+                        <img src="<?=ROOT_URL?>img/icon/phone2.svg" alt="">
                         <span><?=$CONTACT_WEB->mobilephone?></span>
                     </div>
                     <div class="item">
@@ -85,12 +85,23 @@
     </div>
 <?php  require_once "mains/footer.php"; ?>
     <script>
-    grecaptcha.ready(function() {
-        grecaptcha.execute('6LfYAbwZAAAAAMHxHuGHnNWfFR3-lr9UVrbCAoQH', {action: 'submit_contact'}).then(function(token) {
-            // ค่า token ที่ถูกส่งกลับมา จะถูกนำไปใช้ส่งไปตรวจสอบกับ api อีกครั้ง
-            // เราเอาค่า token ไปไว้ใน input hidden ชื่อg-recaptcha-response
-            document.getElementById('g-recaptcha-response').value = token;
+    // grecaptcha.ready(function() {
+    //     grecaptcha.execute('6LfYAbwZAAAAAMHxHuGHnNWfFR3-lr9UVrbCAoQH', {action: 'submit_contact'}).then(function(token) {
+    //         // ค่า token ที่ถูกส่งกลับมา จะถูกนำไปใช้ส่งไปตรวจสอบกับ api อีกครั้ง
+    //         // เราเอาค่า token ไปไว้ใน input hidden ชื่อg-recaptcha-response
+    //         document.getElementById('g-recaptcha-response').value = token;
+    //     });
+    // });
+    function getReCaptcha(){
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6LfYAbwZAAAAAMHxHuGHnNWfFR3-lr9UVrbCAoQH', {action: 'submit_contact'}).then(function(token) {
+                // ค่า token ที่ถูกส่งกลับมา จะถูกนำไปใช้ส่งไปตรวจสอบกับ api อีกครั้ง
+                // เราเอาค่า token ไปไว้ใน input hidden ชื่อg-recaptcha-response
+                document.getElementById('g-recaptcha-response').value = token;
+            });
         });
-    });
+    }
+    getReCaptcha();
+    setInterval(function(){getReCaptcha();}, 60000);
     </script>   
 </body>

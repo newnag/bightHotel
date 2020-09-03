@@ -317,7 +317,7 @@ class FrontEnd extends DBconnect
     $mail->isSMTP();	     
     $mail->CharSet = "utf-8";
     $mail->IsHTML(true);
-    $mail->SMTPDebug = 3;
+    $mail->SMTPDebug = 0;
     $mail->Host =  $option['SMTP_HOST'];
     $mail->Port =  $option['SMTP_PORT'];
     $mail->SMTPSecure = 'tls';

@@ -51,9 +51,12 @@
                             <span>ค่าบริการเตียงเสริม</span>
                             <span class="room-vat"><?=$cart_result['result']['extra']?></span>
                         </div>
-                        <div class="list">
+                        <!-- <div class="list">
                             <span>ส่วนลด</span>
                             <span class="room-discount"><?=$cart_result['result']['discount']?></span>
+                        </div> -->
+                        <div class="list res-discount">
+                            <?=$_SESSION['cart']['result']['discount_desc']?>
                         </div>
                         <div class="list">
                             <span>ค่าใช้จ่ายทั้งหมด</span>
@@ -71,8 +74,8 @@
                         </div>
                     </div>
 
-                    <div class="booking-button">
-                         <button>จอง</button> 
+                    <div class="booking-button ">
+                         <button class="<?=( count($_SESSION['my_order']) > 0 )?"let-reserve":""?>">จอง</button> 
                     </div>
                 </div>
 
@@ -88,15 +91,15 @@
                     <div class="icon">
                         <div class="item">
                             <img src="<?=ROOT_URL?>img/icon/mobile-solid.svg" alt="">
-                            <span>098-1201970</span>
+                            <span><?=$CONTACT_WEB->mobilephone?></span>
                         </div>
                         <div class="item">
                             <img src="<?=ROOT_URL?>img/icon/envelope-open-solid.svg" alt="">
-                            <span>brighthotelkhonkaen@gmail.com</span>
+                            <span><?=$CONTACT_WEB->email?></span>
                         </div>
                         <div class="item">
                             <img src="<?=ROOT_URL?>img/icon/home.svg" alt="">
-                            <span>177/88 ถนนมิตรภาพ หมู่17 ต.ในเมือง อ.เมือง จ.ขอนแก่น 40000</span>
+                            <span><?=$CONTACT_WEB->address?></span>
                         </div>
                     </div>
                 </div>

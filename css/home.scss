@@ -98,7 +98,6 @@
             cursor: -webkit-grabbing;
         }
         &::-webkit-scrollbar{
-            display: none;
             width: 50%;
             height: 5px;
         }
@@ -378,8 +377,8 @@
             margin: unset;
         }
         @media screen and (min-width:$laptop) {
-            padding-bottom: 2%;
             padding: 0 5%;
+            padding-bottom: 3%;
             position: relative;
         }
 
@@ -392,22 +391,25 @@
             }
         }
 
-        &:before{
-            content: '<';
-            position: absolute;
-            top: 50%;
-            left: 3%;
-            color: #fff;
-            font-size: 2em;
+        @media screen and (min-width:$laptop){
+            &:before{
+                content: '<';
+                position: absolute;
+                top: 50%;
+                left: 3%;
+                color: #fff;
+                font-size: 2em;
+            }
+            &:after{
+                content: '>';
+                position: absolute;
+                top: 50%;
+                right: 3%;
+                color: #fff;
+                font-size: 2em;
+            }
         }
-        &:after{
-            content: '>';
-            position: absolute;
-            top: 50%;
-            right: 3%;
-            color: #fff;
-            font-size: 2em;
-        }
+        
     }
 
     &.service,&.room{

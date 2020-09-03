@@ -21,7 +21,7 @@
                 </div>
                 <div class="contact">
                     <div class="single">
-                        <figure><img src="<?=ROOT_URL?>img/icon/mobile-solid.svg" alt=""></figure>
+                        <figure><img src="<?=ROOT_URL?>img/icon/phone2.svg" alt=""></figure>
                         <p><?=$CONTACT_WEB->mobilephone?></p>
                     </div>
                     <div class="single">

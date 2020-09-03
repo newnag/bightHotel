@@ -268,9 +268,12 @@
                             <span>ค่าบริการเตียงเสริม</span>
                             <span class="room-vat"><?=$detail['result']['extra']?></span>
                         </div>
-                        <div class="list">
+                        <!-- <div class="list">
                             <span>ส่วนลด</span>
                             <span class="room-discount"><?=$detail['result']['discount']?></span>
+                        </div> -->
+                        <div class="list res-discount">
+                            <?=$_SESSION['cart']['result']['discount_desc']?>
                         </div>
                         <div class="list">
                             <span>ค่าใช้จ่ายทั้งหมด</span>

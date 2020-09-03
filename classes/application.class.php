@@ -720,15 +720,17 @@ class Application extends Helper
       }else{
 
         $ret ="ไม่พบรายการ";
-      }
+      } 
 
       return $ret;
     }
 
 
     public function get_room(){
+      global $thumbgenerator,$myDevice;
+      $xSize = ($myDevice === "browser")? "x400":"x250";
       #set category product = room
-      $sql ='SELECT * FROM room_product WHERE (room_status = :room  AND room_amount > 0 ) ORDER BY room_priority ASC LIMIT 0,5 ';
+      $sql ='SELECT * FROM room_product WHERE (room_status = :room  AND room_amount > 0 ) ORDER BY room_priority ASC  ';
       $result = $this->fetchAll($sql,[":room" => "active" ]);
       $sql_facility = 'SELECT * FROM facility_list WHERE fac_status = ? ';
       $resultFacility = $this->fetchAll($sql_facility,["active"]);
@@ -755,11 +757,11 @@ class Application extends Helper
                         <div class="box"> 
                             <figure>
                                 <span>'.$val['room_type_name'].'</span>
-                                <img src="'.ROOT_URL.'img/view.jpg" alt="ภาพประกอบ '.$val['room_type_name'].'">
+                                <img src="'.$thumbgenerator.$val['room_thumbnail'].'&size='.$xSize.'" alt="ภาพประกอบ '.$val['room_type_name'].'">
                             </figure>
                             <div class="price">
-                                <div class="discount"><span>฿ '.number_format($val['room_price']).'</span></div>
-                                <div class="sumprice"><span>฿ '.number_format($val['room_current_price']).'</span></div>
+                                <div class="discount"><span>฿ '.number_format(($val['room_price'] + $val['breakfast_price'])).'</span></div>
+                                <div class="sumprice"><span>฿ '.number_format(($val['room_current_price']+ $val['breakfast_price'])).'</span></div>
                             </div>
                             <div class="description">
                                 <p> '.$val['room_title'].' </p>
@@ -793,8 +795,8 @@ class Application extends Helper
       if(!empty($resultImg)){
         $imgArr = array();
         foreach($resultImg as $key =>$rm){
-          // $imgArr[$rm['room_type_id']] .=  '<figure><img class="active" src="'.$thumbgenerator.$rm['url'].'&size='.$xSize.'"  data-src="'.$thumbgenerator.$rm['url'].'&size='.$srcSize.'" alt="ภาพประกอบห้อง '.$rm['title'].'"></figure>';
-          $imgArr[$rm['room_type_id']] .=  '<figure><img class="active" src="'.ROOT_URL.$rm['url'].'" data-src="'.ROOT_URL.$rm['url'].'" alt="ภาพประกอบห้อง '.$rm['title'].'"></figure>';
+          $imgArr[$rm['room_type_id']] .=  '<figure><img class="active" src="'.$thumbgenerator.$rm['url'].'&size=100x" data-src="'.ROOT_URL.$rm['url'].'" alt="ภาพประกอบห้อง '.$rm['title'].'"></figure>';
+
         }
       }
       return $imgArr;
@@ -818,7 +820,7 @@ class Application extends Helper
                   INNER JOIN reserve_order as rso ON rso.resv_code = rsd.code   
                   WHERE rp.room_status = "active" AND rso.resv_status = "publish"  
                   '.$setBetween.'
-                  GROUP BY rp.room_id ';
+                  GROUP BY rp.room_id ORDER BY rp.room_priority ASC ';
           $reserved = $this->fetchAll($sql,[]);
         }
 
@@ -828,12 +830,12 @@ class Application extends Helper
             $reservedRoom[$val['room_code']] = $val['amount'];
           }
         }
-        $sql ='SELECT * FROM room_product WHERE room_status = "active"';
+        $sql ='SELECT * FROM room_product WHERE room_status = "active" ORDER BY room_priority ASC ';
         $result = $this->fetchAll($sql,[]); 
         $imgArr = $this->get_more_room_image("","product");
         $facArr = $this->get_all_facility('get_room');
 
-        if(!empty($result)){
+        if(!empty($result)){ 
             $html="";
             foreach($result as $key => $val){
               if(!isset($reservedRoom[$val['room_code']])){
@@ -857,11 +859,11 @@ class Application extends Helper
               $html .= '      
               <div class="list-room">
                  <div class="img-review">
-                  <figure><img src="'.ROOT_URL.$val['room_thumbnail'].'" alt=""></figure>
-                  <div class="virwFull" data-room="'.$val['room_code'].'"><p>view full Detail</p></div>
+                  <figure><img src="'.$thumbgenerator.$val['room_thumbnail'].$xSize.'" alt=""></figure>
+                  <div class="virwFull" data-room="'.$val['room_code'].'"><p>See More</p></div>
                   <div class="carousel">
                       <div class="list-img">
-                        '.( (isset($val['room_thumbnail']))? '<figure><img class="active" src="'.ROOT_URL.$val['room_thumbnail'].'" data-src="'.ROOT_URL.$val['room_thumbnail'].'" alt="ภาพประกอบห้อง '.$val['title'].'"></figure> '  : "").' 
+                        '.( (isset($val['room_thumbnail']))? '<figure><img class="active" src="'.$thumbgenerator.$val['room_thumbnail'].$xSize.'" data-src="'.ROOT_URL.$val['room_thumbnail'].'" alt="ภาพประกอบห้อง '.$val['title'].'"></figure> '  : "").' 
                         '.$imgArr[$val['room_id']].'
                       </div>
                   </div>
@@ -871,11 +873,11 @@ class Application extends Helper
                         <h2>'.$val['room_type_name'].'</h2>
                     </div>
                     <div class="priceBeforeSale">
-                        <span class="price">฿ '.number_format($val['room_price']).'</span>
+                        <span class="price">฿ '.number_format(($val['room_price']+ $val['breakfast_price'])).'</span>
                         <span> บาท / คืน</span>
                     </div>
                     <div class="currentPrice">
-                        <h3>฿ '.number_format($val['room_current_price']).'</h3>
+                        <h3>฿ '.number_format(($val['room_current_price'] + $val['breakfast_price'])).'</h3>
                     </div>
                     <div class="facilities">
                         <p>'.$val['room_description'].'</p>
@@ -973,6 +975,7 @@ class Application extends Helper
         $html = '';
         foreach($_SESSION['my_order'] as $key => $val){
           $count = count($val);
+          $price = $val[0]['price'] + $val[0]['breakfast_price'];
           if($count > 0){
             $html .= '<div class="list-item" data-id="'.$val[ 0]['id'].'">
                     <span class="nameRoom">'.$val[0]['room'].'</span>
@@ -981,7 +984,7 @@ class Application extends Helper
                         <span class="amound-room"><p>'.($count).'</p> ห้อง</span>
                         <span class="plus">+</span>
                     </div>
-                    <span class="amound-pricePerDay">'.number_format($val[0]['price']).' บาท/คืน</span>
+                    <span class="amound-pricePerDay">'.number_format($price).' บาท/คืน</span>
                     <div class="delete" data-id="'.$val[0]['id'].'">X</div>
                 </div>';
           }else{
@@ -992,7 +995,7 @@ class Application extends Helper
                           <span class="amound-room"><p>'.($val[0]['position']+1).'</p> ห้อง</span>
                           <span class="plus">+</span>
                       </div>
-                      <span class="amound-pricePerDay">'.number_format($val[0]['price']).' บาท/คืน</span>
+                      <span class="amound-pricePerDay">'.number_format($price).' บาท/คืน</span>
                       <div class="delete">X</div>
                   </div>'; 
           }  
@@ -1032,11 +1035,13 @@ class Application extends Helper
     }
 
     public function calculate_cost(){
+      $_SESSION['cart']['result']['breakfast'] = 0;
       $_SESSION['cart']['result']['amount'] = 0;
       $_SESSION['cart']['result']['price'] = 0;
-      $_SESSION['cart']['result']['extra'] = 0;
+      $_SESSION['cart']['result']['extra'] = 0; 
       $_SESSION['cart']['result']['discount'] = 0;
       $_SESSION['cart']['result']['netpay'] = 0;
+      $_SESSION['cart']['result']['discount_desc']="";
       $_SESSION['room_result'] = "";
       $_SESSION['result']['dateout'] = "";
       $set = $this->set_date_format($_SESSION['cart']['result']['datein'],$_SESSION['cart']['result']['dateout']);
@@ -1045,17 +1050,23 @@ class Application extends Helper
       $diff = date_diff($date1,$date2);
       $duration = $diff->days+1;
       if(count($_SESSION['my_order'])>0){ 
-        foreach($_SESSION['my_order'] as $key => $val){
-          $discount = (isset($_SESSION['discount'][$key]))?$_SESSION['discount'][$key]['discount']:0;
+        foreach($_SESSION['my_order'] as $key => $val){ 
+          $discount = (isset($_SESSION['discount'][$key]))?$_SESSION['discount'][$key]['discount']:0; 
           $round = 0; 
+          $breakfast = 0;
+          $room_discount = 0; 
           foreach($val as $aa){ 
+            // $aa['price'] = ($aa['breakfast'] == 'yes')? ($aa['price'] + $aa['breakfast_price']) : $aa['price'];
+            $breakfast = ($aa['breakfast'] == 'yes')?$aa['breakfast_price']:0;
             $extra = ($aa['adult'] > 2 )? (($aa['adult'] - 2) * $aa['extra']):0;
-            $netpay = ($aa['price'] + $extra) - $discount;
+            $netpay = (($aa['price'] + $breakfast ) + $extra) - $discount;
             $_SESSION['cart']['result']['amount'] = $duration;
             $_SESSION['cart']['result']['price'] += ($aa['price'] * $duration);
+            $_SESSION['cart']['result']['breakfast'] += ($aa['breakfast'] =="yes")?(float)$aa['breakfast_price'] * $duration:0;
             $_SESSION['cart']['result']['extra'] += ($extra * $duration);
             $_SESSION['cart']['result']['discount'] += ($discount * $duration);
-            $_SESSION['cart']['result']['netpay'] += ($netpay * $duration);
+            $_SESSION['cart']['result']['netpay'] += $netpay * $duration ;
+            $room_discount += $discount * $duration;
             if($round == 0){ 
                 $_SESSION['room_result'] .= '<div class="list-item" data-id="'.$aa['id'].'">
                           <span class="nameRoom">'.$aa['room'].'</span>
@@ -1066,8 +1077,17 @@ class Application extends Helper
             }
             $round++;
           }
+
+          if($discount != 0){
+            $_SESSION['cart']['result']['discount_desc'] .=  
+            ' <span class="txt-dis" data-room="'.$val[0]['id'].'">'.$_SESSION['discount'][$key]['name'].'</span>
+                <span class="txt-dis room-discount" data-room="'.$val[0]['id'].'">'.$room_discount.'</span>  ';
+          }
+          
         }
       }
+ 
+
       return $_SESSION['cart'];
     }
 
@@ -1121,21 +1141,22 @@ class Application extends Helper
           $round = 0;
           $discount = (isset($_SESSION['discount'][$key]))?$_SESSION['discount'][$key]['discount']:0;
           foreach($val as $aa){ 
+            $price = $aa['price'] + $aa['breakfast'];
             $ret['detail'] .='<div class="bookingRoom" data-room="'.$aa['id'].'" data-position="'.$aa['position'].'">
                   <div class="remove-order unslc-text">X</div>
                   <div class="row">
                       <div class="nameroom"><h2>'.$aa['room'].'</h2></div>
-                      <div class="price"><h2>'.number_format($aa['price']).' บาท/คืน</h2></div>
+                      <div class="price"><h2>'.number_format($price).' บาท/คืน</h2></div>
                   </div>
                   <div class="row">
                       <div class="form-grid">
                           <div class="input-box">
                               <label>*ชื่อ (ผู้เข้าพัก)</label>
-                              <input type="text" class="fill-int txt_guest" data-type="name" placeholder="กรอกชื่อผู้เข้าพัก">
+                              <input type="text" class="fill-int txt_guest_name"  placeholder="กรอกชื่อผู้เข้าพัก">
                           </div>
                           <div class="input-box">
                               <label>*นามสกุล (ผู้เข้าพัก)</label>
-                              <input type="text" class="fill-int txt_guest" data-type="lastname" placeholder="กรอกนามสกุลผู้เข้าพัก">
+                              <input type="text" class="fill-int txt_guest_lastname"  placeholder="กรอกนามสกุลผู้เข้าพัก">
                           </div>
                           <div class="input-box adult">
                               <label>'.$lang_config['page_confirm_order_label_adult'].'</label>
@@ -1153,26 +1174,16 @@ class Application extends Helper
                   </div>
 
                   <div class="row">
-                      <div class="extrabed">
-                        <input type="checkbox" class="extrabed-check">
-                        <label>เตียงเสริม</label>
-                      </div>
-
                       <div class="breakfast">
-                        <input type="checkbox" class="breakfast-check">
-                        <label for="breakfast-check">ไม่รับอาหารเช้า</label>
+                        <input type="checkbox" class="breakfast-check"  '.(($aa['breakfast'] == 'yes')?"checked":"").'>
+                        <label for="breakfast-check">รับอาหารเช้า</label>
                       </div>
-
-                      <div class="taxinvoice">
-                        <input type="checkbox" class="taxinvoice-check">
-                        <label for="taxinvoice-check">รับใบกำกับภาษี</label>
-                        <input type="text" name="tax_invoice" placeholder="ใส่ชื่อบริษัท" disabled>
-                      </div>
+ 
                   </div>
 
                   <div class="row">
                       <div class="ps">
-                          <p>'.$lang_config['page_confirm_order_message'].' </p>
+                          <p>'.$aa['note'].' </p>
                       </div>
                   </div>
               </div>';
@@ -1180,17 +1191,18 @@ class Application extends Helper
               if($round == 0){
                 $ret['result'].= '<div class="list-item" data-id="'.$aa['id'].'">
                                     <span class="nameRoom">'.$aa['room'].'</span>
-                                    <span class="amound-room"><span class="amr">'.count($_SESSION['my_order'][ $aa['id']]).'</span> ห้อง</span>
+                                    <span class="amound-room"><span class="amr">'.count($_SESSION['my_order'][$aa['id']]).'</span> ห้อง</span>
                                     <span class="amound-pricePerDay">'.$aa['price'].' บาท/คืน</span>
                                 </div>';
               }
+
               $round++;
           }
         }
-      }
-
+      } 
       return $ret;
     }
+
     public function check_room_available_array($getpost){
        $sql ='SELECT rp.*,COUNT(rp.room_id) as amount FROM room_product as rp    
               INNER JOIN reserve_detail as rsd ON rsd.room_type = rp.room_code    
@@ -1200,8 +1212,8 @@ class Application extends Helper
               AND rso.resv_status != "fail"   
               AND ( ((rso.date_checkin BETWEEN :check_in AND :check_out) OR (rso.date_checkout BETWEEN :check_in AND :check_out)) 
                     OR 
-                    (rso.date_checkin <= :check_in AND rso.date_checkout >= :check_out))       
-              GROUP BY rp.room_id '; 
+                    (rso.date_checkin <= :check_in AND rso.date_checkout >= :check_out))   
+              HAVING (rp.room_amount - amount) < 1 '; 
         $sqlArr = [ 
           ":check_in"=>$getpost['datein'],
           ":check_out"=>$getpost['dateout']
@@ -1218,20 +1230,22 @@ class Application extends Helper
               WHERE rp.room_status = "active"   
               AND rp.room_code = :room_id    
               AND (rso.resv_status = "publish" OR rso.resv_status = "pending")
-              AND ( ((rso.date_checkin BETWEEN :check_in AND :check_out) OR (rso.date_checkout BETWEEN :check_in AND :check_out)) 
+              AND ( (
+                      (rso.date_checkin BETWEEN :check_in AND :check_out) 
+                      OR 
+                      (rso.date_checkout BETWEEN :check_in AND :check_out)
+                    )  
                     OR 
                     (rso.date_checkin <= :check_in AND rso.date_checkout >= :check_out)
                   )       
-              GROUP BY rp.room_id 
-              '; 
+              GROUP BY rp.room_id    '; 
+ 
         $sqlArr = [ 
           ":check_in"=>$getpost['datein'],
           ":check_out"=>$getpost['dateout'],
           ":room_id" =>$getpost['room']
         ]; 
-
-        $result = $this->fetchObject($sql,$sqlArr);
-
+        $result = $this->fetchObject($sql,$sqlArr); 
         return $result;
     }
 
@@ -1241,7 +1255,7 @@ class Application extends Helper
                      ,rso.resv_action 
                      ,rso.date_checkin 
                      ,rso.date_checkout  
-                     ,rp.room_current_price  
+                     ,rp.room_current_price   
                      ,rp.room_code  
                      ,rp.room_type_name 
                      ,rp.room_extra   
@@ -1280,6 +1294,8 @@ class Application extends Helper
           $detailArr['contact']['postcode'] = $list['contact_postcode'];
           $detailArr['contact']['description'] = $list['contact_description'];
           $detailArr['contact']['otp'] = $list['contact_otp']; 
+          $detailArr['contact']['taxinvoice_name'] = $list['contact_taxinvoice']; 
+
         }
      
 
@@ -1301,7 +1317,8 @@ class Application extends Helper
       if(!empty($getpost)){
         unset($_SESSION['my_order']);
         unset($_SESSION['discount']);
-        foreach($getpost as $key => $val){  
+        foreach($getpost as $key => $val){ 
+
           $count  = count($_SESSION['my_order'][$val['room_code']]);
           $_SESSION['my_order'][$val['room_code']][$count]['position'] = $count;
           $_SESSION['my_order'][$val['room_code']][$count]['id'] = $val['room_code'];
@@ -1310,10 +1327,12 @@ class Application extends Helper
           $_SESSION['my_order'][$val['room_code']][$count]['extra'] = $val['room_extra'];
           $_SESSION['my_order'][$val['room_code']][$count]['adult'] = $val['adult'];
           $_SESSION['my_order'][$val['room_code']][$count]['child'] =$val['children'];
+          $_SESSION['my_order'][$val['room_code']][$count]['note'] = $val['room_note'];
           $_SESSION['discount'][$val['room_code']]['code'] = $val['pro_code'];
           $_SESSION['discount'][$val['room_code']]['discount'] = $val['discount'];
         }
       }
+
     }
      
     public function set_form_detail_confirm_payment($getpost){
@@ -1381,6 +1400,7 @@ class Application extends Helper
     }
 
     public function get_meeting_room(){
+      global $thumbgenerator,$xSize;
       $sql_facility = 'SELECT * FROM facility_list WHERE fac_status = ? ';
       $resultFacility = $this->fetchAll($sql_facility,["active"]);
       if(!empty($resultFacility)){
@@ -1409,10 +1429,10 @@ class Application extends Helper
           }
           $html .= '<div class="list-room">
                         <div class="img-review">
-                            <figure><img src="'.ROOT_URL.$val['thumbnail'].'" alt="ภาพประกอบ'.$val['title'].'"></figure>
+                            <figure><img src="'.$thumbgenerator.$val['thumbnail'].$xSize.'" alt="ภาพประกอบ'.$val['title'].'"></figure>
                             <div class="carousel">
                             <div class="list-img">
-                                    <figure><img class="active" src="'.ROOT_URL.$val['thumbnail'].'" data-src="'.ROOT_URL.$val['thumbnail'].'" alt="ภาพประกอบ'.$val['title'].'"></figure>
+                                    <figure><img class="active" src="'.$thumbgenerator.$val['thumbnail'].$xSize.'" data-src="'.ROOT_URL.$val['thumbnail'].'" alt="ภาพประกอบ'.$val['title'].'"></figure>
                                     '.$imgArr[$val['id']].'
                                 </div>
                             </div>

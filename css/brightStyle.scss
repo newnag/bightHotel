@@ -133,6 +133,10 @@ body{
 
 .header{
     margin-bottom: 3%;
+    position: fixed;
+    width: 100%;
+    z-index: 9;
+    background: #fff;
 
     @media screen and (min-width:$tablet) {
         margin: 0;
@@ -182,7 +186,7 @@ body{
         }
 
         .ham-social{
-            @media screen and (max-width:$mobile) {
+            @media screen and (max-width:($tablet)-1px) {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
@@ -241,7 +245,7 @@ body{
                 }
 
                 a{
-                    margin: 0 5%;
+                    margin: 0 10px;
                 }
             }
         }
@@ -273,6 +277,10 @@ body{
                 margin: 2% 0;
 
                 @media screen and (min-width:$tablet) {
+                    width: 25%;
+                    margin: unset;
+                }
+                @media screen and (min-width:$pc) {
                     width: 12%;
                     margin: unset;
                 }
@@ -358,8 +366,8 @@ body{
                 padding: 3% 0;
 
                 img{
-                    width: 32px;
-                    height: 32px;
+                    width: 26px;
+                    height: 26px;
                     filter: invert(1);
                 }
 
@@ -367,15 +375,18 @@ body{
                     display: none;
                 }
                 @media screen and (min-width:$tablet) {
+                    margin-left: 15%;
+                }
+                @media screen and (min-width:$pc) {
                     padding: unset;
                     margin-left: 28%;
                 }
 
                 a{
-                    @media screen and (min-width:$laptop) {
+                    @media screen and (min-width:$tablet) {
                         display: flex;
                         align-items: center;
-                        margin-left: 5px;
+                        margin: 0 10px;
                     }
                 }
             }
@@ -438,6 +449,8 @@ body{
                 background-color: $brown;
                 color: $background1;
                 border-radius: 20px;
+                padding-right: 15%;
+                font-size: .9em;
 
                 &::placeholder{
                     color: $background1;
@@ -453,6 +466,20 @@ body{
                 transform: translateY(-50%);
                 filter: invert(1);
                 cursor: pointer;
+            }
+        }
+
+        .translate{
+            margin-left: 10px;
+
+            @media screen and (min-width:$laptop) {
+                position: absolute;
+                top: 15px;
+                right: 15%;
+            }
+
+            a{
+                margin: 0 5px;
             }
         }
     }
@@ -736,4 +763,8 @@ body{
 
 .grecaptcha-badge{
     display: none;
+}
+
+font{
+    font-size: inherit;
 }

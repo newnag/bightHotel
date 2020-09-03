@@ -440,7 +440,7 @@ function closeSortRoom_Outer(){
   let element = document.querySelector('.page_hotel_manager .box-tools .ui-sortable')
   document.querySelector('body').addEventListener('click',(e)=>{
     if(e.target.className !== 'slc-btn active'){
-      $(element).slideUp();
+      $(element).slideUp()
       document.querySelector('.page_hotel_manager .box-tools .slc-btn').classList.remove('active')
     }
   })

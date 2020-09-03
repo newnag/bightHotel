@@ -41,7 +41,7 @@
     
                 <div class="icon">
                     <div class="item">
-                        <img src="<?=ROOT_URL?>img/icon/mobile-solid.svg" alt="">
+                        <img src="<?=ROOT_URL?>img/icon/phone2.svg" alt="">
                         <span><?=$CONTACT_WEB->mobilephone?></span>
                     </div>
                     <div class="item">
