@@ -129,6 +129,19 @@ body {
   margin-top: 2%;
 }
 
+@media screen and (max-width: 480px) {
+  .header nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    position: relative;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .header nav {
     background-color: #22324b;
@@ -157,6 +170,10 @@ body {
     display: flex;
     padding: 0 15%;
   }
+}
+
+.header nav .ham-social {
+  position: relative;
 }
 
 @media screen and (max-width: 767px) {
@@ -239,7 +256,10 @@ body {
 
 @media screen and (max-width: 480px) {
   .header nav .ham-social .icon-mobile {
-    width: 50%;
+    position: absolute;
+    bottom: 3%;
+    right: 23%;
+    width: 34%;
   }
 }
 
@@ -251,6 +271,17 @@ body {
 
 .header nav .ham-social .icon-mobile a {
   margin: 0 10px;
+}
+
+@media screen and (max-width: 480px) {
+  .header nav .ham-social .icon-mobile a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
 }
 
 .header nav .menu {
@@ -584,11 +615,20 @@ body {
   margin-left: 10px;
 }
 
-@media screen and (min-width: 1366px) {
+@media screen and (max-width: 480px) {
+  .header nav .translate {
+    position: absolute;
+    bottom: 0%;
+    right: 3%;
+    margin-bottom: 1%;
+  }
+}
+
+@media screen and (min-width: 768px) {
   .header nav .translate {
     position: absolute;
     top: 15px;
-    right: 15%;
+    right: 6%;
   }
 }
 
@@ -598,6 +638,18 @@ body {
 
 .slide {
   position: relative;
+}
+
+@media screen and (max-width: 1023px) {
+  .slide {
+    margin-top: 40%;
+  }
+}
+
+@media screen and (max-width: 1365px) {
+  .slide {
+    margin-top: 35%;
+  }
 }
 
 .slide .owl-stage-outer img {
@@ -1097,7 +1149,7 @@ font {
 .gallary-page .showpic {
   display: none;
   position: fixed;
-  z-index: 5;
+  z-index: 9;
   top: 0;
   left: 0;
   width: 100%;
@@ -1134,6 +1186,35 @@ font {
   color: #fff;
   font-size: 2em;
   cursor: pointer;
+}
+
+.gallary-page .showpic .left-button, .gallary-page .showpic .right-button {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.gallary-page .showpic .left-button button, .gallary-page .showpic .right-button button {
+  font-size: 3em;
+  border: unset;
+  color: #fff;
+  background: inherit;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 480px) {
+  .gallary-page .showpic .left-button button, .gallary-page .showpic .right-button button {
+    font-size: 1.5em;
+  }
+}
+
+.gallary-page .showpic .left-button {
+  left: 5%;
+}
+
+.gallary-page .showpic .right-button {
+  right: 5%;
 }
 
 .gallary-page .showpic.active {

@@ -21,6 +21,8 @@
                         X
                     </div>
                 </div>
+                <div class="left-button"><button><</button></div>
+                <div class="right-button"><button>></button></div>
             </div>
             <div class="loadmore">
                 <?=$gallery['more']?>

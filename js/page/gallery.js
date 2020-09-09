@@ -2,11 +2,13 @@ window.onload = ()=>{
     openBigImg()
     closeBigImg()
     clickImgUrlBig()
+    buttonNext_BigPic()
+    buttonPrev_BigPic()
 }
 
 function clickImgUrlBig(){
     const img = document.querySelectorAll('.gallary-zone figure img')
-    console.log(img)
+    //console.log(img)
     img.forEach(Img=>{
         Img.addEventListener('click',()=>{
             let url = Img.src
@@ -73,7 +75,30 @@ function get_more_images(){
 
 }
 
-
+function buttonNext_BigPic(){
+    document.querySelector('.showpic .right-button').addEventListener('click',()=>{
+        let targetEle = document.querySelector('.bigpic figure img').getAttribute('src')
+        const eleListPic = document.querySelectorAll('.gallary-zone figure img')
+        for(i=0;i<eleListPic.length;i++){
+            if(eleListPic[i].getAttribute('src') === targetEle && i<eleListPic.length){
+                let target = eleListPic[i].parentElement.nextElementSibling.children[0]
+                document.querySelector('.bigpic figure img').setAttribute('src',target.getAttribute('src'))
+            }
+        }
+    })
+}
+function buttonPrev_BigPic(){
+    document.querySelector('.showpic .left-button').addEventListener('click',()=>{
+        let targetEle = document.querySelector('.bigpic figure img').getAttribute('src')
+        const eleListPic = document.querySelectorAll('.gallary-zone figure img')
+        for(i=0;i<eleListPic.length;i++){
+            if(eleListPic[i].getAttribute('src') === targetEle && i>0){
+                let target = eleListPic[i].parentElement.previousElementSibling.children[0]
+                document.querySelector('.bigpic figure img').setAttribute('src',target.getAttribute('src'))
+            }
+        }
+    })
+}
 
 // function get_more_images(){
 //     let formData = new FormData();

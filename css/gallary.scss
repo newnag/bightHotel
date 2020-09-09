@@ -39,7 +39,7 @@
     .showpic{
         display: none;
         position: fixed;
-        z-index: 5;
+        z-index: 9;
         top: 0;
         left: 0;
         width: 100%;
@@ -72,6 +72,29 @@
                 font-size: 2em;
                 cursor: pointer;
             }
+        }
+        .left-button,.right-button{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+
+            button{
+                font-size: 3em;
+                border: unset;
+                color: #fff;
+                background: inherit;
+                cursor: pointer;
+
+                @media screen and (max-width:$mobile){
+                    font-size: 1.5em;
+                }
+            }
+        }
+        .left-button{
+            left: 5%;
+        }
+        .right-button{
+            right: 5%;
         }
 
         &.active{
