@@ -8,7 +8,10 @@
 
     <div class="bookingroom-page-zone">
         <div class="detail-booking-zone">
-            <div class="title"><h2><?=$lang_config['page_confirm_title_h2']?></h2></div>
+            <div class="title">
+                <h2><?=$lang_config['page_confirm_title_h2']?></h2>
+                <div class="button"><button onclick="clickToPayBox()">แจ้งการชำระเงิน</button></div>
+            </div>
 
             <div class="box-bookingRoom">
                 <?=$detail['html']?>
@@ -112,7 +115,7 @@
                 </div>
             </div>
 
-            <div class="title"><h2><?=$lang_config['page_confirm_payment_title_h2']?></h2></div>
+            <div class="title payment"><h2><?=$lang_config['page_confirm_payment_title_h2']?></h2></div>
             <div class="box-payment">
                 <div class="box-bank">
                     <div class="input-box">
@@ -255,14 +258,15 @@
                             <span>
                                 <span class="room-amount"><?=$detail['result']['amount']?></span> คืน</span>
                         </div>
-                        <div class="list">
+                        <!-- <div class="list">
                             <span>ค่าห้อง </span>
                             <span class="room-price"><?=$detail['result']['price']?></span>
-                        </div>
+                        </div> -->
                         <div class="list">
-                            <span>ค่าอาหารเช้า </span>
+                            <span>ค่าอาหารเช้าทั้งหมด </span>
                             <span class="room-breakfast"><?=$detail['result']['breakfast']?></span>
                         </div>
+                   
                       
                         <div class="list">
                             <span>ค่าบริการเตียงเสริม</span>
@@ -276,8 +280,12 @@
                             <?=$_SESSION['cart']['result']['discount_desc']?>
                         </div>
                         <div class="list">
-                            <span>ค่าใช้จ่ายทั้งหมด</span>
-                            <span class="room-netpay"><?=$detail['result']['netpay']?></span>
+                            <span>ค่าใช้จ่ายสุทธิ</span>
+                            <div style="display:flex;justify-content:flex-end;">
+                                <span class="room-netpay"><?=number_format($detail['result']['netpay'])?> </span>
+                                <span> บาท</span>
+                            </div>
+
                         </div>
                     </div>
                 </div>

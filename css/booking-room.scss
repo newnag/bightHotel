@@ -57,9 +57,11 @@
                     margin: 3% auto;
 
                     @media screen and (min-width:$ipadpro){
-                        text-align: end;
                         width: 50%;
                         margin: unset;
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-end;
                     }
 
                     button{

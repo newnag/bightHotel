@@ -77,3 +77,8 @@ function ClickLabel(type){
 // $(".detail-booking-zone").on("click","",function(){
 //     $(".taxinvoice-check")
 // });
+
+function clickToPayBox(){
+    const box = document.querySelector('.buttonFinalPay')
+    box.scrollIntoView({block: "end"})
+}
