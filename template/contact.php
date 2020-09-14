@@ -34,6 +34,15 @@
             </div>
         </div>
 
+        <article>
+            <div class="content-box">
+                <div class="left">
+                    <?=$article_2->content?>
+                </div>
+                <figure><img src="<?=ROOT_URL.$article_2->thumbnail?>" alt=""></figure>
+            </div>
+        </article>
+
         <div class="map-form">
             <div class="map">
                 <?=$CONTACT_WEB->map?>
