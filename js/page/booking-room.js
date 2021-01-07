@@ -12,6 +12,8 @@ window.onload = ()=>{
     ClickLabel('EB')
     ClickLabel('Bf')
     ClickLabel('TAX')
+    swipPayCredit()
+    swipPayBank()
 }
 
 function valuePeopleBook(){
@@ -81,4 +83,24 @@ function ClickLabel(type){
 function clickToPayBox(){
     const box = document.querySelector('.buttonFinalPay')
     box.scrollIntoView({block: "end"})
+}
+
+function swipPayBank(){
+    document.querySelector('.buttonPayment .PayBank button').addEventListener('click',()=>{
+        document.querySelector('.box-payment').style.display = 'grid'
+        document.querySelector('.box-payment.credit').style.display = 'none'
+
+        document.querySelector('.box-payment .PayBank').classList.add('active');
+        document.querySelector('.box-payment .PayCredit').classList.remove('active');
+
+    })
+}
+function swipPayCredit(){
+    document.querySelector('.buttonPayment .PayCredit button').addEventListener('click',()=>{
+        document.querySelector('.box-payment').style.display = 'none'
+        document.querySelector('.box-payment.credit').style.display = 'grid'
+
+        document.querySelector('.box-payment .PayBank').classList.remove('active');
+        document.querySelector('.box-payment .PayCredit').classList.add('active');
+    })
 }

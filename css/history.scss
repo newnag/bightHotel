@@ -55,6 +55,9 @@
                 }
 
                 .table-body{
+                    span , div{
+                        margin: auto;
+                    }
                     .group-nameroom,.group-price{
                         display: flex;
                         flex-direction: column;
@@ -73,24 +76,29 @@
                         display: flex;
                         justify-content: center;
                         padding: 3% 0;
+                        margin: 0!important;
 
                         .non-pay{
-                            background-color: red;
-                            color: $background1;
+                            color: #fff;
                             padding: 3%;
+                            //max-height: 30px;
                             border-radius: 10px;
                             display: flex;
                             align-items: center; 
+                            max-width: unset!important;
+
+                            p{
+                                font-size: .8em;
+                            }
                         }
                         .prepare{
-                            background-color: yellow;
+                            background-color: #fff;
                             color: $text-main;
                             padding: 3%;
                             border-radius: 10px;
                         }
                         .success{
-                            background-color: greenyellow;
-                            color: $text-main;
+                            color: #fff;
                             padding: 3%;
                             border-radius: 10px;
                         }
@@ -101,8 +109,8 @@
                         }
                     }
                     .confirm_payment{
-                        border: 2px solid greenyellow;
-                        border-radius: 15px;
+                        border: 2px solid red;
+                        border-radius: 5px;
                         display: flex;
                         align-items: center;
                         justify-content: center;
@@ -110,18 +118,12 @@
                         text-align: center;
                         font-size: 0.9em;
                         margin: 5% 0;
-                        background: #82ce10;
-                        color: $blue;
+                        background: red;
+                        color: #fff;
                         user-select: none;
 
                         @media screen and (max-width:$mobile) {
                             font-size: 0.6em;
-                        }
-
-                        &:hover{
-                            background: inherit;
-                            transition: .2s;
-                            color: $background1;
                         }
                     }
                 }
@@ -139,8 +141,8 @@
                 .table-head,.table-body,.table-end{
                     margin: 3% 0;
                     width: 200%;
-                    display: grid;
-                    grid-template-columns: 27% 20% 10% 14% 9% 10% 10%;
+                    display: grid; 
+                    grid-template-columns: 25% 25% 10% 15% 10% 15%; 
                     border-bottom: 1px solid $background1;
 
                     @media screen and (min-width:$tablet) {

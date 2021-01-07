@@ -810,3 +810,21 @@ body{
 font{
     font-size: inherit;
 }
+
+.swal2-popup{
+    .swal2-content{
+        .swal2-html-container{
+            @media screen and (max-width:($tablet)-1px){
+                font-size: .8em;
+            }
+        }
+    }
+
+    .swal2-actions{
+        button{
+            @media screen and (max-width:($tablet)-1px){
+                font-size: .9em;
+            }
+        }
+    }
+}

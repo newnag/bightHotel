@@ -36,10 +36,12 @@ var check_out = $('.header_checkout').flatpickr({
     disableMobile: "true",
 });
 
-$('.box-payment .right-box .input-box input').flatpickr({
+$('.box-payment .box-bank .date-box .input-box input.datepayment').flatpickr({
     enableTime: true,
     dateFormat: "d-m-Y H:i",
     disableMobile: "true",
+    minuteIncrement: 1,
+    time_24hr: true
 });
 
 function checkNumberTel(ele) {

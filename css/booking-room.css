@@ -1,3 +1,4 @@
+@charset "UTF-8";
 *, *:after, *:before {
   margin: 0;
   padding: 0;
@@ -1117,6 +1118,18 @@ font {
   font-size: inherit;
 }
 
+@media screen and (max-width: 767px) {
+  .swal2-popup .swal2-content .swal2-html-container {
+    font-size: .8em;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .swal2-popup .swal2-actions button {
+    font-size: .9em;
+  }
+}
+
 .bookingroom-page {
   width: 95%;
   margin: 3% auto;
@@ -1229,7 +1242,7 @@ font {
 }
 
 .bookingroom-page .bookingroom-page-zone .detail-booking-zone .title .button button {
-  width: 60%;
+  width: 95%;
   height: 40px;
   background-color: #cc9933;
   color: #fff;
@@ -1711,6 +1724,7 @@ font {
       grid-template-columns: 100%;
   grid-row-gap: 10px;
   margin-top: 3%;
+  margin-bottom: 1em;
 }
 
 @media screen and (min-width: 1024px) {
@@ -1721,11 +1735,30 @@ font {
   }
 }
 
-.bookingroom-page .bookingroom-page-zone .detail-booking-zone .buttonPayment .PayBank, .bookingroom-page .bookingroom-page-zone .detail-booking-zone .buttonPayment .PayCredit {
-  text-align: center;
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .buttonPayment .PayCredit {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
+  grid-row-gap: 15px;
 }
 
-.bookingroom-page .bookingroom-page-zone .detail-booking-zone .buttonPayment .PayBank button, .bookingroom-page .bookingroom-page-zone .detail-booking-zone .buttonPayment .PayCredit button {
+@media screen and (max-width: 1365px) {
+  .bookingroom-page .bookingroom-page-zone .detail-booking-zone .buttonPayment .PayCredit {
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 1366px) {
+  .bookingroom-page .bookingroom-page-zone .detail-booking-zone .buttonPayment .PayCredit {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 3%;
+    width: 146%;
+  }
+}
+
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .buttonPayment .PayCredit button {
   width: 280px;
   height: 40px;
   background-color: #cc9933;
@@ -1736,39 +1769,101 @@ font {
   border: unset;
   border-radius: 30px;
   cursor: pointer;
+  height: 40px;
+  padding: 0 !important;
 }
 
 @media screen and (max-width: 480px) {
-  .bookingroom-page .bookingroom-page-zone .detail-booking-zone .buttonPayment .PayBank button, .bookingroom-page .bookingroom-page-zone .detail-booking-zone .buttonPayment .PayCredit button {
+  .bookingroom-page .bookingroom-page-zone .detail-booking-zone .buttonPayment .PayCredit button {
     height: 30px;
     font-size: 1em;
   }
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .bookingroom-page .bookingroom-page-zone .detail-booking-zone .buttonPayment .PayBank button:hover, .bookingroom-page .bookingroom-page-zone .detail-booking-zone .buttonPayment .PayCredit button:hover {
+  .bookingroom-page .bookingroom-page-zone .detail-booking-zone .buttonPayment .PayCredit button:hover {
     background: #79472c;
     -webkit-transition: .3s;
     transition: .3s;
   }
 }
 
-@media screen and (min-width: 1024px) {
-  .bookingroom-page .bookingroom-page-zone .detail-booking-zone .buttonPayment .PayBank button, .bookingroom-page .bookingroom-page-zone .detail-booking-zone .buttonPayment .PayCredit button {
-    width: 270px;
+@media screen and (min-width: 1366px) {
+  .bookingroom-page .bookingroom-page-zone .detail-booking-zone .buttonPayment .PayCredit button {
+    width: 100%;
   }
+}
+
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .buttonPayment .PayBank {
+  text-align: center;
+}
+
+@media screen and (min-width: 1366px) {
+  .bookingroom-page .bookingroom-page-zone .detail-booking-zone .buttonPayment .PayBank {
+    text-align: right;
+  }
+}
+
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .buttonPayment .PayBank button {
+  width: 280px;
+  height: 40px;
+  background-color: #cc9933;
+  color: #fff;
+  -webkit-box-shadow: 0px 1px 5px #777777;
+          box-shadow: 0px 1px 5px #777777;
+  font-size: 1.2em;
+  border: unset;
+  border-radius: 30px;
+  cursor: pointer;
+  height: 40px;
+  padding: 0 !important;
+  font-size: 1.1em;
+}
+
+@media screen and (max-width: 480px) {
+  .bookingroom-page .bookingroom-page-zone .detail-booking-zone .buttonPayment .PayBank button {
+    height: 30px;
+    font-size: 1em;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .bookingroom-page .bookingroom-page-zone .detail-booking-zone .buttonPayment .PayBank button:hover {
+    background: #79472c;
+    -webkit-transition: .3s;
+    transition: .3s;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .bookingroom-page .bookingroom-page-zone .detail-booking-zone .buttonPayment .PayBank button {
+    width: 245px;
+  }
+}
+
+@media screen and (min-width: 1366px) {
+  .bookingroom-page .bookingroom-page-zone .detail-booking-zone .buttonPayment .PayBank button {
+    width: 210px;
+  }
+}
+
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .buttonPayment .PayBank button span:before {
+  margin-top: 0 !important;
+}
+
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .buttonPayment .PayBank button span:after {
+  content: 'ชำระผ่านบัตรเครดิต';
 }
 
 .bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment {
   background-color: #22324b;
   border-radius: 10px;
   padding: 3%;
+  display: none;
 }
 
 @media screen and (min-width: 1024px) {
   .bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment {
-    display: -ms-grid;
-    display: grid;
     -ms-grid-columns: (49%)[2];
         grid-template-columns: repeat(2, 49%);
     grid-gap: 2%;
@@ -1872,6 +1967,16 @@ font {
   border: 1px solid #cc9933;
 }
 
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment .right-box .bank-detail .info-bank-img {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+}
+
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment .right-box .bank-detail .info-bank-img img {
+  width: 25px;
+}
+
 .bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment .right-box .upload-slip {
   border: 1px dashed #fff;
   display: -webkit-box;
@@ -1884,7 +1989,7 @@ font {
   text-align: center;
   padding: 5%;
   position: relative;
-  height: 60%;
+  height: 105px;
 }
 
 .bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment .right-box .upload-slip figure img {
@@ -1917,16 +2022,63 @@ font {
 
 .bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment .right-box .review.addimg > img {
   width: 100%;
-  height: 100%;
+  max-height: 80%;
   -webkit-filter: invert(0);
           filter: invert(0);
 }
 
-.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.credit {
-  display: none;
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment .ps-credit p {
+  color: #fff;
 }
 
-.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.credit .right-box .date-box {
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.credit {
+  display: none;
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
+}
+
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.credit .box-bank .input-box .text {
+  position: relative;
+}
+
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.credit .box-bank .input-box .text input {
+  padding-right: 19%;
+}
+
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.credit .box-bank .input-box .text .iconBank {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media screen and (min-width: 1366px) {
+  .bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.credit .box-bank .input-box .text .iconBank {
+    width: 25%;
+  }
+}
+
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.credit .box-bank .input-box .text .iconBank img {
+  width: 20px;
+  height: 20px;
+  margin-right: 3%;
+}
+
+@media screen and (min-width: 1366px) {
+  .bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.credit .box-bank .input-box .text .iconBank img {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.credit .box-bank .date-box {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[3];
@@ -1934,13 +2086,13 @@ font {
   grid-gap: 1%;
 }
 
-.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.credit .right-box .date-box .input-box {
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.credit .box-bank .date-box .input-box {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
 }
 
-.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.credit .right-box .date-box .input-box select {
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.credit .box-bank .date-box .input-box select {
   width: 100%;
   height: 40px;
   border: 1px solid #777777;
@@ -1949,71 +2101,30 @@ font {
 }
 
 @media screen and (max-width: 480px) {
-  .bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.credit .right-box .date-box .input-box select {
+  .bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.credit .box-bank .date-box .input-box select {
     font-size: 0.9em;
     height: 30px;
   }
 }
 
-.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.credit .right-box .date-box .input-box select:focus {
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.credit .box-bank .date-box .input-box select:focus {
   border: 1px solid #cc9933;
 }
 
-.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.credit .info-box {
-  -ms-grid-column: 1;
-      grid-column-start: 1;
-  grid-column-end: 3;
-  display: -ms-grid;
-  display: grid;
-}
-
-@media screen and (min-width: 768px) {
-  .bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.credit .info-box {
-    -ms-grid-columns: (1fr)[2];
-        grid-template-columns: repeat(2, 1fr);
-    grid-gap: 2%;
-  }
-}
-
-.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.credit .info-box .input-box {
-  display: -ms-grid;
-  display: grid;
-  margin: 1% 0;
-  position: relative;
+.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.active {
+  display: block;
 }
 
 @media screen and (min-width: 1024px) {
-  .bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.credit .info-box .input-box {
-    margin-bottom: 3%;
+  .bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.active {
+    display: -ms-grid;
+    display: grid;
   }
-}
-
-.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.credit .info-box .input-box label {
-  color: #fff;
-}
-
-.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.credit .info-box .input-box input {
-  width: 100%;
-  height: 40px;
-  border: 1px solid #777777;
-  border-radius: 10px;
-  padding: 0 20px;
-  border: unset;
-}
-
-@media screen and (max-width: 480px) {
-  .bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.credit .info-box .input-box input {
-    font-size: 0.9em;
-    height: 30px;
-  }
-}
-
-.bookingroom-page .bookingroom-page-zone .detail-booking-zone .box-payment.credit .info-box .input-box input:focus {
-  border: 1px solid #cc9933;
 }
 
 .bookingroom-page .bookingroom-page-zone .detail-booking-zone .buttonFinalPay {
   margin-top: 5%;
+  margin-bottom: 5%;
   text-align: center;
 }
 

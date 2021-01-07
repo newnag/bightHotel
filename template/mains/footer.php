@@ -12,7 +12,7 @@
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v7.0&appId=599318023929202&autoLogAppEvents=1" nonce="kebzBbCb"></script>
     
         <div class="footer">
-            <div class="logo"><figure><img src="<?=ROOT_URL?>img/logo B-01.png" alt=""></figure></div>
+            <div class="logo"><figure><img src="<?=ROOT_URL.$logo_web?>" alt="ภาพประกอบโลโก้ footer"></figure></div>
 
             <div class="address-contact">
                 <div class="address">
@@ -68,15 +68,15 @@
   </footer>
     
   <!-- โซนสคริป -->
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <script src="<?=ROOT_URL?>plugin/OwlCarousel/dist/owl.carousel.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.3/flatpickr.min.js"></script>
-  <script type="text/javascript" src="<?=ROOT_URL?>js/page/functions.js?v=<?=time()?>"></script>
-  <script type="text/javascript" src="<?=ROOT_URL?>js/page/hotel.js?v=<?=time()?>"></script>
-  <script type="text/javascript" src="<?=ROOT_URL?>js/page/bookHome.js?v=<?=time()?>"></script>
-  <script type="text/javascript" src="<?=ROOT_URL?>js/page/slide.js?v=<?=time()?>"></script>
-  <script src="<?=ROOT_URL?>js/page/reserve.js?v=1.2.1<?=time()?>"></script> 
-  <script src="<?=ROOT_URL?>js/page/manage.js?v=<?=time()?>"></script> 
+  <script type="text/javascript" src="<?=ROOT_URL?>js/page/functions.js?v=1.1.2"></script>
+  <script type="text/javascript" src="<?=ROOT_URL?>js/page/hotel.js?v=1.1.<?=date('ymds')?>"></script>
+  <script type="text/javascript" src="<?=ROOT_URL?>js/page/bookHome.js?v=1.1.2"></script>
+  <script type="text/javascript" src="<?=ROOT_URL?>js/page/slide.js?v=1.1.2"></script>
+  <script src="<?=ROOT_URL?>js/page/reserve.js?v=1.2.1.3"></script> 
+  <script src="<?=ROOT_URL?>js/page/manage.js?v=1.1.2.4"></script> 
   <script src="//www.google.com/recaptcha/api.js?render=6LfYAbwZAAAAAMHxHuGHnNWfFR3-lr9UVrbCAoQH"></script>
 
   

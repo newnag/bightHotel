@@ -1117,6 +1117,18 @@ font {
   font-size: inherit;
 }
 
+@media screen and (max-width: 767px) {
+  .swal2-popup .swal2-content .swal2-html-container {
+    font-size: .8em;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .swal2-popup .swal2-actions button {
+    font-size: .9em;
+  }
+}
+
 .contact-page {
   width: 95%;
   margin: 7% auto;

@@ -68,7 +68,7 @@
                 </div>
 
                 <div class="address">
-                    <div class="row">
+                    <div class="row"> 
                         <div class="input-box">
                             <label>*ที่อยู่</label>
                             <input type="text" placeholder="ที่อยู่"  value="<?=$detail['contact']['address']?>"  disabled>
@@ -104,18 +104,32 @@
                         </div>
                     </div>
                 </div>
+                
             </div>
+            <div class="title payment"><h2><?=$lang_config['page_confirm_payment_title_h2']?></h2></div>
 
             <div class="buttonPayment">
-                <div class="PayBank">
-                    <button><?=$lang_config['page_confirm_detail_btn_bank']?></button>
-                </div>
+               
                 <div class="PayCredit">
-                    <button><?=$lang_config['page_confirm_detail_btn_credit']?></button>
+                    <!-- <button><?=$lang_config['page_confirm_detail_btn_credit']?></button> -->
+                    <form method="POST" action="/checkout">
+                        <script type="text/javascript"
+                        src="https://dev-kpaymentgateway.kasikornbank.com/ui/v2/kpayment.min.js"
+                        data-apikey="pkey_prod_75677dushd74774gdgdgd77d7dhsgfhfghfhgdh"
+                        data-amount="74.00"
+                        data-currency="THB"
+                        data-payment-methods="card"
+                        data-name="Your Shop Name"
+                        data-mid="401001001001001"
+                        >
+                        </script>
+                    </form>
+                </div>
+                <div class="PayBank active">
+                    <button><?=$lang_config['page_confirm_detail_btn_bank']?></button>
                 </div>
             </div>
 
-            <div class="title payment"><h2><?=$lang_config['page_confirm_payment_title_h2']?></h2></div>
             <div class="box-payment">
                 <div class="box-bank">
                     <div class="input-box">
@@ -137,14 +151,12 @@
                     <div class="date-box">
                         <div class="input-box">
                             <label><?=$lang_config['page_confirm_payment_input_date']?></label>
-                            <input type="date" placeholder="xx-xx-xxxx" class="dateCheck">
+                            <input type="date" placeholder="xx-xx-xxxx" class="datepayment">
                         </div>
                     </div>
                 </div>
 
-                <div class="right-box">
-                    
-
+                <div class="right-box"> 
                     <div class="upload-slip">
                         <figure><img src="<?=ROOT_URL?>img/icon/photo.svg" alt=""></figure>
                         <span><?=$lang_config['page_confirm_payment_btn_uploadimg']?></span>
@@ -155,79 +167,84 @@
 
                     <figure class="review"><img src="" alt=""></figure>
                 </div>
-            </div>
 
-            <div class="box-payment credit">
-                <div class="box-bank">
-                    <div class="input-box">
-                        <label>Credit Card Number</label>
-                        <input type="text" placeholder="">
-                    </div>
-
-                    <div class="input-box">
-                        <label>Country/Region</label>
-                        <select name="" id="">
-                            <option value="">Thailand</option>
-                            <option value="">Japan</option>
-                            <option value="">Germany</option>
-                        </select>
-                    </div>
+                <div class="ps-credit">
+                    <p><?=$lang_config['page_confirm_detail_description']?></p>
                 </div>
 
-                <div class="right-box">
-                    <div class="date-box">
+                <div class="buttonFinalPay" data-id="<?=$_SESSION['payment_id']?>">
+                    <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response" value="">
+                    <button ><?=$lang_config['page_confirm_payment_btn_confirm']?></button>
+                </div>
+
+            </div>
+
+                <?php /*
+                 <div class="box-payment credit">    
+                     <div class="box-bank">
                         <div class="input-box">
-                            <label>Expiration</label>
-                            <select name="" id="">
-                                <option value="">01</option>
-                                <option value="">02</option>
-                                <option value="">03</option>
-                                <option value="">04</option>
-                                <option value="">05</option>
-                                <option value="">06</option>
-                                <option value="">07</option>
-                                <option value="">08</option>
-                                <option value="">09</option>
-                                <option value="">10</option>
-                                <option value="">11</option>
-                                <option value="">12</option>
-                            </select>
+                            <label>Credit Card Number</label>
+                            <div class="text">
+                                <input type="text" placeholder="">
+                                <div class="iconBank">
+                                    <img src="<?=ROOT_URL?>img/bank/american-express.jpg" alt="">
+                                    <img src="<?=ROOT_URL?>img/bank/JCB-01.jpg" alt="">
+                                    <img src="<?=ROOT_URL?>img/bank/Master-card.jpg" alt="">
+                                    <img src="<?=ROOT_URL?>img/bank/union-pay.jpg" alt="">
+                                    <img src="<?=ROOT_URL?>img/bank/visa.jpg" alt="">
+                                </div>
+                            </div>
+                            
                         </div>
 
                         <div class="input-box">
-                            <label></label>
-                            <select name="" id="">
-                                <option value="">2020</option>
-                                <option value="">2021</option>
-                                <option value="">2022</option>
-                                <option value="">2023</option>
-                                <option value="">2024</option>
-                            </select>
+                            <label>Name HolderCard</label>
+                            <input type="text"  class="txt_name" placeholder="">
                         </div>
 
-                        <div class="input-box">
-                            <label>CSC</label>
-                            <input type="tel" maxlength="3">
+                        <div class="date-box">
+                            <div class="input-box">
+                                <label>Expiration</label>
+                                <select name="" id="">
+                                    <option value="">01</option>
+                                    <option value="">02</option>
+                                    <option value="">03</option>
+                                    <option value="">04</option>
+                                    <option value="">05</option>
+                                    <option value="">06</option>
+                                    <option value="">07</option>
+                                    <option value="">08</option>
+                                    <option value="">09</option>
+                                    <option value="">10</option>
+                                    <option value="">11</option>
+                                    <option value="">12</option>
+                                </select>
+                            </div>
+
+                            <div class="input-box">
+                                <label></label>
+                                <select name="" id="">
+                                    <option value="">2020</option>
+                                    <option value="">2021</option>
+                                    <option value="">2022</option>
+                                    <option value="">2023</option>
+                                    <option value="">2024</option>
+                                </select>
+                            </div>
+
+                            <div class="input-box">
+                                <label>CVC</label>
+                                <input type="tel" maxlength="3">
+                            </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="info-box">
-                    <div class="input-box">
-                        <label>First Name</label>
-                        <input type="text"  class="txt_name" placeholder="">
-                    </div>
-                    <div class="input-box">
-                        <label>Last Name</label>
-                        <input type="text" class="txt_lastname" placeholder="">
-                    </div>
-                </div>
-            </div>
-
-            <div class="buttonFinalPay" data-id="<?=$_SESSION['payment_id']?>">
-                <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response" value="">
-                <button ><?=$lang_config['page_confirm_payment_btn_confirm']?></button>
-            </div>
+                    </div>  
+              
+                 </div> 
+                
+                */ ?>
+      
+       
+    
         </div>
 
         <div class="detail-order">
